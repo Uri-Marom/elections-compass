@@ -4,6 +4,7 @@
     "name_en": "Likud",
     "name_he": "הליכוד",
     "seats": 32,
+    "poll_seats": 21,
     "bloc": "coalition",
     "color": "#1E3A8A",
     "logo": null
@@ -13,6 +14,7 @@
     "name_en": "Shas",
     "name_he": "ש\"ס",
     "seats": 11,
+    "poll_seats": 10,
     "bloc": "coalition",
     "color": "#7C2D12",
     "logo": null
@@ -22,6 +24,7 @@
     "name_en": "United Torah Judaism",
     "name_he": "יהדות התורה",
     "seats": 7,
+    "poll_seats": 9,
     "bloc": "coalition",
     "color": "#1C1917",
     "logo": null
@@ -31,6 +34,7 @@
     "name_en": "Otzma Yehudit",
     "name_he": "עוצמה יהודית",
     "seats": 6,
+    "poll_seats": 5,
     "bloc": "coalition",
     "color": "#B91C1C",
     "logo": null
@@ -40,6 +44,7 @@
     "name_en": "Religious Zionism",
     "name_he": "הציונות הדתית",
     "seats": 7,
+    "poll_seats": 6,
     "bloc": "coalition",
     "color": "#92400E",
     "logo": null
@@ -49,6 +54,7 @@
     "name_en": "Yesh Atid",
     "name_he": "יש עתיד",
     "seats": 24,
+    "poll_seats": 16,
     "bloc": "opposition",
     "color": "#0369A1",
     "logo": null
@@ -58,6 +64,7 @@
     "name_en": "Blue and White",
     "name_he": "כחול לבן",
     "seats": 12,
+    "poll_seats": 8,
     "bloc": "opposition",
     "color": "#0891B2",
     "logo": null
@@ -66,7 +73,8 @@
     "id": "bennett_2026",
     "name_en": "Bennett 2026",
     "name_he": "בנט 2026",
-    "seats": 16,
+    "seats": 0,
+    "poll_seats": 18,
     "bloc": "opposition",
     "color": "#0D9488",
     "logo": null
@@ -75,7 +83,8 @@
     "id": "yashar",
     "name_en": "Yashar! (Eisenkot)",
     "name_he": "ישר! (איזנקוט)",
-    "seats": 8,
+    "seats": 0,
+    "poll_seats": 7,
     "bloc": "opposition",
     "color": "#7C3AED",
     "logo": null
@@ -84,7 +93,8 @@
     "id": "democrats",
     "name_en": "The Democrats",
     "name_he": "הדמוקרטים",
-    "seats": 10,
+    "seats": 0,
+    "poll_seats": 9,
     "bloc": "opposition",
     "color": "#C2410C",
     "logo": null
@@ -94,6 +104,7 @@
     "name_en": "Yisrael Beiteinu",
     "name_he": "ישראל ביתנו",
     "seats": 6,
+    "poll_seats": 5,
     "bloc": "opposition",
     "color": "#3B82F6",
     "logo": null
@@ -102,7 +113,8 @@
     "id": "miluimnikim",
     "name_en": "The Reservists",
     "name_he": "המילואימניקים",
-    "seats": 3,
+    "seats": 0,
+    "poll_seats": 4,
     "bloc": "opposition",
     "color": "#4D7C0F",
     "logo": null
@@ -112,6 +124,7 @@
     "name_en": "Hadash-Ta'al",
     "name_he": "חד\"ש-תע\"ל",
     "seats": 5,
+    "poll_seats": 5,
     "bloc": "arab",
     "color": "#DC2626",
     "logo": null
@@ -121,6 +134,7 @@
     "name_en": "Ra'am",
     "name_he": "רע\"מ",
     "seats": 5,
+    "poll_seats": 4,
     "bloc": "arab",
     "color": "#16A34A",
     "logo": null

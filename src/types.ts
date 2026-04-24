@@ -12,6 +12,7 @@ export interface Party {
   name_en: string
   name_he: string
   seats: number
+  poll_seats?: number
   bloc: 'coalition' | 'opposition' | 'arab'
   color: string
   logo: string | null

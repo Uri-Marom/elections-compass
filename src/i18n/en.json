@@ -29,6 +29,7 @@
   "divergence_tooltip": "Difference between what the party says and how it votes",
   "no_voting_data": "No voting data yet",
   "seats": "seats",
+  "poll_seats": "polls",
   "compare_with": "Compare with a party",
   "dimension_breakdown": "Breakdown by Topic",
   "top_match": "Top Match",

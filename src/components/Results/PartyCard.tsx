@@ -35,7 +35,14 @@ export function PartyCard({ match, party, rank, mode }: Props) {
           <div className="flex-1 min-w-0">
             <div className="font-semibold text-gray-900">{name}</div>
             <div className="text-xs text-gray-500">
-              {party.seats} {t('seats')} · {t(party.bloc === 'arab' ? 'opposition' : party.bloc)}
+              {party.seats > 0 && `${party.seats} ${t('seats')}`}
+              {party.poll_seats !== undefined && (
+                <span className="text-gray-400">
+                  {party.seats > 0 ? ' ' : ''}{`(${party.poll_seats} ${t('poll_seats')})`}
+                </span>
+              )}
+              {(party.seats > 0 || party.poll_seats !== undefined) && ' · '}
+              {t(party.bloc === 'arab' ? 'opposition' : party.bloc)}
             </div>
           </div>
           <div className="text-2xl font-bold" style={{ color: party.color }}>

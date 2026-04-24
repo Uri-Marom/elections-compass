@@ -87,6 +87,7 @@ export function SurveyPage() {
           totalInDimension={dimLength}
         />
         <QuestionCard
+          key={current.id}
           question={current}
           questionNumber={currentIndex + 1}
           totalQuestions={total}
