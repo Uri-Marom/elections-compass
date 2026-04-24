@@ -50,5 +50,19 @@
   "show_source": "Show source",
   "radar_you": "You",
   "share": "Share Results",
-  "share_copied": "Link copied!"
+  "share_copied": "Link copied!",
+  "explore_research": "Party Insights →",
+  "research_title": "Insights: Party Analysis",
+  "hypocrisy_title": "How consistently do parties vote their platform?",
+  "hypocrisy_subtitle": "Low score = high consistency between words and votes. High score = large gap.",
+  "hypocrisy_na": "No voting data",
+  "hypocrisy_coverage": "Coverage: {{pct}}% of questions",
+  "top_gaps": "Biggest gaps",
+  "gap_stated": "Stated",
+  "gap_voted": "Voted",
+  "gap_label": "Gap",
+  "similarity_title": "Ideological Similarity Map",
+  "similarity_subtitle": "Closer parties share similar policy positions. Distance computed across all 33 questions.",
+  "research_nav_label": "Insights",
+  "no_data_parties": "Parties without voting data (new parties)"
 }

@@ -3,6 +3,7 @@ import { IntroPage } from './pages/IntroPage'
 import { PrioritiesPage } from './pages/PrioritiesPage'
 import { SurveyPage } from './pages/SurveyPage'
 import { ResultsPage } from './pages/ResultsPage'
+import { ResearchPage } from './pages/ResearchPage'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Route path="/priorities" element={<PrioritiesPage />} />
         <Route path="/survey" element={<SurveyPage />} />
         <Route path="/results" element={<ResultsPage />} />
+        <Route path="/research" element={<ResearchPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

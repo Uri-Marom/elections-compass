@@ -50,5 +50,19 @@
   "show_source": "הצג מקור",
   "radar_you": "אתם",
   "share": "שתף תוצאות",
-  "share_copied": "הקישור הועתק!"
+  "share_copied": "הקישור הועתק!",
+  "explore_research": "תובנות על המפלגות →",
+  "research_title": "תובנות: ניתוח המפלגות",
+  "hypocrisy_title": "עד כמה המפלגות מצביעות בהתאם לפלטפורמה?",
+  "hypocrisy_subtitle": "ציון נמוך = עקביות גבוהה בין דברים למעשים. ציון גבוה = פער גדול.",
+  "hypocrisy_na": "אין נתוני הצבעה",
+  "hypocrisy_coverage": "כיסוי: {{pct}}% מהשאלות",
+  "top_gaps": "הפערים הגדולים ביותר",
+  "gap_stated": "מוצהר",
+  "gap_voted": "הצביע",
+  "gap_label": "פער",
+  "similarity_title": "מפת דמיון אידיאולוגי",
+  "similarity_subtitle": "מפלגות קרובות מייצגות עמדות מדיניות דומות. המרחק מחושב מתוך כל 33 השאלות.",
+  "research_nav_label": "תובנות",
+  "no_data_parties": "מפלגות ללא נתוני הצבעה (מפלגות חדשות)"
 }

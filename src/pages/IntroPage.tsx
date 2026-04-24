@@ -55,6 +55,13 @@ export function IntroPage() {
           >
             {t('start_survey')} →
           </button>
+
+          <button
+            onClick={() => navigate('/research')}
+            className="w-full py-3 mt-3 text-sm text-blue-600 hover:text-blue-800 font-medium underline"
+          >
+            {t('explore_research')}
+          </button>
         </div>
       </main>
     </div>

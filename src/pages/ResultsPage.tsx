@@ -274,6 +274,13 @@ export function ResultsPage() {
         </div>
 
         <button
+          onClick={() => navigate('/research')}
+          className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
+        >
+          {t('explore_research')}
+        </button>
+
+        <button
           onClick={handleShare}
           className="w-full py-3 rounded-xl bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors"
         >
