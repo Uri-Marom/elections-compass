@@ -1,7 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import {
-  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, ResponsiveContainer,
-} from 'recharts'
 import type { PartyPoint } from '../../utils/research'
 import type { Party } from '../../types'
 
@@ -13,47 +10,25 @@ interface Props {
   lang: 'he' | 'en'
 }
 
-interface ChartEntry {
-  x: number
-  y: number
-  party_id: string
-  color: string
-  name: string
-}
+const SVG_W = 380
+const SVG_H = 340
+const PAD = 40  // padding so labels don't clip
 
-// Custom dot: colored circle + party name label above
-function PartyDot(props: Record<string, unknown>) {
-  const { cx, cy, payload } = props as { cx: number; cy: number; payload: ChartEntry }
-  if (cx == null || cy == null) return null
-  return (
-    <g>
-      <circle cx={cx} cy={cy} r={9} fill={payload.color} opacity={0.92} />
-      <text
-        x={cx}
-        y={cy - 13}
-        textAnchor="middle"
-        fontSize={9}
-        fontWeight={700}
-        fill="#1f2937"
-        style={{ pointerEvents: 'none' }}
-      >
-        {payload.name}
-      </text>
-    </g>
-  )
-}
+// Map coordinate from [-1, 1] to SVG pixel range
+function toSvgX(x: number) { return PAD + ((x + 1) / 2) * (SVG_W - PAD * 2) }
+function toSvgY(y: number) { return PAD + ((1 - y) / 2) * (SVG_H - PAD * 2) }  // flip Y
 
 export function PartyMap({ points, parties, mode, onModeChange, lang }: Props) {
   const { t } = useTranslation()
 
-  const data: ChartEntry[] = points.map(pt => {
+  const entries = points.map(pt => {
     const party = parties.find(p => p.id === pt.party_id)
     return {
-      x: Math.round(pt.x * 100) / 100,
-      y: Math.round(pt.y * 100) / 100,
-      party_id: pt.party_id,
+      ...pt,
       color: party?.color ?? '#888',
       name: party ? (lang === 'he' ? party.name_he : party.name_en) : pt.party_id,
+      svgX: toSvgX(pt.x),
+      svgY: toSvgY(pt.y),
     }
   })
 
@@ -67,9 +42,7 @@ export function PartyMap({ points, parties, mode, onModeChange, lang }: Props) {
             onClick={() => onModeChange(m)}
             className={[
               'flex-1 py-2 rounded-lg text-sm font-medium transition-all',
-              mode === m
-                ? 'bg-white text-gray-900 shadow-sm'
-                : 'text-gray-500 hover:text-gray-700',
+              mode === m ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700',
             ].join(' ')}
           >
             {m === 'stated' ? t('stated_positions') : t('actual_votes')}
@@ -79,34 +52,38 @@ export function PartyMap({ points, parties, mode, onModeChange, lang }: Props) {
 
       <p className="text-xs text-gray-400 mb-3 leading-relaxed">{t('similarity_subtitle')}</p>
 
-      <div className="w-full" style={{ height: 360 }}>
-        <ResponsiveContainer width="100%" height="100%">
-          <ScatterChart margin={{ top: 28, right: 28, bottom: 8, left: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis
-              type="number"
-              dataKey="x"
-              domain={[-1.15, 1.15]}
-              tick={false}
-              axisLine={{ stroke: '#e5e7eb' }}
-              tickLine={false}
-            />
-            <YAxis
-              type="number"
-              dataKey="y"
-              domain={[-1.15, 1.15]}
-              tick={false}
-              axisLine={{ stroke: '#e5e7eb' }}
-              tickLine={false}
-              width={8}
-            />
-            <Scatter
-              data={data}
-              isAnimationActive={false}
-              shape={<PartyDot cx={0} cy={0} payload={data[0]} />}
-            />
-          </ScatterChart>
-        </ResponsiveContainer>
+      <div className="w-full overflow-hidden rounded-xl border border-gray-100 bg-white">
+        <svg
+          viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+          width="100%"
+          style={{ display: 'block' }}
+        >
+          {/* Grid lines */}
+          <line x1={PAD} y1={SVG_H / 2} x2={SVG_W - PAD} y2={SVG_H / 2} stroke="#e5e7eb" strokeWidth={1} />
+          <line x1={SVG_W / 2} y1={PAD} x2={SVG_W / 2} y2={SVG_H - PAD} stroke="#e5e7eb" strokeWidth={1} />
+
+          {/* Party dots + labels */}
+          {entries.map(e => {
+            const { svgX, svgY, color, name, party_id } = e
+            // Nudge label above or below based on vertical position
+            const labelDy = svgY < SVG_H / 2 + 20 ? 22 : -13
+            return (
+              <g key={party_id}>
+                <circle cx={svgX} cy={svgY} r={9} fill={color} opacity={0.9} />
+                <text
+                  x={svgX}
+                  y={svgY + labelDy}
+                  textAnchor="middle"
+                  fontSize={9}
+                  fontWeight={700}
+                  fill="#1f2937"
+                >
+                  {name}
+                </text>
+              </g>
+            )
+          })}
+        </svg>
       </div>
     </div>
   )
