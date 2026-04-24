@@ -1,0 +1,422 @@
+{
+  "party_id": "religious_zionism",
+  "positions": [
+    {
+      "question_id": "q01",
+      "stated_position": {
+        "score": 2,
+        "source": "Smotrich's core ideology: Israeli sovereignty over all of historic Land of Israel"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes; Smotrich as Finance Minister directed settlement budgets"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q02",
+      "stated_position": {
+        "score": -2,
+        "source": "Explicitly opposes any Palestinian state; calls for Israeli sovereignty instead"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted for anti-Palestinian-state resolution (July 2024, 68-9)"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q03",
+      "stated_position": {
+        "score": 2,
+        "source": "Full military victory; Smotrich threatened to resign over any ceasefire"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q04",
+      "stated_position": {
+        "score": 2,
+        "source": "Undivided Jerusalem, non-negotiable"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q05",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly opposes right of return"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q06",
+      "stated_position": {
+        "score": 2,
+        "source": "Full annexation of West Bank — central to Smotrich's platform and his role in West Bank administration"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q07",
+      "stated_position": {
+        "score": -2,
+        "source": "Opposes Haredi conscription; closely allied with Haredi parties; Torah study as national service"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted against conscription bills"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q08",
+      "stated_position": {
+        "score": -2,
+        "source": "Rabbinate marriage authority is non-negotiable for Religious Zionists"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q09",
+      "stated_position": {
+        "score": -2,
+        "source": "Shabbat observance as public norm — religious Zionist value"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q10",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly opposes Women of the Wall; Western Wall under Orthodox control"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q11",
+      "stated_position": {
+        "score": 2,
+        "source": "Torah study as national service; strongly supports yeshiva funding"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q12",
+      "stated_position": {
+        "score": 2,
+        "source": "Kashrut enforcement in state institutions — religious Zionist value"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q13",
+      "stated_position": {
+        "score": 0,
+        "source": "Smotrich as Finance Minister focused on budget cuts; not a social spending priority"
+      }
+    },
+    {
+      "question_id": "q14",
+      "stated_position": {
+        "score": 1,
+        "source": "Settlement housing expansion was key Smotrich Finance Ministry priority"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q15",
+      "stated_position": {
+        "score": -1,
+        "source": "Smotrich as Finance Minister resisted minimum wage increases"
+      }
+    },
+    {
+      "question_id": "q16",
+      "stated_position": {
+        "score": -1,
+        "source": "Smotrich pro-market; privatization-friendly"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted against port privatization bill (opposition bill)"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q17",
+      "stated_position": {
+        "score": 1,
+        "source": "Market competition as economic driver"
+      },
+      "voted_position": {
+        "score": 0.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q18",
+      "stated_position": {
+        "score": 2,
+        "source": "Key architect of judicial reform; override clause was an explicit coalition demand"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted for override clause"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q19",
+      "stated_position": {
+        "score": 2,
+        "source": "Political control of judiciary — core coalition demand"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q20",
+      "stated_position": {
+        "score": -2,
+        "source": "Rejects binding AG opinions; repeatedly clashed with AG as minister"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q21",
+      "stated_position": {
+        "score": -2,
+        "source": "Pushed for reasonableness standard abolition — sponsored the bill"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted for reasonableness standard abolition"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q22",
+      "stated_position": {
+        "score": -2,
+        "source": "Views Supreme Court as unelected obstacle to democratic will"
+      },
+      "voted_position": {
+        "score": -1.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q23",
+      "stated_position": {
+        "score": -2,
+        "source": "Opposes equality basic law; prefers Jewish state definition over universal equality"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q24",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly opposes Arab parties in coalition"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q25",
+      "stated_position": {
+        "score": -1,
+        "source": "Nationalist priorities; Arab municipality funding not a Smotrich priority"
+      },
+      "voted_position": {
+        "score": -1.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q26",
+      "stated_position": {
+        "score": 2,
+        "source": "Strong supporter of Nation-State Law; Jewish state definition is core ideology"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted against Nation-State Law repeal"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q27",
+      "stated_position": {
+        "score": -2,
+        "source": "Defends Netanyahu; coalition loyalty and legal protection of PM"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q28",
+      "stated_position": {
+        "score": -1,
+        "source": "Coalition loyalty to Netanyahu"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q29",
+      "stated_position": {
+        "score": -1,
+        "source": "Small-medium party; higher threshold is a risk"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q30",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q31",
+      "stated_position": {
+        "score": -2,
+        "source": "Coalition loyalty; opposes inquiry"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q32",
+      "stated_position": {
+        "score": -1,
+        "source": "Smotrich allied with Haredim; opposes mandating secular curriculum in Haredi schools"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q33",
+      "stated_position": {
+        "score": -2,
+        "source": "Benefits from friendly media coverage; opposes stronger enforcement powers for regulators"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    }
+  ]
+}

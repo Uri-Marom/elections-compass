@@ -1,0 +1,43 @@
+import type { DimensionKey } from './utils/matching'
+
+export interface Question {
+  id: string
+  dimension: DimensionKey
+  text_en: string
+  text_he: string
+}
+
+export interface Party {
+  id: string
+  name_en: string
+  name_he: string
+  seats: number
+  bloc: 'coalition' | 'opposition' | 'arab'
+  color: string
+  logo: string | null
+}
+
+export interface StatedPosition {
+  score: number
+  source: string
+  source_url?: string
+  source_date?: string
+}
+
+export interface VotedPosition {
+  score: number
+  vote_ids?: number[]
+  vote_count?: number
+  for_pct?: number
+  against_pct?: number
+  last_updated?: string
+}
+
+export interface PartyPosition {
+  question_id: string
+  stated_position: StatedPosition
+  voted_position?: VotedPosition
+}
+
+export type UserAnswers = Record<string, number | null>
+export type DimensionWeights = Record<DimensionKey, number>

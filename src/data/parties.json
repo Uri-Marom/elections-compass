@@ -1,0 +1,128 @@
+[
+  {
+    "id": "likud",
+    "name_en": "Likud",
+    "name_he": "הליכוד",
+    "seats": 32,
+    "bloc": "coalition",
+    "color": "#1E3A8A",
+    "logo": null
+  },
+  {
+    "id": "shas",
+    "name_en": "Shas",
+    "name_he": "ש\"ס",
+    "seats": 11,
+    "bloc": "coalition",
+    "color": "#7C2D12",
+    "logo": null
+  },
+  {
+    "id": "utj",
+    "name_en": "United Torah Judaism",
+    "name_he": "יהדות התורה",
+    "seats": 7,
+    "bloc": "coalition",
+    "color": "#1C1917",
+    "logo": null
+  },
+  {
+    "id": "otzma",
+    "name_en": "Otzma Yehudit",
+    "name_he": "עוצמה יהודית",
+    "seats": 6,
+    "bloc": "coalition",
+    "color": "#B91C1C",
+    "logo": null
+  },
+  {
+    "id": "religious_zionism",
+    "name_en": "Religious Zionism",
+    "name_he": "הציונות הדתית",
+    "seats": 7,
+    "bloc": "coalition",
+    "color": "#92400E",
+    "logo": null
+  },
+  {
+    "id": "yesh_atid",
+    "name_en": "Yesh Atid",
+    "name_he": "יש עתיד",
+    "seats": 24,
+    "bloc": "opposition",
+    "color": "#0369A1",
+    "logo": null
+  },
+  {
+    "id": "national_unity",
+    "name_en": "Blue and White",
+    "name_he": "כחול לבן",
+    "seats": 12,
+    "bloc": "opposition",
+    "color": "#0891B2",
+    "logo": null
+  },
+  {
+    "id": "bennett_2026",
+    "name_en": "Bennett 2026",
+    "name_he": "בנט 2026",
+    "seats": 16,
+    "bloc": "opposition",
+    "color": "#0D9488",
+    "logo": null
+  },
+  {
+    "id": "yashar",
+    "name_en": "Yashar! (Eisenkot)",
+    "name_he": "ישר! (איזנקוט)",
+    "seats": 8,
+    "bloc": "opposition",
+    "color": "#7C3AED",
+    "logo": null
+  },
+  {
+    "id": "democrats",
+    "name_en": "The Democrats",
+    "name_he": "הדמוקרטים",
+    "seats": 10,
+    "bloc": "opposition",
+    "color": "#C2410C",
+    "logo": null
+  },
+  {
+    "id": "yisrael_beitenu",
+    "name_en": "Yisrael Beiteinu",
+    "name_he": "ישראל ביתנו",
+    "seats": 6,
+    "bloc": "opposition",
+    "color": "#3B82F6",
+    "logo": null
+  },
+  {
+    "id": "miluimnikim",
+    "name_en": "The Reservists",
+    "name_he": "המילואימניקים",
+    "seats": 3,
+    "bloc": "opposition",
+    "color": "#4D7C0F",
+    "logo": null
+  },
+  {
+    "id": "hadash_taal",
+    "name_en": "Hadash-Ta'al",
+    "name_he": "חד\"ש-תע\"ל",
+    "seats": 5,
+    "bloc": "arab",
+    "color": "#DC2626",
+    "logo": null
+  },
+  {
+    "id": "raam",
+    "name_en": "Ra'am",
+    "name_he": "רע\"מ",
+    "seats": 5,
+    "bloc": "arab",
+    "color": "#16A34A",
+    "logo": null
+  }
+]

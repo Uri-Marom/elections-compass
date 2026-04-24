@@ -1,0 +1,434 @@
+{
+  "party_id": "national_unity",
+  "positions": [
+    {
+      "question_id": "q01",
+      "stated_position": {
+        "score": 1,
+        "source": "Security-focused, supports settlement blocs"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q02",
+      "stated_position": {
+        "score": 0,
+        "source": "Open to future arrangements but not urgent"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q03",
+      "stated_position": {
+        "score": 2,
+        "source": "Gantz/Eisenkot support military operations"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q04",
+      "stated_position": {
+        "score": 2,
+        "source": "Jerusalem as capital"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q05",
+      "stated_position": {
+        "score": -2,
+        "source": "Opposes right of return"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q06",
+      "stated_position": {
+        "score": 0,
+        "source": "Not a stated position"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q07",
+      "stated_position": {
+        "score": 2,
+        "source": "Supports Haredi conscription"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q08",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports civil marriage option"
+      },
+      "voted_position": {
+        "score": 0.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q09",
+      "stated_position": {
+        "score": 1,
+        "source": "Secular-leaning on commerce"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q10",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports Kotel pluralism"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q11",
+      "stated_position": {
+        "score": -1,
+        "source": "Conditional on military service"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q12",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q13",
+      "stated_position": {
+        "score": 1,
+        "source": "Center-right on healthcare"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q14",
+      "stated_position": {
+        "score": 0,
+        "source": "Mixed record"
+      },
+      "voted_position": {
+        "score": 0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q15",
+      "stated_position": {
+        "score": 0,
+        "source": "Moderate position"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q16",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q17",
+      "stated_position": {
+        "score": 1,
+        "source": "Competition as cost-of-living solution"
+      },
+      "voted_position": {
+        "score": 1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q18",
+      "stated_position": {
+        "score": -2,
+        "source": "Left the coalition over judicial reform"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q19",
+      "stated_position": {
+        "score": -1,
+        "source": "Wants moderate reform, not political control"
+      },
+      "voted_position": {
+        "score": -1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q20",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports AG authority"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q21",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports judicial oversight"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q22",
+      "stated_position": {
+        "score": 2,
+        "source": "Left coalition over judicial independence"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q23",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports equality"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q24",
+      "stated_position": {
+        "score": 0,
+        "source": "Has not committed"
+      },
+      "voted_position": {
+        "score": 0.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q25",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports equal funding"
+      },
+      "voted_position": {
+        "score": 1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q26",
+      "stated_position": {
+        "score": 1,
+        "source": "Zionist party, supports Jewish state definition"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q27",
+      "stated_position": {
+        "score": 2,
+        "source": "Supports PM accountability laws"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q28",
+      "stated_position": {
+        "score": 1,
+        "source": "Open to term limits"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q29",
+      "stated_position": {
+        "score": 1,
+        "source": "Medium-sized party, moderate benefit from higher threshold"
+      },
+      "voted_position": {
+        "score": 0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q30",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports some campaign finance limits"
+      },
+      "voted_position": {
+        "score": 0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q31",
+      "stated_position": {
+        "score": 2,
+        "source": "Gantz left the war cabinet partly demanding an inquiry; strongly supports"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q32",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports core curriculum requirement; advanced it during Bennett government"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q33",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports media accountability standards and Broadcasting Authority enforcement powers"
+      },
+      "voted_position": {
+        "score": 1.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    }
+  ]
+}

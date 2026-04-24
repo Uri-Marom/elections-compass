@@ -1,0 +1,200 @@
+[
+  {
+    "id": "q01",
+    "dimension": "security",
+    "text_en": "Israeli civilian settlements in the West Bank strengthen Israel's long-term security.",
+    "text_he": "ההתנחלויות האזרחיות הישראליות בגדה המערבית מחזקות את ביטחון ישראל לטווח הארוך."
+  },
+  {
+    "id": "q02",
+    "dimension": "security",
+    "text_en": "Israel should work toward the establishment of an independent Palestinian state as part of a peace agreement.",
+    "text_he": "ישראל צריכה לפעול להקמת מדינה פלסטינית עצמאית במסגרת הסכם שלום."
+  },
+  {
+    "id": "q03",
+    "dimension": "security",
+    "text_en": "Israel's military operations in Gaza should continue until Hamas is fully dismantled, even if it prolongs the conflict.",
+    "text_he": "המבצעים הצבאיים של ישראל בעזה צריכים להימשך עד לפירוק מלא של חמאס, גם אם הדבר מאריך את הסכסוך."
+  },
+  {
+    "id": "q04",
+    "dimension": "security",
+    "text_en": "Jerusalem should remain under exclusive Israeli sovereignty and not be divided under any peace agreement.",
+    "text_he": "ירושלים צריכה להישאר תחת ריבונות ישראלית בלעדית ולא להתחלק בשום הסכם שלום."
+  },
+  {
+    "id": "q05",
+    "dimension": "security",
+    "text_en": "Palestinian refugees and their descendants should have a right to return to territory inside Israel's pre-1967 borders.",
+    "text_he": "לפליטים הפלסטינים וצאצאיהם צריכה להיות זכות שיבה לשטחים בתוך גבולות ישראל לפני 1967."
+  },
+  {
+    "id": "q06",
+    "dimension": "security",
+    "text_en": "Israel should formally annex parts of the West Bank where major settlement blocs exist.",
+    "text_he": "ישראל צריכה לספח רשמית חלקים מהגדה המערבית בהם נמצאים גושי ההתנחלויות הגדולים."
+  },
+  {
+    "id": "q07",
+    "dimension": "religion",
+    "text_en": "Ultra-Orthodox (Haredi) men should be required to serve in the military or national service, as other Israeli citizens are.",
+    "text_he": "גברים חרדים חייבים לשרת בצבא או בשירות לאומי, כמו שאר אזרחי ישראל."
+  },
+  {
+    "id": "q08",
+    "dimension": "religion",
+    "text_en": "Israel should allow civil marriage for all citizens, not only religious marriages recognized by the Rabbinate.",
+    "text_he": "ישראל צריכה לאפשר נישואים אזרחיים לכל האזרחים, ולא רק נישואים דתיים המוכרים על ידי הרבנות."
+  },
+  {
+    "id": "q09",
+    "dimension": "religion",
+    "text_en": "Public businesses and malls should be legally permitted to operate on Shabbat.",
+    "text_he": "בתי עסק ומרכזי קניות ציבוריים צריכים להיות רשאים על פי חוק לפעול בשבת."
+  },
+  {
+    "id": "q10",
+    "dimension": "religion",
+    "text_en": "Women should be permitted to pray aloud with Torah scrolls at the Western Wall alongside men.",
+    "text_he": "נשים צריכות להיות רשאיות להתפלל בקול עם ספרי תורה בכותל המערבי לצד גברים."
+  },
+  {
+    "id": "q11",
+    "dimension": "religion",
+    "text_en": "The state should fund Haredi yeshiva students at the same level as university students.",
+    "text_he": "המדינה צריכה לממן סטודנטים חרדים בישיבות באותה רמה כמו סטודנטים באוניברסיטאות."
+  },
+  {
+    "id": "q12",
+    "dimension": "religion",
+    "text_en": "The government should enforce kosher certification standards in state-funded institutions.",
+    "text_he": "הממשלה צריכה לאכוף תקני כשרות במוסדות הממומנים על ידי המדינה."
+  },
+  {
+    "id": "q13",
+    "dimension": "socioeconomic",
+    "text_en": "The government should significantly increase public funding for healthcare, even if it requires raising taxes.",
+    "text_he": "הממשלה צריכה להגדיל משמעותית את המימון הציבורי לבריאות, גם אם הדבר מחייב העלאת מסים."
+  },
+  {
+    "id": "q14",
+    "dimension": "socioeconomic",
+    "text_en": "The government should directly build public housing units to address the housing crisis.",
+    "text_he": "הממשלה צריכה לבנות ישירות יחידות דיור ציבוריות לפתרון משבר הדיור."
+  },
+  {
+    "id": "q15",
+    "dimension": "socioeconomic",
+    "text_en": "The minimum wage should be raised significantly above its current level.",
+    "text_he": "שכר המינימום צריך לעלות משמעותית מעל רמתו הנוכחית."
+  },
+  {
+    "id": "q16",
+    "dimension": "socioeconomic",
+    "text_en": "Strategic state-owned companies (electricity, water, ports) should remain in public ownership rather than being privatized.",
+    "text_he": "חברות ממשלתיות אסטרטגיות (חשמל, מים, נמלים) צריכות להישאר בבעלות ציבורית ולא להיות מופרטות."
+  },
+  {
+    "id": "q17",
+    "dimension": "socioeconomic",
+    "text_en": "Reducing monopolies and increasing market competition is more effective at lowering prices than direct government subsidies.",
+    "text_he": "הפחתת מונופולים והגברת התחרות בשוק יעילים יותר להוזלת מחירים מאשר סובסידיות ממשלתיות ישירות."
+  },
+  {
+    "id": "q18",
+    "dimension": "judicial",
+    "text_en": "The Knesset should have the power to override Supreme Court rulings with a simple majority.",
+    "text_he": "לכנסת צריכה להיות הסמכות לבטל פסיקות של בית המשפט העליון ברוב פשוט."
+  },
+  {
+    "id": "q19",
+    "dimension": "judicial",
+    "text_en": "Politicians should have greater influence over the selection of Supreme Court judges.",
+    "text_he": "לפוליטיקאים צריכה להיות השפעה גדולה יותר על מינוי שופטי בית המשפט העליון."
+  },
+  {
+    "id": "q20",
+    "dimension": "judicial",
+    "text_en": "The Attorney General's legal opinions should be binding on the government.",
+    "text_he": "חוות דעתו המשפטית של היועץ המשפטי לממשלה צריכה להיות מחייבת לממשלה."
+  },
+  {
+    "id": "q21",
+    "dimension": "judicial",
+    "text_en": "Courts should be permitted to strike down government decisions they deem \"unreasonable.\"",
+    "text_he": "בתי המשפט צריכים להיות רשאים לבטל החלטות ממשלה שהם מוצאים כ\"בלתי סבירות\"."
+  },
+  {
+    "id": "q22",
+    "dimension": "judicial",
+    "text_en": "An independent judiciary is essential to preventing government corruption and abuse of power.",
+    "text_he": "מערכת שפיטה עצמאית חיונית למניעת שחיתות ממשלתית וניצול לרעה של כוח."
+  },
+  {
+    "id": "q23",
+    "dimension": "minority",
+    "text_en": "Israel should pass a Basic Law guaranteeing full equality for all citizens regardless of ethnicity or religion.",
+    "text_he": "ישראל צריכה לחוקק חוק יסוד המבטיח שוויון מלא לכל האזרחים ללא קשר לאתניות או דת."
+  },
+  {
+    "id": "q24",
+    "dimension": "minority",
+    "text_en": "Jewish-led parties should be willing to form governing coalitions that rely on Arab parties for their majority.",
+    "text_he": "מפלגות בהנהגה יהודית צריכות להיות מוכנות להקים קואליציות שלטוניות המסתמכות על מפלגות ערביות לצורך הרוב."
+  },
+  {
+    "id": "q25",
+    "dimension": "minority",
+    "text_en": "Arab municipalities should receive equal per-capita government funding compared to Jewish municipalities.",
+    "text_he": "רשויות מקומיות ערביות צריכות לקבל מימון ממשלתי שווה לנפש בהשוואה לרשויות יהודיות."
+  },
+  {
+    "id": "q26",
+    "dimension": "minority",
+    "text_en": "Israel's Nation-State Law correctly defines Israel as the national home of the Jewish people and does not discriminate against minorities.",
+    "text_he": "חוק הלאום של ישראל מגדיר נכון את ישראל כמולדת הלאומית של העם היהודי ואינו מפלה מיעוטים."
+  },
+  {
+    "id": "q27",
+    "dimension": "governance",
+    "text_en": "A sitting Prime Minister under criminal indictment should be required to suspend their duties until the case is resolved.",
+    "text_he": "ראש ממשלה מכהן הנמצא תחת כתב אישום פלילי צריך להיות מחויב להשעות את תפקידיו עד לסיום הדיון."
+  },
+  {
+    "id": "q28",
+    "dimension": "governance",
+    "text_en": "A Prime Minister should not serve more than 8 cumulative years in office (two terms of 4 years).",
+    "text_he": "ראש ממשלה לא יכהן יותר מ-8 שנים מצטברות בתפקיד (שתי קדנציות של 4 שנים)."
+  },
+  {
+    "id": "q29",
+    "dimension": "governance",
+    "text_en": "The electoral threshold for entering the Knesset should be raised above 3.25% to reduce political fragmentation.",
+    "text_he": "אחוז החסימה לכניסה לכנסת צריך להיות מוגבה מעל 3.25% כדי להפחית פיצול פוליטי."
+  },
+  {
+    "id": "q30",
+    "dimension": "governance",
+    "text_en": "Strict limits on private donations to political parties are necessary to reduce the influence of money in Israeli politics.",
+    "text_he": "מגבלות קפדניות על תרומות פרטיות למפלגות פוליטיות נחוצות כדי להפחית את השפעת הכסף בפוליטיקה הישראלית."
+  },
+  {
+    "id": "q31",
+    "dimension": "governance",
+    "text_en": "A state commission of inquiry should be established to investigate the failures that led to the October 7, 2023 massacre.",
+    "text_he": "יש להקים ועדת חקירה ממלכתית לבדיקת המחדלים שהובילו לטבח ה-7 באוקטובר 2023."
+  },
+  {
+    "id": "q32",
+    "dimension": "socioeconomic",
+    "text_en": "All publicly funded schools, including Haredi institutions, should be required to teach a core curriculum including math, English, and sciences.",
+    "text_he": "כל מוסדות חינוך הממומנים על ידי המדינה, לרבות ישיבות ומוסדות חרדיים, חייבים ללמד תכנית ליבה הכוללת מתמטיקה, אנגלית ומדעים."
+  },
+  {
+    "id": "q33",
+    "dimension": "governance",
+    "text_en": "Media regulators should enforce journalistic accountability on commercial broadcast channels and prevent the systematic spread of disinformation.",
+    "text_he": "רגולטורי התקשורת צריכים לאכוף אחריות עיתונאית על ערוצי שידור מסחריים ולמנוע הפצה שיטתית של מידע כוזב."
+  }
+]

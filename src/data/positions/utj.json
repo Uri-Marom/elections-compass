@@ -1,0 +1,434 @@
+{
+  "party_id": "utj",
+  "positions": [
+    {
+      "question_id": "q01",
+      "stated_position": {
+        "score": 1,
+        "source": "Traditional Ashkenazi ultra-Orthodox, land not primary focus"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q02",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposes Palestinian state on security grounds"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q03",
+      "stated_position": {
+        "score": 2,
+        "source": "Coalition policy support"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q04",
+      "stated_position": {
+        "score": 2,
+        "source": "Religious attachment to Jerusalem"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q05",
+      "stated_position": {
+        "score": -2,
+        "source": "Opposes right of return"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q06",
+      "stated_position": {
+        "score": 0,
+        "source": "Not a priority issue"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q07",
+      "stated_position": {
+        "score": -2,
+        "source": "Core demand: Torah study as national service"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q08",
+      "stated_position": {
+        "score": -2,
+        "source": "Rabbinate marriage authority is non-negotiable"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q09",
+      "stated_position": {
+        "score": -2,
+        "source": "Shabbat observance is party platform"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q10",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly opposed to Women of the Wall"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q11",
+      "stated_position": {
+        "score": 2,
+        "source": "Core demand: yeshiva funding"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q12",
+      "stated_position": {
+        "score": 2,
+        "source": "Kashrut enforcement is party platform"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q13",
+      "stated_position": {
+        "score": 1,
+        "source": "Community welfare support"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q14",
+      "stated_position": {
+        "score": 1,
+        "source": "Housing for large Haredi families"
+      },
+      "voted_position": {
+        "score": 0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q15",
+      "stated_position": {
+        "score": 0,
+        "source": "Not a strong position"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q16",
+      "stated_position": {
+        "score": 1,
+        "source": "State services"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q17",
+      "stated_position": {
+        "score": -1,
+        "source": "Prefers direct support"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q18",
+      "stated_position": {
+        "score": 2,
+        "source": "Supports override clause"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q19",
+      "stated_position": {
+        "score": 2,
+        "source": "Wants political influence over judiciary"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q20",
+      "stated_position": {
+        "score": -1,
+        "source": "Judicial reform coalition"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q21",
+      "stated_position": {
+        "score": -2,
+        "source": "Supported abolition of reasonableness standard"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q22",
+      "stated_position": {
+        "score": 0,
+        "source": "Supports but wants reform"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q23",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q24",
+      "stated_position": {
+        "score": -1,
+        "source": "Prefer coalition without Arab parties"
+      },
+      "voted_position": {
+        "score": -1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q25",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      },
+      "voted_position": {
+        "score": 0.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q26",
+      "stated_position": {
+        "score": 2,
+        "source": "Voted for Nation-State Law"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q27",
+      "stated_position": {
+        "score": -2,
+        "source": "Coalition loyalty to Netanyahu"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q28",
+      "stated_position": {
+        "score": -1,
+        "source": "Coalition loyalty"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q29",
+      "stated_position": {
+        "score": -1,
+        "source": "Small party concerned about threshold"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q30",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      },
+      "voted_position": {
+        "score": 0.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q31",
+      "stated_position": {
+        "score": -2,
+        "source": "Coalition loyalty; opposes inquiry"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q32",
+      "stated_position": {
+        "score": -2,
+        "source": "Core demand: Torah study institutions must not be forced to teach secular subjects"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q33",
+      "stated_position": {
+        "score": 0,
+        "source": "Not a priority; neutral on commercial broadcast regulation"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    }
+  ]
+}

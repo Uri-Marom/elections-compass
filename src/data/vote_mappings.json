@@ -1,0 +1,574 @@
+{
+  "_comment": "Maps survey questions to Knesset vote IDs. vote_direction: 'for_means_agree' means voting FOR the motion = agreeing with the survey statement. Sources: knesset.gov.il OData Votes.svc (up to 24th Knesset), manual encoding for 25th Knesset landmark votes.",
+
+  "q01": {
+    "description": "Settlements strengthen security",
+    "votes": [
+      { "vote_id": 33812, "knesset": 23, "direction": "for_means_agree", "note": "Basic Law: referendum on settlements in WB — for = supports settlements" }
+    ],
+    "manual_k25": null
+  },
+
+  "q02": {
+    "description": "Support Palestinian state",
+    "votes": [],
+    "manual_k25": {
+      "note": "Knesset vote July 18, 2024 — 68-9 resolution AGAINST recognizing Palestinian state. Voting FOR this resolution = AGAINST q02.",
+      "direction": "against_means_agree",
+      "party_scores": {
+        "likud":           { "score": -2.0, "voted": "for_resolution" },
+        "shas":            { "score": -2.0, "voted": "for_resolution" },
+        "utj":             { "score": -2.0, "voted": "for_resolution" },
+        "otzma_rzp":       { "score": -2.0, "voted": "for_resolution" },
+        "yesh_atid":       { "score": -1.5, "voted": "for_resolution_mostly" },
+        "national_unity":  { "score": -1.0, "voted": "split" },
+        "democrats":       { "score":  0.0, "voted": "mostly_absent_protest" },
+        "yisrael_beitenu": { "score": -1.0, "voted": "for_resolution" },
+        "hadash_taal":     { "score":  2.0, "voted": "against_resolution" },
+        "raam":            { "score":  1.5, "voted": "against_resolution" }
+      }
+    }
+  },
+
+  "q03": {
+    "description": "Continue Gaza operations until Hamas dismantled",
+    "votes": [],
+    "manual_k25": {
+      "note": "No clean single vote. Inferred from Knesset coalition/opposition positions on ceasefire proposals. Coalition voted against ceasefire motions; opposition split.",
+      "party_scores": {
+        "likud":           { "score":  2.0 },
+        "shas":            { "score":  2.0 },
+        "utj":             { "score":  1.5 },
+        "otzma_rzp":       { "score":  2.0 },
+        "yesh_atid":       { "score":  1.0 },
+        "national_unity":  { "score":  1.5 },
+        "democrats":       { "score": -0.5 },
+        "yisrael_beitenu": { "score":  1.5 },
+        "hadash_taal":     { "score": -2.0 },
+        "raam":            { "score": -2.0 }
+      }
+    }
+  },
+
+  "q04": {
+    "description": "Jerusalem under exclusive Israeli sovereignty",
+    "votes": [],
+    "manual_k25": {
+      "note": "No direct vote — consistent cross-party position. All Jewish parties agree, Arab parties oppose. Based on stated positions across votes.",
+      "party_scores": {
+        "likud":           { "score":  2.0 },
+        "shas":            { "score":  2.0 },
+        "utj":             { "score":  2.0 },
+        "otzma_rzp":       { "score":  2.0 },
+        "yesh_atid":       { "score":  1.5 },
+        "national_unity":  { "score":  2.0 },
+        "democrats":       { "score":  0.5 },
+        "yisrael_beitenu": { "score":  2.0 },
+        "hadash_taal":     { "score": -1.0 },
+        "raam":            { "score": -0.5 }
+      }
+    }
+  },
+
+  "q05": {
+    "description": "Palestinian right of return",
+    "votes": [],
+    "manual_k25": {
+      "note": "No direct vote — consistent cross-party opposition from all Jewish parties. Arab parties support.",
+      "party_scores": {
+        "likud":           { "score": -2.0 },
+        "shas":            { "score": -2.0 },
+        "utj":             { "score": -2.0 },
+        "otzma_rzp":       { "score": -2.0 },
+        "yesh_atid":       { "score": -2.0 },
+        "national_unity":  { "score": -2.0 },
+        "democrats":       { "score": -1.0 },
+        "yisrael_beitenu": { "score": -2.0 },
+        "hadash_taal":     { "score":  2.0 },
+        "raam":            { "score":  1.5 }
+      }
+    }
+  },
+
+  "q06": {
+    "description": "Formally annex settlement blocs",
+    "votes": [
+      { "vote_id": 33812, "knesset": 23, "direction": "for_means_agree", "note": "Settlements Basic Law vote" }
+    ],
+    "manual_k25": null
+  },
+
+  "q07": {
+    "description": "Haredi men must serve in military/national service",
+    "votes": [],
+    "manual_k25": {
+      "note": "Knesset vote June 11, 2024 — 63-57 to advance Haredi conscription bill. FOR = agrees with q07. Yesh Atid, National Unity, Yisrael Beitenu voted FOR. Shas, UTJ voted AGAINST. Likud mixed/mostly against. Otzma split.",
+      "party_scores": {
+        "likud":           { "score": -0.5, "voted": "mostly_against" },
+        "shas":            { "score": -2.0, "voted": "against" },
+        "utj":             { "score": -2.0, "voted": "against" },
+        "otzma_rzp":       { "score": -1.0, "voted": "split" },
+        "yesh_atid":       { "score":  2.0, "voted": "for" },
+        "national_unity":  { "score":  2.0, "voted": "for" },
+        "democrats":       { "score":  2.0, "voted": "for" },
+        "yisrael_beitenu": { "score":  2.0, "voted": "for" },
+        "hadash_taal":     { "score":  0.5, "voted": "mixed_concerns_about_arab_conscription" },
+        "raam":            { "score": -0.5, "voted": "against" }
+      }
+    }
+  },
+
+  "q08": {
+    "description": "Allow civil marriage",
+    "votes": [
+      { "vote_id": 33810, "knesset": 23, "direction": "for_means_agree", "note": "Civil marriage bill vote" },
+      { "vote_id": 33347, "knesset": 23, "direction": "for_means_agree", "note": "Civil marriage abroad reimbursement" }
+    ],
+    "manual_k25": null
+  },
+
+  "q09": {
+    "description": "Businesses allowed to operate on Shabbat",
+    "votes": [],
+    "manual_k25": {
+      "note": "No-confidence votes against Shas and UTJ over Shabbat commerce. Coalition (Shas/UTJ) voted against; secular parties voted for opening. Inferred from consistent voting pattern.",
+      "party_scores": {
+        "likud":           { "score": -0.5 },
+        "shas":            { "score": -2.0 },
+        "utj":             { "score": -2.0 },
+        "otzma_rzp":       { "score": -1.0 },
+        "yesh_atid":       { "score":  2.0 },
+        "national_unity":  { "score":  1.5 },
+        "democrats":       { "score":  2.0 },
+        "yisrael_beitenu": { "score":  2.0 },
+        "hadash_taal":     { "score":  1.5 },
+        "raam":            { "score": -0.5 }
+      }
+    }
+  },
+
+  "q10": {
+    "description": "Women pray at Western Wall with Torah scrolls",
+    "votes": [],
+    "manual_k25": {
+      "note": "No direct Knesset vote. Inferred from coalition agreement that explicitly rejected Kotel pluralism. Coalition parties block, opposition supports.",
+      "party_scores": {
+        "likud":           { "score": -0.5 },
+        "shas":            { "score": -2.0 },
+        "utj":             { "score": -2.0 },
+        "otzma_rzp":       { "score": -2.0 },
+        "yesh_atid":       { "score":  2.0 },
+        "national_unity":  { "score":  1.5 },
+        "democrats":       { "score":  2.0 },
+        "yisrael_beitenu": { "score":  2.0 },
+        "hadash_taal":     { "score":  1.5 },
+        "raam":            { "score":  0.0 }
+      }
+    }
+  },
+
+  "q11": {
+    "description": "Fund yeshiva students same as university students",
+    "votes": [],
+    "manual_k25": {
+      "note": "25th Knesset budget 2023: coalition included record yeshiva funding increases. Coalition voted FOR, opposition AGAINST budget containing this provision.",
+      "party_scores": {
+        "likud":           { "score":  1.5, "voted": "for_budget_with_yeshiva_funds" },
+        "shas":            { "score":  2.0, "voted": "for" },
+        "utj":             { "score":  2.0, "voted": "for" },
+        "otzma_rzp":       { "score":  1.5, "voted": "for" },
+        "yesh_atid":       { "score": -2.0, "voted": "against" },
+        "national_unity":  { "score": -1.0, "voted": "against" },
+        "democrats":       { "score": -2.0, "voted": "against" },
+        "yisrael_beitenu": { "score": -2.0, "voted": "against" },
+        "hadash_taal":     { "score": -1.5, "voted": "against" },
+        "raam":            { "score": -0.5, "voted": "absent" }
+      }
+    }
+  },
+
+  "q12": {
+    "description": "Government enforce kosher certification",
+    "votes": [],
+    "manual_k25": {
+      "note": "Kashrut Law passed by 25th Knesset coalition, June 2023. Coalition FOR, opposition AGAINST.",
+      "party_scores": {
+        "likud":           { "score":  1.5, "voted": "for" },
+        "shas":            { "score":  2.0, "voted": "for" },
+        "utj":             { "score":  2.0, "voted": "for" },
+        "otzma_rzp":       { "score":  1.5, "voted": "for" },
+        "yesh_atid":       { "score": -2.0, "voted": "against" },
+        "national_unity":  { "score": -1.0, "voted": "against" },
+        "democrats":       { "score": -2.0, "voted": "against" },
+        "yisrael_beitenu": { "score": -2.0, "voted": "against" },
+        "hadash_taal":     { "score": -1.0, "voted": "against" },
+        "raam":            { "score":  0.0, "voted": "absent" }
+      }
+    }
+  },
+
+  "q13": {
+    "description": "Increase healthcare funding",
+    "votes": [
+      { "vote_id": 33770, "knesset": 23, "direction": "for_means_agree", "note": "Healthcare budget temporary order" }
+    ],
+    "manual_k25": null
+  },
+
+  "q14": {
+    "description": "Government build public housing",
+    "votes": [],
+    "manual_k25": {
+      "note": "No single clean vote. 25th Knesset housing policy: coalition preferred market incentives; opposition pushed for public housing bills that were voted down.",
+      "party_scores": {
+        "likud":           { "score": -0.5 },
+        "shas":            { "score":  0.5 },
+        "utj":             { "score":  0.5 },
+        "otzma_rzp":       { "score": -0.5 },
+        "yesh_atid":       { "score":  1.0 },
+        "national_unity":  { "score":  0.5 },
+        "democrats":       { "score":  2.0 },
+        "yisrael_beitenu": { "score":  0.5 },
+        "hadash_taal":     { "score":  2.0 },
+        "raam":            { "score":  1.5 }
+      }
+    }
+  },
+
+  "q15": {
+    "description": "Raise minimum wage significantly",
+    "votes": [
+      { "vote_id": 33015, "knesset": 23, "direction": "for_means_agree", "note": "Disability benefit to minimum wage level" }
+    ],
+    "manual_k25": null
+  },
+
+  "q16": {
+    "description": "State-owned companies remain public",
+    "votes": [
+      { "vote_id": 33791, "knesset": 23, "direction": "against_means_agree", "note": "Port privatization bill — against privatization = agree with q16" }
+    ],
+    "manual_k25": null
+  },
+
+  "q17": {
+    "description": "Market competition better than direct subsidies",
+    "votes": [],
+    "manual_k25": {
+      "note": "No direct vote available. Inferred from economic policy votes and party positions.",
+      "party_scores": {
+        "likud":           { "score":  1.0 },
+        "shas":            { "score": -0.5 },
+        "utj":             { "score": -0.5 },
+        "otzma_rzp":       { "score":  0.5 },
+        "yesh_atid":       { "score":  1.5 },
+        "national_unity":  { "score":  1.0 },
+        "democrats":       { "score": -0.5 },
+        "yisrael_beitenu": { "score":  1.0 },
+        "hadash_taal":     { "score": -1.0 },
+        "raam":            { "score": -0.5 }
+      }
+    }
+  },
+
+  "q18": {
+    "description": "Knesset can override Supreme Court with simple majority",
+    "votes": [],
+    "manual_k25": {
+      "note": "Judicial reform: Override clause first reading March 13, 2023 — 61-52 FOR. Coalition FOR, opposition AGAINST.",
+      "party_scores": {
+        "likud":           { "score":  2.0, "voted": "for_61_52" },
+        "shas":            { "score":  2.0, "voted": "for" },
+        "utj":             { "score":  2.0, "voted": "for" },
+        "otzma_rzp":       { "score":  2.0, "voted": "for" },
+        "yesh_atid":       { "score": -2.0, "voted": "against" },
+        "national_unity":  { "score": -2.0, "voted": "against" },
+        "democrats":       { "score": -2.0, "voted": "against" },
+        "yisrael_beitenu": { "score": -2.0, "voted": "against" },
+        "hadash_taal":     { "score": -2.0, "voted": "against" },
+        "raam":            { "score": -2.0, "voted": "against" }
+      }
+    }
+  },
+
+  "q19": {
+    "description": "Politicians control Supreme Court judge selection",
+    "votes": [],
+    "manual_k25": {
+      "note": "Judicial committee composition bill, part of 2023 reform package. Coalition FOR, opposition AGAINST.",
+      "party_scores": {
+        "likud":           { "score":  2.0 },
+        "shas":            { "score":  2.0 },
+        "utj":             { "score":  2.0 },
+        "otzma_rzp":       { "score":  2.0 },
+        "yesh_atid":       { "score": -2.0 },
+        "national_unity":  { "score": -1.5 },
+        "democrats":       { "score": -2.0 },
+        "yisrael_beitenu": { "score": -2.0 },
+        "hadash_taal":     { "score": -2.0 },
+        "raam":            { "score": -2.0 }
+      }
+    }
+  },
+
+  "q20": {
+    "description": "AG legal opinions binding on government",
+    "votes": [],
+    "manual_k25": {
+      "note": "AG advisory status bill, 2023 reform. Coalition voted for making AG opinions non-binding (= disagreeing with q20). Opposition against.",
+      "party_scores": {
+        "likud":           { "score": -2.0, "voted": "for_making_ag_nonbinding" },
+        "shas":            { "score": -2.0 },
+        "utj":             { "score": -2.0 },
+        "otzma_rzp":       { "score": -2.0 },
+        "yesh_atid":       { "score":  2.0, "voted": "against_bill" },
+        "national_unity":  { "score":  1.5 },
+        "democrats":       { "score":  2.0 },
+        "yisrael_beitenu": { "score":  1.5 },
+        "hadash_taal":     { "score":  2.0 },
+        "raam":            { "score":  2.0 }
+      }
+    }
+  },
+
+  "q21": {
+    "description": "Courts can strike down unreasonable government decisions",
+    "votes": [],
+    "manual_k25": {
+      "note": "Reasonableness Standard Abolition — Basic Law amendment July 24, 2023 — 64-0 (opposition boycotted). Coalition voted FOR abolition = AGAINST q21. Opposition boycott treated as neutral/abstain (0).",
+      "party_scores": {
+        "likud":           { "score": -2.0, "voted": "for_abolition_of_reasonableness" },
+        "shas":            { "score": -2.0, "voted": "for" },
+        "utj":             { "score": -2.0, "voted": "for" },
+        "otzma_rzp":       { "score": -2.0, "voted": "for" },
+        "yesh_atid":       { "score":  2.0, "voted": "boycott_=_against" },
+        "national_unity":  { "score":  2.0, "voted": "boycott_=_against" },
+        "democrats":       { "score":  2.0, "voted": "boycott_=_against" },
+        "yisrael_beitenu": { "score":  2.0, "voted": "boycott_=_against" },
+        "hadash_taal":     { "score":  2.0, "voted": "boycott_=_against" },
+        "raam":            { "score":  2.0, "voted": "boycott_=_against" }
+      }
+    }
+  },
+
+  "q22": {
+    "description": "Independent judiciary essential",
+    "votes": [],
+    "manual_k25": {
+      "note": "Derived from judicial reform votes — supporting reform = disagreeing with judicial independence. Inverse of q18/q21.",
+      "party_scores": {
+        "likud":           { "score": -1.0 },
+        "shas":            { "score": -1.0 },
+        "utj":             { "score": -1.0 },
+        "otzma_rzp":       { "score": -1.5 },
+        "yesh_atid":       { "score":  2.0 },
+        "national_unity":  { "score":  2.0 },
+        "democrats":       { "score":  2.0 },
+        "yisrael_beitenu": { "score":  2.0 },
+        "hadash_taal":     { "score":  2.0 },
+        "raam":            { "score":  2.0 }
+      }
+    }
+  },
+
+  "q23": {
+    "description": "Basic Law guaranteeing equality for all citizens",
+    "votes": [],
+    "manual_k25": {
+      "note": "Equality Basic Law bills voted down by coalition majority in 25th Knesset. Coalition voted AGAINST, opposition FOR.",
+      "party_scores": {
+        "likud":           { "score": -1.5, "voted": "against" },
+        "shas":            { "score": -0.5 },
+        "utj":             { "score": -0.5 },
+        "otzma_rzp":       { "score": -2.0, "voted": "against" },
+        "yesh_atid":       { "score":  1.5, "voted": "for" },
+        "national_unity":  { "score":  1.5, "voted": "for" },
+        "democrats":       { "score":  2.0, "voted": "for" },
+        "yisrael_beitenu": { "score":  1.0, "voted": "for" },
+        "hadash_taal":     { "score":  2.0, "voted": "for" },
+        "raam":            { "score":  2.0, "voted": "for" }
+      }
+    }
+  },
+
+  "q24": {
+    "description": "Jewish-led parties willing to form coalitions with Arab parties",
+    "votes": [],
+    "manual_k25": {
+      "note": "Inferred from coalition formation patterns. Ra'am joined 36th government (Bennett-Lapid). 25th Knesset coalition explicitly excluded Arab parties.",
+      "party_scores": {
+        "likud":           { "score": -2.0 },
+        "shas":            { "score": -1.5 },
+        "utj":             { "score": -1.5 },
+        "otzma_rzp":       { "score": -2.0 },
+        "yesh_atid":       { "score":  0.0 },
+        "national_unity":  { "score":  0.0 },
+        "democrats":       { "score":  2.0 },
+        "yisrael_beitenu": { "score": -1.0 },
+        "hadash_taal":     { "score":  2.0 },
+        "raam":            { "score":  2.0 }
+      }
+    }
+  },
+
+  "q25": {
+    "description": "Arab municipalities equal per-capita funding",
+    "votes": [],
+    "manual_k25": {
+      "note": "Arab sector budget bills in 25th Knesset. Coalition underfunded Arab localities. Opposition bills for equality voted down.",
+      "party_scores": {
+        "likud":           { "score": -0.5 },
+        "shas":            { "score":  0.0 },
+        "utj":             { "score":  0.0 },
+        "otzma_rzp":       { "score": -1.5 },
+        "yesh_atid":       { "score":  1.0 },
+        "national_unity":  { "score":  1.0 },
+        "democrats":       { "score":  2.0 },
+        "yisrael_beitenu": { "score":  1.0 },
+        "hadash_taal":     { "score":  2.0 },
+        "raam":            { "score":  2.0 }
+      }
+    }
+  },
+
+  "q26": {
+    "description": "Nation-State Law is correct and non-discriminatory",
+    "votes": [
+      { "vote_id": 33063, "knesset": 23, "direction": "against_means_agree", "note": "Vote on repealing Nation-State Law — against repeal = agrees law is correct" },
+      { "vote_id": 33064, "knesset": 23, "direction": "against_means_agree", "note": "Vote on repealing Nation-State Law (second reading)" }
+    ],
+    "manual_k25": null
+  },
+
+  "q27": {
+    "description": "PM under indictment should suspend duties",
+    "votes": [],
+    "manual_k25": {
+      "note": "PM incapacitation law March 23, 2023 — 61-47 FOR making it harder to remove PM (protecting Netanyahu). Coalition FOR this law = AGAINST q27. Opposition AGAINST this law = FOR q27.",
+      "party_scores": {
+        "likud":           { "score": -2.0, "voted": "for_protection_law" },
+        "shas":            { "score": -2.0, "voted": "for" },
+        "utj":             { "score": -2.0, "voted": "for" },
+        "otzma_rzp":       { "score": -2.0, "voted": "for" },
+        "yesh_atid":       { "score":  2.0, "voted": "against" },
+        "national_unity":  { "score":  2.0, "voted": "against" },
+        "democrats":       { "score":  2.0, "voted": "against" },
+        "yisrael_beitenu": { "score":  2.0, "voted": "against" },
+        "hadash_taal":     { "score":  2.0, "voted": "against" },
+        "raam":            { "score":  2.0, "voted": "against" }
+      }
+    }
+  },
+
+  "q28": {
+    "description": "PM term limits",
+    "votes": [
+      { "vote_id": 32926, "knesset": 23, "direction": "for_means_agree", "note": "Basic Law: Government amendment — PM term limits" },
+      { "vote_id": 32927, "knesset": 23, "direction": "for_means_agree", "note": "PM term limits bill (second reading)" }
+    ],
+    "manual_k25": null
+  },
+
+  "q29": {
+    "description": "Raise electoral threshold above 3.25%",
+    "votes": [],
+    "manual_k25": {
+      "note": "No direct 25th Knesset vote. Inferred from party interests — large parties benefit from higher threshold, small parties lose.",
+      "party_scores": {
+        "likud":           { "score":  1.0 },
+        "shas":            { "score": -1.0 },
+        "utj":             { "score": -1.0 },
+        "otzma_rzp":       { "score": -1.0 },
+        "yesh_atid":       { "score":  1.0 },
+        "national_unity":  { "score":  0.5 },
+        "democrats":       { "score": -1.0 },
+        "yisrael_beitenu": { "score":  0.0 },
+        "hadash_taal":     { "score": -2.0 },
+        "raam":            { "score": -2.0 }
+      }
+    }
+  },
+
+  "q30": {
+    "description": "Strict campaign donation limits",
+    "votes": [],
+    "manual_k25": {
+      "note": "No direct vote. Inferred from party finance reform positions.",
+      "party_scores": {
+        "likud":           { "score": -0.5 },
+        "shas":            { "score": -0.5 },
+        "utj":             { "score":  0.0 },
+        "otzma_rzp":       { "score": -0.5 },
+        "yesh_atid":       { "score":  1.0 },
+        "national_unity":  { "score":  0.5 },
+        "democrats":       { "score":  2.0 },
+        "yisrael_beitenu": { "score":  1.0 },
+        "hadash_taal":     { "score":  2.0 },
+        "raam":            { "score":  1.0 }
+      }
+    }
+  },
+
+  "q31": {
+    "description": "State commission of inquiry into October 7 failures",
+    "votes": [],
+    "manual_k25": {
+      "note": "No formal Knesset vote on state inquiry. Coalition blocked inquiry legislation; opposition pressed for it. Positions inferred from public statements and failed inquiry bills.",
+      "party_scores": {
+        "likud":           { "score": -2.0, "voted": "blocked_inquiry_bills" },
+        "shas":            { "score": -2.0, "voted": "blocked_inquiry_bills" },
+        "utj":             { "score": -2.0, "voted": "blocked_inquiry_bills" },
+        "otzma":           { "score": -2.0, "voted": "blocked_inquiry_bills" },
+        "religious_zionism": { "score": -2.0, "voted": "blocked_inquiry_bills" },
+        "yesh_atid":       { "score":  2.0, "voted": "for_inquiry" },
+        "national_unity":  { "score":  2.0, "voted": "for_inquiry" },
+        "democrats":       { "score":  2.0, "voted": "for_inquiry" },
+        "yisrael_beitenu": { "score":  2.0, "voted": "for_inquiry" },
+        "hadash_taal":     { "score":  2.0, "voted": "for_inquiry" },
+        "raam":            { "score":  1.5, "voted": "for_inquiry" }
+      }
+    }
+  },
+
+  "q32": {
+    "description": "All publicly funded schools must teach core curriculum (math, English, sciences)",
+    "votes": [],
+    "manual_k25": {
+      "note": "Core curriculum legislation for Haredi schools: bills advanced by National Unity (Kahana) opposed by Shas/UTJ/RZP. No clean single vote; inferred from budget debates and education bills.",
+      "party_scores": {
+        "likud":           { "score": -1.0, "voted": "opposed_core_curriculum_mandate" },
+        "shas":            { "score": -2.0, "voted": "strongly_against" },
+        "utj":             { "score": -2.0, "voted": "strongly_against" },
+        "otzma":           { "score": -1.0, "voted": "opposed" },
+        "religious_zionism": { "score": -1.0, "voted": "opposed" },
+        "yesh_atid":       { "score":  2.0, "voted": "for" },
+        "national_unity":  { "score":  1.5, "voted": "for_kahana_advanced_bill" },
+        "democrats":       { "score":  2.0, "voted": "for" },
+        "yisrael_beitenu": { "score":  2.0, "voted": "for" },
+        "hadash_taal":     { "score":  1.5, "voted": "for" },
+        "raam":            { "score":  0.5, "voted": "mixed" }
+      }
+    }
+  },
+
+  "q33": {
+    "description": "Media regulators enforce journalistic accountability on commercial channels",
+    "votes": [],
+    "manual_k25": {
+      "note": "Broadcasting regulations and Second Authority oversight. Coalition (with Channel 14 allies) opposed stronger enforcement; opposition generally supported accountability measures.",
+      "party_scores": {
+        "likud":           { "score": -2.0, "voted": "against_broadcast_accountability_bills" },
+        "shas":            { "score": -1.0 },
+        "utj":             { "score":  0.0 },
+        "otzma":           { "score": -2.0, "voted": "strongly_against" },
+        "religious_zionism": { "score": -2.0, "voted": "strongly_against" },
+        "yesh_atid":       { "score":  1.5, "voted": "for_accountability" },
+        "national_unity":  { "score":  1.0 },
+        "democrats":       { "score":  2.0, "voted": "for" },
+        "yisrael_beitenu": { "score":  1.0 },
+        "hadash_taal":     { "score":  1.5, "voted": "for" },
+        "raam":            { "score":  1.0 }
+      }
+    }
+  }
+}

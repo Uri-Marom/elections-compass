@@ -1,0 +1,237 @@
+{
+  "party_id": "miluimnikim",
+  "_voted_data_note": "No 25th Knesset voting data available. Yoaz Hendel (party leader) was not an MK in the 25th Knesset. His earlier voting record from the 23rd Knesset (Blue and White, faction 969) and 24th Knesset aligns with the national_unity data in this dataset. No other party members have Knesset voting records.",
+  "positions": [
+    {
+      "question_id": "q01",
+      "stated_position": {
+        "score": -1,
+        "source": "Security-first pragmatism; Hendel is a security hawk but not ideologically pro-settlement"
+      }
+    },
+    {
+      "question_id": "q02",
+      "stated_position": {
+        "score": 0,
+        "source": "Pragmatic center; no stated position on two-state, focused on security arrangements"
+      }
+    },
+    {
+      "question_id": "q03",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports military operations with clear strategy and achievable goals"
+      }
+    },
+    {
+      "question_id": "q04",
+      "stated_position": {
+        "score": 2,
+        "source": "Jerusalem as Israel's capital"
+      }
+    },
+    {
+      "question_id": "q05",
+      "stated_position": {
+        "score": -2,
+        "source": "Opposes right of return"
+      }
+    },
+    {
+      "question_id": "q06",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposes annexation; focused on security rather than territorial maximalism"
+      }
+    },
+    {
+      "question_id": "q07",
+      "stated_position": {
+        "score": 2,
+        "source": "CORE PLATFORM: universal military/national service for all citizens — Haredim, Arabs, and secular alike. Party was founded on this principle by reserve officers"
+      }
+    },
+    {
+      "question_id": "q08",
+      "stated_position": {
+        "score": 1,
+        "source": "Hendel is secular; supports civil marriage"
+      }
+    },
+    {
+      "question_id": "q09",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports Shabbat commerce freedom"
+      }
+    },
+    {
+      "question_id": "q10",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports religious pluralism at Western Wall"
+      }
+    },
+    {
+      "question_id": "q11",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly opposes unconditional yeshiva funding — directly tied to party's core conscription stance"
+      }
+    },
+    {
+      "question_id": "q12",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposes state kashrut enforcement"
+      }
+    },
+    {
+      "question_id": "q13",
+      "stated_position": {
+        "score": 1,
+        "source": "Center position; supports adequate public healthcare"
+      }
+    },
+    {
+      "question_id": "q14",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports public housing programs"
+      }
+    },
+    {
+      "question_id": "q15",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports moderate minimum wage increases"
+      }
+    },
+    {
+      "question_id": "q16",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral on privatization"
+      }
+    },
+    {
+      "question_id": "q17",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports market competition as cost-of-living solution"
+      }
+    },
+    {
+      "question_id": "q18",
+      "stated_position": {
+        "score": -2,
+        "source": "Hendel as Blue & White MK strongly opposed override clause; consistent position"
+      }
+    },
+    {
+      "question_id": "q19",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposes political takeover of judiciary appointments"
+      }
+    },
+    {
+      "question_id": "q20",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports AG authority as rule-of-law safeguard"
+      }
+    },
+    {
+      "question_id": "q21",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports judicial review including reasonableness standard"
+      }
+    },
+    {
+      "question_id": "q22",
+      "stated_position": {
+        "score": 2,
+        "source": "Strongly supports judicial independence; part of opposition coalition against judicial reform"
+      }
+    },
+    {
+      "question_id": "q23",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports equality for all citizens who fulfil civic obligations (service)"
+      }
+    },
+    {
+      "question_id": "q24",
+      "stated_position": {
+        "score": -1,
+        "source": "Party platform explicitly calls for coalition WITHOUT Arab or Haredi parties — independence from identity-based blocs"
+      }
+    },
+    {
+      "question_id": "q25",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports equal municipal services; conscription service as path to full civic equality"
+      }
+    },
+    {
+      "question_id": "q26",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral on Nation-State Law; not a party focus"
+      }
+    },
+    {
+      "question_id": "q27",
+      "stated_position": {
+        "score": 2,
+        "source": "Supports PM accountability; part of pro-rule-of-law bloc"
+      }
+    },
+    {
+      "question_id": "q28",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports term limits for PM"
+      }
+    },
+    {
+      "question_id": "q29",
+      "stated_position": {
+        "score": 1,
+        "source": "Mid-sized party; would benefit from higher threshold eliminating smaller fringe parties"
+      }
+    },
+    {
+      "question_id": "q30",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports campaign finance limits"
+      }
+    },
+    {
+      "question_id": "q31",
+      "stated_position": {
+        "score": 2,
+        "source": "Reserve officers overwhelmingly demand inquiry — it is a core party motivation"
+      }
+    },
+    {
+      "question_id": "q32",
+      "stated_position": {
+        "score": 2,
+        "source": "Educated, capable workforce essential for military service — core curriculum is a prerequisite"
+      }
+    },
+    {
+      "question_id": "q33",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports professional media standards and preventing systematic disinformation"
+      }
+    }
+  ]
+}

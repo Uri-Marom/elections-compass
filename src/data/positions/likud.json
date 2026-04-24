@@ -1,0 +1,434 @@
+{
+  "party_id": "likud",
+  "positions": [
+    {
+      "question_id": "q01",
+      "stated_position": {
+        "score": 2,
+        "source": "Party platform & coalition agreement 2022"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q02",
+      "stated_position": {
+        "score": -1,
+        "source": "Netanyahu speeches, opposes Palestinian state"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q03",
+      "stated_position": {
+        "score": 2,
+        "source": "Official government policy since Oct 2023"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q04",
+      "stated_position": {
+        "score": 2,
+        "source": "Likud platform: undivided Jerusalem"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q05",
+      "stated_position": {
+        "score": -2,
+        "source": "Consistent opposition to right of return"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q06",
+      "stated_position": {
+        "score": 1,
+        "source": "Coalition agreement 2022, annexation elements"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q07",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposed Haredi conscription to preserve coalition"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q08",
+      "stated_position": {
+        "score": -1,
+        "source": "Reliant on religious coalition partners"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q09",
+      "stated_position": {
+        "score": -1,
+        "source": "Coalition agreement restricts Shabbat commerce"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q10",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposed Kotel reform agreement"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q11",
+      "stated_position": {
+        "score": 1,
+        "source": "Budget allocations to Haredi institutions"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q12",
+      "stated_position": {
+        "score": 1,
+        "source": "Coalition agreement with Shas"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q13",
+      "stated_position": {
+        "score": 0,
+        "source": "Moderate position, market-oriented"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q14",
+      "stated_position": {
+        "score": 0,
+        "source": "Prefers market incentives over direct building"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q15",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral, incremental increases"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q16",
+      "stated_position": {
+        "score": -1,
+        "source": "Historical privatization record"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q17",
+      "stated_position": {
+        "score": 1,
+        "source": "Free market orientation"
+      },
+      "voted_position": {
+        "score": 1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q18",
+      "stated_position": {
+        "score": 2,
+        "source": "Judicial reform package 2023"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q19",
+      "stated_position": {
+        "score": 2,
+        "source": "Judicial reform: Knesset control over appointments"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q20",
+      "stated_position": {
+        "score": -2,
+        "source": "Judicial reform: AG opinions non-binding"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q21",
+      "stated_position": {
+        "score": -2,
+        "source": "Reasonableness standard abolition bill"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q22",
+      "stated_position": {
+        "score": 0,
+        "source": "Supports judiciary but wants reform"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q23",
+      "stated_position": {
+        "score": -1,
+        "source": "Nation-State Law sponsor"
+      },
+      "voted_position": {
+        "score": -1.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q24",
+      "stated_position": {
+        "score": -2,
+        "source": "Opposed to Arab-reliant coalitions"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q25",
+      "stated_position": {
+        "score": 0,
+        "source": "Decision 922 support but uneven implementation"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q26",
+      "stated_position": {
+        "score": 2,
+        "source": "Nation-State Law passed by Likud"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q27",
+      "stated_position": {
+        "score": -2,
+        "source": "Netanyahu himself indicted, rejects incapacitation"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q28",
+      "stated_position": {
+        "score": -1,
+        "source": "Netanyahu seeking extended tenure"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q29",
+      "stated_position": {
+        "score": 0,
+        "source": "Varied positions across elections"
+      },
+      "voted_position": {
+        "score": 1.0,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q30",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q31",
+      "stated_position": {
+        "score": -2,
+        "source": "Netanyahu strongly resists — would expose his government's failures before Oct 7"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q32",
+      "stated_position": {
+        "score": -1,
+        "source": "Coalition with Haredi parties prevents enforcement of core curriculum in Haredi schools; has repeatedly backed down"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q33",
+      "stated_position": {
+        "score": -2,
+        "source": "Channel 14 functions as a pro-Netanyahu platform; strongly opposes tighter media regulation"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    }
+  ]
+}

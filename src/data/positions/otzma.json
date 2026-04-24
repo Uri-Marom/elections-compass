@@ -1,0 +1,422 @@
+{
+  "party_id": "otzma",
+  "positions": [
+    {
+      "question_id": "q01",
+      "stated_position": {
+        "score": 2,
+        "source": "Settlements and annexation are core Ben-Gvir platform"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes — voted with Likud/RZP on all settlement-related measures"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q02",
+      "stated_position": {
+        "score": -2,
+        "source": "Explicitly and repeatedly opposes Palestinian state"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted for anti-Palestinian-state resolution (July 2024, 68-9)"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q03",
+      "stated_position": {
+        "score": 2,
+        "source": "Calls for maximally aggressive military campaign, no limitations"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q04",
+      "stated_position": {
+        "score": 2,
+        "source": "Undivided Jerusalem, non-negotiable"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q05",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly opposes right of return"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q06",
+      "stated_position": {
+        "score": 2,
+        "source": "Full annexation of Area C is party platform"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q07",
+      "stated_position": {
+        "score": 0,
+        "source": "Ben-Gvir has called for universal service including Haredim — unusual for coalition partner; ambiguous in practice"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted with coalition against conscription bills under Haredi pressure"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q08",
+      "stated_position": {
+        "score": -1,
+        "source": "Traditional values; religious marriage preferred"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q09",
+      "stated_position": {
+        "score": -1,
+        "source": "Traditional values on Shabbat"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q10",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly opposes Women of the Wall"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q11",
+      "stated_position": {
+        "score": 1,
+        "source": "Coalition agreement — supports yeshiva funding as part of deal"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q12",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports religious food standards in state institutions"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q13",
+      "stated_position": {
+        "score": 0,
+        "source": "Not a primary focus; nationalist agenda dominates"
+      }
+    },
+    {
+      "question_id": "q14",
+      "stated_position": {
+        "score": 0,
+        "source": "Focus on settlement housing rather than general housing policy"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q15",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      }
+    },
+    {
+      "question_id": "q16",
+      "stated_position": {
+        "score": -1,
+        "source": "Free market orientation"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted against port privatization bill (opposition bill)"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q17",
+      "stated_position": {
+        "score": 1,
+        "source": "Free market orientation"
+      },
+      "voted_position": {
+        "score": 0.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q18",
+      "stated_position": {
+        "score": 2,
+        "source": "Strong judicial reform advocate — Ben-Gvir as Justice Minister pushed for override"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted for override clause"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q19",
+      "stated_position": {
+        "score": 2,
+        "source": "Political control of judiciary — core demand as condition for coalition"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q20",
+      "stated_position": {
+        "score": -2,
+        "source": "Explicitly rejects binding AG opinions — conflict with AG over Ben-Gvir's conduct as minister"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q21",
+      "stated_position": {
+        "score": -2,
+        "source": "Supported abolition of reasonableness standard"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted for reasonableness standard abolition"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q22",
+      "stated_position": {
+        "score": -2,
+        "source": "Views current judiciary as illegitimate leftist institution"
+      },
+      "voted_position": {
+        "score": -1.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q23",
+      "stated_position": {
+        "score": -2,
+        "source": "Explicitly opposes equality basic law; has spoken of expelling 'disloyal' Arab citizens"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q24",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly and vocally opposes any coalition relying on Arab parties"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q25",
+      "stated_position": {
+        "score": -2,
+        "source": "Nationalist priorities; has opposed Arab municipality funding increases"
+      },
+      "voted_position": {
+        "score": -1.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q26",
+      "stated_position": {
+        "score": 2,
+        "source": "Strong supporter of Nation-State Law"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset — voted against Nation-State Law repeal"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q27",
+      "stated_position": {
+        "score": -2,
+        "source": "Defends Netanyahu against legal proceedings; passed laws to protect him"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q28",
+      "stated_position": {
+        "score": -1,
+        "source": "Coalition loyalty to Netanyahu"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q29",
+      "stated_position": {
+        "score": -1,
+        "source": "Small parties hurt by high threshold"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q30",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      },
+      "voted_position": {
+        "score": -0.5,
+        "last_updated": "2026-04-24",
+        "source": "25th Knesset coalition votes"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q31",
+      "stated_position": {
+        "score": -1,
+        "source": "Ambivalent — Ben-Gvir may want inquiry that exposes military/Shin Bet; but coalition loyalty prevails"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q32",
+      "stated_position": {
+        "score": -1,
+        "source": "Religious Zionist schools already teach core curriculum; not a priority for Ben-Gvir; allied with Haredim"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q33",
+      "stated_position": {
+        "score": -2,
+        "source": "Channel 14 strongly supports Ben-Gvir; strongly opposes regulation of commercial broadcasts"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    }
+  ]
+}

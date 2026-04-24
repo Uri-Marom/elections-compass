@@ -1,0 +1,435 @@
+{
+  "party_id": "yashar",
+  "_voted_data_note": "Voted positions are derived from Eisenkot and Kahana's voting record as National Unity (Machane Mamlachti) MKs in the 25th Knesset. Both voted with National Unity on all recorded votes before resigning in July 2025. Individual divergences from National Unity are noted where known.",
+  "positions": [
+    {
+      "question_id": "q01",
+      "stated_position": {
+        "score": -1,
+        "source": "Eisenkot (former IDF Chief of Staff): security-first, opposed to settlement expansion that complicates military operations"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q02",
+      "stated_position": {
+        "score": 1,
+        "source": "Eisenkot more explicitly pro-two-state than Gantz; sees Palestinian state as long-term security necessity"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs — voted for anti-Palestinian-state resolution July 2024"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q03",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports military operations with clear achievable objectives; Eisenkot called for defined end goals"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q04",
+      "stated_position": {
+        "score": 2,
+        "source": "Jerusalem as Israel's capital — consistent position"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q05",
+      "stated_position": {
+        "score": -2,
+        "source": "Opposes right of return"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q06",
+      "stated_position": {
+        "score": -2,
+        "source": "Both Eisenkot and Kahana opposed annexation"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q07",
+      "stated_position": {
+        "score": 2,
+        "source": "Kahana made Haredi conscription a signature issue; advanced practical legislation as minister of religious services; Eisenkot also strongly supports"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q08",
+      "stated_position": {
+        "score": 2,
+        "source": "Kahana as Minister of Religious Services advanced civil marriage alternatives and spousal registration reform"
+      },
+      "voted_position": {
+        "score": 0.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q09",
+      "stated_position": {
+        "score": 1,
+        "source": "Secular-leaning on public commerce"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q10",
+      "stated_position": {
+        "score": 2,
+        "source": "Kahana negotiated and approved Kotel compromise framework as Minister of Religious Services"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q11",
+      "stated_position": {
+        "score": -2,
+        "source": "Kahana explicitly cut unconditional yeshiva funding; conditional only on service participation"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q12",
+      "stated_position": {
+        "score": -2,
+        "source": "Kahana dismantled rabbinate kashrut monopoly; reformed kashrut enforcement system as minister"
+      },
+      "voted_position": {
+        "score": -1.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q13",
+      "stated_position": {
+        "score": 1,
+        "source": "Center-right on healthcare; moderate spending"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset — voted against opposition healthcare bills (opposition dynamic)"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q14",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports housing programs"
+      },
+      "voted_position": {
+        "score": 0.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q15",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports moderate minimum wage increases"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset — voted against opposition minimum wage bills"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q16",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral; no strong privatization ideology"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset — voted against port privatization (opposition bill)"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q17",
+      "stated_position": {
+        "score": 1,
+        "source": "Market competition as cost-of-living solution"
+      },
+      "voted_position": {
+        "score": 1.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q18",
+      "stated_position": {
+        "score": -2,
+        "source": "Eisenkot and Kahana left National Unity partly over judicial reform direction; strongly oppose override clause"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs — voted against override clause"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q19",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly oppose political control of judiciary"
+      },
+      "voted_position": {
+        "score": -1.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q20",
+      "stated_position": {
+        "score": 2,
+        "source": "Strongly supports binding AG opinions"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q21",
+      "stated_position": {
+        "score": 2,
+        "source": "Strongly defends reasonableness standard"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs — voted against reasonableness standard abolition"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q22",
+      "stated_position": {
+        "score": 2,
+        "source": "Judicial independence is a core Yashar! founding principle"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q23",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports equality for all citizens"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q24",
+      "stated_position": {
+        "score": 1,
+        "source": "Eisenkot has been more open than Gantz to including Arab parties in governing coalitions"
+      },
+      "voted_position": {
+        "score": 0.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q25",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports equal municipal funding"
+      },
+      "voted_position": {
+        "score": 1.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q26",
+      "stated_position": {
+        "score": 0,
+        "source": "Zionist party but open to amendments; Kahana wanted more equality provisions added"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs — voted against Nation-State Law repeal"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q27",
+      "stated_position": {
+        "score": 2,
+        "source": "Eisenkot explicitly proposed PM incapacitation legislation as National Unity MK"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q28",
+      "stated_position": {
+        "score": 2,
+        "source": "Supports term limits for PM"
+      },
+      "voted_position": {
+        "score": -2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset — voted against term limits (as opposition)"
+      },
+      "divergence_flag": true
+    },
+    {
+      "question_id": "q29",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral"
+      },
+      "voted_position": {
+        "score": 0.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q30",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports campaign finance limits"
+      },
+      "voted_position": {
+        "score": 0.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q31",
+      "stated_position": {
+        "score": 2,
+        "source": "Eisenkot and Kahana strongly support accountability inquiry; Eisenkot was in the war cabinet"
+      },
+      "voted_position": {
+        "score": 2.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset (Eisenkot & Kahana) — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q32",
+      "stated_position": {
+        "score": 2,
+        "source": "Kahana as Minister of Religious Services actively promoted core curriculum in Haredi schools"
+      },
+      "voted_position": {
+        "score": 1.5,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset (Eisenkot & Kahana) — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    },
+    {
+      "question_id": "q33",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports media professionalism and accountability for systematic factual distortion"
+      },
+      "voted_position": {
+        "score": 1.0,
+        "last_updated": "2026-04-24",
+        "source": "Voted as National Unity MKs in 25th Knesset (Eisenkot & Kahana) — last updated 2026-04-24"
+      },
+      "divergence_flag": false
+    }
+  ]
+}

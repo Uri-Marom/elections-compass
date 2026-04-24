@@ -1,0 +1,237 @@
+{
+  "party_id": "bennett_2026",
+  "_voted_data_note": "No Knesset voting data available. Bennett did not serve in the 25th Knesset (retired from politics June 2022, returned April 2025). His listed candidates have no relevant Knesset voting record. Positions are based on Bennett's record as PM (2021-2022), party platform, and public statements.",
+  "positions": [
+    {
+      "question_id": "q01",
+      "stated_position": {
+        "score": -1,
+        "source": "As PM, tolerated settlement blocs but opposed unauthorized outposts; security-driven pragmatism over ideological expansion"
+      }
+    },
+    {
+      "question_id": "q02",
+      "stated_position": {
+        "score": 0,
+        "source": "'Shrinking the conflict' approach — neither formal two-state advocate nor annexationist; left final status deliberately open"
+      }
+    },
+    {
+      "question_id": "q03",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports military operations with clear strategic goals; opposed open-ended indefinite campaign"
+      }
+    },
+    {
+      "question_id": "q04",
+      "stated_position": {
+        "score": 2,
+        "source": "Jerusalem as undivided capital — consistent position"
+      }
+    },
+    {
+      "question_id": "q05",
+      "stated_position": {
+        "score": -2,
+        "source": "Opposes right of return"
+      }
+    },
+    {
+      "question_id": "q06",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposed annexation as PM — froze Smotrich annexation moves; pragmatic security-first approach"
+      }
+    },
+    {
+      "question_id": "q07",
+      "stated_position": {
+        "score": 2,
+        "source": "Universal service (equal burden) is a signature Bennett theme — tried to advance conscription legislation as PM"
+      }
+    },
+    {
+      "question_id": "q08",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports civil marriage alternatives; advanced spousal registration as PM"
+      }
+    },
+    {
+      "question_id": "q09",
+      "stated_position": {
+        "score": 1,
+        "source": "Secular lifestyle rights; supported Shabbat commerce liberalization"
+      }
+    },
+    {
+      "question_id": "q10",
+      "stated_position": {
+        "score": 1,
+        "source": "Supported Kotel compromise framework as PM"
+      }
+    },
+    {
+      "question_id": "q11",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposed unconditional yeshiva funding; linked funding to national service participation"
+      }
+    },
+    {
+      "question_id": "q12",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposed state kashrut monopoly; supported reform of rabbinate control"
+      }
+    },
+    {
+      "question_id": "q13",
+      "stated_position": {
+        "score": 1,
+        "source": "Center-right on healthcare; moderate spending increases"
+      }
+    },
+    {
+      "question_id": "q14",
+      "stated_position": {
+        "score": 1,
+        "source": "Supported housing programs as PM; worked with Interior Ministry on approvals"
+      }
+    },
+    {
+      "question_id": "q15",
+      "stated_position": {
+        "score": 0,
+        "source": "Pragmatic — not a strong position either way"
+      }
+    },
+    {
+      "question_id": "q16",
+      "stated_position": {
+        "score": 0,
+        "source": "Mixed record; pragmatic rather than ideological on state ownership"
+      }
+    },
+    {
+      "question_id": "q17",
+      "stated_position": {
+        "score": 1,
+        "source": "Tech-sector background; supports market competition as cost-of-living driver"
+      }
+    },
+    {
+      "question_id": "q18",
+      "stated_position": {
+        "score": -2,
+        "source": "Strongly and publicly opposes override clause; made this a central campaign message for 2026"
+      }
+    },
+    {
+      "question_id": "q19",
+      "stated_position": {
+        "score": -1,
+        "source": "Opposed politicization of judiciary appointments"
+      }
+    },
+    {
+      "question_id": "q20",
+      "stated_position": {
+        "score": 2,
+        "source": "Respected AG authority as PM; abided by AG opinions even when inconvenient"
+      }
+    },
+    {
+      "question_id": "q21",
+      "stated_position": {
+        "score": 2,
+        "source": "Supports courts retaining reasonableness review power"
+      }
+    },
+    {
+      "question_id": "q22",
+      "stated_position": {
+        "score": 2,
+        "source": "Judicial independence as essential safeguard — explicitly stated in 2025-2026 campaign"
+      }
+    },
+    {
+      "question_id": "q23",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports equality for all citizens; worked with Ra'am as coalition partner"
+      }
+    },
+    {
+      "question_id": "q24",
+      "stated_position": {
+        "score": 1,
+        "source": "Led coalition that included Ra'am (2021-2022) — demonstrated willingness to govern with Arab parties"
+      }
+    },
+    {
+      "question_id": "q25",
+      "stated_position": {
+        "score": 1,
+        "source": "Committed to multi-year economic plan for Arab sector as PM"
+      }
+    },
+    {
+      "question_id": "q26",
+      "stated_position": {
+        "score": 0,
+        "source": "Did not actively oppose Nation-State Law; pragmatic on Jewish state definition"
+      }
+    },
+    {
+      "question_id": "q27",
+      "stated_position": {
+        "score": 2,
+        "source": "Supports PM accountability; calls for Netanyahu to step down during trial"
+      }
+    },
+    {
+      "question_id": "q28",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports term limits for PM"
+      }
+    },
+    {
+      "question_id": "q29",
+      "stated_position": {
+        "score": 0,
+        "source": "Neutral — new party unconstrained by threshold history"
+      }
+    },
+    {
+      "question_id": "q30",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports campaign finance transparency and limits"
+      }
+    },
+    {
+      "question_id": "q31",
+      "stated_position": {
+        "score": 2,
+        "source": "Bennett calls for full accountability; supports state inquiry as former PM who set up intelligence frameworks"
+      }
+    },
+    {
+      "question_id": "q32",
+      "stated_position": {
+        "score": 2,
+        "source": "Bennett strongly promoted core curriculum as PM and as 2026 campaign theme: 'every child deserves an education'"
+      }
+    },
+    {
+      "question_id": "q33",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports media standards; has spoken about media reform and accountability"
+      }
+    }
+  ]
+}
