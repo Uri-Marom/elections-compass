@@ -7,9 +7,10 @@ import { DimensionGapBars } from '../components/Results/DimensionGapBars'
 import { PartyCard } from '../components/Results/PartyCard'
 import { useSurveyStore } from '../store/survey'
 import { rankParties, DIMENSIONS, type DimensionKey } from '../utils/matching'
-import type { Party, PartyPosition } from '../types'
+import type { Party, PartyPosition, Question } from '../types'
 
 import partiesData from '../data/parties.json'
+import questionsData from '../data/questions.json'
 import likudPos from '../data/positions/likud.json'
 import shasPos from '../data/positions/shas.json'
 import utjPos from '../data/positions/utj.json'
@@ -26,6 +27,7 @@ import hadashPos from '../data/positions/hadash_taal.json'
 import raamPos from '../data/positions/raam.json'
 
 const parties = partiesData as Party[]
+const questions = questionsData as Question[]
 
 const allPositions: Record<string, PartyPosition[]> = {
   likud:            likudPos.positions as PartyPosition[],
@@ -252,6 +254,7 @@ export function ResultsPage() {
               partyColor={selectedParty?.color ?? '#888'}
               partyName={partyName}
               mode={mode}
+              questions={questions}
             />
           </div>
         </div>

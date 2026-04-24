@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DIMENSIONS, type DimensionKey } from '../../utils/matching'
-import type { PartyPosition } from '../../types'
+import type { PartyPosition, Question } from '../../types'
 import { useSurveyStore } from '../../store/survey'
+import { DimensionDetailModal } from './DimensionDetailModal'
 
 const DIMENSION_ICONS: Record<string, string> = {
   security: '🛡️', religion: '✡️', socioeconomic: '📊',
@@ -14,6 +16,7 @@ interface Props {
   partyColor: string
   partyName: string
   mode: 'stated' | 'voted'
+  questions: Question[]
 }
 
 function dimAvg(scores: number[]): number | null {
@@ -31,41 +34,45 @@ function gapColor(gap: number): string {
   return '#ef4444'                  // red
 }
 
-export function DimensionGapBars({ userAnswers, partyPositions, partyColor, partyName, mode }: Props) {
+export function DimensionGapBars({ userAnswers, partyPositions, partyColor, partyName, mode, questions }: Props) {
   const { t } = useTranslation()
   const { lang } = useSurveyStore()
   const dims = Object.keys(DIMENSIONS) as DimensionKey[]
+  const [activeDim, setActiveDim] = useState<DimensionKey | null>(null)
 
   return (
+    <>
     <div className="flex flex-col gap-4">
       {dims.map(dim => {
         const qids = DIMENSIONS[dim].questions as readonly string[]
         const label = lang === 'he' ? DIMENSIONS[dim].label_he : DIMENSIONS[dim].label_en
 
-        const userScores = qids
-          .map(qid => userAnswers[qid])
-          .filter((v): v is number => v !== null && v !== undefined)
-        const partyScores = qids
-          .map(qid => {
-            const pos = partyPositions.find(p => p.question_id === qid)
-            if (!pos) return null
-            const s = mode === 'stated'
-              ? pos.stated_position?.score
-              : (pos.voted_position?.score ?? pos.stated_position?.score)
-            return s !== null && s !== undefined ? s : null
-          })
-          .filter((v): v is number => v !== null)
+        const paired = qids.flatMap(qid => {
+          const userScore = userAnswers[qid]
+          if (userScore === null || userScore === undefined) return []
+          const pos = partyPositions.find(p => p.question_id === qid)
+          if (!pos) return []
+          const partyScore = mode === 'stated'
+            ? pos.stated_position?.score
+            : (pos.voted_position?.score ?? pos.stated_position?.score)
+          if (partyScore === null || partyScore === undefined) return []
+          return [{ user: userScore, party: partyScore }]
+        })
 
-        const userAvg = dimAvg(userScores)
-        const partyAvg = dimAvg(partyScores)
-
+        const userAvg = paired.length > 0 ? dimAvg(paired.map(p => p.user)) : null
+        const partyAvg = paired.length > 0 ? dimAvg(paired.map(p => p.party)) : null
         const userPct = userAvg !== null ? toPct(userAvg) : null
         const partyPct = partyAvg !== null ? toPct(partyAvg) : null
-        const gap = userAvg !== null && partyAvg !== null ? Math.abs(userAvg - partyAvg) : null
+        // avg of per-question absolute differences — prevents positive/negative gaps from cancelling
+        const gap = paired.length > 0
+          ? paired.reduce((sum, p) => sum + Math.abs(p.user - p.party), 0) / paired.length
+          : null
         const color = gap !== null ? gapColor(gap) : '#d1d5db'
 
         const gapLeft = userPct !== null && partyPct !== null ? Math.min(userPct, partyPct) : null
         const gapWidth = userPct !== null && partyPct !== null ? Math.abs(userPct - partyPct) : null
+
+        const isClickable = gap !== null && gap >= 0.3
 
         return (
           <div key={dim}>
@@ -75,12 +82,17 @@ export function DimensionGapBars({ userAnswers, partyPositions, partyColor, part
                 {label}
               </span>
               {gap !== null && (
-                <span
-                  className="text-xs font-semibold px-1.5 py-0.5 rounded-full"
+                <button
+                  onClick={() => isClickable && setActiveDim(dim)}
+                  className={[
+                    'text-xs font-semibold px-1.5 py-0.5 rounded-full transition-opacity',
+                    isClickable ? 'cursor-pointer hover:opacity-75 active:opacity-50' : 'cursor-default',
+                  ].join(' ')}
                   style={{ color, backgroundColor: color + '20' }}
+                  title={isClickable ? (lang === 'he' ? 'לחץ להסבר' : 'Click to explain') : undefined}
                 >
-                  {gap < 0.3 ? '✓ קרוב' : `פער ${gap.toFixed(1)}`}
-                </span>
+                  {gap < 0.3 ? '✓ קרוב' : `פער ${gap.toFixed(1)} ↗`}
+                </button>
               )}
             </div>
 
@@ -144,5 +156,19 @@ export function DimensionGapBars({ userAnswers, partyPositions, partyColor, part
         </span>
       </div>
     </div>
+
+    {activeDim && (
+      <DimensionDetailModal
+        dim={activeDim}
+        userAnswers={userAnswers}
+        partyPositions={partyPositions}
+        partyName={partyName}
+        partyColor={partyColor}
+        mode={mode}
+        questions={questions}
+        onClose={() => setActiveDim(null)}
+      />
+    )}
+    </>
   )
 }
