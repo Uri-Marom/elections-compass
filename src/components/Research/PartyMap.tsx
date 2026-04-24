@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import {
-  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid,
-  ResponsiveContainer, Cell, LabelList,
+  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, ResponsiveContainer,
 } from 'recharts'
 import type { PartyPoint } from '../../utils/research'
 import type { Party } from '../../types'
@@ -20,6 +19,28 @@ interface ChartEntry {
   party_id: string
   color: string
   name: string
+}
+
+// Custom dot: colored circle + party name label above
+function PartyDot(props: Record<string, unknown>) {
+  const { cx, cy, payload } = props as { cx: number; cy: number; payload: ChartEntry }
+  if (cx == null || cy == null) return null
+  return (
+    <g>
+      <circle cx={cx} cy={cy} r={9} fill={payload.color} opacity={0.92} />
+      <text
+        x={cx}
+        y={cy - 13}
+        textAnchor="middle"
+        fontSize={9}
+        fontWeight={700}
+        fill="#1f2937"
+        style={{ pointerEvents: 'none' }}
+      >
+        {payload.name}
+      </text>
+    </g>
+  )
 }
 
 export function PartyMap({ points, parties, mode, onModeChange, lang }: Props) {
@@ -56,16 +77,16 @@ export function PartyMap({ points, parties, mode, onModeChange, lang }: Props) {
         ))}
       </div>
 
-      <p className="text-xs text-gray-400 mb-4 leading-relaxed">{t('similarity_subtitle')}</p>
+      <p className="text-xs text-gray-400 mb-3 leading-relaxed">{t('similarity_subtitle')}</p>
 
-      <div className="w-full" style={{ height: 340 }}>
+      <div className="w-full" style={{ height: 360 }}>
         <ResponsiveContainer width="100%" height="100%">
-          <ScatterChart margin={{ top: 20, right: 24, bottom: 20, left: 0 }}>
+          <ScatterChart margin={{ top: 28, right: 28, bottom: 8, left: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis
               type="number"
               dataKey="x"
-              domain={[-1.1, 1.1]}
+              domain={[-1.15, 1.15]}
               tick={false}
               axisLine={{ stroke: '#e5e7eb' }}
               tickLine={false}
@@ -73,34 +94,19 @@ export function PartyMap({ points, parties, mode, onModeChange, lang }: Props) {
             <YAxis
               type="number"
               dataKey="y"
-              domain={[-1.1, 1.1]}
+              domain={[-1.15, 1.15]}
               tick={false}
               axisLine={{ stroke: '#e5e7eb' }}
               tickLine={false}
               width={8}
             />
-            <Scatter data={data} isAnimationActive={false}>
-              {data.map(entry => (
-                <Cell key={entry.party_id} fill={entry.color} />
-              ))}
-              <LabelList
-                dataKey="name"
-                position="top"
-                style={{ fontSize: '10px', fontWeight: 600, fill: '#374151' }}
-              />
-            </Scatter>
+            <Scatter
+              data={data}
+              isAnimationActive={false}
+              shape={<PartyDot cx={0} cy={0} payload={data[0]} />}
+            />
           </ScatterChart>
         </ResponsiveContainer>
-      </div>
-
-      {/* Legend */}
-      <div className="mt-3 flex flex-wrap gap-2">
-        {data.map(entry => (
-          <span key={entry.party_id} className="flex items-center gap-1.5 text-xs text-gray-600">
-            <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: entry.color }} />
-            {entry.name}
-          </span>
-        ))}
       </div>
     </div>
   )

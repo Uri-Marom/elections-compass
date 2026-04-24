@@ -25,15 +25,16 @@ export function computeHypocrisy(
     }
 
     const coverage = gaps.length / TOTAL_QUESTIONS
+    // consistency: 100 = platform fully matches votes, 0 = maximum divergence
     const score = gaps.length > 0
-      ? (gaps.reduce((s, g) => s + g.gap, 0) / gaps.length / 4) * 100
+      ? 100 - (gaps.reduce((s, g) => s + g.gap, 0) / gaps.length / 4) * 100
       : 0
 
     const topGaps = [...gaps].sort((a, b) => b.gap - a.gap).slice(0, 5)
     results.push({ party_id, score, coverage, topGaps })
   }
 
-  // Parties with voted data first (sorted desc), then parties without
+  // Parties with voted data first (sorted desc by consistency), then parties without
   return results.sort((a, b) => {
     if (a.coverage === 0 && b.coverage === 0) return 0
     if (a.coverage === 0) return 1
