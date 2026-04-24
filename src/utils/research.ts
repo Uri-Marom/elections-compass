@@ -145,8 +145,9 @@ export function computePartyPCA(
   const overlap = dot(v2, v1)
   v2 = normalize(addVec(v2, scaleVec(v1, -overlap)))
 
-  // Project each party row onto v1 and v2
-  const coords = Xc.map(row => ({ x: dot(row, v1), y: dot(row, v2) }))
+  // v1 and v2 are eigenvectors of G = Xc Xc^T (n×n, party space).
+  // Their components are the PCA coordinates directly — no projection needed.
+  const coords = partyIds.map((_, i) => ({ x: v1[i], y: v2[i] }))
 
   // Normalize to [-1, 1]
   const xs = coords.map(c => c.x)
