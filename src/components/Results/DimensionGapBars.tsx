@@ -56,14 +56,16 @@ export function DimensionGapBars({ userAnswers, partyPositions, partyColor, part
             ? pos.stated_position?.score
             : (pos.voted_position?.score ?? pos.stated_position?.score)
           if (partyScore === null || partyScore === undefined) return []
-          return [{ user: userScore, party: partyScore }]
+          const polarity = questions.find(q => q.id === qid)?.polarity ?? 1
+          return [{ user: userScore, party: partyScore, polarity }]
         })
 
-        const userAvg = paired.length > 0 ? dimAvg(paired.map(p => p.user)) : null
-        const partyAvg = paired.length > 0 ? dimAvg(paired.map(p => p.party)) : null
+        // Polarity-adjusted averages so the dot positions reflect a consistent axis per dimension
+        const userAvg = paired.length > 0 ? dimAvg(paired.map(p => p.user * p.polarity)) : null
+        const partyAvg = paired.length > 0 ? dimAvg(paired.map(p => p.party * p.polarity)) : null
         const userPct = userAvg !== null ? toPct(userAvg) : null
         const partyPct = partyAvg !== null ? toPct(partyAvg) : null
-        // avg of per-question absolute differences — prevents positive/negative gaps from cancelling
+        // avg of per-question absolute differences — polarity doesn't affect absolute diff
         const gap = paired.length > 0
           ? paired.reduce((sum, p) => sum + Math.abs(p.user - p.party), 0) / paired.length
           : null

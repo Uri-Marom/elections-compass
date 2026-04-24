@@ -55,8 +55,12 @@ function computeUserDimScores(answers: Record<string, number | null>): Record<Di
   const result = {} as Record<DimensionKey, number>
   for (const dim of Object.keys(DIMENSIONS) as DimensionKey[]) {
     const vals = (DIMENSIONS[dim].questions as readonly string[])
-      .map(qid => answers[qid])
-      .filter((v): v is number => v !== null && v !== undefined)
+      .flatMap(qid => {
+        const v = answers[qid]
+        if (v === null || v === undefined) return []
+        const polarity = questions.find(q => q.id === qid)?.polarity ?? 1
+        return [v * polarity]
+      })
     result[dim] = vals.length > 0
       ? toRadarPct(vals.reduce((a, b) => a + b, 0) / vals.length)
       : 50
@@ -77,7 +81,10 @@ function computePartyDimScores(
       const s = mode === 'stated'
         ? pos.stated_position?.score
         : (pos.voted_position?.score ?? pos.stated_position?.score)
-      if (s !== null && s !== undefined) vals.push(s)
+      if (s !== null && s !== undefined) {
+        const polarity = questions.find(q => q.id === qid)?.polarity ?? 1
+        vals.push(s * polarity)
+      }
     }
     result[dim] = vals.length > 0
       ? toRadarPct(vals.reduce((a, b) => a + b, 0) / vals.length)

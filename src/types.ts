@@ -5,6 +5,8 @@ export interface Question {
   dimension: DimensionKey
   text_en: string
   text_he: string
+  // 1 = positive score aligns with dimension's canonical direction; -1 = needs flipping for display
+  polarity: 1 | -1
 }
 
 export interface Party {
