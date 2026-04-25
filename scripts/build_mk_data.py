@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Builds per-MK position data from Knesset shadow votes (Knessets 22–24).
+Builds per-MK position data from Knesset shadow votes (Knessets 22–25).
+Only Knesset 25 members are included in the output.
 
 Only questions with actual vote_ids in vote_mappings.json are scored —
 currently q01, q06, q08, q13, q15, q16, q26, q28 (spanning 5 dimensions).
@@ -27,7 +28,8 @@ MAPPINGS_FILE  = ROOT / "src" / "data" / "vote_mappings.json"
 MKS_FILE       = ROOT / "src" / "data" / "mks.json"
 POSITIONS_FILE = ROOT / "src" / "data" / "mk_positions.json"
 
-SHADOW_CSV_URL   = "https://production.oknesset.org/pipelines/data/votes/vote_rslts_kmmbr_shadow/vote_rslts_kmmbr_shadow.csv"
+SHADOW_CSV_URL    = "https://production.oknesset.org/pipelines/data/votes/vote_rslts_kmmbr_shadow/vote_rslts_kmmbr_shadow.csv"
+PLENARY_RESULT_URL = "https://production.oknesset.org/pipelines/data/knesset/kns_plenumvoteresult/kns_plenumvoteresult.csv"
 MK_INDIVIDUAL_URL = "https://production.oknesset.org/pipelines/data/members/mk_individual/mk_individual.csv"
 MK_FACTIONS_URL   = "https://production.oknesset.org/pipelines/data/members/mk_individual/mk_individual_factions.csv"
 
@@ -102,23 +104,86 @@ def fetch_csv(url: str, label: str) -> list[dict]:
     return rows
 
 
+# kns_plenumvoteresult.csv result codes and Hebrew descriptions
+_PLENARY_FOR     = {"1", "בעד"}
+_PLENARY_AGAINST = {"2", "נגד"}
+_PLENARY_ABSTAIN = {"3", "נמנע"}
+
+def fetch_plenary_vote_results(k25_vote_ids: set[str]) -> list[dict]:
+    """
+    Downloads the full plenary vote results CSV (~200 MB) and returns only rows
+    for the given K25 vote IDs, normalised to the same field names as the shadow CSV:
+      kmmbr_id, vote_id, vote_result (1/2/3), knesset_num=25, faction_name="".
+    """
+    if not k25_vote_ids:
+        return []
+    print(f"Downloading K25 plenary vote results (~200 MB, filtering to {len(k25_vote_ids)} vote IDs)...", flush=True)
+    with urllib.request.urlopen(PLENARY_RESULT_URL, timeout=300) as r:
+        content = r.read().decode("utf-8", errors="replace")
+    matched: list[dict] = []
+    for row in csv.DictReader(io.StringIO(content)):
+        vid = row.get("VoteID", "").strip()
+        if vid not in k25_vote_ids:
+            continue
+        code = row.get("ResultCode", "").strip()
+        desc = row.get("ResultDesc", "").strip()
+        if code in _PLENARY_FOR or desc in _PLENARY_FOR:
+            result = "1"
+        elif code in _PLENARY_AGAINST or desc in _PLENARY_AGAINST:
+            result = "2"
+        elif code in _PLENARY_ABSTAIN or desc in _PLENARY_ABSTAIN:
+            result = "3"
+        else:
+            continue  # absent / not voted — skip
+        # Normalise MkId to the same zero-padded 9-digit format as shadow CSV kmmbr_id
+        mk_id_raw = row.get("MkId", "").strip()
+        try:
+            mk_id = str(int(mk_id_raw)).zfill(9)
+        except ValueError:
+            mk_id = mk_id_raw
+        matched.append({
+            "kmmbr_id":    mk_id,
+            "vote_id":     vid,
+            "vote_result": result,
+            "knesset_num": "25",
+            "faction_name": "",
+        })
+    print(f"  Matched {len(matched):,} vote records for {len(k25_vote_ids)} K25 vote IDs.", flush=True)
+    return matched
+
+
 # ---------------------------------------------------------------------------
 # Parsing
 # ---------------------------------------------------------------------------
 
-def load_vote_ids(mappings: dict) -> dict[str, list[tuple[int, str]]]:
-    """Returns {question_id: [(vote_id, direction), ...]} for questions with actual votes."""
+def load_vote_ids(mappings: dict) -> tuple[dict[str, list[tuple[int, str]]], set[str]]:
+    """
+    Returns:
+      vote_ids_by_question: {question_id: [(vote_id, direction), ...]}
+        — prefers K25 vote IDs when available; falls back to older knessets if not.
+      k25_only_vote_ids: set of vote_id strings that are K25-only
+        — these are not in the shadow CSV and must be fetched from the plenary results.
+    """
     result = {}
+    k25_only: set[str] = set()
     for qid, mapping in mappings.items():
         if qid.startswith("_"):
             continue
-        votes = [(v["vote_id"], v["direction"]) for v in mapping.get("votes", [])]
-        if votes:
-            result[qid] = votes
-    return result
+        all_votes = [(v["vote_id"], v["direction"], v.get("knesset", 0)) for v in mapping.get("votes", [])]
+        if not all_votes:
+            continue
+        k25 = [(vid, direction, kn) for vid, direction, kn in all_votes if kn == 25]
+        older = [(vid, direction, kn) for vid, direction, kn in all_votes if kn != 25]
+        if k25:
+            result[qid] = [(vid, direction) for vid, direction, _ in k25]
+            for vid, _, _ in k25:
+                k25_only.add(str(vid))
+        else:
+            result[qid] = [(vid, direction) for vid, direction, _ in older]
+    return result, k25_only
 
 
-ATTENDANCE_KNESSETS = {22, 23, 24}  # knessets covered by the shadow CSV
+ATTENDANCE_KNESSETS = {22, 23, 24, 25}  # knessets covered by the shadow CSV
 
 def build_mk_vote_scores(
     shadow_rows: list[dict],
@@ -213,7 +278,7 @@ def build_mk_vote_scores(
         if total_possible > 0:
             mk_attendance[mk_id] = round(mk_participated / total_possible, 4)
 
-    print(f"  Total unique votes in knessets 22-24: "
+    print(f"  Total unique votes in knessets 22-25: "
           f"{sum(len(v) for v in total_votes_per_knesset.values()):,}", flush=True)
 
     return mk_scores, mk_names, mk_knessets, mk_latest_faction, mk_attendance
@@ -305,6 +370,70 @@ def compute_activity_grades(
     return results
 
 
+def get_k25_member_ids(factions_rows: list[dict], individual_rows: list[dict]) -> set[str]:
+    """
+    Returns PersonID values (and zero-padded forms) for Knesset 25 members.
+
+    The factions CSV uses mk_individual_id as its key; the shadow CSV uses kmmbr_id
+    which corresponds to PersonID in mk_individual.csv. We bridge them here.
+    """
+    # Build mk_individual_id → PersonID mapping from the individual CSV
+    mid_to_pid: dict[str, str] = {}
+    for row in individual_rows:
+        mid = row.get("mk_individual_id", "").strip()
+        pid = row.get("PersonID", "").strip()
+        if mid and pid:
+            mid_to_pid[mid] = pid
+
+    ids: set[str] = set()
+    for row in factions_rows:
+        if str(row.get("knesset", "")).strip() == "25":
+            mk_id = row.get("mk_individual_id", "").strip()
+            if mk_id:
+                person_id = mid_to_pid.get(mk_id, mk_id)
+                ids.add(person_id)
+                try:
+                    ids.add(str(int(person_id)).zfill(9))
+                except ValueError:
+                    pass
+    return ids
+
+
+def build_k25_faction_map(factions_rows: list[dict], individual_rows: list[dict]) -> dict[str, str]:
+    """
+    Returns {zero_padded_mk_id: faction_name} for K25 members, using the most recent
+    faction entry in Knesset 25. Used as fallback for MKs not in the shadow CSV.
+    """
+    mid_to_pid: dict[str, str] = {}
+    for row in individual_rows:
+        mid = row.get("mk_individual_id", "").strip()
+        pid = row.get("PersonID", "").strip()
+        if mid and pid:
+            mid_to_pid[mid] = pid
+
+    # Keep the last-seen faction per MK (factions CSV rows may have multiple entries if MK
+    # switched factions mid-knesset; we want the most recent finish_date or still active)
+    result: dict[str, str] = {}
+    for row in factions_rows:
+        if str(row.get("knesset", "")).strip() != "25":
+            continue
+        mk_id = row.get("mk_individual_id", "").strip()
+        faction_name = row.get("faction_name", "").strip()
+        if not mk_id or not faction_name:
+            continue
+        person_id = mid_to_pid.get(mk_id, mk_id)
+        try:
+            padded = str(int(person_id)).zfill(9)
+        except ValueError:
+            padded = person_id
+        # Prefer active faction (no finish_date) over finished ones
+        finish = row.get("finish_date", "").strip()
+        existing = result.get(padded)
+        if existing is None or not finish:  # overwrite with active faction
+            result[padded] = faction_name
+    return result
+
+
 def build_mk_name_lookup(individual_rows: list[dict]) -> dict[str, tuple[str, str, bool]]:
     """
     Returns {person_id: (name_he, name_en, is_current)} from the individual CSV.
@@ -375,18 +504,33 @@ def main():
     with open(MAPPINGS_FILE) as f:
         mappings = json.load(f)
 
-    vote_ids_by_question = load_vote_ids(mappings)
-    print(f"\nQuestions with shadow-CSV vote data: {sorted(vote_ids_by_question.keys())}")
+    vote_ids_by_question, k25_only_vote_ids = load_vote_ids(mappings)
+    print(f"\nQuestions with vote data: {sorted(vote_ids_by_question.keys())}")
     all_vote_ids = {str(vid) for vids in vote_ids_by_question.values() for vid, _ in vids}
-    print(f"Total distinct vote_ids to scan: {len(all_vote_ids)}\n")
+    print(f"Total distinct vote_ids to scan: {len(all_vote_ids)}")
+    print(f"K25-only vote IDs (from plenary results): {k25_only_vote_ids}\n")
 
     shadow_rows     = fetch_csv(SHADOW_CSV_URL,    "shadow votes CSV")
     individual_rows = fetch_csv(MK_INDIVIDUAL_URL, "MK individual CSV")
+    factions_rows   = fetch_csv(MK_FACTIONS_URL,   "MK factions CSV")
 
-    print("\nScoring MKs + computing attendance (single pass over shadow CSV)...")
+    # K25-specific votes aren't in the shadow CSV — fetch them from the full plenary results
+    plenary_rows = fetch_plenary_vote_results(k25_only_vote_ids)
+    combined_rows = shadow_rows + plenary_rows
+
+    k25_member_ids = get_k25_member_ids(factions_rows, individual_rows)
+    k25_faction_map = build_k25_faction_map(factions_rows, individual_rows)
+    print(f"\nKnesset 25 members found in factions CSV: {len(k25_member_ids) // 2} unique MKs")
+
+    print("\nScoring MKs + computing attendance (single pass over combined vote rows)...")
     mk_scores, mk_names_shadow, mk_knessets, mk_latest_faction, mk_attendance = build_mk_vote_scores(
-        shadow_rows, vote_ids_by_question
+        combined_rows, vote_ids_by_question
     )
+
+    # Fill in faction data for K25 MKs not seen in the shadow CSV (brand-new members)
+    for mk_id, faction_name in k25_faction_map.items():
+        if mk_id not in mk_latest_faction:
+            mk_latest_faction[mk_id] = (faction_name, 25)
     print(f"  {len(mk_scores):,} MKs with at least 1 scored question before filtering.")
     mk_scores_filtered = {
         mk_id: scores
@@ -394,6 +538,13 @@ def main():
         if len(scores) >= MIN_QUESTIONS
     }
     print(f"  {len(mk_scores_filtered):,} MKs with ≥{MIN_QUESTIONS} scored questions.")
+
+    mk_scores_filtered = {
+        mk_id: scores
+        for mk_id, scores in mk_scores_filtered.items()
+        if mk_id in k25_member_ids
+    }
+    print(f"  {len(mk_scores_filtered):,} MKs after filtering to Knesset 25 members only.")
 
     print("\nLoading MK name data...")
     name_lookup = build_mk_name_lookup(individual_rows)

@@ -11,7 +11,9 @@
 
   "q02": {
     "description": "Support Palestinian state",
-    "votes": [],
+    "votes": [
+      { "vote_id": 41319, "knesset": 25, "direction": "against_means_agree", "note": "K25 Jul 18 2024 — resolution AGAINST recognizing Palestinian state (68-9); voting AGAINST this resolution = supports Palestinian state = agrees with q02" }
+    ],
     "manual_k25": {
       "note": "Knesset vote July 18, 2024 — 68-9 resolution AGAINST recognizing Palestinian state. Voting FOR this resolution = AGAINST q02.",
       "direction": "against_means_agree",
@@ -102,7 +104,7 @@
     "description": "Haredi men must serve in military/national service",
     "votes": [],
     "manual_k25": {
-      "note": "Knesset vote June 11, 2024 — 63-57 to advance Haredi conscription bill. FOR = agrees with q07. Yesh Atid, National Unity, Yisrael Beitenu voted FOR. Shas, UTJ voted AGAINST. Likud mixed/mostly against. Otzma split.",
+      "note": "Knesset vote June 11, 2024 — 63-57 to advance Haredi conscription bill. FOR = agrees with q07. Yesh Atid, National Unity, Yisrael Beitenu voted FOR. Shas, UTJ voted AGAINST. Likud mixed/mostly against. Otzma split. (No clean single vote ID found in shadow CSV for individual MK scoring.)",
       "party_scores": {
         "likud":           { "score": -0.5, "voted": "mostly_against" },
         "shas":            { "score": -2.0, "voted": "against" },
@@ -121,8 +123,9 @@
   "q08": {
     "description": "Allow civil marriage",
     "votes": [
-      { "vote_id": 33810, "knesset": 23, "direction": "for_means_agree", "note": "Civil marriage bill vote" },
-      { "vote_id": 33347, "knesset": 23, "direction": "for_means_agree", "note": "Civil marriage abroad reimbursement" }
+      { "vote_id": 44959, "knesset": 25, "direction": "for_means_agree", "note": "K25 Dec 24 2025 — civil marriage bill" },
+      { "vote_id": 33810, "knesset": 23, "direction": "for_means_agree", "note": "K23 civil marriage bill vote" },
+      { "vote_id": 33347, "knesset": 23, "direction": "for_means_agree", "note": "K23 civil marriage abroad reimbursement" }
     ],
     "manual_k25": null
   },
@@ -169,7 +172,9 @@
 
   "q11": {
     "description": "Fund yeshiva students same as university students",
-    "votes": [],
+    "votes": [
+      { "vote_id": 38739, "knesset": 25, "direction": "for_means_agree", "note": "K25 May 23 2023 — 2023 state budget (final reading); coalition included record yeshiva funding; FOR = supports yeshiva funding = agrees with q11" }
+    ],
     "manual_k25": {
       "note": "25th Knesset budget 2023: coalition included record yeshiva funding increases. Coalition voted FOR, opposition AGAINST budget containing this provision.",
       "party_scores": {
@@ -273,7 +278,9 @@
 
   "q18": {
     "description": "Knesset can override Supreme Court with simple majority",
-    "votes": [],
+    "votes": [
+      { "vote_id": 38390, "knesset": 25, "direction": "for_means_agree", "note": "K25 Mar 13 2023 — judicial review override clause first reading (61-52); FOR = supports override = agrees with q18" }
+    ],
     "manual_k25": {
       "note": "Judicial reform: Override clause first reading March 13, 2023 — 61-52 FOR. Coalition FOR, opposition AGAINST.",
       "party_scores": {
@@ -333,7 +340,9 @@
 
   "q21": {
     "description": "Courts can strike down unreasonable government decisions",
-    "votes": [],
+    "votes": [
+      { "vote_id": 39785, "knesset": 25, "direction": "against_means_agree", "note": "K25 Jul 24 2023 — Basic Law abolishing reasonableness standard (64-0, opposition boycotted); voting AGAINST abolition = supports reasonableness = agrees with q21" }
+    ],
     "manual_k25": {
       "note": "Reasonableness Standard Abolition — Basic Law amendment July 24, 2023 — 64-0 (opposition boycotted). Coalition voted FOR abolition = AGAINST q21. Opposition boycott treated as neutral/abstain (0).",
       "party_scores": {
@@ -434,15 +443,18 @@
   "q26": {
     "description": "Nation-State Law is correct and non-discriminatory",
     "votes": [
-      { "vote_id": 33063, "knesset": 23, "direction": "against_means_agree", "note": "Vote on repealing Nation-State Law — against repeal = agrees law is correct" },
-      { "vote_id": 33064, "knesset": 23, "direction": "against_means_agree", "note": "Vote on repealing Nation-State Law (second reading)" }
+      { "vote_id": 42379, "knesset": 25, "direction": "against_means_agree", "note": "K25 Dec 18 2024 — repeal Nation-State Law bill; voting AGAINST repeal = agrees law is correct = agrees with q26" },
+      { "vote_id": 33063, "knesset": 23, "direction": "against_means_agree", "note": "K23 vote on repealing Nation-State Law — against repeal = agrees law is correct" },
+      { "vote_id": 33064, "knesset": 23, "direction": "against_means_agree", "note": "K23 vote on repealing Nation-State Law (second reading)" }
     ],
     "manual_k25": null
   },
 
   "q27": {
     "description": "PM under indictment should suspend duties",
-    "votes": [],
+    "votes": [
+      { "vote_id": 38567, "knesset": 25, "direction": "against_means_agree", "note": "K25 Mar 23 2023 — PM incapacitation law making it harder to remove PM (61-47); voting AGAINST = agrees PM under indictment should step down = agrees with q27" }
+    ],
     "manual_k25": {
       "note": "PM incapacitation law March 23, 2023 — 61-47 FOR making it harder to remove PM (protecting Netanyahu). Coalition FOR this law = AGAINST q27. Opposition AGAINST this law = FOR q27.",
       "party_scores": {
@@ -463,8 +475,9 @@
   "q28": {
     "description": "PM term limits",
     "votes": [
-      { "vote_id": 32926, "knesset": 23, "direction": "for_means_agree", "note": "Basic Law: Government amendment — PM term limits" },
-      { "vote_id": 32927, "knesset": 23, "direction": "for_means_agree", "note": "PM term limits bill (second reading)" }
+      { "vote_id": 45066, "knesset": 25, "direction": "for_means_agree", "note": "K25 Jan 14 2026 — PM term limits bill; FOR = supports term limits = agrees with q28" },
+      { "vote_id": 32926, "knesset": 23, "direction": "for_means_agree", "note": "K23 Basic Law: Government amendment — PM term limits" },
+      { "vote_id": 32927, "knesset": 23, "direction": "for_means_agree", "note": "K23 PM term limits bill (second reading)" }
     ],
     "manual_k25": null
   },

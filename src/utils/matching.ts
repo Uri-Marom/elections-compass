@@ -154,7 +154,7 @@ export function rankMKs(
   return Object.entries(allMKPositions)
     .map(([mkId, scores]) => computeMKMatch(userAnswers, scores, weights, mkId))
     .filter(m => m.question_count >= minQuestions)
-    .sort((a, b) => b.overall - a.overall)
+    .sort((a, b) => b.overall - a.overall || b.question_count - a.question_count)
 }
 
 export function rankParties(
