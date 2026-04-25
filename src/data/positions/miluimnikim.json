@@ -87,38 +87,10 @@
       }
     },
     {
-      "question_id": "q13",
-      "stated_position": {
-        "score": 1,
-        "source": "Center position; supports adequate public healthcare"
-      }
-    },
-    {
-      "question_id": "q14",
-      "stated_position": {
-        "score": 1,
-        "source": "Supports public housing programs"
-      }
-    },
-    {
-      "question_id": "q15",
-      "stated_position": {
-        "score": 1,
-        "source": "Supports moderate minimum wage increases"
-      }
-    },
-    {
       "question_id": "q16",
       "stated_position": {
         "score": 0,
         "source": "Neutral on privatization"
-      }
-    },
-    {
-      "question_id": "q17",
-      "stated_position": {
-        "score": 1,
-        "source": "Supports market competition as cost-of-living solution"
       }
     },
     {
@@ -203,13 +175,6 @@
       "stated_position": {
         "score": 1,
         "source": "Mid-sized party; would benefit from higher threshold eliminating smaller fringe parties"
-      }
-    },
-    {
-      "question_id": "q30",
-      "stated_position": {
-        "score": 1,
-        "source": "Supports campaign finance limits"
       }
     },
     {

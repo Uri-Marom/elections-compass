@@ -140,51 +140,11 @@
       "divergence_flag": false
     },
     {
-      "question_id": "q13",
-      "stated_position": {
-        "score": 2,
-        "source": "Healthcare for Arab communities"
-      }
-    },
-    {
-      "question_id": "q14",
-      "stated_position": {
-        "score": 2,
-        "source": "Housing crisis in Arab sector"
-      },
-      "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
-      "divergence_flag": false
-    },
-    {
-      "question_id": "q15",
-      "stated_position": {
-        "score": 2,
-        "source": "Working-class Arab constituency"
-      }
-    },
-    {
       "question_id": "q16",
       "stated_position": {
         "score": 1,
         "source": "State services"
       }
-    },
-    {
-      "question_id": "q17",
-      "stated_position": {
-        "score": 0,
-        "source": "Not a strong position"
-      },
-      "voted_position": {
-        "score": -0.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
-      "divergence_flag": false
     },
     {
       "question_id": "q18",
@@ -325,19 +285,6 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
-      "divergence_flag": false
-    },
-    {
-      "question_id": "q30",
-      "stated_position": {
-        "score": 1,
-        "source": "Supports campaign finance limits"
-      },
-      "voted_position": {
-        "score": 1.0,
         "last_updated": "2026-04-24",
         "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },

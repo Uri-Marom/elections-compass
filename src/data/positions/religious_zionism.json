@@ -158,33 +158,6 @@
       "divergence_flag": false
     },
     {
-      "question_id": "q13",
-      "stated_position": {
-        "score": 0,
-        "source": "Smotrich as Finance Minister focused on budget cuts; not a social spending priority"
-      }
-    },
-    {
-      "question_id": "q14",
-      "stated_position": {
-        "score": 1,
-        "source": "Settlement housing expansion was key Smotrich Finance Ministry priority"
-      },
-      "voted_position": {
-        "score": -0.5,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
-      },
-      "divergence_flag": true
-    },
-    {
-      "question_id": "q15",
-      "stated_position": {
-        "score": -1,
-        "source": "Smotrich as Finance Minister resisted minimum wage increases"
-      }
-    },
-    {
       "question_id": "q16",
       "stated_position": {
         "score": -1,
@@ -196,19 +169,6 @@
         "source": "25th Knesset — voted against port privatization bill (opposition bill)"
       },
       "divergence_flag": true
-    },
-    {
-      "question_id": "q17",
-      "stated_position": {
-        "score": 1,
-        "source": "Market competition as economic driver"
-      },
-      "voted_position": {
-        "score": 0.5,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
-      },
-      "divergence_flag": false
     },
     {
       "question_id": "q18",
@@ -361,19 +321,6 @@
       },
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
-      },
-      "divergence_flag": false
-    },
-    {
-      "question_id": "q30",
-      "stated_position": {
-        "score": 0,
-        "source": "Neutral"
-      },
-      "voted_position": {
-        "score": -0.5,
         "last_updated": "2026-04-24",
         "source": "25th Knesset coalition votes"
       },

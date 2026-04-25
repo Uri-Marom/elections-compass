@@ -158,63 +158,11 @@
       "divergence_flag": false
     },
     {
-      "question_id": "q13",
-      "stated_position": {
-        "score": 2,
-        "source": "Social democratic healthcare platform"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
-      "divergence_flag": false
-    },
-    {
-      "question_id": "q14",
-      "stated_position": {
-        "score": 2,
-        "source": "Public housing is core platform"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
-      "divergence_flag": false
-    },
-    {
-      "question_id": "q15",
-      "stated_position": {
-        "score": 2,
-        "source": "Significant minimum wage increase"
-      },
-      "voted_position": {
-        "score": 1.2,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
-      "divergence_flag": false
-    },
-    {
       "question_id": "q16",
       "stated_position": {
         "score": 2,
         "source": "Opposes privatization of state assets"
       }
-    },
-    {
-      "question_id": "q17",
-      "stated_position": {
-        "score": 0,
-        "source": "Mixed — supports both competition and subsidies"
-      },
-      "voted_position": {
-        "score": -0.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
-      "divergence_flag": false
     },
     {
       "question_id": "q18",
@@ -367,19 +315,6 @@
       },
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
-      "divergence_flag": false
-    },
-    {
-      "question_id": "q30",
-      "stated_position": {
-        "score": 2,
-        "source": "Strong campaign finance reform"
-      },
-      "voted_position": {
-        "score": 2.0,
         "last_updated": "2026-04-24",
         "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },

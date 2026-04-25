@@ -87,38 +87,10 @@
       }
     },
     {
-      "question_id": "q13",
-      "stated_position": {
-        "score": 1,
-        "source": "Center-right on healthcare; moderate spending increases"
-      }
-    },
-    {
-      "question_id": "q14",
-      "stated_position": {
-        "score": 1,
-        "source": "Supported housing programs as PM; worked with Interior Ministry on approvals"
-      }
-    },
-    {
-      "question_id": "q15",
-      "stated_position": {
-        "score": 0,
-        "source": "Pragmatic — not a strong position either way"
-      }
-    },
-    {
       "question_id": "q16",
       "stated_position": {
         "score": 0,
         "source": "Mixed record; pragmatic rather than ideological on state ownership"
-      }
-    },
-    {
-      "question_id": "q17",
-      "stated_position": {
-        "score": 1,
-        "source": "Tech-sector background; supports market competition as cost-of-living driver"
       }
     },
     {
@@ -203,13 +175,6 @@
       "stated_position": {
         "score": 0,
         "source": "Neutral — new party unconstrained by threshold history"
-      }
-    },
-    {
-      "question_id": "q30",
-      "stated_position": {
-        "score": 1,
-        "source": "Supports campaign finance transparency and limits"
       }
     },
     {

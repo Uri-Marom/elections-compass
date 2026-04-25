@@ -159,45 +159,6 @@
       "divergence_flag": false
     },
     {
-      "question_id": "q13",
-      "stated_position": {
-        "score": 1,
-        "source": "Center-right on healthcare; moderate spending"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset — voted against opposition healthcare bills (opposition dynamic)"
-      },
-      "divergence_flag": true
-    },
-    {
-      "question_id": "q14",
-      "stated_position": {
-        "score": 1,
-        "source": "Supports housing programs"
-      },
-      "voted_position": {
-        "score": 0.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
-    },
-    {
-      "question_id": "q15",
-      "stated_position": {
-        "score": 1,
-        "source": "Supports moderate minimum wage increases"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset — voted against opposition minimum wage bills"
-      },
-      "divergence_flag": true
-    },
-    {
       "question_id": "q16",
       "stated_position": {
         "score": 0,
@@ -209,19 +170,6 @@
         "source": "Voted as National Unity MKs in 25th Knesset — voted against port privatization (opposition bill)"
       },
       "divergence_flag": true
-    },
-    {
-      "question_id": "q17",
-      "stated_position": {
-        "score": 1,
-        "source": "Market competition as cost-of-living solution"
-      },
-      "voted_position": {
-        "score": 1.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
     },
     {
       "question_id": "q18",
@@ -371,19 +319,6 @@
       "stated_position": {
         "score": 0,
         "source": "Neutral"
-      },
-      "voted_position": {
-        "score": 0.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
-    },
-    {
-      "question_id": "q30",
-      "stated_position": {
-        "score": 1,
-        "source": "Supports campaign finance limits"
       },
       "voted_position": {
         "score": 0.5,

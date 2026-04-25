@@ -84,39 +84,11 @@
     "text_he": "הממשלה צריכה לאכוף תקני כשרות במוסדות הממומנים על ידי המדינה."
   },
   {
-    "id": "q13",
-    "dimension": "socioeconomic",
-    "polarity": 1,
-    "text_en": "The government should significantly increase public funding for healthcare, even if it requires raising taxes.",
-    "text_he": "הממשלה צריכה להגדיל משמעותית את המימון הציבורי לבריאות, גם אם הדבר מחייב העלאת מסים."
-  },
-  {
-    "id": "q14",
-    "dimension": "socioeconomic",
-    "polarity": 1,
-    "text_en": "The government should directly build public housing units to address the housing crisis.",
-    "text_he": "הממשלה צריכה לבנות ישירות יחידות דיור ציבוריות לפתרון משבר הדיור."
-  },
-  {
-    "id": "q15",
-    "dimension": "socioeconomic",
-    "polarity": 1,
-    "text_en": "The minimum wage should be raised significantly above its current level.",
-    "text_he": "שכר המינימום צריך לעלות משמעותית מעל רמתו הנוכחית."
-  },
-  {
     "id": "q16",
     "dimension": "socioeconomic",
     "polarity": 1,
     "text_en": "Strategic state-owned companies (electricity, water, ports) should remain in public ownership rather than being privatized.",
     "text_he": "חברות ממשלתיות אסטרטגיות (חשמל, מים, נמלים) צריכות להישאר בבעלות ציבורית ולא להיות מופרטות."
-  },
-  {
-    "id": "q17",
-    "dimension": "socioeconomic",
-    "polarity": -1,
-    "text_en": "Reducing monopolies and increasing market competition is more effective at lowering prices than direct government subsidies.",
-    "text_he": "הפחתת מונופולים והגברת התחרות בשוק יעילים יותר להוזלת מחירים מאשר סובסידיות ממשלתיות ישירות."
   },
   {
     "id": "q18",
@@ -201,13 +173,6 @@
     "polarity": 1,
     "text_en": "The electoral threshold for entering the Knesset should be raised above 3.25% to reduce political fragmentation.",
     "text_he": "אחוז החסימה לכניסה לכנסת צריך להיות מוגבה מעל 3.25% כדי להפחית פיצול פוליטי."
-  },
-  {
-    "id": "q30",
-    "dimension": "governance",
-    "polarity": 1,
-    "text_en": "Strict limits on private donations to political parties are necessary to reduce the influence of money in Israeli politics.",
-    "text_he": "מגבלות קפדניות על תרומות פרטיות למפלגות פוליטיות נחוצות כדי להפחית את השפעת הכסף בפוליטיקה הישראלית."
   },
   {
     "id": "q31",
