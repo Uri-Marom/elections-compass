@@ -3,6 +3,14 @@ import { useTranslation } from 'react-i18next'
 import { useSurveyStore } from '../../store/survey'
 import type { MKMatch, KnessetMember, Party } from '../../types'
 
+const GRADE_COLORS: Record<string, string> = {
+  A: 'bg-green-50 text-green-700 border-green-200',
+  B: 'bg-blue-50 text-blue-700 border-blue-200',
+  C: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+  D: 'bg-orange-50 text-orange-700 border-orange-200',
+  F: 'bg-red-50 text-red-700 border-red-200',
+}
+
 interface Props {
   topMKs: MKMatch[]
   mks: KnessetMember[]
@@ -47,6 +55,14 @@ export function MKMatchList({ topMKs, mks, parties }: Props) {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-sm font-medium text-gray-900 truncate">{name}</span>
+                    {mk.activity_grade && (
+                      <span
+                        className={`text-xs px-1.5 py-0.5 rounded-full border font-semibold shrink-0 ${GRADE_COLORS[mk.activity_grade] ?? ''}`}
+                        title={`${mk.attendance_pct}% attendance · ${mk.bill_count} bills`}
+                      >
+                        {mk.activity_grade}
+                      </span>
+                    )}
                     {mk.is_current && (
                       <span className="text-xs px-1.5 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-100 shrink-0">
                         {t('current_mk')}

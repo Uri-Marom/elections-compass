@@ -61,6 +61,7 @@ export function MKsPage() {
   const [partyFilter, setPartyFilter] = useState<string>('all')
   const [hoveredMkId, setHoveredMkId] = useState<string | null>(null)
   const [expandedParty, setExpandedParty] = useState<string | null>(null)
+  const [matchSort, setMatchSort] = useState<'match' | 'activity'>('match')
 
   const answered = answeredCount()
 
@@ -80,9 +81,27 @@ export function MKsPage() {
 
   const partyIds = [...new Set(mks.map(m => m.party_id))].sort()
 
-  const filteredRanked = partyFilter === 'all'
-    ? rankedMKs
-    : rankedMKs.filter(m => mks.find(mk => mk.id === m.mk_id)?.party_id === partyFilter)
+  const gradeColors: Record<string, string> = {
+    A: 'bg-green-50 text-green-700 border-green-200',
+    B: 'bg-blue-50 text-blue-700 border-blue-200',
+    C: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+    D: 'bg-orange-50 text-orange-700 border-orange-200',
+    F: 'bg-red-50 text-red-700 border-red-200',
+  }
+
+  const filteredRanked = useMemo(() => {
+    let list = partyFilter === 'all'
+      ? rankedMKs
+      : rankedMKs.filter(m => mks.find(mk => mk.id === m.mk_id)?.party_id === partyFilter)
+    if (matchSort === 'activity') {
+      list = [...list].sort((a, b) => {
+        const mkA = mks.find(m => m.id === a.mk_id)
+        const mkB = mks.find(m => m.id === b.mk_id)
+        return (mkB?.activity_score ?? 0) - (mkA?.activity_score ?? 0)
+      })
+    }
+    return list
+  }, [rankedMKs, partyFilter, matchSort])
 
   const TABS: Array<{ id: Tab; label: string }> = [
     { id: 'matches',   label: t('mk_tab_matches') },
@@ -174,6 +193,22 @@ export function MKsPage() {
                   })}
                 </div>
 
+                {/* Sort toggle */}
+                <div className="flex bg-gray-100 rounded-xl p-1 gap-1">
+                  {(['match', 'activity'] as const).map(s => (
+                    <button
+                      key={s}
+                      onClick={() => setMatchSort(s)}
+                      className={[
+                        'flex-1 py-1.5 rounded-lg text-xs font-medium transition-all',
+                        matchSort === s ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500',
+                      ].join(' ')}
+                    >
+                      {s === 'match' ? (lang === 'he' ? 'לפי התאמה' : 'By Match') : (lang === 'he' ? 'לפי פעילות' : 'By Activity')}
+                    </button>
+                  ))}
+                </div>
+
                 <p className="text-xs text-gray-400">{t('mk_matches_subtitle')}</p>
 
                 {/* Ranked list */}
@@ -189,6 +224,14 @@ export function MKsPage() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
                             <span className="text-sm font-medium text-gray-900 truncate">{name}</span>
+                            {mk.activity_grade && (
+                              <span
+                                className={`text-xs px-1.5 py-0.5 rounded-full border font-semibold shrink-0 ${gradeColors[mk.activity_grade] ?? ''}`}
+                                title={`${mk.attendance_pct}% attendance · ${mk.bill_count} bills`}
+                              >
+                                {mk.activity_grade}
+                              </span>
+                            )}
                             {mk.is_current && (
                               <span className="text-xs px-1.5 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-100 shrink-0">
                                 {t('current_mk')}
@@ -200,6 +243,9 @@ export function MKsPage() {
                               {lang === 'he' ? party.name_he : party.name_en}
                             </span>
                           )}
+                          <p className="text-xs text-gray-400 mt-0.5">
+                            {mk.attendance_pct}% {lang === 'he' ? 'נוכחות' : 'attendance'} · {mk.bill_count} {lang === 'he' ? 'הצעות חוק' : 'bills'}
+                          </p>
                         </div>
                         <div className="flex flex-col items-end shrink-0">
                           <span className="text-sm font-bold" style={{ color: party?.color ?? '#888' }}>

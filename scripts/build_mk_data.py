@@ -16,7 +16,7 @@ Usage:
 """
 
 from __future__ import annotations
-import csv, io, json, sys, urllib.request
+import csv, io, json, sys, time, urllib.request, urllib.parse
 from collections import defaultdict
 from pathlib import Path
 from statistics import mean
@@ -118,18 +118,18 @@ def load_vote_ids(mappings: dict) -> dict[str, list[tuple[int, str]]]:
     return result
 
 
+ATTENDANCE_KNESSETS = {22, 23, 24}  # knessets covered by the shadow CSV
+
 def build_mk_vote_scores(
     shadow_rows: list[dict],
     vote_ids_by_question: dict[str, list[tuple[int, str]]],
-) -> tuple[dict, dict, dict[str, set], dict[str, tuple[str, int]]]:
+) -> tuple[dict, dict, dict[str, set], dict[str, tuple[str, int]], dict[str, float]]:
     """
-    Single-pass over the shadow CSV:
-    - scores MKs on survey questions from their actual votes
-    - captures the most recent faction per MK (for party assignment)
-    - captures Hebrew names
+    Single-pass over the shadow CSV. Returns:
+      mk_scores, mk_names, mk_knessets, mk_latest_faction, mk_attendance_rate
 
-    Returns (mk_scores, mk_names, mk_knessets, mk_latest_faction)
-    where mk_latest_faction[mk_id] = (faction_name, knesset_num)
+    Attendance rate = fraction of all votes (in ATTENDANCE_KNESSETS) that the
+    MK actually cast a vote in, scoped to the knessets they were active in.
     """
     all_relevant_vote_ids: set[str] = set()
     direction_by_vote: dict[str, str] = {}
@@ -141,7 +141,11 @@ def build_mk_vote_scores(
     mk_vote_raw: dict[str, dict[str, float]] = defaultdict(dict)
     mk_knessets: dict[str, set[int]] = defaultdict(set)
     mk_names: dict[str, str] = {}
-    mk_latest_faction: dict[str, tuple[str, int]] = {}  # mk_id → (faction_name, knesset_num)
+    mk_latest_faction: dict[str, tuple[str, int]] = {}
+
+    # For attendance: track unique vote_ids per knesset (global) and per MK
+    total_votes_per_knesset: dict[int, set[str]] = defaultdict(set)
+    mk_votes_per_knesset: dict[str, dict[int, set[str]]] = defaultdict(lambda: defaultdict(set))
 
     for row in shadow_rows:
         mk_id  = row.get("kmmbr_id", "").strip()
@@ -153,6 +157,7 @@ def build_mk_vote_scores(
             mk_names[mk_id] = name
 
         faction_name = row.get("faction_name", "").strip()
+        vid = row.get("vote_id", "").strip()
         try:
             kn = int(row.get("knesset_num", 0))
         except (ValueError, TypeError):
@@ -164,7 +169,13 @@ def build_mk_vote_scores(
                 mk_latest_faction[mk_id] = (faction_name, kn)
             mk_knessets[mk_id].add(kn)
 
-        vid = row.get("vote_id", "")
+        # Attendance tracking (all votes in covered knessets)
+        if kn in ATTENDANCE_KNESSETS and vid:
+            total_votes_per_knesset[kn].add(vid)
+            result_code = row.get("vote_result", "").strip()
+            if result_code in (FOR_CODE, AGAINST_CODE, ABSTAIN_CODE):
+                mk_votes_per_knesset[mk_id][kn].add(vid)
+
         if vid not in all_relevant_vote_ids:
             continue
 
@@ -179,7 +190,7 @@ def build_mk_vote_scores(
 
         mk_vote_raw[mk_id][vid] = raw
 
-    # Aggregate per-MK per-question
+    # Aggregate per-MK per-question scores
     mk_scores: dict[str, dict[str, float]] = {}
     for mk_id, vote_raw in mk_vote_raw.items():
         q_scores: dict[str, float] = {}
@@ -190,7 +201,108 @@ def build_mk_vote_scores(
         if q_scores:
             mk_scores[mk_id] = q_scores
 
-    return mk_scores, mk_names, mk_knessets, mk_latest_faction
+    # Compute attendance rate per MK
+    mk_attendance: dict[str, float] = {}
+    for mk_id, kn_votes in mk_votes_per_knesset.items():
+        # Only count knessets in ATTENDANCE_KNESSETS where the MK was active
+        active_kns = mk_knessets[mk_id] & ATTENDANCE_KNESSETS
+        if not active_kns:
+            continue
+        mk_participated = sum(len(kn_votes.get(kn, set())) for kn in active_kns)
+        total_possible  = sum(len(total_votes_per_knesset[kn]) for kn in active_kns)
+        if total_possible > 0:
+            mk_attendance[mk_id] = round(mk_participated / total_possible, 4)
+
+    print(f"  Total unique votes in knessets 22-24: "
+          f"{sum(len(v) for v in total_votes_per_knesset.values()):,}", flush=True)
+
+    return mk_scores, mk_names, mk_knessets, mk_latest_faction, mk_attendance
+
+
+ODATA_BILL_URL = "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_BillInitiator"
+
+def fetch_mk_bill_counts(person_ids: list[str], batch_size: int = 20) -> dict[str, int]:
+    """
+    Returns {person_id_str: bill_count} by querying OData in batches.
+    person_ids are the non-padded PersonID strings (e.g. "965").
+    """
+    counts: dict[str, int] = {pid: 0 for pid in person_ids}
+    total = len(person_ids)
+
+    for start in range(0, total, batch_size):
+        batch = person_ids[start: start + batch_size]
+        filter_expr = " or ".join(f"PersonID eq {pid}" for pid in batch)
+        params = urllib.parse.urlencode({
+            "$filter": filter_expr,
+            "$select": "PersonID",
+            "$format": "json",
+            "$top": 5000,
+        })
+        url = f"{ODATA_BILL_URL}?{params}"
+        try:
+            req = urllib.request.Request(url, headers={"Accept": "application/json"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                data = json.loads(r.read())
+            for record in data.get("value", []):
+                pid = str(record.get("PersonID", ""))
+                if pid in counts:
+                    counts[pid] += 1
+        except Exception as e:
+            print(f"  WARNING: bill fetch failed for batch starting {batch[0]}: {e}", flush=True)
+
+        if start + batch_size < total:
+            time.sleep(0.3)  # be polite to the API
+
+        done = min(start + batch_size, total)
+        print(f"  Bills: {done}/{total} MKs fetched...", end="\r", flush=True)
+
+    print(f"  Bills: {total}/{total} MKs fetched.    ", flush=True)
+    return counts
+
+
+def compute_activity_grades(
+    mk_ids: list[str],
+    attendance: dict[str, float],
+    bill_counts: dict[str, int],
+) -> dict[str, dict]:
+    """
+    Returns {mk_id: {attendance_pct, bill_count, activity_score, activity_grade}}
+    Grades are percentile-based within the cohort.
+    """
+    att_vals  = [attendance.get(mk, 0.0) for mk in mk_ids]
+    bill_vals = [bill_counts.get(mk, 0)   for mk in mk_ids]
+
+    def percentile_rank(vals: list, v: float) -> float:
+        """Return what fraction of values v beats (0–1)."""
+        below = sum(1 for x in vals if x < v)
+        equal = sum(1 for x in vals if x == v)
+        return (below + equal / 2) / len(vals) if vals else 0.5
+
+    results: dict[str, dict] = {}
+    for mk_id in mk_ids:
+        att  = attendance.get(mk_id, 0.0)
+        bills = bill_counts.get(mk_id, 0)
+
+        att_pct   = round(percentile_rank(att_vals,  att)  * 100)
+        bills_pct = round(percentile_rank(bill_vals, bills) * 100)
+
+        # Attendance weighted 60%, bills 40%
+        score = round(att_pct * 0.6 + bills_pct * 0.4)
+
+        if score >= 80:   grade = "A"
+        elif score >= 65: grade = "B"
+        elif score >= 50: grade = "C"
+        elif score >= 35: grade = "D"
+        else:             grade = "F"
+
+        results[mk_id] = {
+            "attendance_pct": round(att * 100, 1),
+            "bill_count":     bills,
+            "activity_score": score,
+            "activity_grade": grade,
+        }
+
+    return results
 
 
 def build_mk_name_lookup(individual_rows: list[dict]) -> dict[str, tuple[str, str, bool]]:
@@ -271,8 +383,8 @@ def main():
     shadow_rows     = fetch_csv(SHADOW_CSV_URL,    "shadow votes CSV")
     individual_rows = fetch_csv(MK_INDIVIDUAL_URL, "MK individual CSV")
 
-    print("\nScoring MKs from shadow votes (single pass)...")
-    mk_scores, mk_names_shadow, mk_knessets, mk_latest_faction = build_mk_vote_scores(
+    print("\nScoring MKs + computing attendance (single pass over shadow CSV)...")
+    mk_scores, mk_names_shadow, mk_knessets, mk_latest_faction, mk_attendance = build_mk_vote_scores(
         shadow_rows, vote_ids_by_question
     )
     print(f"  {len(mk_scores):,} MKs with at least 1 scored question before filtering.")
@@ -300,7 +412,7 @@ def main():
     if unmapped_factions:
         print(f"\n  WARNING: unmapped faction names (MKs will be skipped): {unmapped_factions}", flush=True)
 
-    # Build output
+    # Build preliminary MK list (before activity grades) to collect PersonIDs
     mks_out: list[dict] = []
     positions_out: dict[str, dict[str, float]] = {}
     skipped_unknown_party = 0
@@ -313,9 +425,7 @@ def main():
             skipped_unknown_party += 1
             continue
 
-        # Name from individual CSV.
-        # PersonID in individual CSV is numeric (e.g. "965") while kmmbr_id in shadow CSV is
-        # zero-padded (e.g. "000000965"), so we try both forms.
+        # PersonID in individual CSV is numeric; kmmbr_id in shadow CSV is zero-padded.
         name_data = name_lookup.get(mk_id) or name_lookup.get(str(int(mk_id)))
         name_he   = name_data[0] if name_data else mk_names_shadow.get(mk_id, "")
         name_en   = name_data[1] if name_data else ""
@@ -333,8 +443,45 @@ def main():
         })
         positions_out[mk_id] = scores
 
-    print(f"\nFinal output: {len(mks_out)} MKs")
+    print(f"\nIntermediate: {len(mks_out)} MKs before activity grades")
     print(f"  Skipped — unknown/unmapped party: {skipped_unknown_party}")
+
+    # Fetch bill counts from Knesset OData
+    print(f"\nFetching bill counts from Knesset OData...")
+    person_ids = [str(int(mk["id"])) for mk in mks_out]
+    bill_counts_by_person_id = fetch_mk_bill_counts(person_ids)
+    # Re-key by zero-padded mk_id
+    bill_counts = {mk["id"]: bill_counts_by_person_id.get(str(int(mk["id"])), 0) for mk in mks_out}
+
+    # Compute activity grades
+    mk_ids_list = [mk["id"] for mk in mks_out]
+    activity = compute_activity_grades(mk_ids_list, mk_attendance, bill_counts)
+
+    # Attach activity fields to each MK record
+    for mk in mks_out:
+        act = activity.get(mk["id"], {})
+        mk["attendance_pct"] = act.get("attendance_pct", 0.0)
+        mk["bill_count"]     = act.get("bill_count", 0)
+        mk["activity_score"] = act.get("activity_score", 0)
+        mk["activity_grade"] = act.get("activity_grade", "F")
+
+    # Summary stats
+    print(f"\nFinal output: {len(mks_out)} MKs")
+
+    grades = [mk["activity_grade"] for mk in mks_out]
+    from collections import Counter
+    grade_dist = Counter(grades)
+    print(f"  Grade distribution: {dict(sorted(grade_dist.items()))}")
+
+    att_sample = sorted(mks_out, key=lambda m: -m["attendance_pct"])[:5]
+    print(f"\n  Top 5 by attendance:")
+    for mk in att_sample:
+        print(f"    {mk['name_he']:<20} {mk['attendance_pct']:.1f}%  bills={mk['bill_count']}  grade={mk['activity_grade']}")
+
+    bill_sample = sorted(mks_out, key=lambda m: -m["bill_count"])[:5]
+    print(f"\n  Top 5 by bills:")
+    for mk in bill_sample:
+        print(f"    {mk['name_he']:<20} bills={mk['bill_count']}  att={mk['attendance_pct']:.1f}%  grade={mk['activity_grade']}")
 
     # Party distribution
     party_counts: dict[str, int] = defaultdict(int)

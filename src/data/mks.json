@@ -13,7 +13,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 66.3,
+    "bill_count": 0,
+    "activity_score": 68,
+    "activity_grade": "B"
   },
   {
     "id": "000000427",
@@ -29,7 +33,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 16.2,
+    "bill_count": 0,
+    "activity_score": 15,
+    "activity_grade": "F"
   },
   {
     "id": "000030070",
@@ -43,7 +51,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 48.5,
+    "bill_count": 23,
+    "activity_score": 67,
+    "activity_grade": "B"
   },
   {
     "id": "000031948",
@@ -55,7 +67,11 @@
       21,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 24.3,
+    "bill_count": 0,
+    "activity_score": 20,
+    "activity_grade": "F"
   },
   {
     "id": "000012937",
@@ -71,7 +87,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 48.4,
+    "bill_count": 0,
+    "activity_score": 42,
+    "activity_grade": "D"
   },
   {
     "id": "000032022",
@@ -84,7 +104,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 71.8,
+    "bill_count": 0,
+    "activity_score": 74,
+    "activity_grade": "B"
   },
   {
     "id": "000032439",
@@ -95,7 +119,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 41.3,
+    "bill_count": 0,
+    "activity_score": 29,
+    "activity_grade": "F"
   },
   {
     "id": "000012952",
@@ -110,7 +138,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 58.9,
+    "bill_count": 0,
+    "activity_score": 60,
+    "activity_grade": "C"
   },
   {
     "id": "000032002",
@@ -123,7 +155,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 52.8,
+    "bill_count": 0,
+    "activity_score": 49,
+    "activity_grade": "D"
   },
   {
     "id": "000000560",
@@ -141,7 +177,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 40.2,
+    "bill_count": 24,
+    "activity_score": 52,
+    "activity_grade": "C"
   },
   {
     "id": "000030066",
@@ -155,7 +195,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 44.0,
+    "bill_count": 0,
+    "activity_score": 33,
+    "activity_grade": "F"
   },
   {
     "id": "000032334",
@@ -165,7 +209,11 @@
     "knessets": [
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 45.9,
+    "bill_count": 0,
+    "activity_score": 37,
+    "activity_grade": "D"
   },
   {
     "id": "000023568",
@@ -179,7 +227,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 52.8,
+    "bill_count": 10,
+    "activity_score": 69,
+    "activity_grade": "B"
   },
   {
     "id": "000032006",
@@ -192,7 +244,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 72.8,
+    "bill_count": 0,
+    "activity_score": 75,
+    "activity_grade": "B"
   },
   {
     "id": "000031997",
@@ -205,7 +261,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 48.4,
+    "bill_count": 0,
+    "activity_score": 42,
+    "activity_grade": "D"
   },
   {
     "id": "000030083",
@@ -219,7 +279,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 50.8,
+    "bill_count": 7,
+    "activity_score": 66,
+    "activity_grade": "B"
   },
   {
     "id": "000032454",
@@ -230,7 +294,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 21.9,
+    "bill_count": 0,
+    "activity_score": 17,
+    "activity_grade": "F"
   },
   {
     "id": "000032453",
@@ -240,7 +308,11 @@
     "knessets": [
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 20.0,
+    "bill_count": 0,
+    "activity_score": 16,
+    "activity_grade": "F"
   },
   {
     "id": "000032209",
@@ -252,7 +324,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 43.2,
+    "bill_count": 0,
+    "activity_score": 32,
+    "activity_grade": "F"
   },
   {
     "id": "000023591",
@@ -267,7 +343,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 56.8,
+    "bill_count": 7,
+    "activity_score": 74,
+    "activity_grade": "B"
   },
   {
     "id": "000032042",
@@ -279,7 +359,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 41.9,
+    "bill_count": 0,
+    "activity_score": 30,
+    "activity_grade": "F"
   },
   {
     "id": "000032012",
@@ -291,7 +375,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 38.0,
+    "bill_count": 0,
+    "activity_score": 25,
+    "activity_grade": "F"
   },
   {
     "id": "000023639",
@@ -305,7 +393,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 66.1,
+    "bill_count": 2,
+    "activity_score": 84,
+    "activity_grade": "A"
   },
   {
     "id": "000030055",
@@ -319,7 +411,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 22.3,
+    "bill_count": 0,
+    "activity_score": 18,
+    "activity_grade": "F"
   },
   {
     "id": "000001027",
@@ -336,7 +432,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 50.7,
+    "bill_count": 4,
+    "activity_score": 64,
+    "activity_grade": "C"
   },
   {
     "id": "000001025",
@@ -352,7 +452,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 47.6,
+    "bill_count": 15,
+    "activity_score": 62,
+    "activity_grade": "C"
   },
   {
     "id": "000032016",
@@ -365,7 +469,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 58.1,
+    "bill_count": 0,
+    "activity_score": 58,
+    "activity_grade": "C"
   },
   {
     "id": "000032017",
@@ -377,7 +485,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 42.8,
+    "bill_count": 0,
+    "activity_score": 31,
+    "activity_grade": "F"
   },
   {
     "id": "000032443",
@@ -387,7 +499,11 @@
     "knessets": [
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 27.3,
+    "bill_count": 0,
+    "activity_score": 21,
+    "activity_grade": "F"
   },
   {
     "id": "000032010",
@@ -397,7 +513,11 @@
     "knessets": [
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 21.5,
+    "bill_count": 0,
+    "activity_score": 16,
+    "activity_grade": "F"
   },
   {
     "id": "000032221",
@@ -409,7 +529,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 41.7,
+    "bill_count": 0,
+    "activity_score": 30,
+    "activity_grade": "F"
   },
   {
     "id": "000032440",
@@ -419,7 +543,11 @@
     "knessets": [
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 32.2,
+    "bill_count": 0,
+    "activity_score": 22,
+    "activity_grade": "F"
   },
   {
     "id": "000004397",
@@ -436,7 +564,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 47.6,
+    "bill_count": 0,
+    "activity_score": 39,
+    "activity_grade": "D"
   },
   {
     "id": "000032032",
@@ -449,7 +581,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 68.6,
+    "bill_count": 0,
+    "activity_score": 71,
+    "activity_grade": "B"
   },
   {
     "id": "000032013",
@@ -461,7 +597,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 65.1,
+    "bill_count": 0,
+    "activity_score": 67,
+    "activity_grade": "B"
   },
   {
     "id": "000012938",
@@ -476,7 +616,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 39.2,
+    "bill_count": 0,
+    "activity_score": 25,
+    "activity_grade": "F"
   },
   {
     "id": "000030081",
@@ -487,7 +631,11 @@
       20,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 69.0,
+    "bill_count": 58,
+    "activity_score": 96,
+    "activity_grade": "A"
   },
   {
     "id": "000032211",
@@ -499,7 +647,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 56.8,
+    "bill_count": 0,
+    "activity_score": 54,
+    "activity_grade": "C"
   },
   {
     "id": "000023594",
@@ -514,7 +666,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 51.0,
+    "bill_count": 0,
+    "activity_score": 47,
+    "activity_grade": "D"
   },
   {
     "id": "000032028",
@@ -527,7 +683,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 44.9,
+    "bill_count": 0,
+    "activity_score": 35,
+    "activity_grade": "D"
   },
   {
     "id": "000030077",
@@ -540,7 +700,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 44.9,
+    "bill_count": 0,
+    "activity_score": 34,
+    "activity_grade": "F"
   },
   {
     "id": "000032027",
@@ -553,7 +717,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 58.0,
+    "bill_count": 0,
+    "activity_score": 58,
+    "activity_grade": "C"
   },
   {
     "id": "000030057",
@@ -567,7 +735,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 50.5,
+    "bill_count": 0,
+    "activity_score": 45,
+    "activity_grade": "D"
   },
   {
     "id": "000023601",
@@ -582,7 +754,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 48.1,
+    "bill_count": 0,
+    "activity_score": 41,
+    "activity_grade": "D"
   },
   {
     "id": "000000477",
@@ -600,7 +776,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 54.6,
+    "bill_count": 2,
+    "activity_score": 67,
+    "activity_grade": "B"
   },
   {
     "id": "000000532",
@@ -618,7 +798,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 46.1,
+    "bill_count": 7,
+    "activity_score": 57,
+    "activity_grade": "C"
   },
   {
     "id": "000023560",
@@ -632,7 +816,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 39.6,
+    "bill_count": 0,
+    "activity_score": 27,
+    "activity_grade": "F"
   },
   {
     "id": "000030069",
@@ -645,7 +833,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 47.7,
+    "bill_count": 0,
+    "activity_score": 40,
+    "activity_grade": "D"
   },
   {
     "id": "000032465",
@@ -656,7 +848,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 31.6,
+    "bill_count": 0,
+    "activity_score": 21,
+    "activity_grade": "F"
   },
   {
     "id": "000032011",
@@ -669,7 +865,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 45.5,
+    "bill_count": 0,
+    "activity_score": 36,
+    "activity_grade": "D"
   },
   {
     "id": "000032023",
@@ -681,7 +881,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 39.6,
+    "bill_count": 0,
+    "activity_score": 27,
+    "activity_grade": "F"
   },
   {
     "id": "000031851",
@@ -695,7 +899,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 71.0,
+    "bill_count": 0,
+    "activity_score": 73,
+    "activity_grade": "B"
   },
   {
     "id": "000023641",
@@ -710,7 +918,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 62.1,
+    "bill_count": 11,
+    "activity_score": 85,
+    "activity_grade": "A"
   },
   {
     "id": "000032014",
@@ -723,7 +935,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 56.6,
+    "bill_count": 0,
+    "activity_score": 52,
+    "activity_grade": "C"
   },
   {
     "id": "000000528",
@@ -741,7 +957,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 45.7,
+    "bill_count": 4,
+    "activity_score": 55,
+    "activity_grade": "C"
   },
   {
     "id": "000001056",
@@ -759,7 +979,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 62.0,
+    "bill_count": 14,
+    "activity_score": 85,
+    "activity_grade": "A"
   },
   {
     "id": "000030082",
@@ -773,7 +997,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 57.2,
+    "bill_count": 12,
+    "activity_score": 77,
+    "activity_grade": "B"
   },
   {
     "id": "000000580",
@@ -790,7 +1018,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 61.6,
+    "bill_count": 11,
+    "activity_score": 84,
+    "activity_grade": "A"
   },
   {
     "id": "000032033",
@@ -802,7 +1034,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 36.7,
+    "bill_count": 0,
+    "activity_score": 24,
+    "activity_grade": "F"
   },
   {
     "id": "000012951",
@@ -818,7 +1054,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 66.4,
+    "bill_count": 0,
+    "activity_score": 69,
+    "activity_grade": "B"
   },
   {
     "id": "000001057",
@@ -835,7 +1075,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 42.6,
+    "bill_count": 4,
+    "activity_score": 49,
+    "activity_grade": "D"
   },
   {
     "id": "000032005",
@@ -847,7 +1091,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 57.4,
+    "bill_count": 0,
+    "activity_score": 55,
+    "activity_grade": "C"
   },
   {
     "id": "000023597",
@@ -862,7 +1110,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 58.4,
+    "bill_count": 0,
+    "activity_score": 59,
+    "activity_grade": "C"
   },
   {
     "id": "000030573",
@@ -876,7 +1128,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 66.3,
+    "bill_count": 0,
+    "activity_score": 68,
+    "activity_grade": "B"
   },
   {
     "id": "000032045",
@@ -889,7 +1145,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 55.1,
+    "bill_count": 0,
+    "activity_score": 51,
+    "activity_grade": "C"
   },
   {
     "id": "000023632",
@@ -904,7 +1164,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 67.5,
+    "bill_count": 0,
+    "activity_score": 70,
+    "activity_grade": "B"
   },
   {
     "id": "000032020",
@@ -917,7 +1181,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 43.6,
+    "bill_count": 0,
+    "activity_score": 33,
+    "activity_grade": "F"
   },
   {
     "id": "000030058",
@@ -931,7 +1199,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 64.2,
+    "bill_count": 0,
+    "activity_score": 66,
+    "activity_grade": "B"
   },
   {
     "id": "000032031",
@@ -944,7 +1216,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 57.6,
+    "bill_count": 0,
+    "activity_score": 57,
+    "activity_grade": "C"
   },
   {
     "id": "000023565",
@@ -958,7 +1234,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 22.6,
+    "bill_count": 2,
+    "activity_score": 35,
+    "activity_grade": "D"
   },
   {
     "id": "000032220",
@@ -970,7 +1250,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 78.4,
+    "bill_count": 0,
+    "activity_score": 75,
+    "activity_grade": "B"
   },
   {
     "id": "000031998",
@@ -983,7 +1267,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 63.0,
+    "bill_count": 0,
+    "activity_score": 65,
+    "activity_grade": "B"
   },
   {
     "id": "000000526",
@@ -1001,7 +1289,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 48.5,
+    "bill_count": 6,
+    "activity_score": 62,
+    "activity_grade": "C"
   },
   {
     "id": "000012963",
@@ -1016,7 +1308,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 54.5,
+    "bill_count": 0,
+    "activity_score": 50,
+    "activity_grade": "C"
   },
   {
     "id": "000000498",
@@ -1033,7 +1329,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 69.8,
+    "bill_count": 8,
+    "activity_score": 93,
+    "activity_grade": "A"
   },
   {
     "id": "000012947",
@@ -1047,7 +1347,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 40.1,
+    "bill_count": 1,
+    "activity_score": 43,
+    "activity_grade": "D"
   },
   {
     "id": "000032004",
@@ -1059,7 +1363,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 63.1,
+    "bill_count": 0,
+    "activity_score": 66,
+    "activity_grade": "B"
   },
   {
     "id": "000032333",
@@ -1069,7 +1377,11 @@
     "knessets": [
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 47.5,
+    "bill_count": 0,
+    "activity_score": 38,
+    "activity_grade": "D"
   },
   {
     "id": "000032219",
@@ -1081,7 +1393,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 36.6,
+    "bill_count": 0,
+    "activity_score": 23,
+    "activity_grade": "F"
   },
   {
     "id": "000031722",
@@ -1094,7 +1410,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 50.5,
+    "bill_count": 0,
+    "activity_score": 45,
+    "activity_grade": "D"
   },
   {
     "id": "000032025",
@@ -1106,7 +1426,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 49.8,
+    "bill_count": 0,
+    "activity_score": 45,
+    "activity_grade": "D"
   },
   {
     "id": "000030067",
@@ -1120,7 +1444,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 48.7,
+    "bill_count": 0,
+    "activity_score": 44,
+    "activity_grade": "D"
   },
   {
     "id": "000030309",
@@ -1134,7 +1462,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 36.4,
+    "bill_count": 0,
+    "activity_score": 22,
+    "activity_grade": "F"
   },
   {
     "id": "000032008",
@@ -1145,7 +1477,11 @@
       21,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 70.0,
+    "bill_count": 0,
+    "activity_score": 73,
+    "activity_grade": "B"
   },
   {
     "id": "000032021",
@@ -1158,7 +1494,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 44.4,
+    "bill_count": 0,
+    "activity_score": 34,
+    "activity_grade": "F"
   },
   {
     "id": "000032039",
@@ -1170,7 +1510,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 57.5,
+    "bill_count": 0,
+    "activity_score": 56,
+    "activity_grade": "C"
   },
   {
     "id": "000032218",
@@ -1181,7 +1525,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 47.8,
+    "bill_count": 0,
+    "activity_score": 40,
+    "activity_grade": "D"
   },
   {
     "id": "000023600",
@@ -1195,7 +1543,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 53.5,
+    "bill_count": 2,
+    "activity_score": 66,
+    "activity_grade": "B"
   },
   {
     "id": "000032024",
@@ -1207,7 +1559,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 56.8,
+    "bill_count": 0,
+    "activity_score": 54,
+    "activity_grade": "C"
   },
   {
     "id": "000032442",
@@ -1217,7 +1573,11 @@
     "knessets": [
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 24.3,
+    "bill_count": 0,
+    "activity_score": 20,
+    "activity_grade": "F"
   },
   {
     "id": "000032009",
@@ -1230,7 +1590,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 62.6,
+    "bill_count": 0,
+    "activity_score": 64,
+    "activity_grade": "C"
   },
   {
     "id": "000000467",
@@ -1248,7 +1612,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 57.7,
+    "bill_count": 0,
+    "activity_score": 57,
+    "activity_grade": "C"
   },
   {
     "id": "000023631",
@@ -1262,7 +1630,11 @@
       23,
       24
     ],
-    "is_current": true
+    "is_current": true,
+    "attendance_pct": 37.0,
+    "bill_count": 2,
+    "activity_score": 41,
+    "activity_grade": "D"
   },
   {
     "id": "000032043",
@@ -1275,7 +1647,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 59.1,
+    "bill_count": 0,
+    "activity_score": 61,
+    "activity_grade": "C"
   },
   {
     "id": "000032037",
@@ -1286,7 +1662,11 @@
       21,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 22.8,
+    "bill_count": 0,
+    "activity_score": 19,
+    "activity_grade": "F"
   },
   {
     "id": "000032003",
@@ -1299,7 +1679,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 67.0,
+    "bill_count": 0,
+    "activity_score": 70,
+    "activity_grade": "B"
   },
   {
     "id": "000032001",
@@ -1312,7 +1696,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 56.1,
+    "bill_count": 0,
+    "activity_score": 52,
+    "activity_grade": "C"
   },
   {
     "id": "000032046",
@@ -1325,7 +1713,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 61.3,
+    "bill_count": 0,
+    "activity_score": 61,
+    "activity_grade": "C"
   },
   {
     "id": "000032035",
@@ -1337,7 +1729,11 @@
       22,
       23
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 39.5,
+    "bill_count": 0,
+    "activity_score": 26,
+    "activity_grade": "F"
   },
   {
     "id": "000032038",
@@ -1350,7 +1746,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 63.0,
+    "bill_count": 0,
+    "activity_score": 64,
+    "activity_grade": "C"
   },
   {
     "id": "000030305",
@@ -1363,7 +1763,11 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 58.8,
+    "bill_count": 0,
+    "activity_score": 60,
+    "activity_grade": "C"
   },
   {
     "id": "000023651",
@@ -1378,6 +1782,10 @@
       23,
       24
     ],
-    "is_current": false
+    "is_current": false,
+    "attendance_pct": 51.2,
+    "bill_count": 64,
+    "activity_score": 72,
+    "activity_grade": "B"
   }
 ]
