@@ -3,10 +3,10 @@ import type { PartyPosition, UserAnswers, DimensionWeights, MKMatch } from '../t
 export const DIMENSIONS = {
   security:      { label_en: 'Security & Peace', label_he: 'ביטחון ושלום', questions: ['q01','q02','q03','q04','q05','q06'] },
   religion:      { label_en: 'Religion & State', label_he: 'דת ומדינה',    questions: ['q07','q08','q09','q10','q11','q12'] },
-  socioeconomic: { label_en: 'Economy & Welfare', label_he: 'כלכלה ורווחה', questions: ['q13','q14','q15','q16','q17','q32'] },
+  socioeconomic: { label_en: 'Economy & Welfare', label_he: 'כלכלה ורווחה', questions: ['q16','q32'] },
   judicial:      { label_en: 'Rule of Law',       label_he: 'שלטון החוק',   questions: ['q18','q19','q20','q21','q22'] },
   minority:      { label_en: 'Minority Rights',   label_he: 'זכויות מיעוטים', questions: ['q23','q24','q25','q26'] },
-  governance:    { label_en: 'Governance',         label_he: 'ממשל ושקיפות', questions: ['q27','q28','q29','q30','q31','q33'] },
+  governance:    { label_en: 'Governance',         label_he: 'ממשל ושקיפות', questions: ['q27','q28','q29','q31','q33'] },
 } as const
 
 export type DimensionKey = keyof typeof DIMENSIONS
