@@ -1,4 +1,4 @@
-import type { PartyPosition, UserAnswers, DimensionWeights } from '../types'
+import type { PartyPosition, UserAnswers, DimensionWeights, MKMatch } from '../types'
 
 export const DIMENSIONS = {
   security:      { label_en: 'Security & Peace', label_he: 'ביטחון ושלום', questions: ['q01','q02','q03','q04','q05','q06'] },
@@ -104,6 +104,57 @@ export function computeMatch(
   const divergence     = overall_voted !== null ? Math.abs(overall_stated - overall_voted) : null
 
   return { party_id: partyId, overall_stated, overall_voted, divergence, by_dimension: byDimension }
+}
+
+// MK scores are stored as {question_id: score} — null means no data for that question
+export function computeMKMatch(
+  userAnswers: UserAnswers,
+  mkScores: Record<string, number | null>,
+  weights: DimensionWeights,
+  mkId: string
+): MKMatch {
+  const byDimension = {} as Record<DimensionKey, number | null>
+  let totalNumer = 0, totalDenom = 0
+  let questionCount = 0
+
+  for (const dim of Object.keys(DIMENSIONS) as DimensionKey[]) {
+    const w = weights[dim] ?? 1
+    const userVec: number[] = []
+    const mkVec:   number[] = []
+
+    for (const qid of DIMENSIONS[dim].questions as readonly string[]) {
+      const userScore = userAnswers[qid]
+      if (userScore === null || userScore === undefined) continue
+      const mkScore = mkScores[qid]
+      if (mkScore === null || mkScore === undefined) continue
+      userVec.push(userScore)
+      mkVec.push(mkScore)
+    }
+
+    const score = cosineSimilarity(userVec, mkVec)
+    byDimension[dim] = score
+    questionCount += userVec.length
+
+    if (score !== null) {
+      totalNumer += score * w
+      totalDenom += w
+    }
+  }
+
+  const overall = totalDenom > 0 ? Math.round(totalNumer / totalDenom) : 0
+  return { mk_id: mkId, overall, by_dimension: byDimension, question_count: questionCount }
+}
+
+export function rankMKs(
+  userAnswers: UserAnswers,
+  allMKPositions: Record<string, Record<string, number | null>>,
+  weights: DimensionWeights,
+  minQuestions = 4
+): MKMatch[] {
+  return Object.entries(allMKPositions)
+    .map(([mkId, scores]) => computeMKMatch(userAnswers, scores, weights, mkId))
+    .filter(m => m.question_count >= minQuestions)
+    .sort((a, b) => b.overall - a.overall)
 }
 
 export function rankParties(

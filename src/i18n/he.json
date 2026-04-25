@@ -67,5 +67,15 @@
   "similarity_title": "מפת דמיון אידיאולוגי",
   "similarity_subtitle": "מפלגות קרובות מייצגות עמדות מדיניות דומות. המרחק מחושב מתוך כל 33 השאלות.",
   "research_nav_label": "תובנות",
-  "no_data_parties": "מפלגות ללא נתוני הצבעה (מפלגות חדשות)"
+  "no_data_parties": "מפלגות ללא נתוני הצבעה (מפלגות חדשות)",
+  "mk_matches": "חברי כנסת הקרובים לעמדותיכם",
+  "mk_matches_subtitle": "על בסיס הצבעות בכנסות 22–24",
+  "mk_matches_show": "הצג התאמות לחברי כנסת ▼",
+  "mk_matches_hide": "הסתר התאמות לח\"כ ▲",
+  "mk_compass": "מצפן חברי כנסת",
+  "mk_compass_subtitle": "כיצד הצביעו חברי הכנסת על השאלות",
+  "open_mk_compass": "לכל חברי הכנסת ←",
+  "data_note_knessets": "הצבעות מכנסות 22–24",
+  "current_mk": "ח\"כ מכהן",
+  "coverage_questions": "{{n}}/33 שאלות"
 }

@@ -5,12 +5,15 @@ import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
 import { MatchRadarChart } from '../components/Results/RadarChart'
 import { DimensionGapBars } from '../components/Results/DimensionGapBars'
 import { PartyCard } from '../components/Results/PartyCard'
+import { MKMatchList } from '../components/Results/MKMatchList'
 import { useSurveyStore } from '../store/survey'
-import { rankParties, DIMENSIONS, type DimensionKey } from '../utils/matching'
-import type { Party, PartyPosition, Question } from '../types'
+import { rankParties, rankMKs, DIMENSIONS, type DimensionKey } from '../utils/matching'
+import type { Party, PartyPosition, Question, KnessetMember } from '../types'
 
 import partiesData from '../data/parties.json'
 import questionsData from '../data/questions.json'
+import mksData from '../data/mks.json'
+import mkPositionsData from '../data/mk_positions.json'
 import likudPos from '../data/positions/likud.json'
 import shasPos from '../data/positions/shas.json'
 import utjPos from '../data/positions/utj.json'
@@ -28,6 +31,8 @@ import raamPos from '../data/positions/raam.json'
 
 const parties = partiesData as Party[]
 const questions = questionsData as Question[]
+const mks = mksData as KnessetMember[]
+const mkPositions = mkPositionsData as Record<string, Record<string, number | null>>
 
 const allPositions: Record<string, PartyPosition[]> = {
   likud:            likudPos.positions as PartyPosition[],
@@ -144,6 +149,11 @@ export function ResultsPage() {
 
   const ranked = useMemo(
     () => rankParties(answers, allPositions, weights),
+    [answers, weights]
+  )
+
+  const rankedMKs = useMemo(
+    () => rankMKs(answers, mkPositions, weights),
     [answers, weights]
   )
 
@@ -282,6 +292,8 @@ export function ResultsPage() {
             )
           })}
         </div>
+
+        <MKMatchList topMKs={rankedMKs} mks={mks} parties={parties} />
 
         <button
           onClick={() => navigate('/research')}

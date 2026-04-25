@@ -67,5 +67,15 @@
   "similarity_title": "Ideological Similarity Map",
   "similarity_subtitle": "Closer parties share similar policy positions. Distance computed across all 33 questions.",
   "research_nav_label": "Insights",
-  "no_data_parties": "Parties without voting data (new parties)"
+  "no_data_parties": "Parties without voting data (new parties)",
+  "mk_matches": "Your MK Matches",
+  "mk_matches_subtitle": "Based on voting records from Knessets 22–24",
+  "mk_matches_show": "Show your top MK matches ▼",
+  "mk_matches_hide": "Hide MK matches ▲",
+  "mk_compass": "MK Compass",
+  "mk_compass_subtitle": "Explore how individual MKs voted across all questions",
+  "open_mk_compass": "Explore all MK matches →",
+  "data_note_knessets": "Votes from Knessets 22–24",
+  "current_mk": "Current MK",
+  "coverage_questions": "{{n}}/33 questions"
 }

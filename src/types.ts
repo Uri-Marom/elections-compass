@@ -42,5 +42,21 @@ export interface PartyPosition {
   voted_position?: VotedPosition
 }
 
+export interface KnessetMember {
+  id: string
+  name_he: string
+  name_en: string
+  party_id: string
+  knessets: number[]
+  is_current: boolean
+}
+
+export interface MKMatch {
+  mk_id: string
+  overall: number           // 0–100 cosine similarity
+  by_dimension: Record<DimensionKey, number | null>
+  question_count: number    // questions with coverage in both user and MK
+}
+
 export type UserAnswers = Record<string, number | null>
 export type DimensionWeights = Record<DimensionKey, number>

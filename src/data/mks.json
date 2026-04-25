@@ -1,0 +1,1383 @@
+[
+  {
+    "id": "000004395",
+    "name_he": "אבי דיכטר",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      17,
+      18,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000000427",
+    "name_he": "אביגדור ליברמן",
+    "name_en": "",
+    "party_id": "yisrael_beitenu",
+    "knessets": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000030070",
+    "name_he": "אוסאמה סעדי",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000031948",
+    "name_he": "אוסנת הילה מארק",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      20,
+      21,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000012937",
+    "name_he": "אופיר אקוניס",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032022",
+    "name_he": "אופיר כץ",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032439",
+    "name_he": "אוריאל בוסו",
+    "name_en": "",
+    "party_id": "shas",
+    "knessets": [
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000012952",
+    "name_he": "אורלי לוי אבקסיס",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      18,
+      19,
+      20,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032002",
+    "name_he": "אורנה ברביבאי",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000000560",
+    "name_he": "אחמד טיבי",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000030066",
+    "name_he": "איימן עודה",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032334",
+    "name_he": "אימאן ח`טיב יאסין",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023568",
+    "name_he": "איציק שמולי",
+    "name_en": "",
+    "party_id": "democrats",
+    "knessets": [
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032006",
+    "name_he": "איתן גינזבורג",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000031997",
+    "name_he": "אלי אבידר",
+    "name_en": "",
+    "party_id": "yisrael_beitenu",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000030083",
+    "name_he": "אלי כהן",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032454",
+    "name_he": "אליהו ברוכי",
+    "name_en": "",
+    "party_id": "utj",
+    "knessets": [
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032453",
+    "name_he": "אליהו חסיד",
+    "name_en": "",
+    "party_id": "utj",
+    "knessets": [
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032209",
+    "name_he": "אלכס קושניר",
+    "name_en": "",
+    "party_id": "yisrael_beitenu",
+    "knessets": [
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023591",
+    "name_he": "אלעזר שטרן",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032042",
+    "name_he": "אנטאנס שחאדה",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032012",
+    "name_he": "אסף זמיר",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023639",
+    "name_he": "בועז טופורובסקי",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      19,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000030055",
+    "name_he": "בצלאל סמוטריץ'",
+    "name_en": "",
+    "party_id": "religious_zionism",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000001027",
+    "name_he": "גדעון סער",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000001025",
+    "name_he": "גילה גמליאל",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      16,
+      18,
+      19,
+      20,
+      21,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032016",
+    "name_he": "דסטה גדי יברקן",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032017",
+    "name_he": "היבה יזבק",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032443",
+    "name_he": "הילה שי וזאן",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032010",
+    "name_he": "הלוי עמית",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032221",
+    "name_he": "ווליד טאהא",
+    "name_en": "",
+    "party_id": "raam",
+    "knessets": [
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032440",
+    "name_he": "וונש מיכל",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000004397",
+    "name_he": "זאב אלקין",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032032",
+    "name_he": "חוה אתי עטייה",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032013",
+    "name_he": "חיימוביץ` מיקי",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000012938",
+    "name_he": "חמד עמאר",
+    "name_en": "",
+    "party_id": "yisrael_beitenu",
+    "knessets": [
+      18,
+      19,
+      20,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000030081",
+    "name_he": "טלי פלוסקוב",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      20,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032211",
+    "name_he": "יאיר גולן",
+    "name_en": "",
+    "party_id": "democrats",
+    "knessets": [
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023594",
+    "name_he": "יאיר לפיד",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032028",
+    "name_he": "יבגני סובה",
+    "name_en": "",
+    "party_id": "yisrael_beitenu",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000030077",
+    "name_he": "יואב גלנט",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      20,
+      21,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032027",
+    "name_he": "יואב סגלוביץ`",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000030057",
+    "name_he": "יואב קיש",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000023601",
+    "name_he": "יואל רזבוזוב",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000000477",
+    "name_he": "יובל שטייניץ",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000000532",
+    "name_he": "יולי יואל אדלשטיין",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000023560",
+    "name_he": "יוליה מלינובסקי",
+    "name_en": "",
+    "party_id": "yisrael_beitenu",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000030069",
+    "name_he": "יוסף ג'בארין",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      20,
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032465",
+    "name_he": "יוסף טייב",
+    "name_en": "",
+    "party_id": "shas",
+    "knessets": [
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032011",
+    "name_he": "יועז הנדל",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032023",
+    "name_he": "יוראי להב הרצנו",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      21,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000031851",
+    "name_he": "ינון אזולאי",
+    "name_en": "",
+    "party_id": "shas",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023641",
+    "name_he": "יעקב אשר",
+    "name_en": "",
+    "party_id": "utj",
+    "knessets": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032014",
+    "name_he": "יעקב טסלר",
+    "name_en": "",
+    "party_id": "utj",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000000528",
+    "name_he": "יעקב ליצמן",
+    "name_en": "",
+    "party_id": "utj",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000001056",
+    "name_he": "יעקב מרגי",
+    "name_en": "",
+    "party_id": "shas",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000030082",
+    "name_he": "יפעת שאשא ביטון",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000000580",
+    "name_he": "יצחק כהן",
+    "name_en": "",
+    "party_id": "shas",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032033",
+    "name_he": "יצחק פינדרוס",
+    "name_en": "",
+    "party_id": "utj",
+    "knessets": [
+      21,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000012951",
+    "name_he": "יריב לוין",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000001057",
+    "name_he": "ישראל אייכלר",
+    "name_en": "",
+    "party_id": "utj",
+    "knessets": [
+      16,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032005",
+    "name_he": "מאי גולן",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023597",
+    "name_he": "מאיר כהן",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000030573",
+    "name_he": "מיכאל מלכיאלי",
+    "name_en": "",
+    "party_id": "shas",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032045",
+    "name_he": "מיכל שיר סגמן",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023632",
+    "name_he": "מיקי לוי",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032020",
+    "name_he": "מירב כהן",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000030058",
+    "name_he": "מכלוף מיקי זוהר",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032031",
+    "name_he": "מנסור עבאס",
+    "name_en": "",
+    "party_id": "raam",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023565",
+    "name_he": "מרב מיכאלי",
+    "name_en": "",
+    "party_id": "democrats",
+    "knessets": [
+      19,
+      20,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032220",
+    "name_he": "משה אבוטבול",
+    "name_en": "",
+    "party_id": "shas",
+    "knessets": [
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000031998",
+    "name_he": "משה ארבל",
+    "name_en": "",
+    "party_id": "shas",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000000526",
+    "name_he": "משה גפני",
+    "name_en": "",
+    "party_id": "utj",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000012963",
+    "name_he": "משה יעלון",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000000498",
+    "name_he": "משולם נהרי",
+    "name_en": "",
+    "party_id": "shas",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000012947",
+    "name_he": "ניצן הורוביץ",
+    "name_en": "",
+    "party_id": "democrats",
+    "knessets": [
+      18,
+      19,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032004",
+    "name_he": "ניר ברקת",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032333",
+    "name_he": "סונדוס סאלח",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032219",
+    "name_he": "סמי אבו שחאדה",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000031722",
+    "name_he": "סעיד אלחרומי",
+    "name_en": "",
+    "party_id": "raam",
+    "knessets": [
+      20,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032025",
+    "name_he": "ע`דיר כמאל מריח",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000030067",
+    "name_he": "עאידה תומא סלימאן",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000030309",
+    "name_he": "עודד פורר",
+    "name_en": "",
+    "party_id": "yisrael_beitenu",
+    "knessets": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032008",
+    "name_he": "עוזי דיין",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032021",
+    "name_he": "עופר כסיף",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032039",
+    "name_he": "עידן רול",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      21,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032218",
+    "name_he": "עסאקלה ג`אבר",
+    "name_en": "",
+    "party_id": "hadash_taal",
+    "knessets": [
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023600",
+    "name_he": "עפר שלח",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032024",
+    "name_he": "פטין מולא",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032442",
+    "name_he": "פרידמן תהלה",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032009",
+    "name_he": "צבי האוזר",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000000467",
+    "name_he": "צחי הנגבי",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023631",
+    "name_he": "קארין אלהרר",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      19,
+      20,
+      21,
+      23,
+      24
+    ],
+    "is_current": true
+  },
+  {
+    "id": "000032043",
+    "name_he": "קטי קטרין שטרית",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032037",
+    "name_he": "קלנר אריאל",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032003",
+    "name_he": "קרן ברק",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032001",
+    "name_he": "רם בן ברק",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032046",
+    "name_he": "רם שפע",
+    "name_en": "",
+    "party_id": "democrats",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032035",
+    "name_he": "רפי פרץ",
+    "name_en": "",
+    "party_id": "religious_zionism",
+    "knessets": [
+      21,
+      22,
+      23
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000032038",
+    "name_he": "שלמה קרעי",
+    "name_en": "",
+    "party_id": "likud",
+    "knessets": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000030305",
+    "name_he": "שרן מרים השכל",
+    "name_en": "",
+    "party_id": "national_unity",
+    "knessets": [
+      20,
+      21,
+      23,
+      24
+    ],
+    "is_current": false
+  },
+  {
+    "id": "000023651",
+    "name_he": "תמר זנדברג",
+    "name_en": "",
+    "party_id": "democrats",
+    "knessets": [
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "is_current": false
+  }
+]
