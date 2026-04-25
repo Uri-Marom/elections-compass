@@ -4,6 +4,7 @@ import { PrioritiesPage } from './pages/PrioritiesPage'
 import { SurveyPage } from './pages/SurveyPage'
 import { ResultsPage } from './pages/ResultsPage'
 import { ResearchPage } from './pages/ResearchPage'
+import { MKsPage } from './pages/MKsPage'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/survey" element={<SurveyPage />} />
         <Route path="/results" element={<ResultsPage />} />
         <Route path="/research" element={<ResearchPage />} />
+        <Route path="/mks" element={<MKsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

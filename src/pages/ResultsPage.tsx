@@ -295,6 +295,15 @@ export function ResultsPage() {
 
         <MKMatchList topMKs={rankedMKs} mks={mks} parties={parties} />
 
+        {rankedMKs.length > 0 && (
+          <button
+            onClick={() => navigate('/mks')}
+            className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
+          >
+            {t('open_mk_compass')}
+          </button>
+        )}
+
         <button
           onClick={() => navigate('/research')}
           className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"

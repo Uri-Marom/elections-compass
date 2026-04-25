@@ -77,5 +77,21 @@
   "open_mk_compass": "לכל חברי הכנסת ←",
   "data_note_knessets": "הצבעות מכנסות 22–24",
   "current_mk": "ח\"כ מכהן",
-  "coverage_questions": "{{n}}/33 שאלות"
+  "coverage_questions": "{{n}}/33 שאלות",
+  "mk_tab_matches": "ההתאמות שלי",
+  "mk_tab_variance": "פיזור תוך-מפלגתי",
+  "mk_tab_crossaisle": "מצביעים חוצי מפלגות",
+  "mk_tab_map": "מפת ח\"כ",
+  "mk_variance_subtitle": "עד כמה חברי הכנסת באותה מפלגה שונים בהצבעותיהם?",
+  "mk_variance_mks": "{{n}} ח\"כים",
+  "mk_variance_spread": "פיזור",
+  "mk_variance_outlier": "השונה ביותר",
+  "mk_crossaisle_subtitle": "חברי כנסת שדפוס הצבעתם דומה יותר למפלגה אחרת.",
+  "mk_crossaisle_votes_like": "מצביע כמו",
+  "mk_crossaisle_own_party": "מפלגה שלו",
+  "mk_map_subtitle": "מיצוב ח\"כים על בסיס שאלות שהוצבע עליהן. העבירו את העכבר על נקודה לשם הח\"כ.",
+  "mk_no_answers": "ענו על לפחות 5 שאלות בשאלון כדי לראות את ההתאמות שלכם לח\"כים.",
+  "go_to_survey": "לשאלון ←",
+  "filter_by_party": "כל המפלגות",
+  "mk_map_data_note": "המפה מבוססת על 8 הצבעות (כנסות 22–24)"
 }

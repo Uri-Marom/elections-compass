@@ -98,6 +98,20 @@ export function ResearchPage() {
           />
         </section>
 
+        <hr className="border-gray-200" />
+
+        {/* Section 3: MK Compass teaser */}
+        <section>
+          <h2 className="text-base font-bold text-gray-900 mb-1">{t('mk_compass')}</h2>
+          <p className="text-xs text-gray-500 mb-4 leading-relaxed">{t('mk_compass_subtitle')}</p>
+          <button
+            onClick={() => navigate('/mks')}
+            className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
+          >
+            {t('open_mk_compass')}
+          </button>
+        </section>
+
         <div className="h-6" />
       </main>
     </div>

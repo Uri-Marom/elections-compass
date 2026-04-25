@@ -77,5 +77,21 @@
   "open_mk_compass": "Explore all MK matches →",
   "data_note_knessets": "Votes from Knessets 22–24",
   "current_mk": "Current MK",
-  "coverage_questions": "{{n}}/33 questions"
+  "coverage_questions": "{{n}}/33 questions",
+  "mk_tab_matches": "Your Matches",
+  "mk_tab_variance": "Intra-Party Variance",
+  "mk_tab_crossaisle": "Cross-Aisle MKs",
+  "mk_tab_map": "MK Map",
+  "mk_variance_subtitle": "How much do MKs within the same party diverge in their votes?",
+  "mk_variance_mks": "{{n}} MKs",
+  "mk_variance_spread": "Spread",
+  "mk_variance_outlier": "Most divergent",
+  "mk_crossaisle_subtitle": "MKs whose voting record most resembles a different party.",
+  "mk_crossaisle_votes_like": "Votes most like",
+  "mk_crossaisle_own_party": "Own party",
+  "mk_map_subtitle": "Individual MK positions based on voted questions. Hover over a dot to see the MK's name.",
+  "mk_no_answers": "Answer at least 5 survey questions to see your MK matches.",
+  "go_to_survey": "Go to survey →",
+  "filter_by_party": "All parties",
+  "mk_map_data_note": "Map uses 8 voted questions (Knessets 22–24)"
 }
