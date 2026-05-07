@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react'
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
@@ -6,6 +6,7 @@ import { MatchRadarChart } from '../components/Results/RadarChart'
 import { DimensionGapBars } from '../components/Results/DimensionGapBars'
 import { PartyCard } from '../components/Results/PartyCard'
 import { MKMatchList } from '../components/Results/MKMatchList'
+import { ShareCard } from '../components/Results/ShareCard'
 import { useSurveyStore } from '../store/survey'
 import { rankParties, rankMKs, DIMENSIONS, type DimensionKey } from '../utils/matching'
 import type { Party, PartyPosition, Question, KnessetMember } from '../types'
@@ -123,6 +124,8 @@ export function ResultsPage() {
   const [mode, setMode] = useState<'stated' | 'voted'>('stated')
   const [selectedPartyId, setSelectedPartyId] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+  const [sharingImage, setSharingImage] = useState(false)
+  const shareCardRef = useRef<HTMLDivElement>(null)
 
   // Hydrate answers from URL share param on first load
   useEffect(() => {
@@ -144,6 +147,30 @@ export function ResultsPage() {
       setTimeout(() => setCopied(false), 2500)
     })
   }, [answers])
+
+  const handleShareImage = useCallback(async () => {
+    if (!shareCardRef.current) return
+    setSharingImage(true)
+    try {
+      const { toPng } = await import('html-to-image')
+      const dataUrl = await toPng(shareCardRef.current, { pixelRatio: 2, cacheBust: true })
+      const res = await fetch(dataUrl)
+      const blob = await res.blob()
+      const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
+      if (navigator.share && navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: lang === 'he' ? 'מצפן בחירות - התוצאות שלי' : 'Election Compass - My Results' })
+      } else {
+        const link = document.createElement('a')
+        link.href = dataUrl
+        link.download = 'matzpen-results.png'
+        link.click()
+      }
+    } catch (err) {
+      console.error('Share image failed:', err)
+    } finally {
+      setSharingImage(false)
+    }
+  }, [lang])
 
   const ranked = useMemo(
     () => rankParties(answers, allPositions, weights),
@@ -309,11 +336,21 @@ export function ResultsPage() {
           {t('explore_research')}
         </button>
 
+        {/* Share image button */}
+        <button
+          onClick={handleShareImage}
+          disabled={sharingImage}
+          className="w-full py-3 rounded-xl bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors disabled:opacity-60"
+        >
+          {sharingImage ? t('share_generating') : t('share_image')}
+        </button>
+
+        {/* Copy link (secondary) */}
         <button
           onClick={handleShare}
-          className="w-full py-3 rounded-xl bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors"
+          className="w-full py-2 text-sm text-indigo-600 hover:text-indigo-800 transition-colors"
         >
-          {copied ? t('share_copied') : t('share')}
+          {copied ? t('share_copied') : t('share_link')}
         </button>
 
         <button
@@ -323,6 +360,16 @@ export function ResultsPage() {
           {t('restart')}
         </button>
       </main>
+
+      {/* Hidden share card — rendered off-screen for html-to-image capture */}
+      {ranked[0] && parties.find(p => p.id === ranked[0].party_id) && (
+        <ShareCard
+          ref={shareCardRef}
+          topMatch={ranked[0]}
+          party={parties.find(p => p.id === ranked[0].party_id)!}
+          lang={lang}
+        />
+      )}
     </div>
   )
 }
