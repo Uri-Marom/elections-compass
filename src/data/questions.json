@@ -2,84 +2,84 @@
   {
     "id": "q01",
     "dimension": "security",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "Israeli civilian settlements in the West Bank strengthen Israel's long-term security.",
     "text_he": "ההתנחלויות האזרחיות הישראליות בגדה המערבית מחזקות את ביטחון ישראל לטווח הארוך."
   },
   {
     "id": "q02",
     "dimension": "security",
-    "polarity": -1,
+    "polarity": 1,
     "text_en": "Israel should work toward the establishment of an independent Palestinian state as part of a peace agreement.",
     "text_he": "ישראל צריכה לפעול להקמת מדינה פלסטינית עצמאית במסגרת הסכם שלום."
   },
   {
     "id": "q03",
     "dimension": "security",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "Israel's military operations in Gaza should continue until Hamas is fully dismantled, even if it prolongs the conflict.",
     "text_he": "המבצעים הצבאיים של ישראל בעזה צריכים להימשך עד לפירוק מלא של חמאס, גם אם הדבר מאריך את הסכסוך."
   },
   {
     "id": "q04",
     "dimension": "security",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "Jerusalem should remain under exclusive Israeli sovereignty and not be divided under any peace agreement.",
     "text_he": "ירושלים צריכה להישאר תחת ריבונות ישראלית בלעדית ולא להתחלק בשום הסכם שלום."
   },
   {
     "id": "q05",
     "dimension": "security",
-    "polarity": -1,
+    "polarity": 1,
     "text_en": "Palestinian refugees and their descendants should have a right to return to territory inside Israel's pre-1967 borders.",
     "text_he": "לפליטים הפלסטינים וצאצאיהם צריכה להיות זכות שיבה לשטחים בתוך גבולות ישראל לפני 1967."
   },
   {
     "id": "q06",
     "dimension": "security",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "Israel should formally annex parts of the West Bank where major settlement blocs exist.",
     "text_he": "ישראל צריכה לספח רשמית חלקים מהגדה המערבית בהם נמצאים גושי ההתנחלויות הגדולים."
   },
   {
     "id": "q07",
     "dimension": "religion",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "Ultra-Orthodox (Haredi) men should be required to serve in the military or national service, as other Israeli citizens are.",
     "text_he": "גברים חרדים חייבים לשרת בצבא או בשירות לאומי, כמו שאר אזרחי ישראל."
   },
   {
     "id": "q08",
     "dimension": "religion",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "Israel should allow civil marriage for all citizens, not only religious marriages recognized by the Rabbinate.",
     "text_he": "ישראל צריכה לאפשר נישואים אזרחיים לכל האזרחים, ולא רק נישואים דתיים המוכרים על ידי הרבנות."
   },
   {
     "id": "q09",
     "dimension": "religion",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "Public businesses and malls should be legally permitted to operate on Shabbat.",
     "text_he": "בתי עסק ומרכזי קניות ציבוריים צריכים להיות רשאים על פי חוק לפעול בשבת."
   },
   {
     "id": "q10",
     "dimension": "religion",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "Women should be permitted to pray aloud with Torah scrolls at the Western Wall alongside men.",
     "text_he": "נשים צריכות להיות רשאיות להתפלל בקול עם ספרי תורה בכותל המערבי לצד גברים."
   },
   {
     "id": "q11",
     "dimension": "religion",
-    "polarity": -1,
+    "polarity": 1,
     "text_en": "The state should fund Haredi yeshiva students at the same level as university students.",
     "text_he": "המדינה צריכה לממן סטודנטים חרדים בישיבות באותה רמה כמו סטודנטים באוניברסיטאות."
   },
   {
     "id": "q12",
     "dimension": "religion",
-    "polarity": -1,
+    "polarity": 1,
     "text_en": "The government should enforce kosher certification standards in state-funded institutions.",
     "text_he": "הממשלה צריכה לאכוף תקני כשרות במוסדות הממומנים על ידי המדינה."
   },
@@ -93,35 +93,35 @@
   {
     "id": "q18",
     "dimension": "judicial",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "The Knesset should have the power to override Supreme Court rulings with a simple majority.",
     "text_he": "לכנסת צריכה להיות הסמכות לבטל פסיקות של בית המשפט העליון ברוב פשוט."
   },
   {
     "id": "q19",
     "dimension": "judicial",
-    "polarity": 1,
+    "polarity": -1,
     "text_en": "Politicians should have greater influence over the selection of Supreme Court judges.",
     "text_he": "לפוליטיקאים צריכה להיות השפעה גדולה יותר על מינוי שופטי בית המשפט העליון."
   },
   {
     "id": "q20",
     "dimension": "judicial",
-    "polarity": -1,
+    "polarity": 1,
     "text_en": "The Attorney General's legal opinions should be binding on the government.",
     "text_he": "חוות דעתו המשפטית של היועץ המשפטי לממשלה צריכה להיות מחייבת לממשלה."
   },
   {
     "id": "q21",
     "dimension": "judicial",
-    "polarity": -1,
+    "polarity": 1,
     "text_en": "Courts should be permitted to strike down government decisions they deem \"unreasonable.\"",
     "text_he": "בתי המשפט צריכים להיות רשאים לבטל החלטות ממשלה שהם מוצאים כ\"בלתי סבירות\"."
   },
   {
     "id": "q22",
     "dimension": "judicial",
-    "polarity": -1,
+    "polarity": 1,
     "text_en": "An independent judiciary is essential to preventing government corruption and abuse of power.",
     "text_he": "מערכת שפיטה עצמאית חיונית למניעת שחיתות ממשלתית וניצול לרעה של כוח."
   },

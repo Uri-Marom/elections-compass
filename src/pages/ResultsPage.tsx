@@ -126,6 +126,7 @@ export function ResultsPage() {
   const [copied, setCopied] = useState(false)
   const [sharingImage, setSharingImage] = useState(false)
   const shareCardRef = useRef<HTMLDivElement>(null)
+  const sharePendingRef = useRef(false)
 
   // Hydrate answers from URL share param on first load
   useEffect(() => {
@@ -149,7 +150,8 @@ export function ResultsPage() {
   }, [answers])
 
   const handleShareImage = useCallback(async () => {
-    if (!shareCardRef.current) return
+    if (!shareCardRef.current || sharePendingRef.current) return
+    sharePendingRef.current = true
     setSharingImage(true)
     try {
       const { toPng } = await import('html-to-image')
@@ -169,6 +171,7 @@ export function ResultsPage() {
       console.error('Share image failed:', err)
     } finally {
       setSharingImage(false)
+      sharePendingRef.current = false
     }
   }, [lang])
 
@@ -194,6 +197,12 @@ export function ResultsPage() {
   const partyDimScores = useMemo(
     () => computePartyDimScores(selectedPositions, mode),
     [effectivePartyId, mode] // eslint-disable-line react-hooks/exhaustive-deps
+  )
+
+  const topPartyPositions = allPositions[ranked[0]?.party_id ?? ''] ?? []
+  const topPartyDimScores = useMemo(
+    () => computePartyDimScores(topPartyPositions, 'stated'),
+    [ranked[0]?.party_id] // eslint-disable-line react-hooks/exhaustive-deps
   )
 
   const answered = answeredCount()
@@ -369,8 +378,10 @@ export function ResultsPage() {
         >
           <ShareCard
             ref={shareCardRef}
-            topMatch={ranked[0]}
-            party={parties.find(p => p.id === ranked[0].party_id)!}
+            topMatches={[ranked[0], ranked[1], ranked[2]]}
+            parties={parties}
+            userDimScores={userDimScores}
+            partyDimScores={topPartyDimScores}
             lang={lang}
           />
         </div>

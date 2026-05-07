@@ -7,7 +7,7 @@
     "poll_seats": 26,
     "bloc": "coalition",
     "color": "#1E3A8A",
-    "logo": null
+    "logo": "/logos/likud.png"
   },
   {
     "id": "shas",
@@ -17,7 +17,7 @@
     "poll_seats": 9,
     "bloc": "coalition",
     "color": "#7C2D12",
-    "logo": null
+    "logo": "/logos/shas.png"
   },
   {
     "id": "utj",
@@ -27,7 +27,7 @@
     "poll_seats": 7,
     "bloc": "coalition",
     "color": "#1C1917",
-    "logo": null
+    "logo": "/logos/utj.png"
   },
   {
     "id": "otzma",
@@ -37,7 +37,7 @@
     "poll_seats": 9,
     "bloc": "coalition",
     "color": "#B91C1C",
-    "logo": null
+    "logo": "/logos/otzma.png"
   },
   {
     "id": "religious_zionism",
@@ -47,7 +47,7 @@
     "poll_seats": 0,
     "bloc": "coalition",
     "color": "#92400E",
-    "logo": null
+    "logo": "/logos/religious_zionism.png"
   },
   {
     "id": "beyachad",
@@ -57,7 +57,7 @@
     "poll_seats": 23,
     "bloc": "opposition",
     "color": "#0369A1",
-    "logo": null
+    "logo": "/logos/beyachad.png"
   },
   {
     "id": "national_unity",
@@ -67,7 +67,7 @@
     "poll_seats": 0,
     "bloc": "opposition",
     "color": "#0891B2",
-    "logo": null
+    "logo": "/logos/national_unity.png"
   },
   {
     "id": "yashar",
@@ -77,7 +77,7 @@
     "poll_seats": 14,
     "bloc": "opposition",
     "color": "#7C3AED",
-    "logo": null
+    "logo": "/logos/yashar.png"
   },
   {
     "id": "democrats",
@@ -87,7 +87,7 @@
     "poll_seats": 9,
     "bloc": "opposition",
     "color": "#C2410C",
-    "logo": null
+    "logo": "/logos/democrats.png"
   },
   {
     "id": "yisrael_beitenu",
@@ -97,7 +97,7 @@
     "poll_seats": 9,
     "bloc": "opposition",
     "color": "#3B82F6",
-    "logo": null
+    "logo": "/logos/yisrael_beitenu.png"
   },
   {
     "id": "miluimnikim",
@@ -107,7 +107,7 @@
     "poll_seats": 0,
     "bloc": "opposition",
     "color": "#4D7C0F",
-    "logo": null
+    "logo": "/logos/miluimnikim.jpg"
   },
   {
     "id": "hadash_taal",
@@ -127,6 +127,6 @@
     "poll_seats": 5,
     "bloc": "arab",
     "color": "#16A34A",
-    "logo": null
+    "logo": "/logos/raam.png"
   }
 ]
