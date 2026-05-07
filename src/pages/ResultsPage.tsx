@@ -159,7 +159,8 @@ export function ResultsPage() {
       const res = await fetch(dataUrl)
       const blob = await res.blob()
       const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
-      if (navigator.share && navigator.canShare?.({ files: [file] })) {
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+      if (isMobile && navigator.share && navigator.canShare?.({ files: [file] })) {
         await navigator.share({ files: [file], title: lang === 'he' ? 'מצפן בחירות - התוצאות שלי' : 'Election Compass - My Results' })
       } else {
         const link = document.createElement('a')
