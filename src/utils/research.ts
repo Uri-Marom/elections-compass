@@ -26,8 +26,9 @@ export function computeHypocrisy(
 
     const coverage = gaps.length / TOTAL_QUESTIONS
     // consistency: 100 = platform fully matches votes, 0 = maximum divergence
+    // Dividing by 1 (not 4) means avg gap of 1 step = 0% consistent — a more meaningful calibration
     const score = gaps.length > 0
-      ? 100 - (gaps.reduce((s, g) => s + g.gap, 0) / gaps.length / 4) * 100
+      ? Math.max(0, 100 - (gaps.reduce((s, g) => s + g.gap, 0) / gaps.length) * 100)
       : 0
 
     const topGaps = [...gaps].sort((a, b) => b.gap - a.gap).slice(0, 5)

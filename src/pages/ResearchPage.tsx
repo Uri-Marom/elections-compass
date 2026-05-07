@@ -70,21 +70,7 @@ export function ResearchPage() {
 
       <main className="max-w-2xl mx-auto px-4 py-6 space-y-8">
 
-        {/* Section 1: Hypocrisy */}
-        <section>
-          <h2 className="text-base font-bold text-gray-900 mb-1">{t('hypocrisy_title')}</h2>
-          <p className="text-xs text-gray-500 mb-4 leading-relaxed">{t('hypocrisy_subtitle')}</p>
-          <HypocrisyChart
-            results={hypocrisyResults}
-            parties={parties}
-            questions={questions}
-            lang={lang}
-          />
-        </section>
-
-        <hr className="border-gray-200" />
-
-        {/* Section 2: Party map */}
+        {/* Section 1: Party map */}
         <section>
           <h2 className="text-base font-bold text-gray-900 mb-1">{t('similarity_title')}</h2>
           <PartyMap
@@ -92,6 +78,20 @@ export function ResearchPage() {
             parties={parties}
             mode={mapMode}
             onModeChange={setMapMode}
+            lang={lang}
+          />
+        </section>
+
+        <hr className="border-gray-200" />
+
+        {/* Section 2: Hypocrisy */}
+        <section>
+          <h2 className="text-base font-bold text-gray-900 mb-1">{t('hypocrisy_title')}</h2>
+          <p className="text-xs text-gray-500 mb-4 leading-relaxed">{t('hypocrisy_subtitle')}</p>
+          <HypocrisyChart
+            results={hypocrisyResults}
+            parties={parties}
+            questions={questions}
             lang={lang}
           />
         </section>
