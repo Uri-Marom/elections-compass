@@ -365,6 +365,13 @@
         "source": "Voted as National Unity MKs in 25th Knesset (Eisenkot & Kahana) — last updated 2026-04-24"
       },
       "divergence_flag": false
+    },
+    {
+      "question_id": "q34",
+      "stated_position": {
+        "score": 2,
+        "source": "Eisenkot explicitly stated '50% women and 30% young people in my list' (5050il.co.il)"
+      }
     }
   ]
 }

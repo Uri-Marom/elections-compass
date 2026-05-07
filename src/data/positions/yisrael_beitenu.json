@@ -364,6 +364,13 @@
         "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
       },
       "divergence_flag": false
+    },
+    {
+      "question_id": "q34",
+      "stated_position": {
+        "score": 0,
+        "source": "Attempted to legislate 1/3 women requirement (blocked); no 50/50 commitment (5050il.co.il)"
+      }
     }
   ]
 }

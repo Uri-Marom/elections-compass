@@ -358,6 +358,13 @@
         "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
       },
       "divergence_flag": false
+    },
+    {
+      "question_id": "q34",
+      "stated_position": {
+        "score": 2,
+        "source": "Committed to 50/50 alternating gender list per party bylaws (5050il.co.il)"
+      }
     }
   ]
 }

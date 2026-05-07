@@ -15,7 +15,7 @@ will warn about unknown headers rather than silently mismap them.
 import json
 import subprocess
 import sys
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from statistics import median
@@ -40,7 +40,7 @@ COLUMN_MAP: Dict[str, Optional[str]] = {
     "ש״ס":                 "shas",
     'ש"ס':                 "shas",
     "כחול לבן":            "national_unity",
-    "יש עתיד":             "yesh_atid",
+    "יש עתיד":             "beyachad",   # pre-merger column — maps to merged party
     "חדש תע״ל":            "hadash_taal",
     'חדש תע"ל':            "hadash_taal",
     "ישראל ביתנו":         "yisrael_beitenu",
@@ -51,7 +51,9 @@ COLUMN_MAP: Dict[str, Optional[str]] = {
     "בל״ד":                None,  # Balad — not tracked
     'בל"ד':                None,
     "עוצמה יהודית":        "otzma",
-    "מפלגת בנט":           "bennett_2026",
+    "מפלגת בנט":           None,         # no longer a separate party (merged into ביחד)
+    "ביחד (בנט ולפיד)":    "beyachad",   # post-merger unified column
+    "ביחד":                "beyachad",   # short form the site may also use
     "ישר!":                "yashar",
     "המילואימניקים":       "miluimnikim",
     "רשימה ערבית מאוחדת":  None,  # combined Arab list — not tracked
@@ -180,9 +182,9 @@ def parse_polls(rows: List[List[str]], header_idx: int, party_cols: List[Optiona
         if len(row) < META_COLS + 1:
             continue
 
-        # Date is column index 1 (format YYYY-MM-DD)
+        # Date is column index 1 (format DD/MM/YYYY)
         try:
-            poll_date = date.fromisoformat(row[1].strip())
+            poll_date = datetime.strptime(row[1].strip(), '%d/%m/%Y').date()
         except ValueError:
             continue  # skip non-data rows
 

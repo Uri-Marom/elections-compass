@@ -50,11 +50,11 @@
     "logo": null
   },
   {
-    "id": "yesh_atid",
-    "name_en": "Yesh Atid",
-    "name_he": "יש עתיד",
+    "id": "beyachad",
+    "name_en": "Beyachad",
+    "name_he": "ביחד",
     "seats": 24,
-    "poll_seats": 6,
+    "poll_seats": 23,
     "bloc": "opposition",
     "color": "#0369A1",
     "logo": null
@@ -67,16 +67,6 @@
     "poll_seats": 0,
     "bloc": "opposition",
     "color": "#0891B2",
-    "logo": null
-  },
-  {
-    "id": "bennett_2026",
-    "name_en": "Bennett 2026",
-    "name_he": "בנט 2026",
-    "seats": 0,
-    "poll_seats": 20,
-    "bloc": "opposition",
-    "color": "#0D9488",
     "logo": null
   },
   {

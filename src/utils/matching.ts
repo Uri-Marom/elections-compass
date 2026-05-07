@@ -6,7 +6,7 @@ export const DIMENSIONS = {
   socioeconomic: { label_en: 'Economy & Welfare', label_he: 'כלכלה ורווחה', questions: ['q16','q32'] },
   judicial:      { label_en: 'Rule of Law',       label_he: 'שלטון החוק',   questions: ['q18','q19','q20','q21','q22'] },
   minority:      { label_en: 'Minority Rights',   label_he: 'זכויות מיעוטים', questions: ['q23','q24','q25','q26'] },
-  governance:    { label_en: 'Governance',         label_he: 'ממשל ושקיפות', questions: ['q27','q28','q29','q31','q33'] },
+  governance:    { label_en: 'Governance',         label_he: 'ממשל ושקיפות', questions: ['q27','q28','q29','q31','q33','q34'] },
 } as const
 
 export type DimensionKey = keyof typeof DIMENSIONS

@@ -364,6 +364,13 @@
         "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
       },
       "divergence_flag": false
+    },
+    {
+      "question_id": "q34",
+      "stated_position": {
+        "score": -2,
+        "source": "No commitment to gender parity; religiously conservative position on gender roles (5050il.co.il)"
+      }
     }
   ]
 }

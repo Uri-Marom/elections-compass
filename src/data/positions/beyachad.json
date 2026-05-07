@@ -1,29 +1,30 @@
 {
-  "party_id": "yesh_atid",
+  "party_id": "beyachad",
+  "_note": "Merged party formed from Yesh Atid (Lapid) and Bennett 2026. Stated positions average both parties' platforms. Voted positions use Yesh Atid's 25th Knesset record (Bennett had no Knesset data for this term).",
   "positions": [
     {
       "question_id": "q01",
       "stated_position": {
         "score": -1,
-        "source": "Critical of settlement expansion"
+        "source": "Both parties opposed settlement expansion; security-pragmatism over ideological expansion"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
     {
       "question_id": "q02",
       "stated_position": {
-        "score": 1,
-        "source": "Supports two-state solution in principle"
+        "score": 0.5,
+        "source": "Yesh Atid supports two-state in principle; Bennett's 'shrinking the conflict' leaves final status open — merged platform is cautiously open"
       },
       "voted_position": {
         "score": -1.5,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": true
     },
@@ -31,25 +32,25 @@
       "question_id": "q03",
       "stated_position": {
         "score": 1,
-        "source": "Supports operations but questions open-ended timeline"
+        "source": "Both support military operations with clear strategic objectives but oppose open-ended indefinite campaign"
       },
       "voted_position": {
         "score": 1.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
     {
       "question_id": "q04",
       "stated_position": {
-        "score": 1,
-        "source": "Unified Jerusalem as capital but open to functional arrangements"
+        "score": 1.5,
+        "source": "Both support unified Jerusalem; Bennett holds this more firmly (score 2) vs Yesh Atid open to functional arrangements (score 1)"
       },
       "voted_position": {
         "score": 1.5,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -57,12 +58,12 @@
       "question_id": "q05",
       "stated_position": {
         "score": -2,
-        "source": "Opposes right of return"
+        "source": "Both parties firmly oppose right of return"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -70,12 +71,12 @@
       "question_id": "q06",
       "stated_position": {
         "score": -1,
-        "source": "Opposes annexation"
+        "source": "Both parties oppose annexation"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -83,51 +84,51 @@
       "question_id": "q07",
       "stated_position": {
         "score": 2,
-        "source": "Haredi conscription is top party priority — Lapid's signature issue"
+        "source": "Haredi conscription is a signature issue for both Lapid and Bennett"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
     {
       "question_id": "q08",
       "stated_position": {
-        "score": 2,
-        "source": "Civil marriage is party platform"
+        "score": 1.5,
+        "source": "Yesh Atid: civil marriage as party platform (2); Bennett: supports civil alternatives, advanced spousal registration as PM (1)"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
     {
       "question_id": "q09",
       "stated_position": {
-        "score": 2,
-        "source": "Shabbat commerce freedom is party position"
+        "score": 1.5,
+        "source": "Yesh Atid: Shabbat commerce freedom as party position (2); Bennett: supported liberalization (1)"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
     {
       "question_id": "q10",
       "stated_position": {
-        "score": 2,
-        "source": "Supports Kotel reform"
+        "score": 1.5,
+        "source": "Yesh Atid: strongly supports Kotel reform (2); Bennett: supported Kotel compromise framework as PM (1)"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -135,12 +136,12 @@
       "question_id": "q11",
       "stated_position": {
         "score": -1,
-        "source": "Opposes yeshiva funding without military service"
+        "source": "Both parties oppose yeshiva funding without military/national service"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -148,12 +149,12 @@
       "question_id": "q12",
       "stated_position": {
         "score": -1,
-        "source": "Opposes state kashrut enforcement"
+        "source": "Both parties oppose state kashrut enforcement monopoly"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -161,12 +162,12 @@
       "question_id": "q16",
       "stated_position": {
         "score": 0,
-        "source": "Mixed record on privatization"
+        "source": "Both parties have mixed/pragmatic records on privatization"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": true
     },
@@ -174,25 +175,25 @@
       "question_id": "q18",
       "stated_position": {
         "score": -2,
-        "source": "Strongly opposes override clause"
+        "source": "Both strongly oppose override clause — central campaign issue for both Lapid and Bennett"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
     {
       "question_id": "q19",
       "stated_position": {
-        "score": -2,
-        "source": "Defends current judicial selection process"
+        "score": -1.5,
+        "source": "Yesh Atid: defends current judicial selection process (-2); Bennett: opposed politicization but more open to limited reform (-1)"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -200,12 +201,12 @@
       "question_id": "q20",
       "stated_position": {
         "score": 2,
-        "source": "AG opinions must be binding"
+        "source": "Both parties: AG opinions must be binding on government"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -213,12 +214,12 @@
       "question_id": "q21",
       "stated_position": {
         "score": 2,
-        "source": "Defends reasonableness standard"
+        "source": "Both parties support courts retaining reasonableness review power"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -226,12 +227,12 @@
       "question_id": "q22",
       "stated_position": {
         "score": 2,
-        "source": "Judicial independence is central party platform"
+        "source": "Both parties: judicial independence as essential safeguard"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -239,25 +240,25 @@
       "question_id": "q23",
       "stated_position": {
         "score": 1,
-        "source": "Supports equality but focus on Jewish-state identity"
+        "source": "Both parties support equality for all citizens; maintain focus on Jewish-state identity"
       },
       "voted_position": {
         "score": 1.5,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
     {
       "question_id": "q24",
       "stated_position": {
-        "score": 0,
-        "source": "Ambivalent — concerned about optics"
+        "score": 0.5,
+        "source": "Yesh Atid ambivalent (0); Bennett led Ra'am coalition 2021-2022 (1) — merged party has demonstrated willingness"
       },
       "voted_position": {
         "score": 0.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -265,12 +266,12 @@
       "question_id": "q25",
       "stated_position": {
         "score": 1,
-        "source": "Supports equal municipal funding"
+        "source": "Both parties support equal per-capita municipal funding for Arab sector"
       },
       "voted_position": {
         "score": 1.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -278,12 +279,12 @@
       "question_id": "q26",
       "stated_position": {
         "score": 0,
-        "source": "Did not oppose Nation-State Law strongly"
+        "source": "Neither party strongly opposed Nation-State Law; pragmatic on Jewish state definition"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": true
     },
@@ -291,38 +292,38 @@
       "question_id": "q27",
       "stated_position": {
         "score": 2,
-        "source": "PM incapacitation law proposed by Yesh Atid"
+        "source": "Both parties: sitting PM under indictment should suspend duties; both call for Netanyahu to step down"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
     {
       "question_id": "q28",
       "stated_position": {
-        "score": 2,
-        "source": "Supports term limits for PM"
+        "score": 1.5,
+        "source": "Yesh Atid: supports term limits (2); Bennett: supports term limits (1)"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
     {
       "question_id": "q29",
       "stated_position": {
-        "score": 1,
-        "source": "Larger parties benefit from higher threshold"
+        "score": 0.5,
+        "source": "Yesh Atid benefits from higher threshold (1); Bennett's new party is neutral (0)"
       },
       "voted_position": {
         "score": 1.0,
         "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "source": "Yesh Atid Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -330,7 +331,7 @@
       "question_id": "q31",
       "stated_position": {
         "score": 2,
-        "source": "Lapid has made state inquiry a central opposition demand since October 2023"
+        "source": "Both parties strongly support state inquiry into Oct 7 failures"
       },
       "voted_position": {
         "score": 2.0,
@@ -343,7 +344,7 @@
       "question_id": "q32",
       "stated_position": {
         "score": 2,
-        "source": "Lapid has made mandatory core curriculum (math, English, sciences) a flagship issue for years"
+        "source": "Core curriculum is a flagship issue for both Lapid and Bennett"
       },
       "voted_position": {
         "score": 2.0,
@@ -356,7 +357,7 @@
       "question_id": "q33",
       "stated_position": {
         "score": 1,
-        "source": "Supports professional journalistic standards; concerned about Channel 14 disinformation"
+        "source": "Both parties support media accountability and professional journalistic standards"
       },
       "voted_position": {
         "score": 1.5,
@@ -368,8 +369,8 @@
     {
       "question_id": "q34",
       "stated_position": {
-        "score": 1,
-        "source": "Progressive-liberal party; publicly supportive of gender equality; no formal 50/50 commitment recorded (5050il.co.il)"
+        "score": 0,
+        "source": "Yesh Atid supportive but no formal 50/50 pledge (1); Bennett explicitly rejected gender quotas (-1) — merged party position is neutral (5050il.co.il)"
       }
     }
   ]
