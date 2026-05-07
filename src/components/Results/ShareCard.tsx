@@ -58,9 +58,6 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
         ref={ref}
         dir={isHe ? 'rtl' : 'ltr'}
         style={{
-          position: 'fixed',
-          top: '-9999px',
-          left: '-9999px',
           width: '480px',
           height: '620px',
           background: '#ffffff',

@@ -361,14 +361,19 @@ export function ResultsPage() {
         </button>
       </main>
 
-      {/* Hidden share card — rendered off-screen for html-to-image capture */}
+      {/* Share card: zero-size container keeps it in the render tree but invisible */}
       {ranked[0] && parties.find(p => p.id === ranked[0].party_id) && (
-        <ShareCard
-          ref={shareCardRef}
-          topMatch={ranked[0]}
-          party={parties.find(p => p.id === ranked[0].party_id)!}
-          lang={lang}
-        />
+        <div
+          aria-hidden="true"
+          style={{ position: 'absolute', top: 0, left: 0, width: 0, height: 0, overflow: 'hidden', pointerEvents: 'none' }}
+        >
+          <ShareCard
+            ref={shareCardRef}
+            topMatch={ranked[0]}
+            party={parties.find(p => p.id === ranked[0].party_id)!}
+            lang={lang}
+          />
+        </div>
       )}
     </div>
   )
