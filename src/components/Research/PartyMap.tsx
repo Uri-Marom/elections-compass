@@ -12,14 +12,16 @@ interface Props {
 }
 
 const SVG_W = 500
-const SVG_H = 420
-const MARGIN = 112      // horizontal margin reserved for labels on each side
+const SVG_H = 440
+const MARGIN = 126       // left/right margin reserved for labels
 const PAD_Y = 36
 const DOT_R = 7
-const LABEL_GAP = 13   // min vertical spacing between labels in a margin
+const LABEL_GAP = 15    // minimum vertical spacing between labels in a margin
 
 const PLOT_X0 = MARGIN
 const PLOT_X1 = SVG_W - MARGIN
+const LABEL_X_L = MARGIN / 2          // centre of left margin  = 63
+const LABEL_X_R = SVG_W - MARGIN / 2  // centre of right margin = 437
 
 function toSvgX(x: number) { return PLOT_X0 + ((x + 1) / 2) * (PLOT_X1 - PLOT_X0) }
 function toSvgY(y: number) { return PAD_Y + ((1 - y) / 2) * (SVG_H - PAD_Y * 2) }
@@ -34,32 +36,27 @@ function starPath(cx: number, cy: number, r: number, n = 5): string {
   return `M${pts.join('L')}Z`
 }
 
-interface LabelItem {
-  svgX: number; svgY: number
-  name: string; color: string; party_id: string
-}
+interface DotItem { svgX: number; svgY: number; name: string; color: string; party_id: string }
 interface PlacedLabel {
   labelX: number; labelY: number
-  anchor: 'start' | 'end'
   name: string; color: string
   dotX: number; dotY: number
+  side: 'left' | 'right'
 }
 
-function layoutMargin(items: LabelItem[], side: 'left' | 'right'): PlacedLabel[] {
+function layoutMargin(items: DotItem[], side: 'left' | 'right'): PlacedLabel[] {
   if (items.length === 0) return []
-  const minY = PAD_Y + 2
-  const maxY = SVG_H - PAD_Y - 2
-  const sorted = [...items].sort((a, b) => a.svgY - b.svgY)
+  const minY = PAD_Y + 4
+  const maxY = SVG_H - PAD_Y - 4
 
-  // Start each label at its dot's Y, clamped
+  const sorted = [...items].sort((a, b) => a.svgY - b.svgY)
   const ys = sorted.map(d => Math.max(minY, Math.min(maxY, d.svgY)))
 
-  // Push down to avoid overlap
+  // push down
   for (let i = 1; i < ys.length; i++) {
     if (ys[i] < ys[i - 1] + LABEL_GAP) ys[i] = ys[i - 1] + LABEL_GAP
   }
-
-  // If gone past bottom, slide up from the end
+  // slide up if overflowed
   if (ys[ys.length - 1] > maxY) {
     ys[ys.length - 1] = maxY
     for (let i = ys.length - 2; i >= 0; i--) {
@@ -67,17 +64,16 @@ function layoutMargin(items: LabelItem[], side: 'left' | 'right'): PlacedLabel[]
     }
   }
 
-  const labelX = side === 'left' ? PLOT_X0 - 6 : PLOT_X1 + 6
-  const anchor: 'start' | 'end' = side === 'left' ? 'end' : 'start'
+  const labelX = side === 'left' ? LABEL_X_L : LABEL_X_R
 
   return sorted.map((d, i) => ({
     labelX,
     labelY: ys[i],
-    anchor,
     name: d.name,
     color: d.color,
     dotX: d.svgX,
     dotY: d.svgY,
+    side,
   }))
 }
 
@@ -95,15 +91,15 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
     }
   })
 
-  // Split by which half of the plot area the dot falls in
-  const leftDots  = dots.filter(d => d.svgX <= SVG_W / 2)
-  const rightDots = dots.filter(d => d.svgX >  SVG_W / 2)
-  const labels = [
+  // Split by which half of the plot the dot lands in
+  const leftDots  = dots.filter(d => d.svgX <= (PLOT_X0 + PLOT_X1) / 2)
+  const rightDots = dots.filter(d => d.svgX >  (PLOT_X0 + PLOT_X1) / 2)
+  const labels: PlacedLabel[] = [
     ...layoutMargin(leftDots,  'left'),
     ...layoutMargin(rightDots, 'right'),
   ]
 
-  const axisColor = '#d1d5db'
+  const axisColor = '#e5e7eb'
   const axisLabelColor = '#9ca3af'
 
   const userSvgX = userPoint ? toSvgX(userPoint.x) : null
@@ -136,24 +132,24 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
           <line x1={PLOT_X0} y1={SVG_H / 2} x2={PLOT_X1} y2={SVG_H / 2} stroke={axisColor} strokeWidth={1} />
           <line x1={SVG_W / 2} y1={PAD_Y} x2={SVG_W / 2} y2={SVG_H - PAD_Y} stroke={axisColor} strokeWidth={1} />
 
-          {/* Axis labels */}
-          <text x={PLOT_X0 + 3} y={SVG_H / 2 - 4} fontSize={8} fill={axisLabelColor} fontWeight={600}>{t('map_axis_left')}</text>
-          <text x={PLOT_X1 - 3} y={SVG_H / 2 - 4} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="end">{t('map_axis_right')}</text>
+          {/* Axis labels — inside the plot near the axes, no textAnchor ambiguity */}
+          <text x={PLOT_X0 + 4} y={SVG_H / 2 - 5} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="start">{t('map_axis_left')}</text>
+          <text x={PLOT_X1 - 4} y={SVG_H / 2 - 5} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="end">{t('map_axis_right')}</text>
           <text x={SVG_W / 2} y={PAD_Y - 8} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="middle">{t('map_axis_religious')}</text>
           <text x={SVG_W / 2} y={SVG_H - PAD_Y + 14} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="middle">{t('map_axis_secular')}</text>
 
-          {/* Leader lines */}
+          {/* Leader lines: from margin boundary to dot edge */}
           {labels.map((lb, i) => {
-            const dx = lb.dotX - lb.labelX, dy = lb.dotY - lb.labelY
+            const startX = lb.side === 'left' ? PLOT_X0 - 3 : PLOT_X1 + 3
+            const startY = lb.labelY
+            const dx = lb.dotX - startX, dy = lb.dotY - startY
             const dist = Math.sqrt(dx * dx + dy * dy) || 1
-            // shorten at dot end by DOT_R, at label end by 2px
-            const ex = lb.dotX - (dx / dist) * (DOT_R + 1)
-            const ey = lb.dotY - (dy / dist) * (DOT_R + 1)
-            const sx = lb.labelX + (dx / dist) * 2
-            const sy = lb.labelY + (dy / dist) * 2
+            const endX = lb.dotX - (dx / dist) * (DOT_R + 2)
+            const endY = lb.dotY - (dy / dist) * (DOT_R + 2)
             return (
-              <line key={`l${i}`} x1={sx} y1={sy} x2={ex} y2={ey}
-                stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.35} />
+              <line key={`line-${i}`}
+                x1={startX} y1={startY} x2={endX} y2={endY}
+                stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.4} />
             )
           })}
 
@@ -165,11 +161,12 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
             </g>
           ))}
 
-          {/* Labels */}
+          {/* Labels — textAnchor="middle" is BiDi-neutral; text stays centred in the margin */}
           {labels.map((lb, i) => (
-            <text key={`t${i}`}
-              x={lb.labelX} y={lb.labelY}
-              textAnchor={lb.anchor}
+            <text key={`label-${i}`}
+              x={lb.labelX}
+              y={lb.labelY}
+              textAnchor="middle"
               dominantBaseline="middle"
               fontSize={9}
               fontWeight={600}
@@ -185,7 +182,7 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
             <g>
               <title>{lang === 'he' ? 'אתם' : 'You'}</title>
               <path d={starPath(userSvgX, userSvgY, 11)} fill="#4f46e5" stroke="white" strokeWidth={1.5} />
-              <text x={userSvgX} y={userSvgY + 18}
+              <text x={userSvgX} y={userSvgY + 19}
                 textAnchor="middle" fontSize={9} fontWeight={700} fill="#4f46e5"
                 style={{ userSelect: 'none' }}>
                 {lang === 'he' ? 'אתם' : 'You'}
