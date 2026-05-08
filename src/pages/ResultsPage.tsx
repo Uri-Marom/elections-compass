@@ -155,7 +155,11 @@ export function ResultsPage() {
     setSharingImage(true)
     try {
       const { toBlob } = await import('html-to-image')
-      const blob = await toBlob(shareCardRef.current, { pixelRatio: 2, cacheBust: true })
+      const opts = { pixelRatio: 2, cacheBust: true }
+      // html-to-image on macOS renders twice internally when fetching external images.
+      // Calling toBlob once first loads images into cache; the second call renders cleanly.
+      await toBlob(shareCardRef.current, opts)
+      const blob = await toBlob(shareCardRef.current, opts)
       if (!blob) throw new Error('toBlob returned null')
       const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
       if (navigator.share && navigator.canShare?.({ files: [file] })) {
