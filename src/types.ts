@@ -29,6 +29,7 @@ export interface StatedPosition {
 
 export interface VotedPosition {
   score: number
+  source?: string
   vote_ids?: number[]
   vote_count?: number
   for_pct?: number
