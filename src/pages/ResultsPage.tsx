@@ -125,6 +125,7 @@ export function ResultsPage() {
   const [selectedPartyId, setSelectedPartyId] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [sharingImage, setSharingImage] = useState(false)
+  const [imageCopied, setImageCopied] = useState(false)
   const shareCardRef = useRef<HTMLDivElement>(null)
   const sharePendingRef = useRef(false)
 
@@ -174,16 +175,27 @@ export function ResultsPage() {
       const blob = await new Promise<Blob | null>(resolve => hiRes.toBlob(resolve, 'image/png'))
 
       if (!blob) throw new Error('toBlob returned null')
-      const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
-      if (navigator.share && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], title: lang === 'he' ? 'מצפן בחירות - התוצאות שלי' : 'Election Compass - My Results' })
+
+      // Prefer the Clipboard API: writes exactly one image to clipboard, avoiding the
+      // macOS share-sheet "Copy" behavior that puts both a file reference and image data
+      // on the clipboard (which causes WhatsApp to paste two images).
+      if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
+        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+        setImageCopied(true)
+        setTimeout(() => setImageCopied(false), 2500)
       } else {
-        const objectUrl = URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.href = objectUrl
-        link.download = 'matzpen-results.png'
-        link.click()
-        URL.revokeObjectURL(objectUrl)
+        // Mobile / browsers without Clipboard API: fall back to native share sheet
+        const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
+        if (navigator.share && navigator.canShare?.({ files: [file] })) {
+          await navigator.share({ files: [file], title: lang === 'he' ? 'מצפן בחירות - התוצאות שלי' : 'Election Compass - My Results' })
+        } else {
+          const objectUrl = URL.createObjectURL(blob)
+          const link = document.createElement('a')
+          link.href = objectUrl
+          link.download = 'matzpen-results.png'
+          link.click()
+          URL.revokeObjectURL(objectUrl)
+        }
       }
     } catch (err) {
       console.error('Share image failed:', err)
@@ -369,7 +381,7 @@ export function ResultsPage() {
           disabled={sharingImage}
           className="w-full py-3 rounded-xl bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors disabled:opacity-60"
         >
-          {sharingImage ? t('share_generating') : t('share_image')}
+          {sharingImage ? t('share_generating') : imageCopied ? (lang === 'he' ? '✓ הועתק ללוח!' : '✓ Copied!') : t('share_image')}
         </button>
 
         {/* Copy link (secondary) */}
