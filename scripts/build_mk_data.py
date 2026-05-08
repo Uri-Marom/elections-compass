@@ -244,7 +244,9 @@ def load_vote_ids(mappings: dict) -> tuple[dict[str, list[tuple[int, str]]], set
     return result, k25_only
 
 
-ATTENDANCE_KNESSETS = {22, 23, 24, 25}  # knessets covered by the shadow CSV
+# K25 is excluded: plenary data only has ~25 filtered vote IDs, not comprehensive session
+# attendance. K22-K24 are fully covered by the shadow CSV.
+ATTENDANCE_KNESSETS = {22, 23, 24}
 
 def build_mk_vote_scores(
     shadow_rows: list[dict],
@@ -327,10 +329,9 @@ def build_mk_vote_scores(
         if q_scores:
             mk_scores[mk_id] = q_scores
 
-    # Compute attendance rate per MK
-    mk_attendance: dict[str, float] = {}
+    # Compute attendance rate per MK (K22-K24 only; K25 data is not comprehensive)
+    mk_attendance: dict[str, Optional[float]] = {}
     for mk_id, kn_votes in mk_votes_per_knesset.items():
-        # Only count knessets in ATTENDANCE_KNESSETS where the MK was active
         active_kns = mk_knessets[mk_id] & ATTENDANCE_KNESSETS
         if not active_kns:
             continue
@@ -339,7 +340,7 @@ def build_mk_vote_scores(
         if total_possible > 0:
             mk_attendance[mk_id] = round(mk_participated / total_possible, 4)
 
-    print(f"  Total unique votes in knessets 22-25: "
+    print(f"  Total unique votes in knessets 22-24: "
           f"{sum(len(v) for v in total_votes_per_knesset.values()):,}", flush=True)
 
     return mk_scores, mk_names, mk_knessets, mk_latest_faction, mk_attendance
@@ -392,32 +393,41 @@ def fetch_mk_bill_counts(person_ids: list[str], batch_size: int = 5) -> dict[str
 
 def compute_activity_grades(
     mk_ids: list[str],
-    attendance: dict[str, float],
+    attendance: dict[str, Optional[float]],
     bill_counts: dict[str, int],
 ) -> dict[str, dict]:
     """
     Returns {mk_id: {attendance_pct, bill_count, activity_score, activity_grade}}
     Grades are percentile-based within the cohort.
+    attendance_pct is None for K25-only MKs who have no K22-K24 shadow data.
     """
-    att_vals  = [attendance.get(mk, 0.0) for mk in mk_ids]
-    bill_vals = [bill_counts.get(mk, 0)   for mk in mk_ids]
+    # Only include MKs with known attendance in the percentile calculation
+    att_known = [attendance[mk] for mk in mk_ids if attendance.get(mk) is not None]
+    att_vals   = [attendance.get(mk) for mk in mk_ids]  # may contain None
+    bill_vals  = [bill_counts.get(mk, 0) for mk in mk_ids]
 
     def percentile_rank(vals: list, v: float) -> float:
         """Return what fraction of values v beats (0–1)."""
-        below = sum(1 for x in vals if x < v)
-        equal = sum(1 for x in vals if x == v)
-        return (below + equal / 2) / len(vals) if vals else 0.5
+        known = [x for x in vals if x is not None]
+        if not known:
+            return 0.5
+        below = sum(1 for x in known if x < v)
+        equal = sum(1 for x in known if x == v)
+        return (below + equal / 2) / len(known)
 
     results: dict[str, dict] = {}
     for mk_id in mk_ids:
-        att  = attendance.get(mk_id, 0.0)
+        att   = attendance.get(mk_id)   # None for K25-only MKs
         bills = bill_counts.get(mk_id, 0)
 
-        att_pct   = round(percentile_rank(att_vals,  att)  * 100)
         bills_pct = round(percentile_rank(bill_vals, bills) * 100)
 
-        # Attendance weighted 60%, bills 40%
-        score = round(att_pct * 0.6 + bills_pct * 0.4)
+        if att is not None:
+            att_pct = round(percentile_rank(att_vals, att) * 100)
+            score   = round(att_pct * 0.6 + bills_pct * 0.4)
+        else:
+            # No attendance data: grade on bills only
+            score = round(bills_pct * 0.4)
 
         if score >= 80:   grade = "A"
         elif score >= 65: grade = "B"
@@ -426,7 +436,7 @@ def compute_activity_grades(
         else:             grade = "F"
 
         results[mk_id] = {
-            "attendance_pct": round(att * 100, 1),
+            "attendance_pct": round(att * 100, 1) if att is not None else None,
             "bill_count":     bills,
             "activity_score": score,
             "activity_grade": grade,

@@ -101,15 +101,15 @@ export function HypocrisyChart({ results, parties, questions, lang }: Props) {
                             <div className="flex items-center gap-2 flex-wrap">
                               <span className="text-xs text-gray-400">{t('gap_platform')}:</span>
                               <span className="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">
-                                {formatScore(gap.stated, lang)}
+                                {formatScore(gap.stated, lang)} ({gap.stated > 0 ? '+' : ''}{gap.stated})
                               </span>
                               <span className="text-gray-300">→</span>
                               <span className="text-xs text-gray-400">{t('gap_voted')}:</span>
                               <span className="text-xs font-medium text-orange-700 bg-orange-50 px-2 py-0.5 rounded-full">
-                                {formatScore(gap.voted, lang)}
+                                {formatScore(gap.voted, lang)} ({gap.voted > 0 ? '+' : ''}{gap.voted})
                               </span>
                               <span className="ms-auto text-xs font-semibold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">
-                                {t('gap_label')} {gap.gap.toFixed(1)}/4
+                                {t('gap_label')} {gap.gap.toFixed(1)}
                               </span>
                             </div>
                           </div>

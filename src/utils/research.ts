@@ -52,8 +52,16 @@ export interface PartyPoint {
   y: number   // PC2 projection
 }
 
-// All question IDs in a fixed order
-const ALL_QIDS = Array.from({ length: 33 }, (_, i) => `q${String(i + 1).padStart(2, '0')}`)
+// All question IDs in a fixed order (must match questions.json; skips removed questions)
+const ALL_QIDS = [
+  'q01','q02','q03','q04','q05','q06',
+  'q07','q08','q09','q10','q11','q12',
+  'q16',
+  'q18','q19','q20','q21','q22',
+  'q23','q24','q25','q26',
+  'q27','q28','q29',
+  'q31','q32','q33','q34','q35',
+]
 
 function dot(a: number[], b: number[]): number {
   return a.reduce((s, v, i) => s + v * b[i], 0)
@@ -103,8 +111,21 @@ function powerIterate(G: number[][], iters = 200): number[] {
 
 // ---------- MK analytics ----------
 
-// Questions that have actual shadow-vote data (used for all MK analysis)
-export const MK_SCORED_QIDS = ['q01', 'q06', 'q08', 'q13', 'q15', 'q16', 'q26', 'q28'] as const
+// Questions with high K25 MK coverage (≥80/134 MKs scored), used for MK analysis.
+// Covers religion, judicial, minority, governance, and socioeconomic dimensions.
+export const MK_SCORED_QIDS = [
+  'q07',  // Haredi conscription          (109/134)
+  'q08',  // Civil marriage               ( 81/134)
+  'q11',  // Yeshiva funding parity       (117/134)
+  'q18',  // Knesset override clause      (112/134)
+  'q19',  // Judicial selection           (109/134)
+  'q22',  // Independent judiciary        (109/134)
+  'q23',  // Equality Basic Law           (114/134)
+  'q27',  // PM under indictment          (107/134)
+  'q28',  // PM term limits               ( 89/134)
+  'q31',  // Oct 7 inquiry commission     (115/134)
+  'q32',  // Core curriculum              (101/134)
+] as const
 
 export interface IntraPartyVariance {
   party_id: string
@@ -190,6 +211,13 @@ function cosineSim(a: number[], b: number[]): number {
   return Math.round(((dot / (Math.sqrt(aMag) * Math.sqrt(bMag))) + 1) / 2 * 100)
 }
 
+// Maps historical/merged party IDs → the current party to compare against.
+// MKs who ran under these labels should be measured against the successor party.
+const PARTY_SUCCESSOR: Record<string, string> = {
+  yesh_atid:    'beyachad',   // Yesh Atid merged with Bennett's party into Beyachad
+  bennett_2026: 'beyachad',
+}
+
 export function findCrossAisleMKs(
   mks: KnessetMember[],
   mkPositions: Record<string, Record<string, number | null>>,
@@ -210,7 +238,9 @@ export function findCrossAisleMKs(
     const scores = mkPositions[mk.id]
     if (!scores) continue
 
-    // Build MK vector aligned with party vectors, only on questions both have
+    // Resolve the MK's "home" party — use successor if the original isn't in partyVecs
+    const homePid = PARTY_SUCCESSOR[mk.party_id] ?? mk.party_id
+
     let bestPartyId: string | null = null
     let bestSim = -1
     let actualSim = 0
@@ -228,7 +258,7 @@ export function findCrossAisleMKs(
       if (mkVec.length < 3) continue
       const sim = cosineSim(mkVec, pVec)
       if (sim > bestSim) { bestSim = sim; bestPartyId = pid }
-      if (pid === mk.party_id) actualSim = sim
+      if (pid === homePid) actualSim = sim
     }
 
     if (!bestPartyId) continue
@@ -376,9 +406,26 @@ export function computePartyPCA(
   const xRange = xMax - xMin || 1
   const yRange = yMax - yMin || 1
 
-  return partyIds.map((id, i) => ({
+  const points = partyIds.map((id, i) => ({
     party_id: id,
     x: ((coords[i].x - xMin) / xRange) * 2 - 1,
     y: ((coords[i].y - yMin) / yRange) * 2 - 1,
+  }))
+
+  // Anchor axis orientation: PCA eigenvector signs are arbitrary.
+  // X axis: Hadash-Ta'al (left) should be negative, Likud (right) positive.
+  // Y axis: Shas (religious) should be positive, Yisrael Beitenu (secular) negative.
+  const hadash  = points.find(p => p.party_id === 'hadash_taal')
+  const likud   = points.find(p => p.party_id === 'likud')
+  const shas    = points.find(p => p.party_id === 'shas')
+  const yisrael = points.find(p => p.party_id === 'yisrael_beitenu')
+
+  const flipX = hadash && likud && hadash.x > likud.x
+  const flipY = shas && yisrael && shas.y < yisrael.y
+
+  return points.map(p => ({
+    ...p,
+    x: flipX ? -p.x : p.x,
+    y: flipY ? -p.y : p.y,
   }))
 }

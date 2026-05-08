@@ -225,7 +225,7 @@ export function MKsPage() {
                             {mk.activity_grade && (
                               <span
                                 className={`text-xs px-1.5 py-0.5 rounded-full border font-semibold shrink-0 ${gradeColors[mk.activity_grade] ?? ''}`}
-                                title={`${mk.attendance_pct}% attendance · ${mk.bill_count} bills`}
+                                title={`${mk.attendance_pct != null ? mk.attendance_pct + '% attendance' : 'attendance N/A'} · ${mk.bill_count} bills`}
                               >
                                 {mk.activity_grade}
                               </span>
@@ -242,7 +242,10 @@ export function MKsPage() {
                             </span>
                           )}
                           <p className="text-xs text-gray-400 mt-0.5">
-                            {mk.attendance_pct}% {lang === 'he' ? 'נוכחות' : 'attendance'} · {mk.bill_count} {lang === 'he' ? 'הצעות חוק' : 'bills'}
+                            {mk.attendance_pct != null
+                              ? `${mk.attendance_pct}% ${lang === 'he' ? 'נוכחות' : 'attendance'}`
+                              : (lang === 'he' ? 'נוכחות: לא זמין' : 'attendance: N/A')
+                            } · {mk.bill_count} {lang === 'he' ? 'הצעות חוק' : 'bills'}
                           </p>
                         </div>
                         <div className="flex flex-col items-end shrink-0">

@@ -50,7 +50,7 @@ export interface KnessetMember {
   party_id: string
   knessets: number[]
   is_current: boolean
-  attendance_pct: number    // % of plenary votes participated in
+  attendance_pct: number | null  // % of K22-K24 votes; null for K25-only MKs
   bill_count: number        // bills initiated across covered knessets
   activity_score: number    // 0–100 percentile-based combined score
   activity_grade: string    // A / B / C / D / F
