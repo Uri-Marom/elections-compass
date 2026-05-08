@@ -119,11 +119,34 @@ _PLENARY_FOR     = {"1", "בעד"}
 _PLENARY_AGAINST = {"2", "נגד"}
 _PLENARY_ABSTAIN = {"3", "נמנע"}
 
-def fetch_plenary_vote_results(k25_vote_ids: set[str]) -> list[dict]:
+def build_name_to_person_id(individual_rows: list[dict]) -> dict[tuple[str, str], str]:
+    """
+    Returns {(first_name_he, last_name_he): person_id} for name-based ID bridging.
+    Used to translate MkId in kns_plenumvoteresult.csv (which is a different ID system
+    from PersonID) to the PersonID that matches our shadow-CSV kmmbr_id values.
+    """
+    result: dict[tuple[str, str], str] = {}
+    for row in individual_rows:
+        pid   = row.get("PersonID", "").strip()
+        first = row.get("mk_individual_first_name", "").strip()
+        last  = row.get("LastName", "").strip()
+        if pid and first and last:
+            result[(first, last)] = pid
+    print(f"  Name→PersonID bridge: {len(result):,} entries", flush=True)
+    return result
+
+
+def fetch_plenary_vote_results(
+    k25_vote_ids: set[str],
+    name_to_pid: dict[tuple[str, str], str] | None = None,
+) -> list[dict]:
     """
     Downloads the full plenary vote results CSV (~200 MB) and returns only rows
     for the given K25 vote IDs, normalised to the same field names as the shadow CSV:
       kmmbr_id, vote_id, vote_result (1/2/3), knesset_num=25, faction_name="".
+
+    MkId in this CSV is a different ID system from PersonID. We bridge using
+    name_to_pid (built from the individual CSV) to get the correct PersonID.
     """
     if not k25_vote_ids:
         return []
@@ -142,6 +165,8 @@ def fetch_plenary_vote_results(k25_vote_ids: set[str]) -> list[dict]:
     content = b"".join(chunks).decode("utf-8", errors="replace")
     print(f"  Downloaded {len(content) // 1_000_000} MB total.", flush=True)
     matched: list[dict] = []
+    name_hits = 0
+    name_misses = 0
     for row in csv.DictReader(io.StringIO(content)):
         vid = row.get("VoteID", "").strip()
         if vid not in k25_vote_ids:
@@ -156,12 +181,23 @@ def fetch_plenary_vote_results(k25_vote_ids: set[str]) -> list[dict]:
             result = "3"
         else:
             continue  # absent / not voted — skip
-        # Normalise MkId to the same zero-padded 9-digit format as shadow CSV kmmbr_id
-        mk_id_raw = row.get("MkId", "").strip()
-        try:
-            mk_id = str(int(mk_id_raw)).zfill(9)
-        except ValueError:
-            mk_id = mk_id_raw
+
+        # Resolve MkId → PersonID using name-based bridge (MkId ≠ PersonID in this CSV).
+        first = row.get("FirstName", "").strip()
+        last  = row.get("LastName", "").strip()
+        if name_to_pid and (first, last) in name_to_pid:
+            pid = name_to_pid[(first, last)]
+            mk_id = str(int(pid)).zfill(9)
+            name_hits += 1
+        else:
+            # Fallback: zero-pad the raw MkId (will likely not match k25_padded_ids)
+            mk_id_raw = row.get("MkId", "").strip()
+            try:
+                mk_id = str(int(mk_id_raw)).zfill(9)
+            except ValueError:
+                mk_id = mk_id_raw
+            name_misses += 1
+
         matched.append({
             "kmmbr_id":    mk_id,
             "vote_id":     vid,
@@ -169,7 +205,11 @@ def fetch_plenary_vote_results(k25_vote_ids: set[str]) -> list[dict]:
             "knesset_num": "25",
             "faction_name": "",
         })
-    print(f"  Matched {len(matched):,} vote records for {len(k25_vote_ids)} K25 vote IDs.", flush=True)
+    print(
+        f"  Matched {len(matched):,} vote records for {len(k25_vote_ids)} K25 vote IDs "
+        f"(name-resolved: {name_hits}, fallback: {name_misses}).",
+        flush=True,
+    )
     return matched
 
 
@@ -539,8 +579,13 @@ def main():
     individual_rows = fetch_csv(MK_INDIVIDUAL_URL, "MK individual CSV")
     factions_rows   = fetch_csv(MK_FACTIONS_URL,   "MK factions CSV")
 
+    # Build name→PersonID bridge before fetching plenary results
+    # (MkId in kns_plenumvoteresult.csv is a different ID from PersonID)
+    print("\nBuilding name→PersonID bridge from individual CSV...")
+    name_to_pid = build_name_to_person_id(individual_rows)
+
     # K25-specific votes aren't in the shadow CSV — fetch them from the full plenary results
-    plenary_rows = fetch_plenary_vote_results(k25_only_vote_ids)
+    plenary_rows = fetch_plenary_vote_results(k25_only_vote_ids, name_to_pid)
     combined_rows = shadow_rows + plenary_rows
 
     k25_member_ids = get_k25_member_ids(factions_rows, individual_rows)

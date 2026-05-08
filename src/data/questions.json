@@ -201,5 +201,12 @@
     "polarity": 1,
     "text_en": "Political parties should commit to equal gender representation (50/50) in their electoral candidate lists.",
     "text_he": "מפלגות צריכות להתחייב לייצוג שווה בין גברים לנשים (50/50) ברשימות הבחירות שלהן."
+  },
+  {
+    "id": "q35",
+    "dimension": "socioeconomic",
+    "polarity": 1,
+    "text_en": "Israel should set legally binding targets for renewable electricity generation, even if this leads to higher electricity prices for consumers.",
+    "text_he": "ישראל צריכה לקבוע יעדים מחייבים לייצור חשמל מאנרגיות מתחדשות, גם אם הדבר יוביל לעלייה בתעריפי החשמל לצרכן."
   }
 ]

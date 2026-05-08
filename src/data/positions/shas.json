@@ -371,6 +371,13 @@
         "score": -2,
         "source": "Ultra-Orthodox party; no women placed on electoral list"
       }
+    },
+    {
+      "question_id": "q35",
+      "stated_position": {
+        "score": -1.0,
+        "source": "Shas opposes policies that raise cost of living for lower-income Haredi and Mizrahi voters"
+      }
     }
   ]
 }
