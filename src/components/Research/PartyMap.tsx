@@ -128,15 +128,19 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
       <div className="w-full overflow-hidden rounded-xl border border-gray-100 bg-white">
         <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} width="100%" style={{ display: 'block' }}>
 
-          {/* Axis lines */}
-          <line x1={PLOT_X0} y1={SVG_H / 2} x2={PLOT_X1} y2={SVG_H / 2} stroke={axisColor} strokeWidth={1} />
-          <line x1={SVG_W / 2} y1={PAD_Y} x2={SVG_W / 2} y2={SVG_H - PAD_Y} stroke={axisColor} strokeWidth={1} />
+          {/* Axis lines — leave 28px gap at each end for the labels */}
+          <line x1={PLOT_X0 + 28} y1={SVG_H / 2} x2={PLOT_X1 - 28} y2={SVG_H / 2} stroke={axisColor} strokeWidth={1} />
+          <line x1={SVG_W / 2} y1={PAD_Y + 14} x2={SVG_W / 2} y2={SVG_H - PAD_Y - 14} stroke={axisColor} strokeWidth={1} />
 
-          {/* Axis labels — inside the plot near the axes, no textAnchor ambiguity */}
-          <text x={PLOT_X0 + 4} y={SVG_H / 2 - 5} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="start">{t('map_axis_left')}</text>
-          <text x={PLOT_X1 - 4} y={SVG_H / 2 - 5} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="end">{t('map_axis_right')}</text>
-          <text x={SVG_W / 2} y={PAD_Y - 8} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="middle">{t('map_axis_religious')}</text>
-          <text x={SVG_W / 2} y={SVG_H - PAD_Y + 14} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="middle">{t('map_axis_secular')}</text>
+          {/* Axis labels */}
+          <text x={PLOT_X0 + 14} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle"
+            fontSize={11} fill={axisLabelColor} fontWeight={700}>{t('map_axis_left')}</text>
+          <text x={PLOT_X1 - 14} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle"
+            fontSize={11} fill={axisLabelColor} fontWeight={700}>{t('map_axis_right')}</text>
+          <text x={SVG_W / 2} y={PAD_Y + 7} textAnchor="middle" dominantBaseline="middle"
+            fontSize={11} fill={axisLabelColor} fontWeight={700}>{t('map_axis_religious')}</text>
+          <text x={SVG_W / 2} y={SVG_H - PAD_Y - 7} textAnchor="middle" dominantBaseline="middle"
+            fontSize={11} fill={axisLabelColor} fontWeight={700}>{t('map_axis_secular')}</text>
 
           {/* Leader lines: from label centre to dot edge */}
           {labels.map((lb, i) => {
