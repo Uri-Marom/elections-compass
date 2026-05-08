@@ -179,24 +179,12 @@ export function ResultsPage() {
   const [copied, setCopied] = useState(false)
   const [sharingImage, setSharingImage] = useState(false)
   const [imageCopied, setImageCopied] = useState(false)
-  const [textCopied, setTextCopied] = useState(false)
   const shareCardRef = useRef<HTMLDivElement>(null)
   const sharePendingRef = useRef(false)
 
   const SHARE_TEXT_HE = 'עניתי על השאלון של מצפן הבחירות וגיליתי למי כדאי לי להצביע!\nרוצים גם?\ntinyurl.com/matzpen26'
   const SHARE_TEXT_EN = 'I took the Election Compass quiz and found out who I should vote for!\nWant to find out too?\ntinyurl.com/matzpen26'
   const shareText = lang === 'he' ? SHARE_TEXT_HE : SHARE_TEXT_EN
-
-  const waUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`
-  const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://tinyurl.com/matzpen26')}`
-
-  const handleCopyText = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(shareText)
-      setTextCopied(true)
-      setTimeout(() => setTextCopied(false), 2500)
-    } catch { /* ignore */ }
-  }, [shareText])
 
   // Hydrate answers from URL share param on first load
   useEffect(() => {
@@ -417,37 +405,6 @@ export function ResultsPage() {
             ? (lang === 'he' ? '✓ הועתק ללוח!' : '✓ Copied!')
             : t('share_image')}
         </button>
-
-        {/* Social share strip */}
-        <div className="rounded-xl border border-gray-200 overflow-hidden text-sm">
-          <div className="bg-gray-50 px-3 py-2.5 text-xs text-gray-500 leading-relaxed whitespace-pre-line border-b border-gray-200">
-            {shareText}
-          </div>
-          <div className={`flex bg-white ${lang === 'he' ? 'divide-x-reverse divide-x' : 'divide-x'} divide-gray-100`}>
-            <button
-              onClick={handleCopyText}
-              className="flex-1 py-2 text-xs text-gray-500 hover:bg-gray-50 transition-colors"
-            >
-              {textCopied ? (lang === 'he' ? '✓ הועתק' : '✓ Copied') : (lang === 'he' ? 'העתק טקסט' : 'Copy text')}
-            </button>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 py-2 text-xs text-center text-green-700 font-medium hover:bg-green-50 transition-colors"
-            >
-              WhatsApp
-            </a>
-            <a
-              href={fbUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 py-2 text-xs text-center text-blue-700 font-medium hover:bg-blue-50 transition-colors"
-            >
-              Facebook
-            </a>
-          </div>
-        </div>
 
         {/* Copy link (secondary) */}
         <button

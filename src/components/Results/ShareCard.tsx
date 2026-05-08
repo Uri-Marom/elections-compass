@@ -199,7 +199,7 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
         dir={isHe ? 'rtl' : 'ltr'}
         style={{
           width: '480px',
-          height: '660px',
+          height: '700px',
           background: '#ffffff',
           fontFamily: '"Segoe UI", system-ui, -apple-system, Arial, sans-serif',
           display: 'flex',
