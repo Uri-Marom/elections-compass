@@ -154,12 +154,25 @@ export function ResultsPage() {
     sharePendingRef.current = true
     setSharingImage(true)
     try {
-      const { toBlob } = await import('html-to-image')
-      const opts = { pixelRatio: 2, cacheBust: true }
-      // html-to-image on macOS renders twice internally when fetching external images.
-      // Calling toBlob once first loads images into cache; the second call renders cleanly.
-      await toBlob(shareCardRef.current, opts)
-      const blob = await toBlob(shareCardRef.current, opts)
+      const { toCanvas } = await import('html-to-image')
+
+      // Render at 1x to avoid the macOS Retina double-render bug that occurs when
+      // pixelRatio > 1 is passed to html-to-image on displays where devicePixelRatio=2.
+      // We then manually upscale the canvas to 2x for high-res output.
+      const canvas1x = await toCanvas(shareCardRef.current, { pixelRatio: 1 })
+
+      const scale = 2
+      const hiRes = document.createElement('canvas')
+      hiRes.width = canvas1x.width * scale
+      hiRes.height = canvas1x.height * scale
+      const ctx = hiRes.getContext('2d')!
+      ctx.imageSmoothingEnabled = true
+      ctx.imageSmoothingQuality = 'high'
+      ctx.scale(scale, scale)
+      ctx.drawImage(canvas1x, 0, 0)
+
+      const blob = await new Promise<Blob | null>(resolve => hiRes.toBlob(resolve, 'image/png'))
+
       if (!blob) throw new Error('toBlob returned null')
       const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
       if (navigator.share && navigator.canShare?.({ files: [file] })) {
