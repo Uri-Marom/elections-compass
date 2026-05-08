@@ -44,70 +44,13 @@ export function computeHypocrisy(
   })
 }
 
-// ---------- PCA ----------
-
 export interface PartyPoint {
   party_id: string
-  x: number   // PC1 projection (normalized to [-1, 1])
-  y: number   // PC2 projection
+  x: number   // left (−1) ↔ right (+1) based on security questions
+  y: number   // secular (−1) ↔ religious (+1) based on religion questions
 }
 
 // All question IDs in a fixed order (must match questions.json; skips removed questions)
-const ALL_QIDS = [
-  'q01','q02','q03','q04','q05','q06',
-  'q07','q08','q09','q10','q11','q12',
-  'q16',
-  'q18','q19','q20','q21','q22',
-  'q23','q24','q25','q26',
-  'q27','q28','q29',
-  'q31','q32','q33','q34','q35',
-]
-
-function dot(a: number[], b: number[]): number {
-  return a.reduce((s, v, i) => s + v * b[i], 0)
-}
-
-function scaleVec(v: number[], s: number): number[] {
-  return v.map(x => x * s)
-}
-
-function addVec(a: number[], b: number[]): number[] {
-  return a.map((x, i) => x + b[i])
-}
-
-function normalize(v: number[]): number[] {
-  const mag = Math.sqrt(dot(v, v))
-  return mag === 0 ? v : v.map(x => x / mag)
-}
-
-function matVec(M: number[][], v: number[]): number[] {
-  return M.map(row => dot(row, v))
-}
-
-// Transpose of matrix
-function transpose(M: number[][]): number[][] {
-  const rows = M.length
-  const cols = M[0].length
-  return Array.from({ length: cols }, (_, j) => Array.from({ length: rows }, (_, i) => M[i][j]))
-}
-
-// Matrix multiplication A (m×k) × B (k×n) → (m×n)
-function matMul(A: number[][], B: number[][]): number[][] {
-  const m = A.length, k = A[0].length, n = B[0].length
-  return Array.from({ length: m }, (_, i) =>
-    Array.from({ length: n }, (_, j) =>
-      Array.from({ length: k }, (_, l) => A[i][l] * B[l][j]).reduce((s, v) => s + v, 0)
-    )
-  )
-}
-
-function powerIterate(G: number[][], iters = 200): number[] {
-  let v: number[] = G[0].map((_, i) => (i === 0 ? 1 : 0))
-  for (let i = 0; i < iters; i++) {
-    v = normalize(matVec(G, v))
-  }
-  return v
-}
 
 // ---------- MK analytics ----------
 
@@ -349,83 +292,48 @@ export function computeMKMap(
   return { partyPoints, mkPoints }
 }
 
-export function computePartyPCA(
+// X axis: security questions → left (−1) to right (+1)
+// Y axis: religion questions → secular (−1) to religious (+1)
+// Signs per question are anchored empirically: Likud defines "right" on security,
+// UTJ defines "religious" on religion. This avoids PCA axis ambiguity.
+export function computePartyAxes(
   allPositions: Record<string, PartyPosition[]>,
   mode: 'stated' | 'voted'
 ): PartyPoint[] {
+  const SECURITY_QIDS = ['q01','q02','q03','q04','q05','q06']
+  const RELIGION_QIDS = ['q07','q08','q09','q10','q11','q12']
+
+  const score = (pid: string, qid: string): number => {
+    const pos = allPositions[pid]?.find(p => p.question_id === qid)
+    if (!pos) return 0
+    return mode === 'voted'
+      ? pos.voted_position?.score ?? pos.stated_position?.score ?? 0
+      : pos.stated_position?.score ?? 0
+  }
+
+  // Per-question sign: +1 if Likud scores higher than Hadash (right-coded question)
+  const lrSigns = SECURITY_QIDS.map(qid =>
+    Math.sign(score('likud', qid) - score('hadash_taal', qid)) || 1
+  )
+  // Per-question sign: +1 if UTJ scores higher than Yisrael Beitenu (religious-coded)
+  const relSigns = RELIGION_QIDS.map(qid =>
+    Math.sign(score('utj', qid) - score('yisrael_beitenu', qid)) || 1
+  )
+
   const partyIds = Object.keys(allPositions)
-  const n = partyIds.length
-
-  // Build n×m data matrix
-  const X: number[][] = partyIds.map(id => {
-    const positions = allPositions[id]
-    return ALL_QIDS.map(qid => {
-      const pos = positions.find(p => p.question_id === qid)
-      if (!pos) return 0
-      if (mode === 'voted') {
-        return pos.voted_position?.score ?? pos.stated_position?.score ?? 0
-      }
-      return pos.stated_position?.score ?? 0
-    })
-  })
-
-  // Center columns (subtract mean across parties per question)
-  const m = ALL_QIDS.length
-  const colMeans = Array.from({ length: m }, (_, j) =>
-    X.reduce((s, row) => s + row[j], 0) / n
-  )
-  const Xc = X.map(row => row.map((v, j) => v - colMeans[j]))
-
-  // Gram matrix G = Xc Xc^T  (n×n)
-  const G = matMul(Xc, transpose(Xc))
-
-  // Power iteration for eigenvector 1
-  const v1 = powerIterate(G)
-  const lambda1 = dot(matVec(G, v1), v1)
-
-  // Deflate: G2 = G - λ1 * v1 v1^T
-  const G2 = G.map((row, i) =>
-    row.map((val, j) => val - lambda1 * v1[i] * v1[j])
-  )
-
-  // Power iteration for eigenvector 2 (orthogonal to v1)
-  let v2 = powerIterate(G2)
-  // Re-orthogonalize against v1 for numerical stability
-  const overlap = dot(v2, v1)
-  v2 = normalize(addVec(v2, scaleVec(v1, -overlap)))
-
-  // v1 and v2 are eigenvectors of G = Xc Xc^T (n×n, party space).
-  // Their components are the PCA coordinates directly — no projection needed.
-  const coords = partyIds.map((_, i) => ({ x: v1[i], y: v2[i] }))
-
-  // Normalize to [-1, 1]
-  const xs = coords.map(c => c.x)
-  const ys = coords.map(c => c.y)
-  const xMin = Math.min(...xs), xMax = Math.max(...xs)
-  const yMin = Math.min(...ys), yMax = Math.max(...ys)
-  const xRange = xMax - xMin || 1
-  const yRange = yMax - yMin || 1
-
-  const points = partyIds.map((id, i) => ({
-    party_id: id,
-    x: ((coords[i].x - xMin) / xRange) * 2 - 1,
-    y: ((coords[i].y - yMin) / yRange) * 2 - 1,
+  const raw = partyIds.map(pid => ({
+    party_id: pid,
+    x: SECURITY_QIDS.reduce((s, qid, i) => s + lrSigns[i] * score(pid, qid), 0) / SECURITY_QIDS.length,
+    y: RELIGION_QIDS.reduce((s, qid, i) => s + relSigns[i] * score(pid, qid), 0) / RELIGION_QIDS.length,
   }))
 
-  // Anchor axis orientation: PCA eigenvector signs are arbitrary.
-  // X axis: Hadash-Ta'al (left) should be negative, Likud (right) positive.
-  // Y axis: Shas (religious) should be positive, Yisrael Beitenu (secular) negative.
-  const hadash  = points.find(p => p.party_id === 'hadash_taal')
-  const likud   = points.find(p => p.party_id === 'likud')
-  const shas    = points.find(p => p.party_id === 'shas')
-  const yisrael = points.find(p => p.party_id === 'yisrael_beitenu')
+  const xs = raw.map(p => p.x), ys = raw.map(p => p.y)
+  const xMin = Math.min(...xs), xMax = Math.max(...xs)
+  const yMin = Math.min(...ys), yMax = Math.max(...ys)
 
-  const flipX = hadash && likud && hadash.x > likud.x
-  const flipY = shas && yisrael && shas.y < yisrael.y
-
-  return points.map(p => ({
-    ...p,
-    x: flipX ? -p.x : p.x,
-    y: flipY ? -p.y : p.y,
+  return raw.map(p => ({
+    party_id: p.party_id,
+    x: xMax > xMin ? ((p.x - xMin) / (xMax - xMin)) * 2 - 1 : 0,
+    y: yMax > yMin ? ((p.y - yMin) / (yMax - yMin)) * 2 - 1 : 0,
   }))
 }

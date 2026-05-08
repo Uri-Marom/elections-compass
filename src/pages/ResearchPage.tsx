@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
 import { HypocrisyChart } from '../components/Research/HypocrisyChart'
 import { PartyMap } from '../components/Research/PartyMap'
-import { computeHypocrisy, computePartyPCA } from '../utils/research'
+import { computeHypocrisy, computePartyAxes } from '../utils/research'
 import { useSurveyStore } from '../store/survey'
 import type { Party, PartyPosition, Question } from '../types'
 
@@ -50,7 +50,7 @@ export function ResearchPage() {
   const [mapMode, setMapMode] = useState<'stated' | 'voted'>('stated')
 
   const hypocrisyResults = useMemo(() => computeHypocrisy(allPositions), [])
-  const partyPoints = useMemo(() => computePartyPCA(allPositions, mapMode), [mapMode])
+  const partyPoints = useMemo(() => computePartyAxes(allPositions, mapMode), [mapMode])
 
   return (
     <div className="min-h-screen bg-gray-50">
