@@ -61,8 +61,9 @@ export function DimensionDetailModal({
           ? pos.stated_position?.score
           : (pos.voted_position?.score ?? pos.stated_position?.score))
       : null
-    const source = pos?.stated_position?.source ?? null
-    const sourceUrl = pos?.stated_position?.source_url ?? null
+    const activePos = mode === 'voted' && pos?.voted_position ? pos.voted_position : pos?.stated_position
+    const source = activePos?.source ?? null
+    const sourceUrl = activePos?.source_url ?? null
     return { qid, question, userScore, partyScore: partyScore ?? null, source, sourceUrl }
   }).filter(r => r.question && (r.userScore !== null || r.partyScore !== null))
 
