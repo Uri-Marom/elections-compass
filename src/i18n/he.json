@@ -76,13 +76,13 @@
   "research_nav_label": "תובנות",
   "no_data_parties": "מפלגות ללא נתוני הצבעה (מפלגות חדשות)",
   "mk_matches": "חברי כנסת הקרובים לעמדותיכם",
-  "mk_matches_subtitle": "על בסיס הצבעות בכנסות 22–24",
+  "mk_matches_subtitle": "על בסיס הצבעות בכנסת",
   "mk_matches_show": "הצג התאמות לחברי כנסת ▼",
   "mk_matches_hide": "הסתר התאמות לח\"כ ▲",
   "mk_compass": "מצפן חברי כנסת",
   "mk_compass_subtitle": "כיצד הצביעו חברי הכנסת על השאלות",
   "open_mk_compass": "לכל חברי הכנסת ←",
-  "data_note_knessets": "הצבעות מכנסות 22–24",
+  "data_note_knessets": "הצבעות מהכנסת",
   "current_mk": "ח\"כ מכהן",
   "coverage_questions": "{{n}}/29 שאלות",
   "mk_tab_matches": "ההתאמות שלי",
@@ -100,5 +100,5 @@
   "mk_no_answers": "ענו על לפחות 5 שאלות בשאלון כדי לראות את ההתאמות שלכם לח\"כים.",
   "go_to_survey": "לשאלון ←",
   "filter_by_party": "כל המפלגות",
-  "mk_map_data_note": "המפה מבוססת על 8 הצבעות (כנסות 22–24)"
+  "mk_map_data_note": "המפה מבוססת על הצבעות בכנסת"
 }

@@ -76,13 +76,13 @@
   "research_nav_label": "Insights",
   "no_data_parties": "Parties without voting data (new parties)",
   "mk_matches": "Your MK Matches",
-  "mk_matches_subtitle": "Based on voting records from Knessets 22–24",
+  "mk_matches_subtitle": "Based on Knesset voting records",
   "mk_matches_show": "Show your top MK matches ▼",
   "mk_matches_hide": "Hide MK matches ▲",
   "mk_compass": "MK Compass",
   "mk_compass_subtitle": "Explore how individual MKs voted across all questions",
   "open_mk_compass": "Explore all MK matches →",
-  "data_note_knessets": "Votes from Knessets 22–24",
+  "data_note_knessets": "Knesset voting records",
   "current_mk": "Current MK",
   "coverage_questions": "{{n}}/29 questions",
   "mk_tab_matches": "Your Matches",
@@ -100,5 +100,5 @@
   "mk_no_answers": "Answer at least 5 survey questions to see your MK matches.",
   "go_to_survey": "Go to survey →",
   "filter_by_party": "All parties",
-  "mk_map_data_note": "Map uses 8 voted questions (Knessets 22–24)"
+  "mk_map_data_note": "Map based on Knesset voting records"
 }
