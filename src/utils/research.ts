@@ -296,13 +296,22 @@ export function computeMKMap(
 // Y axis: religion questions → secular (−1) to religious (+1)
 // Signs per question are anchored empirically: Likud defines "right" on security,
 // UTJ defines "religious" on religion. This avoids PCA axis ambiguity.
+
+export interface AxisResult {
+  points: PartyPoint[]
+  lrSigns: number[]
+  relSigns: number[]
+  xMin: number; xMax: number
+  yMin: number; yMax: number
+}
+
+const SECURITY_QIDS = ['q01','q02','q03','q04','q05','q06']
+const RELIGION_QIDS = ['q07','q08','q09','q10','q11','q12']
+
 export function computePartyAxes(
   allPositions: Record<string, PartyPosition[]>,
   mode: 'stated' | 'voted'
-): PartyPoint[] {
-  const SECURITY_QIDS = ['q01','q02','q03','q04','q05','q06']
-  const RELIGION_QIDS = ['q07','q08','q09','q10','q11','q12']
-
+): AxisResult {
   const score = (pid: string, qid: string): number => {
     const pos = allPositions[pid]?.find(p => p.question_id === qid)
     if (!pos) return 0
@@ -331,9 +340,49 @@ export function computePartyAxes(
   const xMin = Math.min(...xs), xMax = Math.max(...xs)
   const yMin = Math.min(...ys), yMax = Math.max(...ys)
 
-  return raw.map(p => ({
-    party_id: p.party_id,
-    x: xMax > xMin ? ((p.x - xMin) / (xMax - xMin)) * 2 - 1 : 0,
-    y: yMax > yMin ? ((p.y - yMin) / (yMax - yMin)) * 2 - 1 : 0,
-  }))
+  // Jitter parties that land at the same pixel (e.g. Shas and UTJ have identical scores)
+  const JITTER = 0.04
+  const seen = new Map<string, number>()
+  const points: PartyPoint[] = raw.map(p => {
+    const nx = xMax > xMin ? ((p.x - xMin) / (xMax - xMin)) * 2 - 1 : 0
+    const ny = yMax > yMin ? ((p.y - yMin) / (yMax - yMin)) * 2 - 1 : 0
+    const key = `${nx.toFixed(3)},${ny.toFixed(3)}`
+    const count = seen.get(key) ?? 0
+    seen.set(key, count + 1)
+    const angle = (Math.PI / 2) * count
+    return {
+      party_id: p.party_id,
+      x: nx + (count > 0 ? JITTER * Math.cos(angle) : 0),
+      y: ny + (count > 0 ? JITTER * Math.sin(angle) : 0),
+    }
+  })
+
+  return { points, lrSigns, relSigns, xMin, xMax, yMin, yMax }
+}
+
+export function computeUserMapPoint(
+  answers: Record<string, number | null | undefined>,
+  axisResult: AxisResult
+): { x: number; y: number } | null {
+  const { lrSigns, relSigns, xMin, xMax, yMin, yMax } = axisResult
+
+  const secScores = SECURITY_QIDS.map((qid, i) => {
+    const v = answers[qid]
+    return (v !== null && v !== undefined) ? lrSigns[i] * v : null
+  }).filter((v): v is number => v !== null)
+
+  const relScores = RELIGION_QIDS.map((qid, i) => {
+    const v = answers[qid]
+    return (v !== null && v !== undefined) ? relSigns[i] * v : null
+  }).filter((v): v is number => v !== null)
+
+  if (secScores.length === 0 && relScores.length === 0) return null
+
+  const rawX = secScores.length > 0 ? secScores.reduce((s, v) => s + v, 0) / secScores.length : (xMin + xMax) / 2
+  const rawY = relScores.length > 0 ? relScores.reduce((s, v) => s + v, 0) / relScores.length : (yMin + yMax) / 2
+
+  return {
+    x: xMax > xMin ? Math.max(-1, Math.min(1, ((rawX - xMin) / (xMax - xMin)) * 2 - 1)) : 0,
+    y: yMax > yMin ? Math.max(-1, Math.min(1, ((rawY - yMin) / (yMax - yMin)) * 2 - 1)) : 0,
+  }
 }
