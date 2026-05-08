@@ -12,119 +12,72 @@ interface Props {
 }
 
 const SVG_W = 500
-const SVG_H = 460
-const PAD_X = 44
-const PAD_Y = 38
-const DOT_R = 8
+const SVG_H = 420
+const MARGIN = 112      // horizontal margin reserved for labels on each side
+const PAD_Y = 36
+const DOT_R = 7
+const LABEL_GAP = 13   // min vertical spacing between labels in a margin
 
-function toSvgX(x: number) { return PAD_X + ((x + 1) / 2) * (SVG_W - PAD_X * 2) }
+const PLOT_X0 = MARGIN
+const PLOT_X1 = SVG_W - MARGIN
+
+function toSvgX(x: number) { return PLOT_X0 + ((x + 1) / 2) * (PLOT_X1 - PLOT_X0) }
 function toSvgY(y: number) { return PAD_Y + ((1 - y) / 2) * (SVG_H - PAD_Y * 2) }
 
-// Star polygon path centred at (cx, cy)
 function starPath(cx: number, cy: number, r: number, n = 5): string {
   const pts: string[] = []
   for (let i = 0; i < n * 2; i++) {
     const angle = (Math.PI / n) * i - Math.PI / 2
-    const radius = i % 2 === 0 ? r : r * 0.45
+    const radius = i % 2 === 0 ? r : r * 0.42
     pts.push(`${cx + radius * Math.cos(angle)},${cy + radius * Math.sin(angle)}`)
   }
   return `M${pts.join('L')}Z`
 }
 
-interface LabelPos { x: number; y: number; text: string; color: string; dotX: number; dotY: number }
+interface LabelItem {
+  svgX: number; svgY: number
+  name: string; color: string; party_id: string
+}
+interface PlacedLabel {
+  labelX: number; labelY: number
+  anchor: 'start' | 'end'
+  name: string; color: string
+  dotX: number; dotY: number
+}
 
-function forcePlaceLabels(dots: { svgX: number; svgY: number; name: string; color: string }[]): LabelPos[] {
-  const FONT_H = 10
-  const CHAR_W = 5.5
-  const PAD = 3
+function layoutMargin(items: LabelItem[], side: 'left' | 'right'): PlacedLabel[] {
+  if (items.length === 0) return []
+  const minY = PAD_Y + 2
+  const maxY = SVG_H - PAD_Y - 2
+  const sorted = [...items].sort((a, b) => a.svgY - b.svgY)
 
-  // Initialize label positions radially from dot based on dot's quadrant from center
-  const cx = SVG_W / 2, cy = SVG_H / 2
-  const labels: { x: number; y: number; vx: number; vy: number; w: number; h: number; dotX: number; dotY: number; name: string; color: string }[] = dots.map(d => {
-    const w = d.name.length * CHAR_W + PAD * 2
-    const h = FONT_H + PAD * 2
-    const dx = d.svgX - cx, dy = d.svgY - cy
-    const angle = Math.atan2(dy, dx)
-    const offset = DOT_R + 4
-    return {
-      x: d.svgX + Math.cos(angle) * offset,
-      y: d.svgY + Math.sin(angle) * offset - h / 2,
-      vx: 0, vy: 0,
-      w, h,
-      dotX: d.svgX,
-      dotY: d.svgY,
-      name: d.name,
-      color: d.color,
-    }
-  })
+  // Start each label at its dot's Y, clamped
+  const ys = sorted.map(d => Math.max(minY, Math.min(maxY, d.svgY)))
 
-  const ITERATIONS = 600
-  const DOT_REPULSE = 1.4
-  const LABEL_REPULSE = 1.1
-  const SPRING = 0.06
+  // Push down to avoid overlap
+  for (let i = 1; i < ys.length; i++) {
+    if (ys[i] < ys[i - 1] + LABEL_GAP) ys[i] = ys[i - 1] + LABEL_GAP
+  }
 
-  for (let iter = 0; iter < ITERATIONS; iter++) {
-    const cooling = 1 - iter / ITERATIONS
-
-    // Repulsion from dots
-    for (const lb of labels) {
-      const lcx = lb.x + lb.w / 2, lcy = lb.y + lb.h / 2
-      for (const d of dots) {
-        const dx = lcx - d.svgX, dy = lcy - d.svgY
-        const dist = Math.sqrt(dx * dx + dy * dy) || 0.1
-        const minDist = DOT_R + Math.max(lb.w, lb.h) / 2 + 4
-        if (dist < minDist) {
-          const force = (minDist - dist) / dist * DOT_REPULSE * cooling
-          lb.vx += dx * force; lb.vy += dy * force
-        }
-      }
-    }
-
-    // Repulsion between labels
-    for (let i = 0; i < labels.length; i++) {
-      for (let j = i + 1; j < labels.length; j++) {
-        const a = labels[i], b = labels[j]
-        const acx = a.x + a.w / 2, acy = a.y + a.h / 2
-        const bcx = b.x + b.w / 2, bcy = b.y + b.h / 2
-        const overlapX = (a.w + b.w) / 2 - Math.abs(acx - bcx)
-        const overlapY = (a.h + b.h) / 2 - Math.abs(acy - bcy)
-        if (overlapX > 0 && overlapY > 0) {
-          const dx = acx - bcx, dy = acy - bcy
-          const dist = Math.sqrt(dx * dx + dy * dy) || 0.1
-          const force = Math.min(overlapX, overlapY) / dist * LABEL_REPULSE * cooling
-          a.vx += dx * force; a.vy += dy * force
-          b.vx -= dx * force; b.vy -= dy * force
-        }
-      }
-    }
-
-    // Spring toward dot
-    for (const lb of labels) {
-      const lcx = lb.x + lb.w / 2, lcy = lb.y + lb.h / 2
-      const idealAngle = Math.atan2(lcy - lb.dotY, lcx - lb.dotX)
-      const idealDist = DOT_R + lb.h / 2 + 6
-      const tx = lb.dotX + Math.cos(idealAngle) * idealDist - lb.w / 2
-      const ty = lb.dotY + Math.sin(idealAngle) * idealDist - lb.h / 2
-      lb.vx += (tx - lb.x) * SPRING * cooling
-      lb.vy += (ty - lb.y) * SPRING * cooling
-    }
-
-    // Apply velocity + damp + clamp
-    for (const lb of labels) {
-      lb.x += lb.vx; lb.y += lb.vy
-      lb.vx *= 0.5; lb.vy *= 0.5
-      lb.x = Math.max(2, Math.min(SVG_W - lb.w - 2, lb.x))
-      lb.y = Math.max(2, Math.min(SVG_H - lb.h - 2, lb.y))
+  // If gone past bottom, slide up from the end
+  if (ys[ys.length - 1] > maxY) {
+    ys[ys.length - 1] = maxY
+    for (let i = ys.length - 2; i >= 0; i--) {
+      if (ys[i] > ys[i + 1] - LABEL_GAP) ys[i] = ys[i + 1] - LABEL_GAP
     }
   }
 
-  return labels.map(lb => ({
-    x: lb.x,
-    y: lb.y,
-    text: lb.name,
-    color: lb.color,
-    dotX: lb.dotX,
-    dotY: lb.dotY,
+  const labelX = side === 'left' ? PLOT_X0 - 6 : PLOT_X1 + 6
+  const anchor: 'start' | 'end' = side === 'left' ? 'end' : 'start'
+
+  return sorted.map((d, i) => ({
+    labelX,
+    labelY: ys[i],
+    anchor,
+    name: d.name,
+    color: d.color,
+    dotX: d.svgX,
+    dotY: d.svgY,
   }))
 }
 
@@ -142,11 +95,16 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
     }
   })
 
-  const labels = forcePlaceLabels(dots)
+  // Split by which half of the plot area the dot falls in
+  const leftDots  = dots.filter(d => d.svgX <= SVG_W / 2)
+  const rightDots = dots.filter(d => d.svgX >  SVG_W / 2)
+  const labels = [
+    ...layoutMargin(leftDots,  'left'),
+    ...layoutMargin(rightDots, 'right'),
+  ]
 
   const axisColor = '#d1d5db'
-  const axisLabelColor = '#6b7280'
-  const axisLabelSize = 9
+  const axisLabelColor = '#9ca3af'
 
   const userSvgX = userPoint ? toSvgX(userPoint.x) : null
   const userSvgY = userPoint ? toSvgY(userPoint.y) : null
@@ -173,82 +131,53 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
 
       <div className="w-full overflow-hidden rounded-xl border border-gray-100 bg-white">
         <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} width="100%" style={{ display: 'block' }}>
+
           {/* Axis lines */}
-          <line x1={PAD_X} y1={SVG_H / 2} x2={SVG_W - PAD_X} y2={SVG_H / 2} stroke={axisColor} strokeWidth={1} />
+          <line x1={PLOT_X0} y1={SVG_H / 2} x2={PLOT_X1} y2={SVG_H / 2} stroke={axisColor} strokeWidth={1} />
           <line x1={SVG_W / 2} y1={PAD_Y} x2={SVG_W / 2} y2={SVG_H - PAD_Y} stroke={axisColor} strokeWidth={1} />
 
-          {/* X-axis labels */}
-          <text x={PAD_X - 4} y={SVG_H / 2} textAnchor="end" dominantBaseline="middle"
-            fontSize={axisLabelSize} fill={axisLabelColor} fontWeight={600}>
-            {t('map_axis_left')}
-          </text>
-          <text x={SVG_W - PAD_X + 4} y={SVG_H / 2} textAnchor="start" dominantBaseline="middle"
-            fontSize={axisLabelSize} fill={axisLabelColor} fontWeight={600}>
-            {t('map_axis_right')}
-          </text>
+          {/* Axis labels */}
+          <text x={PLOT_X0 + 3} y={SVG_H / 2 - 4} fontSize={8} fill={axisLabelColor} fontWeight={600}>{t('map_axis_left')}</text>
+          <text x={PLOT_X1 - 3} y={SVG_H / 2 - 4} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="end">{t('map_axis_right')}</text>
+          <text x={SVG_W / 2} y={PAD_Y - 8} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="middle">{t('map_axis_religious')}</text>
+          <text x={SVG_W / 2} y={SVG_H - PAD_Y + 14} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="middle">{t('map_axis_secular')}</text>
 
-          {/* Y-axis labels */}
-          <text x={SVG_W / 2} y={PAD_Y - 10} textAnchor="middle" dominantBaseline="auto"
-            fontSize={axisLabelSize} fill={axisLabelColor} fontWeight={600}>
-            {t('map_axis_religious')}
-          </text>
-          <text x={SVG_W / 2} y={SVG_H - PAD_Y + 16} textAnchor="middle" dominantBaseline="auto"
-            fontSize={axisLabelSize} fill={axisLabelColor} fontWeight={600}>
-            {t('map_axis_secular')}
-          </text>
-
-          {/* Leader lines from label centre to dot */}
+          {/* Leader lines */}
           {labels.map((lb, i) => {
-            const lbCx = lb.x + (lb.text.length * 5.5 + 6) / 2
-            const lbCy = lb.y + 8
-            const dx = lb.dotX - lbCx, dy = lb.dotY - lbCy
+            const dx = lb.dotX - lb.labelX, dy = lb.dotY - lb.labelY
             const dist = Math.sqrt(dx * dx + dy * dy) || 1
-            // shorten line so it doesn't overlap dot or label box
-            const startX = lbCx + (dx / dist) * 6
-            const startY = lbCy + (dy / dist) * 6
-            const endX = lb.dotX - (dx / dist) * DOT_R
-            const endY = lb.dotY - (dy / dist) * DOT_R
-            if (dist < DOT_R + 8) return null
+            // shorten at dot end by DOT_R, at label end by 2px
+            const ex = lb.dotX - (dx / dist) * (DOT_R + 1)
+            const ey = lb.dotY - (dy / dist) * (DOT_R + 1)
+            const sx = lb.labelX + (dx / dist) * 2
+            const sy = lb.labelY + (dy / dist) * 2
             return (
-              <line key={`line-${i}`}
-                x1={startX} y1={startY} x2={endX} y2={endY}
-                stroke={lb.color} strokeWidth={0.7} strokeOpacity={0.45} />
+              <line key={`l${i}`} x1={sx} y1={sy} x2={ex} y2={ey}
+                stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.35} />
             )
           })}
-
-          {/* Label background rects */}
-          {labels.map((lb, i) => (
-            <rect key={`rect-${i}`}
-              x={lb.x} y={lb.y}
-              width={lb.text.length * 5.5 + 6}
-              height={16}
-              rx={3}
-              fill="white"
-              fillOpacity={0.88}
-              stroke={lb.color}
-              strokeWidth={0.6}
-            />
-          ))}
-
-          {/* Label texts */}
-          {labels.map((lb, i) => (
-            <text key={`label-${i}`}
-              x={lb.x + 3} y={lb.y + 11}
-              fontSize={9}
-              fontWeight={600}
-              fill={lb.color}
-              style={{ userSelect: 'none' }}
-            >
-              {lb.text}
-            </text>
-          ))}
 
           {/* Party dots */}
           {dots.map(d => (
             <g key={d.party_id}>
               <title>{d.name}</title>
-              <circle cx={d.svgX} cy={d.svgY} r={DOT_R} fill={d.color} opacity={0.92} />
+              <circle cx={d.svgX} cy={d.svgY} r={DOT_R} fill={d.color} opacity={0.9} />
             </g>
+          ))}
+
+          {/* Labels */}
+          {labels.map((lb, i) => (
+            <text key={`t${i}`}
+              x={lb.labelX} y={lb.labelY}
+              textAnchor={lb.anchor}
+              dominantBaseline="middle"
+              fontSize={9}
+              fontWeight={600}
+              fill={lb.color}
+              style={{ userSelect: 'none' }}
+            >
+              {lb.name}
+            </text>
           ))}
 
           {/* User star */}
@@ -256,7 +185,7 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
             <g>
               <title>{lang === 'he' ? 'אתם' : 'You'}</title>
               <path d={starPath(userSvgX, userSvgY, 11)} fill="#4f46e5" stroke="white" strokeWidth={1.5} />
-              <text x={userSvgX} y={userSvgY + 20}
+              <text x={userSvgX} y={userSvgY + 18}
                 textAnchor="middle" fontSize={9} fontWeight={700} fill="#4f46e5"
                 style={{ userSelect: 'none' }}>
                 {lang === 'he' ? 'אתם' : 'You'}
