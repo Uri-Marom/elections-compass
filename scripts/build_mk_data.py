@@ -83,6 +83,16 @@ FACTION_NAME_MAP: dict[str, Optional[str]] = {
     "רשימה ערבית מאוחדת":  "raam",
     "עצמאית":              None,  # independent — skip
     "אחדות":               None,
+    # K25 faction name variants (full official names used in factions CSV)
+    "הציונות הדתית בראשות בצלאל סמוטריץ'": "religious_zionism",
+    "עוצמה יהודית בראשות איתמר בן גביר":   "otzma",
+    "נעם - בראשות אבי מעוז":               "religious_zionism",
+    "המחנה הממלכתי":                        "national_unity",
+    'התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ"ל': "shas",
+    'רע"ם':                                 "raam",   # final-mem variant
+    'חה"כ עידן רול':                        None,    # independent MK
+    "הימין הממלכתי":                        None,    # unrecognised faction — skip
+    "כולנו":                                None,    # Kulanu merged into Likud (K21); K25 entries are data artifacts
 }
 
 FOR_CODE     = "1"
@@ -118,8 +128,19 @@ def fetch_plenary_vote_results(k25_vote_ids: set[str]) -> list[dict]:
     if not k25_vote_ids:
         return []
     print(f"Downloading K25 plenary vote results (~200 MB, filtering to {len(k25_vote_ids)} vote IDs)...", flush=True)
-    with urllib.request.urlopen(PLENARY_RESULT_URL, timeout=300) as r:
-        content = r.read().decode("utf-8", errors="replace")
+    CHUNK = 1 << 20  # 1 MB
+    chunks: list[bytes] = []
+    req = urllib.request.Request(PLENARY_RESULT_URL)
+    with urllib.request.urlopen(req, timeout=600) as r:
+        while True:
+            chunk = r.read(CHUNK)
+            if not chunk:
+                break
+            chunks.append(chunk)
+            if len(chunks) % 50 == 0:
+                print(f"  Downloaded {len(chunks)} MB...", end="\r", flush=True)
+    content = b"".join(chunks).decode("utf-8", errors="replace")
+    print(f"  Downloaded {len(content) // 1_000_000} MB total.", flush=True)
     matched: list[dict] = []
     for row in csv.DictReader(io.StringIO(content)):
         vid = row.get("VoteID", "").strip()
@@ -286,9 +307,9 @@ def build_mk_vote_scores(
 
 ODATA_BILL_URL = "https://knesset.gov.il/Odata/ParliamentInfo.svc/KNS_BillInitiator"
 
-def fetch_mk_bill_counts(person_ids: list[str], batch_size: int = 20) -> dict[str, int]:
+def fetch_mk_bill_counts(person_ids: list[str], batch_size: int = 5) -> dict[str, int]:
     """
-    Returns {person_id_str: bill_count} by querying OData in batches.
+    Returns {person_id_str: bill_count} by querying OData in small batches.
     person_ids are the non-padded PersonID strings (e.g. "965").
     """
     counts: dict[str, int] = {pid: 0 for pid in person_ids}
@@ -304,19 +325,23 @@ def fetch_mk_bill_counts(person_ids: list[str], batch_size: int = 20) -> dict[st
             "$top": 5000,
         })
         url = f"{ODATA_BILL_URL}?{params}"
-        try:
-            req = urllib.request.Request(url, headers={"Accept": "application/json"})
-            with urllib.request.urlopen(req, timeout=30) as r:
-                data = json.loads(r.read())
-            for record in data.get("value", []):
-                pid = str(record.get("PersonID", ""))
-                if pid in counts:
-                    counts[pid] += 1
-        except Exception as e:
-            print(f"  WARNING: bill fetch failed for batch starting {batch[0]}: {e}", flush=True)
+        for attempt in range(3):
+            try:
+                req = urllib.request.Request(url, headers={"Accept": "application/json"})
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    data = json.loads(r.read())
+                for record in data.get("value", []):
+                    pid = str(record.get("PersonID", ""))
+                    if pid in counts:
+                        counts[pid] += 1
+                break
+            except Exception as e:
+                if attempt == 2:
+                    print(f"  WARNING: bill fetch failed for {batch}: {e}", flush=True)
+                else:
+                    time.sleep(2 ** attempt)
 
-        if start + batch_size < total:
-            time.sleep(0.3)  # be polite to the API
+        time.sleep(0.2)  # be polite to the API
 
         done = min(start + batch_size, total)
         print(f"  Bills: {done}/{total} MKs fetched...", end="\r", flush=True)
@@ -520,55 +545,58 @@ def main():
 
     k25_member_ids = get_k25_member_ids(factions_rows, individual_rows)
     k25_faction_map = build_k25_faction_map(factions_rows, individual_rows)
-    print(f"\nKnesset 25 members found in factions CSV: {len(k25_member_ids) // 2} unique MKs")
+
+    # Deduplicate to zero-padded IDs only
+    k25_padded_ids: set[str] = set()
+    for mid in k25_member_ids:
+        try:
+            k25_padded_ids.add(str(int(mid)).zfill(9))
+        except ValueError:
+            k25_padded_ids.add(mid)
+    print(f"\nKnesset 25 members found in factions CSV: {len(k25_padded_ids)} unique MKs")
 
     print("\nScoring MKs + computing attendance (single pass over combined vote rows)...")
     mk_scores, mk_names_shadow, mk_knessets, mk_latest_faction, mk_attendance = build_mk_vote_scores(
         combined_rows, vote_ids_by_question
     )
 
+    # Ensure knesset 25 appears in the knessets set for every K25 member
+    for mk_id in k25_padded_ids:
+        mk_knessets[mk_id].add(25)
+
     # Fill in faction data for K25 MKs not seen in the shadow CSV (brand-new members)
     for mk_id, faction_name in k25_faction_map.items():
         if mk_id not in mk_latest_faction:
             mk_latest_faction[mk_id] = (faction_name, 25)
-    print(f"  {len(mk_scores):,} MKs with at least 1 scored question before filtering.")
-    mk_scores_filtered = {
+
+    # positions_out: K25 members with sufficient vote coverage
+    positions_out: dict[str, dict[str, float]] = {
         mk_id: scores
         for mk_id, scores in mk_scores.items()
-        if len(scores) >= MIN_QUESTIONS
+        if mk_id in k25_padded_ids and len(scores) >= MIN_QUESTIONS
     }
-    print(f"  {len(mk_scores_filtered):,} MKs with ≥{MIN_QUESTIONS} scored questions.")
-
-    mk_scores_filtered = {
-        mk_id: scores
-        for mk_id, scores in mk_scores_filtered.items()
-        if mk_id in k25_member_ids
-    }
-    print(f"  {len(mk_scores_filtered):,} MKs after filtering to Knesset 25 members only.")
+    print(f"  {len(mk_scores):,} MKs with at least 1 scored question.")
+    print(f"  {len(positions_out):,} K25 MKs with ≥{MIN_QUESTIONS} scored questions (will get positions).")
 
     print("\nLoading MK name data...")
     name_lookup = build_mk_name_lookup(individual_rows)
     print(f"  {len(name_lookup):,} profiles loaded (keyed by PersonID).")
 
-    # Debug: show which faction names appear for our scored MKs and their mapping
-    faction_name_counts: dict[str, int] = defaultdict(int)
+    # Warn about faction names we can't map
     unmapped_factions: set[str] = set()
-    for mk_id in mk_scores_filtered:
+    for mk_id in k25_padded_ids:
         faction_info = mk_latest_faction.get(mk_id)
         fname = faction_info[0] if faction_info else ""
-        faction_name_counts[fname] += 1
         if fname and FACTION_NAME_MAP.get(fname) is None and fname not in FACTION_NAME_MAP:
             unmapped_factions.add(fname)
-
     if unmapped_factions:
         print(f"\n  WARNING: unmapped faction names (MKs will be skipped): {unmapped_factions}", flush=True)
 
-    # Build preliminary MK list (before activity grades) to collect PersonIDs
+    # mks_out: ALL K25 members regardless of vote coverage
     mks_out: list[dict] = []
-    positions_out: dict[str, dict[str, float]] = {}
     skipped_unknown_party = 0
 
-    for mk_id, scores in mk_scores_filtered.items():
+    for mk_id in sorted(k25_padded_ids):
         faction_info = mk_latest_faction.get(mk_id)
         faction_name = faction_info[0] if faction_info else ""
         party_id = FACTION_NAME_MAP.get(faction_name)
@@ -580,9 +608,9 @@ def main():
         name_data = name_lookup.get(mk_id) or name_lookup.get(str(int(mk_id)))
         name_he   = name_data[0] if name_data else mk_names_shadow.get(mk_id, "")
         name_en   = name_data[1] if name_data else ""
-        is_current = name_data[2] if name_data else False
+        is_current = name_data[2] if name_data else True  # K25 member → current by default
 
-        knessets = sorted(mk_knessets.get(mk_id, set()))
+        knessets = sorted(mk_knessets.get(mk_id, {25}))
 
         mks_out.append({
             "id":         mk_id,
@@ -592,9 +620,8 @@ def main():
             "knessets":   knessets,
             "is_current": is_current,
         })
-        positions_out[mk_id] = scores
 
-    print(f"\nIntermediate: {len(mks_out)} MKs before activity grades")
+    print(f"\nAll K25 members: {len(mks_out)} MKs")
     print(f"  Skipped — unknown/unmapped party: {skipped_unknown_party}")
 
     # Fetch bill counts from Knesset OData
