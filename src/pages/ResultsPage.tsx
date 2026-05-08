@@ -126,8 +126,24 @@ export function ResultsPage() {
   const [copied, setCopied] = useState(false)
   const [sharingImage, setSharingImage] = useState(false)
   const [imageCopied, setImageCopied] = useState(false)
+  const [textCopied, setTextCopied] = useState(false)
   const shareCardRef = useRef<HTMLDivElement>(null)
   const sharePendingRef = useRef(false)
+
+  const SHARE_TEXT_HE = 'עניתי על השאלון של מצפן הבחירות וגיליתי למי כדאי לי להצביע!\nרוצים גם?\ntinyurl.com/matzpen26'
+  const SHARE_TEXT_EN = 'I took the Election Compass quiz and found out who I should vote for!\nWant to find out too?\ntinyurl.com/matzpen26'
+  const shareText = lang === 'he' ? SHARE_TEXT_HE : SHARE_TEXT_EN
+
+  const waUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`
+  const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://tinyurl.com/matzpen26')}`
+
+  const handleCopyText = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(shareText)
+      setTextCopied(true)
+      setTimeout(() => setTextCopied(false), 2500)
+    } catch { /* ignore */ }
+  }, [shareText])
 
   // Hydrate answers from URL share param on first load
   useEffect(() => {
@@ -164,27 +180,30 @@ export function ResultsPage() {
       const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, 'image/png'))
 
       if (!blob) throw new Error('toBlob returned null')
+      const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
 
-      // Prefer the Clipboard API: writes exactly one image to clipboard, avoiding the
-      // macOS share-sheet "Copy" behavior that puts both a file reference and image data
-      // on the clipboard (which causes WhatsApp to paste two images).
-      if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
+      // On mobile, use the native share sheet — it receives both the image file and the
+      // pre-written text, so WhatsApp/Instagram/Facebook each get both in one tap.
+      // On desktop we skip the share sheet (its "Copy" puts two clipboard items, causing
+      // WhatsApp to paste twice) and write directly via ClipboardItem instead.
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+      if (isMobile && navigator.share && navigator.canShare?.({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          text: shareText,
+          title: lang === 'he' ? 'מצפן בחירות - התוצאות שלי' : 'Election Compass - My Results',
+        })
+      } else if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
         await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
         setImageCopied(true)
         setTimeout(() => setImageCopied(false), 2500)
       } else {
-        // Mobile / browsers without Clipboard API: fall back to native share sheet
-        const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
-        if (navigator.share && navigator.canShare?.({ files: [file] })) {
-          await navigator.share({ files: [file], title: lang === 'he' ? 'מצפן בחירות - התוצאות שלי' : 'Election Compass - My Results' })
-        } else {
-          const objectUrl = URL.createObjectURL(blob)
-          const link = document.createElement('a')
-          link.href = objectUrl
-          link.download = 'matzpen-results.png'
-          link.click()
-          URL.revokeObjectURL(objectUrl)
-        }
+        const objectUrl = URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = objectUrl
+        link.download = 'matzpen-results.png'
+        link.click()
+        URL.revokeObjectURL(objectUrl)
       }
     } catch (err) {
       console.error('Share image failed:', err)
@@ -192,7 +211,7 @@ export function ResultsPage() {
       setSharingImage(false)
       sharePendingRef.current = false
     }
-  }, [lang])
+  }, [lang, shareText])
 
   const ranked = useMemo(
     () => rankParties(answers, allPositions, weights),
@@ -370,8 +389,43 @@ export function ResultsPage() {
           disabled={sharingImage}
           className="w-full py-3 rounded-xl bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors disabled:opacity-60"
         >
-          {sharingImage ? t('share_generating') : imageCopied ? (lang === 'he' ? '✓ הועתק ללוח!' : '✓ Copied!') : t('share_image')}
+          {sharingImage
+            ? t('share_generating')
+            : imageCopied
+            ? (lang === 'he' ? '✓ הועתק ללוח!' : '✓ Copied!')
+            : t('share_image')}
         </button>
+
+        {/* Social share strip */}
+        <div className="rounded-xl border border-gray-200 overflow-hidden text-sm">
+          <div className="bg-gray-50 px-3 py-2.5 text-xs text-gray-500 leading-relaxed whitespace-pre-line border-b border-gray-200">
+            {shareText}
+          </div>
+          <div className={`flex bg-white ${lang === 'he' ? 'divide-x-reverse divide-x' : 'divide-x'} divide-gray-100`}>
+            <button
+              onClick={handleCopyText}
+              className="flex-1 py-2 text-xs text-gray-500 hover:bg-gray-50 transition-colors"
+            >
+              {textCopied ? (lang === 'he' ? '✓ הועתק' : '✓ Copied') : (lang === 'he' ? 'העתק טקסט' : 'Copy text')}
+            </button>
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 py-2 text-xs text-center text-green-700 font-medium hover:bg-green-50 transition-colors"
+            >
+              WhatsApp
+            </a>
+            <a
+              href={fbUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 py-2 text-xs text-center text-blue-700 font-medium hover:bg-blue-50 transition-colors"
+            >
+              Facebook
+            </a>
+          </div>
+        </div>
 
         {/* Copy link (secondary) */}
         <button
