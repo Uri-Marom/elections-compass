@@ -110,7 +110,8 @@ function RadarSVG({ userScores, partyScores, partyColor, lang }: RadarProps) {
 
   const labelPos = (i: number) => {
     const angle = angleFor(i)
-    const labelR = maxR + 20
+    const isDiagonal = Math.abs(Math.cos(angle)) > 0.15 && Math.abs(Math.sin(angle)) > 0.15
+    const labelR = maxR + (isDiagonal ? 30 : 22)
     return {
       x: cx + labelR * Math.cos(angle),
       y: cy + labelR * Math.sin(angle),
@@ -119,7 +120,7 @@ function RadarSVG({ userScores, partyScores, partyColor, lang }: RadarProps) {
   }
 
   return (
-    <svg width="260" height="260" style={{ display: 'block' }}>
+    <svg width="270" height="270" style={{ display: 'block' }}>
       {/* Grid rings */}
       {levels.map(lv => (
         <polygon
@@ -230,16 +231,16 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
           gap: '14px',
         }}>
           {/* #1 hero */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
             <PartyLogo party={p1} size={62} />
-            <div style={{ flex: 1 }}>
+            <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: '11px', color: '#6b7280', marginBottom: '1px' }}>
                 {isHe ? 'ההתאמה הטובה ביותר' : 'Best match'}
               </div>
               <div style={{ fontSize: '21px', fontWeight: 800, color: '#111827', lineHeight: 1.1 }}>
                 {p1Name}
               </div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginTop: '2px' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '4px', marginTop: '2px' }}>
                 <span style={{ fontSize: '36px', fontWeight: 900, color: col, lineHeight: 1 }}>
                   {score1}%
                 </span>
@@ -331,7 +332,7 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
         }}>
           <div>
             <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '2px' }}>
-              {isHe ? 'מה ההתאמה שלך?' : "What's your match?"}
+              {isHe ? 'איזו מפלגה הכי מתאימה לך?' : "What's your match?"}
             </div>
             <div dir="ltr" style={{ fontSize: '12px', fontWeight: 700, color: col }}>
               tinyurl.com/matzpen26
