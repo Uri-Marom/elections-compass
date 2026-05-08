@@ -1,6 +1,9 @@
 import { forwardRef } from 'react'
+import { QRCodeSVG } from 'qrcode.react'
 import { DIMENSIONS, type DimensionKey, type PartyMatch } from '../../utils/matching'
 import type { Party } from '../../types'
+
+const SITE_URL = 'https://tinyurl.com/matzpen26'
 
 interface Props {
   topMatches: [PartyMatch, PartyMatch | undefined, PartyMatch | undefined]
@@ -92,7 +95,6 @@ function RadarSVG({ userScores, partyScores, partyColor, lang }: RadarProps) {
   const labels = lang === 'he' ? DIM_LABELS_HE : DIM_LABELS_EN
   const { r, g, b } = hexToRgb(partyColor)
 
-  // Angle for each axis: start from top (-90°), going clockwise
   const angleFor = (i: number) => (i / n) * 2 * Math.PI - Math.PI / 2
 
   const toXY = (i: number, val: number) => {
@@ -106,7 +108,6 @@ function RadarSVG({ userScores, partyScores, partyColor, lang }: RadarProps) {
   const polyPoints = (scores: Record<DimensionKey, number>) =>
     dims.map((d, i) => toXY(i, scores[d] ?? 50)).map(p => `${p.x},${p.y}`).join(' ')
 
-  // Label offsets — push labels away from center
   const labelPos = (i: number) => {
     const angle = angleFor(i)
     const labelR = maxR + 20
@@ -135,21 +136,21 @@ function RadarSVG({ userScores, partyScores, partyColor, lang }: RadarProps) {
         return <line key={i} x1={cx} y1={cy} x2={end.x} y2={end.y} stroke="#d1d5db" strokeWidth="1" />
       })}
 
-      {/* Party polygon */}
-      <polygon
-        points={polyPoints(partyScores)}
-        fill={`rgba(${r},${g},${b},0.18)`}
-        stroke={partyColor}
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
-      {/* User polygon */}
+      {/* User polygon — solid line */}
       <polygon
         points={polyPoints(userScores)}
         fill="rgba(99,102,241,0.15)"
         stroke="#6366f1"
         strokeWidth="2"
-        strokeDasharray="4,3"
+        strokeLinejoin="round"
+      />
+      {/* Party polygon — dashed line, drawn on top */}
+      <polygon
+        points={polyPoints(partyScores)}
+        fill={`rgba(${r},${g},${b},0.18)`}
+        stroke={partyColor}
+        strokeWidth="2"
+        strokeDasharray="5,3"
         strokeLinejoin="round"
       />
 
@@ -205,20 +206,17 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
           overflow: 'hidden',
         }}
       >
-        {/* Header */}
+        {/* Header — explicit LTR for the title to avoid BiDi emoji artifacts */}
         <div style={{
           background: col,
           padding: '13px 22px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           flexShrink: 0,
         }}>
-          <span style={{ color: 'white', fontSize: '16px', fontWeight: 700 }}>
-            🧭 {isHe ? 'מצפן בחירות 2026' : 'Election Compass 2026'}
-          </span>
-          <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '12px' }}>
-            matzpen.co.il
+          <span dir="ltr" style={{ color: 'white', fontSize: '17px', fontWeight: 700, letterSpacing: '0.01em' }}>
+            {isHe ? 'מצפן בחירות 2026' : 'Election Compass 2026'}
           </span>
         </div>
 
@@ -236,7 +234,7 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
             <PartyLogo party={p1} size={62} />
             <div style={{ flex: 1 }}>
               <div style={{ fontSize: '11px', color: '#6b7280', marginBottom: '1px' }}>
-                {isHe ? '🏆 ההתאמה הטובה ביותר' : '🏆 Best match'}
+                {isHe ? 'ההתאמה הטובה ביותר' : 'Best match'}
               </div>
               <div style={{ fontSize: '21px', fontWeight: 800, color: '#111827', lineHeight: 1.1 }}>
                 {p1Name}
@@ -262,20 +260,21 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
             />
             {/* Legend */}
             <div style={{ display: 'flex', gap: '16px', fontSize: '11px', color: '#6b7280' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <span style={{
-                  display: 'inline-block', width: '18px', height: '3px',
-                  background: col, borderRadius: '2px'
-                }} />
-                {p1Name}
-              </span>
+              {/* User — solid line */}
               <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                 <span style={{
                   display: 'inline-block', width: '18px', height: '3px',
                   background: '#6366f1', borderRadius: '2px',
-                  backgroundImage: 'repeating-linear-gradient(90deg, #6366f1 0 4px, transparent 4px 7px)',
                 }} />
                 {isHe ? 'אתם' : 'You'}
+              </span>
+              {/* Party — dashed line */}
+              <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{
+                  display: 'inline-block', width: '18px', height: '3px',
+                  backgroundImage: `repeating-linear-gradient(90deg, ${col} 0 5px, transparent 5px 8px)`,
+                }} />
+                {p1Name}
               </span>
             </div>
           </div>
@@ -319,22 +318,32 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
           )}
         </div>
 
-        {/* Footer */}
+        {/* Footer — QR code + short URL */}
         <div style={{
           background: '#f9fafb',
           borderTop: '1px solid #e5e7eb',
-          padding: '8px 22px',
+          padding: '10px 22px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           flexShrink: 0,
+          gap: '12px',
         }}>
-          <span style={{ fontSize: '11px', color: '#9ca3af' }}>
-            {isHe ? 'מה ההתאמה שלך?' : "What's your match?"}
-          </span>
-          <span style={{ fontSize: '11px', fontWeight: 600, color: col }}>
-            matzpen.co.il
-          </span>
+          <div>
+            <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '2px' }}>
+              {isHe ? 'מה ההתאמה שלך?' : "What's your match?"}
+            </div>
+            <div dir="ltr" style={{ fontSize: '12px', fontWeight: 700, color: col }}>
+              tinyurl.com/matzpen26
+            </div>
+          </div>
+          <QRCodeSVG
+            value={SITE_URL}
+            size={56}
+            bgColor="#f9fafb"
+            fgColor="#111827"
+            level="M"
+          />
         </div>
       </div>
     )

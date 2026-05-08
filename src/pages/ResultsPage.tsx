@@ -157,22 +157,11 @@ export function ResultsPage() {
     try {
       const { toCanvas } = await import('html-to-image')
 
-      // Render at 1x to avoid the macOS Retina double-render bug that occurs when
-      // pixelRatio > 1 is passed to html-to-image on displays where devicePixelRatio=2.
-      // We then manually upscale the canvas to 2x for high-res output.
-      const canvas1x = await toCanvas(shareCardRef.current, { pixelRatio: 1 })
+      // 2x pixel ratio for high-res output. The previous share-sheet doubling bug is
+      // gone since we now write directly to clipboard via ClipboardItem.
+      const canvas = await toCanvas(shareCardRef.current, { pixelRatio: 2 })
 
-      const scale = 2
-      const hiRes = document.createElement('canvas')
-      hiRes.width = canvas1x.width * scale
-      hiRes.height = canvas1x.height * scale
-      const ctx = hiRes.getContext('2d')!
-      ctx.imageSmoothingEnabled = true
-      ctx.imageSmoothingQuality = 'high'
-      ctx.scale(scale, scale)
-      ctx.drawImage(canvas1x, 0, 0)
-
-      const blob = await new Promise<Blob | null>(resolve => hiRes.toBlob(resolve, 'image/png'))
+      const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, 'image/png'))
 
       if (!blob) throw new Error('toBlob returned null')
 
