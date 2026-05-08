@@ -139,18 +139,18 @@ def build_name_to_person_id(individual_rows: list[dict]) -> dict[tuple[str, str]
 def fetch_plenary_vote_results(
     k25_vote_ids: set[str],
     name_to_pid: dict[tuple[str, str], str] | None = None,
-) -> list[dict]:
+) -> tuple[list[dict], dict[str, float]]:
     """
-    Downloads the full plenary vote results CSV (~200 MB) and returns only rows
-    for the given K25 vote IDs, normalised to the same field names as the shadow CSV:
-      kmmbr_id, vote_id, vote_result (1/2/3), knesset_num=25, faction_name="".
+    Downloads the full plenary vote results CSV (~200 MB) and returns:
+      - matched: rows for the given K25 vote IDs, normalised to shadow CSV format
+      - k25_attendance: {zero_padded_person_id: fraction_of_votes_cast} across ALL K25 votes
 
-    MkId in this CSV is a different ID system from PersonID. We bridge using
-    name_to_pid (built from the individual CSV) to get the correct PersonID.
+    Attendance uses every vote in the CSV (comprehensive), not just our mapped ones.
+    MkId in this CSV is a different ID system; resolved via name_to_pid bridge.
     """
-    if not k25_vote_ids:
-        return []
-    print(f"Downloading K25 plenary vote results (~200 MB, filtering to {len(k25_vote_ids)} vote IDs)...", flush=True)
+    if not k25_vote_ids and not name_to_pid:
+        return [], {}
+    print(f"Downloading K25 plenary vote results (~200 MB)...", flush=True)
     CHUNK = 1 << 20  # 1 MB
     chunks: list[bytes] = []
     req = urllib.request.Request(PLENARY_RESULT_URL)
@@ -164,53 +164,82 @@ def fetch_plenary_vote_results(
                 print(f"  Downloaded {len(chunks)} MB...", end="\r", flush=True)
     content = b"".join(chunks).decode("utf-8", errors="replace")
     print(f"  Downloaded {len(content) // 1_000_000} MB total.", flush=True)
+
     matched: list[dict] = []
     name_hits = 0
     name_misses = 0
+
+    # For K25 attendance: track all unique VoteIDs and each MK's votes
+    all_k25_vote_ids: set[str] = set()
+    mk_k25_voted: dict[str, set[str]] = defaultdict(set)  # person_id → voted VoteIDs
+
     for row in csv.DictReader(io.StringIO(content)):
         vid = row.get("VoteID", "").strip()
-        if vid not in k25_vote_ids:
+        if not vid:
             continue
+
         code = row.get("ResultCode", "").strip()
         desc = row.get("ResultDesc", "").strip()
-        if code in _PLENARY_FOR or desc in _PLENARY_FOR:
-            result = "1"
-        elif code in _PLENARY_AGAINST or desc in _PLENARY_AGAINST:
-            result = "2"
-        elif code in _PLENARY_ABSTAIN or desc in _PLENARY_ABSTAIN:
-            result = "3"
-        else:
-            continue  # absent / not voted — skip
+        voted = code in _PLENARY_FOR or desc in _PLENARY_FOR \
+             or code in _PLENARY_AGAINST or desc in _PLENARY_AGAINST \
+             or code in _PLENARY_ABSTAIN or desc in _PLENARY_ABSTAIN
 
-        # Resolve MkId → PersonID using name-based bridge (MkId ≠ PersonID in this CSV).
+        # Resolve MkId → PersonID using name-based bridge
         first = row.get("FirstName", "").strip()
         last  = row.get("LastName", "").strip()
         if name_to_pid and (first, last) in name_to_pid:
-            pid = name_to_pid[(first, last)]
+            pid   = name_to_pid[(first, last)]
             mk_id = str(int(pid)).zfill(9)
-            name_hits += 1
         else:
-            # Fallback: zero-pad the raw MkId (will likely not match k25_padded_ids)
             mk_id_raw = row.get("MkId", "").strip()
             try:
                 mk_id = str(int(mk_id_raw)).zfill(9)
             except ValueError:
                 mk_id = mk_id_raw
+
+        # Attendance: count all plenary votes (regardless of our mapping filter)
+        if mk_id:
+            all_k25_vote_ids.add(vid)
+            if voted:
+                mk_k25_voted[mk_id].add(vid)
+
+        # Scoring: only collect rows for our mapped vote IDs
+        if vid not in k25_vote_ids or not voted:
+            continue
+
+        if code in _PLENARY_FOR or desc in _PLENARY_FOR:
+            result_code = "1"
+        elif code in _PLENARY_AGAINST or desc in _PLENARY_AGAINST:
+            result_code = "2"
+        else:
+            result_code = "3"
+
+        if name_to_pid and (first, last) in name_to_pid:
+            name_hits += 1
+        else:
             name_misses += 1
 
         matched.append({
             "kmmbr_id":    mk_id,
             "vote_id":     vid,
-            "vote_result": result,
+            "vote_result": result_code,
             "knesset_num": "25",
             "faction_name": "",
         })
+
+    total_k25 = len(all_k25_vote_ids)
+    k25_attendance: dict[str, float] = {}
+    if total_k25 > 0:
+        for mk_id, voted_set in mk_k25_voted.items():
+            k25_attendance[mk_id] = round(len(voted_set) / total_k25, 4)
+
     print(
-        f"  Matched {len(matched):,} vote records for {len(k25_vote_ids)} K25 vote IDs "
+        f"  Scored: {len(matched):,} records for {len(k25_vote_ids)} mapped vote IDs "
         f"(name-resolved: {name_hits}, fallback: {name_misses}).",
         flush=True,
     )
-    return matched
+    print(f"  K25 attendance: {total_k25:,} total votes, {len(k25_attendance):,} MKs tracked.", flush=True)
+    return matched, k25_attendance
 
 
 # ---------------------------------------------------------------------------
@@ -594,8 +623,9 @@ def main():
     print("\nBuilding name→PersonID bridge from individual CSV...")
     name_to_pid = build_name_to_person_id(individual_rows)
 
-    # K25-specific votes aren't in the shadow CSV — fetch them from the full plenary results
-    plenary_rows = fetch_plenary_vote_results(k25_only_vote_ids, name_to_pid)
+    # K25-specific votes aren't in the shadow CSV — fetch them from the full plenary results.
+    # The function also computes comprehensive K25 attendance from all rows in the CSV.
+    plenary_rows, k25_attendance = fetch_plenary_vote_results(k25_only_vote_ids, name_to_pid)
     combined_rows = shadow_rows + plenary_rows
 
     k25_member_ids = get_k25_member_ids(factions_rows, individual_rows)
@@ -686,14 +716,19 @@ def main():
     # Re-key by zero-padded mk_id
     bill_counts = {mk["id"]: bill_counts_by_person_id.get(str(int(mk["id"])), 0) for mk in mks_out}
 
+    # Merge attendance: K25 is primary; fall back to K22-K24 shadow data when not in K25
+    merged_attendance: dict[str, Optional[float]] = dict(mk_attendance)  # K22-K24
+    for mk_id, rate in k25_attendance.items():
+        merged_attendance[mk_id] = rate  # K25 wins
+
     # Compute activity grades
     mk_ids_list = [mk["id"] for mk in mks_out]
-    activity = compute_activity_grades(mk_ids_list, mk_attendance, bill_counts)
+    activity = compute_activity_grades(mk_ids_list, merged_attendance, bill_counts)
 
     # Attach activity fields to each MK record
     for mk in mks_out:
         act = activity.get(mk["id"], {})
-        mk["attendance_pct"] = act.get("attendance_pct", 0.0)
+        mk["attendance_pct"] = act.get("attendance_pct")  # None for MKs with no attendance data
         mk["bill_count"]     = act.get("bill_count", 0)
         mk["activity_score"] = act.get("activity_score", 0)
         mk["activity_grade"] = act.get("activity_grade", "F")
@@ -706,15 +741,16 @@ def main():
     grade_dist = Counter(grades)
     print(f"  Grade distribution: {dict(sorted(grade_dist.items()))}")
 
-    att_sample = sorted(mks_out, key=lambda m: -m["attendance_pct"])[:5]
+    att_sample = sorted((m for m in mks_out if m["attendance_pct"] is not None), key=lambda m: -m["attendance_pct"])[:5]
     print(f"\n  Top 5 by attendance:")
     for mk in att_sample:
         print(f"    {mk['name_he']:<20} {mk['attendance_pct']:.1f}%  bills={mk['bill_count']}  grade={mk['activity_grade']}")
 
     bill_sample = sorted(mks_out, key=lambda m: -m["bill_count"])[:5]
+    att_fmt = lambda m: f"{m['attendance_pct']:.1f}%" if m["attendance_pct"] is not None else "N/A"
     print(f"\n  Top 5 by bills:")
     for mk in bill_sample:
-        print(f"    {mk['name_he']:<20} bills={mk['bill_count']}  att={mk['attendance_pct']:.1f}%  grade={mk['activity_grade']}")
+        print(f"    {mk['name_he']:<20} bills={mk['bill_count']}  att={att_fmt(mk)}  grade={mk['activity_grade']}")
 
     # Party distribution
     party_counts: dict[str, int] = defaultdict(int)
