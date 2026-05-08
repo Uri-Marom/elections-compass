@@ -154,18 +154,19 @@ export function ResultsPage() {
     sharePendingRef.current = true
     setSharingImage(true)
     try {
-      const { toPng } = await import('html-to-image')
-      const dataUrl = await toPng(shareCardRef.current, { pixelRatio: 2, cacheBust: true })
-      const res = await fetch(dataUrl)
-      const blob = await res.blob()
+      const { toBlob } = await import('html-to-image')
+      const blob = await toBlob(shareCardRef.current, { pixelRatio: 2, cacheBust: true })
+      if (!blob) throw new Error('toBlob returned null')
       const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
       if (navigator.share && navigator.canShare?.({ files: [file] })) {
         await navigator.share({ files: [file], title: lang === 'he' ? 'מצפן בחירות - התוצאות שלי' : 'Election Compass - My Results' })
       } else {
+        const objectUrl = URL.createObjectURL(blob)
         const link = document.createElement('a')
-        link.href = dataUrl
+        link.href = objectUrl
         link.download = 'matzpen-results.png'
         link.click()
+        URL.revokeObjectURL(objectUrl)
       }
     } catch (err) {
       console.error('Share image failed:', err)
