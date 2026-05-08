@@ -4,11 +4,12 @@ import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
 import { MatchRadarChart } from '../components/Results/RadarChart'
 import { DimensionGapBars } from '../components/Results/DimensionGapBars'
-import { PartyCard } from '../components/Results/PartyCard'
 import { MKMatchList } from '../components/Results/MKMatchList'
 import { ShareCard } from '../components/Results/ShareCard'
+import { PartyMap } from '../components/Research/PartyMap'
 import { useSurveyStore } from '../store/survey'
 import { rankParties, rankMKs, DIMENSIONS, type DimensionKey } from '../utils/matching'
+import { computePartyAxes, computeUserMapPoint } from '../utils/research'
 import type { Party, PartyPosition, Question, KnessetMember } from '../types'
 
 import partiesData from '../data/parties.json'
@@ -173,6 +174,7 @@ export function ResultsPage() {
   const [searchParams] = useSearchParams()
   const { answers, weights, lang, reset, setAnswer, answeredCount, totalCount } = useSurveyStore()
   const [mode, setMode] = useState<'stated' | 'voted'>('stated')
+  const [mapMode, setMapMode] = useState<'stated' | 'voted'>('stated')
   const [selectedPartyId, setSelectedPartyId] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [sharingImage, setSharingImage] = useState(false)
@@ -293,6 +295,10 @@ export function ResultsPage() {
     () => computePartyDimScores(topPartyPositions, 'stated'),
     [ranked[0]?.party_id] // eslint-disable-line react-hooks/exhaustive-deps
   )
+
+  const axisResult = useMemo(() => computePartyAxes(allPositions, mapMode), [mapMode])
+  const mapPoints = axisResult.points
+  const userMapPoint = useMemo(() => computeUserMapPoint(answers, axisResult), [answers, axisResult])
 
   const answered = answeredCount()
   const total = totalCount()
@@ -451,22 +457,18 @@ export function ResultsPage() {
           {copied ? t('share_copied') : t('share_link')}
         </button>
 
-        {/* Full ranked list */}
-        <div className="space-y-3">
-          {ranked.map((match, i) => {
-            const party = parties.find(p => p.id === match.party_id)
-            if (!party) return null
-            return (
-              <PartyCard
-                key={match.party_id}
-                match={match}
-                party={party}
-                rank={i + 1}
-                mode={mode}
-              />
-            )
-          })}
-        </div>
+        {/* 2D ideological map */}
+        <section className="bg-white rounded-2xl border border-gray-200 shadow-sm px-4 pt-4 pb-3">
+          <h2 className="text-sm font-bold text-gray-900 mb-3">{t('similarity_title')}</h2>
+          <PartyMap
+            points={mapPoints}
+            parties={parties}
+            mode={mapMode}
+            onModeChange={setMapMode}
+            lang={lang}
+            userPoint={userMapPoint}
+          />
+        </section>
 
         <MKMatchList topMKs={rankedMKs} mks={mks} parties={parties} />
 
