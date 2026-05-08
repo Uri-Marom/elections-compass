@@ -5,11 +5,7 @@ import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
 import { MKMap } from '../components/Research/MKMap'
 import { useSurveyStore } from '../store/survey'
 import { rankMKs } from '../utils/matching'
-import {
-  computeIntraPartyVariance,
-  findCrossAisleMKs,
-  computeMKMap,
-} from '../utils/research'
+import { findCrossAisleMKs } from '../utils/research'
 import type { Party, PartyPosition, KnessetMember } from '../types'
 
 import partiesData from '../data/parties.json'
@@ -49,7 +45,7 @@ const allPartyPositions: Record<string, PartyPosition[]> = {
   raam: raamPos.positions as PartyPosition[],
 }
 
-type Tab = 'matches' | 'variance' | 'crossaisle' | 'map'
+type Tab = 'matches' | 'crossaisle' | 'map'
 
 export function MKsPage() {
   const { t } = useTranslation()
@@ -57,8 +53,6 @@ export function MKsPage() {
   const { answers, weights, lang, answeredCount } = useSurveyStore()
   const [activeTab, setActiveTab] = useState<Tab>('matches')
   const [partyFilter, setPartyFilter] = useState<string>('all')
-  const [hoveredMkId, setHoveredMkId] = useState<string | null>(null)
-  const [expandedParty, setExpandedParty] = useState<string | null>(null)
   const [matchSort, setMatchSort] = useState<'match' | 'activity'>('match')
 
   const answered = answeredCount()
@@ -68,14 +62,10 @@ export function MKsPage() {
     [answers, weights]
   )
 
-  const varianceResults = useMemo(() => computeIntraPartyVariance(mks, mkPositions), [])
-
   const crossAisleResults = useMemo(
     () => findCrossAisleMKs(mks, mkPositions, allPartyPositions),
     []
   )
-
-  const mkMapData = useMemo(() => computeMKMap(mks, mkPositions, allPartyPositions), [])
 
   const partyIds = [...new Set(mks.map(m => m.party_id))].sort()
 
@@ -103,7 +93,6 @@ export function MKsPage() {
 
   const TABS: Array<{ id: Tab; label: string }> = [
     { id: 'matches',   label: t('mk_tab_matches') },
-    { id: 'variance',  label: t('mk_tab_variance') },
     { id: 'crossaisle', label: t('mk_tab_crossaisle') },
     { id: 'map',       label: t('mk_tab_map') },
   ]
@@ -266,82 +255,7 @@ export function MKsPage() {
           </div>
         )}
 
-        {/* Tab 2: Intra-Party Variance */}
-        {activeTab === 'variance' && (
-          <div className="space-y-3">
-            <p className="text-xs text-gray-500">{t('mk_variance_subtitle')}</p>
-            <div className="space-y-2">
-              {varianceResults.map(result => {
-                const party = parties.find(p => p.id === result.party_id)
-                if (!party || result.mk_count < 2) return null
-                const partyMKs = mks.filter(m => m.party_id === result.party_id)
-                const outlierMk = result.outlier_mk_id ? mks.find(m => m.id === result.outlier_mk_id) : null
-                const isExpanded = expandedParty === result.party_id
-                const varPct = Math.min(100, (result.variance / 2) * 100)
-
-                return (
-                  <div key={result.party_id} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-                    <button
-                      onClick={() => setExpandedParty(isExpanded ? null : result.party_id)}
-                      className="w-full px-4 py-3 flex items-center gap-3 text-left hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <span className="text-sm font-semibold text-gray-900">
-                            {lang === 'he' ? party.name_he : party.name_en}
-                          </span>
-                          <span className="text-xs text-gray-400">{t('mk_variance_mks', { n: result.mk_count })}</span>
-                        </div>
-                        {/* Variance bar */}
-                        <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                          <div
-                            className="h-full rounded-full transition-all"
-                            style={{ width: `${varPct}%`, backgroundColor: party.color }}
-                          />
-                        </div>
-                      </div>
-                      <div className="shrink-0 text-right">
-                        <div className="text-xs font-semibold" style={{ color: party.color }}>
-                          {result.variance.toFixed(2)}
-                        </div>
-                        <div className="text-xs text-gray-400">{t('mk_variance_spread')}</div>
-                      </div>
-                      <span className="text-gray-300 text-xs shrink-0">{isExpanded ? '▲' : '▼'}</span>
-                    </button>
-
-                    {isExpanded && (
-                      <div className="border-t border-gray-100 px-4 py-3 space-y-1">
-                        {outlierMk && (
-                          <p className="text-xs text-gray-500 mb-2">
-                            <span className="font-medium">{t('mk_variance_outlier')}: </span>
-                            {lang === 'he' ? outlierMk.name_he : (outlierMk.name_en || outlierMk.name_he)}
-                            {' '}
-                            <span style={{ color: party.color }}>({result.outlier_distance.toFixed(1)})</span>
-                          </p>
-                        )}
-                        {partyMKs.map(mk => (
-                          <div key={mk.id} className="flex items-center justify-between py-0.5">
-                            <span className="text-xs text-gray-700 flex items-center gap-1.5">
-                              {mk.id === result.outlier_mk_id && <span className="text-amber-500">◆</span>}
-                              {lang === 'he' ? mk.name_he : (mk.name_en || mk.name_he)}
-                              {mk.is_current && (
-                                <span className="text-xs px-1 py-0.5 rounded bg-green-50 text-green-700 text-[10px]">
-                                  {t('current_mk')}
-                                </span>
-                              )}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* Tab 3: Cross-Aisle MKs */}
+        {/* Tab 2: Cross-Aisle MKs */}
         {activeTab === 'crossaisle' && (
           <div className="space-y-3">
             <p className="text-xs text-gray-500">{t('mk_crossaisle_subtitle')}</p>
@@ -394,38 +308,16 @@ export function MKsPage() {
           </div>
         )}
 
-        {/* Tab 4: MK Map */}
+        {/* Tab 3: MK Map */}
         {activeTab === 'map' && (
-          <div className="space-y-3">
-            <p className="text-xs text-gray-500">{t('mk_map_subtitle')}</p>
-            {hoveredMkId && (() => {
-              const mk = mks.find(m => m.id === hoveredMkId)
-              const party = mk ? parties.find(p => p.id === mk.party_id) : null
-              if (!mk) return null
-              return (
-                <div className="px-3 py-2 bg-white rounded-xl border border-gray-200 text-sm flex items-center gap-2">
-                  <span className="font-medium text-gray-900">
-                    {lang === 'he' ? mk.name_he : (mk.name_en || mk.name_he)}
-                  </span>
-                  {party && (
-                    <span className="text-xs font-medium" style={{ color: party.color }}>
-                      {lang === 'he' ? party.name_he : party.name_en}
-                    </span>
-                  )}
-                </div>
-              )
-            })()}
-            <MKMap
-              partyPoints={mkMapData.partyPoints}
-              mkPoints={mkMapData.mkPoints}
-              parties={parties}
-              mks={mks}
-              lang={lang}
-              highlightMkId={hoveredMkId}
-              onMKHover={setHoveredMkId}
-            />
-            <p className="text-xs text-gray-400 text-center">{t('mk_map_data_note')}</p>
-          </div>
+          <MKMap
+            allPartyPositions={allPartyPositions}
+            mks={mks}
+            mkPositions={mkPositions}
+            parties={parties}
+            lang={lang}
+            userAnswers={answers}
+          />
         )}
 
       </main>

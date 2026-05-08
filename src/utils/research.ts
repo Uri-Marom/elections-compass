@@ -386,3 +386,110 @@ export function computeUserMapPoint(
     y: yMax > yMin ? Math.max(-1, Math.min(1, ((rawY - yMin) / (yMax - yMin)) * 2 - 1)) : 0,
   }
 }
+
+// ---------- MK 2-D axis map ----------
+
+export type MKDimKey = 'religion' | 'judicial' | 'governance'
+
+const MK_DIM_QIDS: Record<MKDimKey, string[]> = {
+  religion:   ['q07', 'q08', 'q11'],
+  judicial:   ['q18', 'q19', 'q22'],
+  governance: ['q27', 'q28', 'q31'],
+}
+
+// anchor HIGH party defines the "positive" direction on each axis
+const MK_DIM_ANCHORS: Record<MKDimKey, { high: string; low: string }> = {
+  religion:   { high: 'utj',   low: 'yisrael_beitenu' }, // religious → right
+  judicial:   { high: 'likud', low: 'hadash_taal' },      // pro-reform → right
+  governance: { high: 'likud', low: 'hadash_taal' },      // pro-PM-power → right
+}
+
+export const MK_DIM_LABELS: Record<MKDimKey, { he: string; en: string; lowHe: string; lowEn: string; highHe: string; highEn: string }> = {
+  religion:   { he: 'דת ומדינה',     en: 'Religion',   lowHe: 'חילוני',       lowEn: 'Secular',        highHe: 'דתי',         highEn: 'Religious'  },
+  judicial:   { he: 'רפורמה משפטית', en: 'Judicial',   lowHe: 'נגד הרפורמה', lowEn: 'Anti-reform',    highHe: 'בעד הרפורמה', highEn: 'Pro-reform' },
+  governance: { he: 'ממשל',           en: 'Governance', lowHe: 'אחריות',       lowEn: 'Accountability', highHe: 'ריכוז כוח',   highEn: 'Centralization' },
+}
+
+export interface MKMapAxisResult {
+  partyPoints: PartyPoint[]
+  mkPoints: Array<{ mk_id: string; party_id: string; x: number; y: number }>
+  xSigns: number[]; xQids: string[]
+  ySigns: number[]; yQids: string[]
+  xMin: number; xMax: number
+  yMin: number; yMax: number
+}
+
+export function computeMKAxisMap(
+  allPartyPositions: Record<string, PartyPosition[]>,
+  mks: KnessetMember[],
+  mkPositions: Record<string, Record<string, number | null>>,
+  xDim: MKDimKey,
+  yDim: MKDimKey
+): MKMapAxisResult {
+  const xQids = MK_DIM_QIDS[xDim]
+  const yQids = MK_DIM_QIDS[yDim]
+
+  const ps = (pid: string, qid: string): number => {
+    const pos = allPartyPositions[pid]?.find(p => p.question_id === qid)
+    return pos?.stated_position?.score ?? 0
+  }
+
+  const { high: xH, low: xL } = MK_DIM_ANCHORS[xDim]
+  const { high: yH, low: yL } = MK_DIM_ANCHORS[yDim]
+  const xSigns = xQids.map(qid => Math.sign(ps(xH, qid) - ps(xL, qid)) || 1)
+  const ySigns = yQids.map(qid => Math.sign(ps(yH, qid) - ps(yL, qid)) || 1)
+
+  const partyIds = Object.keys(allPartyPositions)
+  const partyRaw = partyIds.map(pid => ({
+    party_id: pid,
+    x: xQids.reduce((s, qid, i) => s + xSigns[i] * ps(pid, qid), 0) / xQids.length,
+    y: yQids.reduce((s, qid, i) => s + ySigns[i] * ps(pid, qid), 0) / yQids.length,
+  }))
+
+  const mkRaw = mks.flatMap(mk => {
+    const scores = mkPositions[mk.id]
+    if (!scores) return []
+    const xVals = xQids.map((qid, i) => { const v = scores[qid]; return v != null ? xSigns[i] * v : null }).filter((v): v is number => v !== null)
+    const yVals = yQids.map((qid, i) => { const v = scores[qid]; return v != null ? ySigns[i] * v : null }).filter((v): v is number => v !== null)
+    if (!xVals.length && !yVals.length) return []
+    return [{ mk_id: mk.id, party_id: mk.party_id,
+      x: xVals.length ? xVals.reduce((s, v) => s + v, 0) / xVals.length : 0,
+      y: yVals.length ? yVals.reduce((s, v) => s + v, 0) / yVals.length : 0,
+    }]
+  })
+
+  const allXs = [...partyRaw.map(p => p.x), ...mkRaw.map(m => m.x)]
+  const allYs = [...partyRaw.map(p => p.y), ...mkRaw.map(m => m.y)]
+  const xMin = Math.min(...allXs), xMax = Math.max(...allXs)
+  const yMin = Math.min(...allYs), yMax = Math.max(...allYs)
+  const normX = (v: number) => xMax > xMin ? ((v - xMin) / (xMax - xMin)) * 2 - 1 : 0
+  const normY = (v: number) => yMax > yMin ? ((v - yMin) / (yMax - yMin)) * 2 - 1 : 0
+
+  const JITTER = 0.04
+  const seen = new Map<string, number>()
+  const partyPoints = partyRaw.map(p => {
+    const px = normX(p.x), py = normY(p.y)
+    const key = `${px.toFixed(3)},${py.toFixed(3)}`
+    const c = seen.get(key) ?? 0; seen.set(key, c + 1)
+    const a = (Math.PI / 2) * c
+    return { party_id: p.party_id, x: px + (c > 0 ? JITTER * Math.cos(a) : 0), y: py + (c > 0 ? JITTER * Math.sin(a) : 0) }
+  })
+
+  return { partyPoints, mkPoints: mkRaw.map(m => ({ ...m, x: normX(m.x), y: normY(m.y) })), xSigns, xQids, ySigns, yQids, xMin, xMax, yMin, yMax }
+}
+
+export function computeUserMKPoint(
+  answers: Record<string, number | null | undefined>,
+  result: MKMapAxisResult
+): { x: number; y: number } | null {
+  const { xQids, xSigns, yQids, ySigns, xMin, xMax, yMin, yMax } = result
+  const xVals = xQids.map((qid, i) => { const v = answers[qid]; return v != null ? xSigns[i] * v : null }).filter((v): v is number => v !== null)
+  const yVals = yQids.map((qid, i) => { const v = answers[qid]; return v != null ? ySigns[i] * v : null }).filter((v): v is number => v !== null)
+  if (!xVals.length && !yVals.length) return null
+  const rawX = xVals.length ? xVals.reduce((s, v) => s + v, 0) / xVals.length : (xMin + xMax) / 2
+  const rawY = yVals.length ? yVals.reduce((s, v) => s + v, 0) / yVals.length : (yMin + yMax) / 2
+  return {
+    x: xMax > xMin ? Math.max(-1, Math.min(1, ((rawX - xMin) / (xMax - xMin)) * 2 - 1)) : 0,
+    y: yMax > yMin ? Math.max(-1, Math.min(1, ((rawY - yMin) / (yMax - yMin)) * 2 - 1)) : 0,
+  }
+}
