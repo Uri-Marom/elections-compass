@@ -138,18 +138,22 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
           <text x={SVG_W / 2} y={PAD_Y - 8} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="middle">{t('map_axis_religious')}</text>
           <text x={SVG_W / 2} y={SVG_H - PAD_Y + 14} fontSize={8} fill={axisLabelColor} fontWeight={600} textAnchor="middle">{t('map_axis_secular')}</text>
 
-          {/* Leader lines: from margin boundary to dot edge */}
+          {/* Leader lines: from label centre to dot edge */}
           {labels.map((lb, i) => {
-            const startX = lb.side === 'left' ? PLOT_X0 - 3 : PLOT_X1 + 3
-            const startY = lb.labelY
-            const dx = lb.dotX - startX, dy = lb.dotY - startY
+            const dx = lb.dotX - lb.labelX, dy = lb.dotY - lb.labelY
             const dist = Math.sqrt(dx * dx + dy * dy) || 1
+            // shorten at dot end so the line doesn't overlap the circle
             const endX = lb.dotX - (dx / dist) * (DOT_R + 2)
             const endY = lb.dotY - (dy / dist) * (DOT_R + 2)
+            // shorten at label end (~half the text width to clear the label)
+            const clearance = Math.min(dist * 0.35, 38)
+            const startX = lb.labelX + (dx / dist) * clearance
+            const startY = lb.labelY + (dy / dist) * clearance
+            if (dist < DOT_R + clearance + 4) return null
             return (
               <line key={`line-${i}`}
                 x1={startX} y1={startY} x2={endX} y2={endY}
-                stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.4} />
+                stroke={lb.color} strokeWidth={0.9} strokeOpacity={0.45} />
             )
           })}
 
