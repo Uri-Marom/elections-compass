@@ -97,15 +97,33 @@ function computePartyDimScores(
   return result
 }
 
+// Fixed question order for compact encoding — one hex nibble per question.
+// 0 = skipped, 1–5 = answer value (-2 to +2). Always 30 chars.
+const QUESTION_ORDER = [
+  'q01','q02','q03','q04','q05','q06','q07','q08','q09','q10',
+  'q11','q12','q16','q18','q19','q20','q21','q22','q23','q24',
+  'q25','q26','q27','q28','q29','q31','q32','q33','q34','q35',
+]
+
 function encodeAnswers(answers: Record<string, number | null>): string {
-  return Object.entries(answers)
-    .filter(([, v]) => v !== null && v !== undefined)
-    .map(([k, v]) => `${k.replace('q', '')}:${v}`)
-    .join(',')
+  return QUESTION_ORDER.map(qid => {
+    const v = answers[qid]
+    if (v === null || v === undefined) return '0'
+    return (v + 3).toString(16) // -2→1, -1→2, 0→3, 1→4, 2→5
+  }).join('')
 }
 
 function decodeAnswers(encoded: string): Record<string, number | null> {
   const result: Record<string, number | null> = {}
+  // Compact hex format (no colons or commas)
+  if (encoded && !encoded.includes(':') && !encoded.includes(',')) {
+    for (let i = 0; i < Math.min(encoded.length, QUESTION_ORDER.length); i++) {
+      const n = parseInt(encoded[i], 16)
+      if (!isNaN(n) && n !== 0) result[QUESTION_ORDER[i]] = n - 3 // 1→-2 … 5→+2
+    }
+    return result
+  }
+  // Legacy format: "01:2,02:-1,…"
   for (const pair of encoded.split(',')) {
     const [num, val] = pair.split(':')
     if (num && val !== undefined) {
@@ -348,41 +366,6 @@ export function ResultsPage() {
           </div>
         </div>
 
-        {/* Full ranked list */}
-        <div className="space-y-3">
-          {ranked.map((match, i) => {
-            const party = parties.find(p => p.id === match.party_id)
-            if (!party) return null
-            return (
-              <PartyCard
-                key={match.party_id}
-                match={match}
-                party={party}
-                rank={i + 1}
-                mode={mode}
-              />
-            )
-          })}
-        </div>
-
-        <MKMatchList topMKs={rankedMKs} mks={mks} parties={parties} />
-
-        {rankedMKs.length > 0 && (
-          <button
-            onClick={() => navigate('/mks')}
-            className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
-          >
-            {t('open_mk_compass')}
-          </button>
-        )}
-
-        <button
-          onClick={() => navigate('/research')}
-          className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
-        >
-          {t('explore_research')}
-        </button>
-
         {/* Share image button */}
         <button
           onClick={handleShareImage}
@@ -433,6 +416,41 @@ export function ResultsPage() {
           className="w-full py-2 text-sm text-indigo-600 hover:text-indigo-800 transition-colors"
         >
           {copied ? t('share_copied') : t('share_link')}
+        </button>
+
+        {/* Full ranked list */}
+        <div className="space-y-3">
+          {ranked.map((match, i) => {
+            const party = parties.find(p => p.id === match.party_id)
+            if (!party) return null
+            return (
+              <PartyCard
+                key={match.party_id}
+                match={match}
+                party={party}
+                rank={i + 1}
+                mode={mode}
+              />
+            )
+          })}
+        </div>
+
+        <MKMatchList topMKs={rankedMKs} mks={mks} parties={parties} />
+
+        {rankedMKs.length > 0 && (
+          <button
+            onClick={() => navigate('/mks')}
+            className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
+          >
+            {t('open_mk_compass')}
+          </button>
+        )}
+
+        <button
+          onClick={() => navigate('/research')}
+          className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
+        >
+          {t('explore_research')}
         </button>
 
         <button
