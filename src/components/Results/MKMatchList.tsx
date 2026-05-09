@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSurveyStore } from '../../store/survey'
 import type { MKMatch, KnessetMember, Party } from '../../types'
+import { TOTAL_QUESTIONS } from '../../utils/matching'
 
 const GRADE_COLORS: Record<string, string> = {
   A: 'bg-green-50 text-green-700 border-green-200',
@@ -86,7 +87,7 @@ export function MKMatchList({ topMKs, mks, parties }: Props) {
                   >
                     {match.overall}%
                   </span>
-                  <span className="text-xs text-gray-400">{t('coverage_questions', { n: match.question_count })}</span>
+                  <span className="text-xs text-gray-400">{t('coverage_questions', { n: match.question_count, total: TOTAL_QUESTIONS })}</span>
                 </div>
               </div>
             )

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
 import { MKMap } from '../components/Research/MKMap'
 import { useSurveyStore } from '../store/survey'
-import { rankMKs } from '../utils/matching'
+import { rankMKs, TOTAL_QUESTIONS } from '../utils/matching'
 import { findCrossAisleMKs } from '../utils/research'
 import type { Party, PartyPosition, KnessetMember } from '../types'
 
@@ -241,7 +241,7 @@ export function MKsPage() {
                           <span className="text-sm font-bold" style={{ color: party?.color ?? '#888' }}>
                             {match.overall}%
                           </span>
-                          <span className="text-xs text-gray-400">{t('coverage_questions', { n: match.question_count })}</span>
+                          <span className="text-xs text-gray-400">{t('coverage_questions', { n: match.question_count, total: TOTAL_QUESTIONS })}</span>
                         </div>
                       </div>
                     )
