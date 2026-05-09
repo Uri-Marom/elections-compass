@@ -346,7 +346,7 @@ export function ResultsPage() {
           {/* Party selector */}
           <div className="border-b border-gray-100 px-4 py-3">
             <p className="text-xs text-gray-400 mb-2">{t('compare_with')}</p>
-            <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+            <div className="flex gap-3 overflow-x-auto pb-1 no-scrollbar">
               {ranked.map((match, i) => {
                 const party = parties.find(p => p.id === match.party_id)
                 if (!party) return null
@@ -374,7 +374,7 @@ export function ResultsPage() {
                     >
                       {i + 1}
                     </div>
-                    <span className="text-[10px] text-gray-600 w-[52px] text-center leading-tight line-clamp-2">{name}</span>
+                    <span className="text-[10px] text-gray-600 max-w-[56px] text-center leading-tight line-clamp-2 break-words">{name}</span>
                     <span className="text-xs font-semibold" style={{ color: party.color }}>{score}%</span>
                   </button>
                 )
