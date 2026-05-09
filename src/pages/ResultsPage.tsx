@@ -268,9 +268,6 @@ export function ResultsPage() {
 
   const userDimScores = useMemo(() => computeUserDimScores(answers), [answers])
 
-  // Reset manual party selection when mode changes so the radar follows the new #1
-  useEffect(() => { setSelectedPartyId(null) }, [mode])
-
   const effectivePartyId = selectedPartyId ?? ranked[0]?.party_id ?? ''
   const selectedParty = parties.find(p => p.id === effectivePartyId)
   const selectedPositions = allPositions[effectivePartyId] ?? []
@@ -377,7 +374,7 @@ export function ResultsPage() {
                     >
                       {i + 1}
                     </div>
-                    <span className="text-xs text-gray-600 max-w-[48px] text-center leading-tight">{name}</span>
+                    <span className="text-[10px] text-gray-600 w-[52px] text-center leading-tight line-clamp-2">{name}</span>
                     <span className="text-xs font-semibold" style={{ color: party.color }}>{score}%</span>
                   </button>
                 )
