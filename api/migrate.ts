@@ -3,7 +3,7 @@ import { neon } from '@neondatabase/serverless'
 // One-time migration endpoint. Call once via: GET /api/migrate
 // DELETE this file after running.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function handler(req: any, res: any) {
+export default async function handler(_req: any, res: any) {
   const dbUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL
   if (!dbUrl) {
     res.status(500).json({ error: 'DATABASE_URL not set' })
