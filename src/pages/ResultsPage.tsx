@@ -175,14 +175,25 @@ export function ResultsPage() {
     })
   }, [answers])
 
-  const handleCompare = useCallback(() => {
+  const handleCompare = useCallback(async () => {
     const encoded = encodeAnswers(answers)
     const url = `${window.location.origin}/results?compare=${encoded}`
+    const compareText = lang === 'he'
+      ? `ענו על מצפן הבחירות וראו איך אנחנו משתווים!\n${url}`
+      : `Take the Election Compass quiz and let's compare results!\n${url}`
+    if (navigator.share) {
+      try {
+        await navigator.share({ text: compareText })
+        return
+      } catch {
+        // user cancelled or share not supported — fall through to clipboard
+      }
+    }
     navigator.clipboard.writeText(url).then(() => {
       setCompareCopied(true)
       setTimeout(() => setCompareCopied(false), 2500)
     })
-  }, [answers])
+  }, [answers, lang])
 
   const handleShareImage = useCallback(async () => {
     if (!shareCardRef.current || sharePendingRef.current) return
@@ -211,17 +222,23 @@ export function ResultsPage() {
           text: shareText,
           title: lang === 'he' ? 'מצפן בחירות - התוצאות שלי' : 'Election Compass - My Results',
         })
-      } else if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
-        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
-        setImageCopied(true)
-        setTimeout(() => setImageCopied(false), 2500)
       } else {
-        const objectUrl = URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.href = objectUrl
-        link.download = 'matzpen-results.png'
-        link.click()
-        URL.revokeObjectURL(objectUrl)
+        // Desktop: write image + text as a single ClipboardItem so WhatsApp Web gets the
+        // image on paste, and the caption field can pick up the text/plain format.
+        const textBlob = new Blob([shareText], { type: 'text/plain' })
+        if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
+          await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob, 'text/plain': textBlob })])
+        } else {
+          // Fallback: download the file if ClipboardItem isn't available
+          const objectUrl = URL.createObjectURL(blob)
+          const link = document.createElement('a')
+          link.href = objectUrl
+          link.download = 'matzpen-results.png'
+          link.click()
+          URL.revokeObjectURL(objectUrl)
+        }
+        setImageCopied(true)
+        setTimeout(() => setImageCopied(false), 3000)
       }
     } catch (err) {
       console.error('Share image failed:', err)
@@ -391,7 +408,7 @@ export function ResultsPage() {
           {sharingImage
             ? t('share_generating')
             : imageCopied
-            ? (lang === 'he' ? '✓ הועתק ללוח!' : '✓ Copied!')
+            ? (lang === 'he' ? '✓ הועתק! הדביקו בווצאפ' : '✓ Copied! Paste in WhatsApp')
             : t('share_image')}
         </button>
 
