@@ -248,9 +248,17 @@ export function ResultsPage() {
     }
   }, [lang, shareText])
 
-  const ranked = useMemo(
+  const rankedBase = useMemo(
     () => rankParties(answers, allPositions, weights),
     [answers, weights]
+  )
+
+  const ranked = useMemo(
+    () => mode === 'voted'
+      ? [...rankedBase].sort((a, b) =>
+          (b.overall_voted ?? b.overall_stated) - (a.overall_voted ?? a.overall_stated))
+      : rankedBase,
+    [rankedBase, mode]
   )
 
   const rankedMKs = useMemo(
@@ -259,6 +267,9 @@ export function ResultsPage() {
   )
 
   const userDimScores = useMemo(() => computeUserDimScores(answers), [answers])
+
+  // Reset manual party selection when mode changes so the radar follows the new #1
+  useEffect(() => { setSelectedPartyId(null) }, [mode])
 
   const effectivePartyId = selectedPartyId ?? ranked[0]?.party_id ?? ''
   const selectedParty = parties.find(p => p.id === effectivePartyId)
