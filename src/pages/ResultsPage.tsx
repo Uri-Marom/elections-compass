@@ -179,7 +179,7 @@ export function ResultsPage() {
     const encoded = encodeAnswers(answers)
     const url = `${window.location.origin}/results?compare=${encoded}`
     const compareText = lang === 'he'
-      ? `ענו על מצפן הבחירות וראו איך אנחנו משתווים!\n${url}`
+      ? `עניתי על מצפן הבחירות. ענו גם אתם ונוכל להשוות את התוצאות שלנו!\n${url}`
       : `Take the Election Compass quiz and let's compare results!\n${url}`
     if (navigator.share) {
       try {
