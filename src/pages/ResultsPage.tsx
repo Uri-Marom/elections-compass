@@ -374,7 +374,7 @@ export function ResultsPage() {
                     >
                       {i + 1}
                     </div>
-                    <span className="text-[10px] text-gray-600 max-w-[56px] text-center leading-tight line-clamp-2 break-words">{name}</span>
+                    <span className="text-[10px] text-gray-600 max-w-[80px] text-center leading-tight line-clamp-2 break-words">{name}</span>
                     <span className="text-xs font-semibold" style={{ color: party.color }}>{score}%</span>
                   </button>
                 )
