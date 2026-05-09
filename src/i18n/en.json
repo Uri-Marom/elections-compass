@@ -100,5 +100,20 @@
   "mk_no_answers": "Answer at least 5 survey questions to see your MK matches.",
   "go_to_survey": "Go to survey →",
   "filter_by_party": "All parties",
-  "mk_map_data_note": "Map based on Knesset voting records"
+  "mk_map_data_note": "Map based on Knesset voting records",
+  "feedback": "Feedback",
+  "feedback_placeholder": "Your thoughts? Bugs, suggestions, questions...",
+  "feedback_name_placeholder": "Name (optional)",
+  "feedback_send": "Send",
+  "feedback_thanks": "Thanks! We received your feedback.",
+  "feedback_error": "Failed to send. Please try again.",
+  "compare_with_friend": "Compare with a friend",
+  "compare_copied": "Compare link copied!",
+  "comparison_title": "Friend Comparison",
+  "compatibility_score": "Compatibility Score",
+  "comparison_you": "You",
+  "comparison_friend": "Friend",
+  "comparison_shared": "Both chose",
+  "friend_banner": "A friend took the quiz — take it too to compare!",
+  "take_quiz_to_compare": "Take the quiz →"
 }

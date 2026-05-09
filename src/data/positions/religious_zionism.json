@@ -9,8 +9,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes; Smotrich as Finance Minister directed settlement budgets"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -21,22 +21,17 @@
         "source": "Explicitly opposes any Palestinian state; calls for Israeli sovereignty instead"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset — voted for anti-Palestinian-state resolution (July 2024, 68-9)"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q03",
       "stated_position": {
         "score": 2,
         "source": "Full military victory; Smotrich threatened to resign over any ceasefire"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
       },
       "divergence_flag": false
     },
@@ -46,11 +41,6 @@
         "score": 2,
         "source": "Undivided Jerusalem, non-negotiable"
       },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
-      },
       "divergence_flag": false
     },
     {
@@ -58,11 +48,6 @@
       "stated_position": {
         "score": -2,
         "source": "Strongly opposes right of return"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
       },
       "divergence_flag": false
     },
@@ -74,8 +59,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -86,9 +71,9 @@
         "source": "Opposes Haredi conscription; closely allied with Haredi parties; Torah study as national service"
       },
       "voted_position": {
-        "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset — voted against conscription bills"
+        "score": -2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -100,8 +85,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -111,11 +96,6 @@
         "score": -2,
         "source": "Shabbat observance as public norm — religious Zionist value"
       },
-      "voted_position": {
-        "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
-      },
       "divergence_flag": false
     },
     {
@@ -123,11 +103,6 @@
       "stated_position": {
         "score": -2,
         "source": "Strongly opposes Women of the Wall; Western Wall under Orthodox control"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
       },
       "divergence_flag": false
     },
@@ -138,9 +113,9 @@
         "source": "Torah study as national service; strongly supports yeshiva funding"
       },
       "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -149,11 +124,6 @@
       "stated_position": {
         "score": 2,
         "source": "Kashrut enforcement in state institutions — religious Zionist value"
-      },
-      "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
       },
       "divergence_flag": false
     },
@@ -165,8 +135,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset — voted against port privatization bill (opposition bill)"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
     },
@@ -178,8 +148,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset — voted for override clause"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -191,8 +161,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -201,11 +171,6 @@
       "stated_position": {
         "score": -2,
         "source": "Rejects binding AG opinions; repeatedly clashed with AG as minister"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
       },
       "divergence_flag": false
     },
@@ -217,8 +182,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset — voted for reasonableness standard abolition"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -229,11 +194,11 @@
         "source": "Views Supreme Court as unelected obstacle to democratic will"
       },
       "voted_position": {
-        "score": -1.5,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q23",
@@ -243,8 +208,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -254,11 +219,6 @@
         "score": -2,
         "source": "Strongly opposes Arab parties in coalition"
       },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
-      },
       "divergence_flag": false
     },
     {
@@ -266,11 +226,6 @@
       "stated_position": {
         "score": -1,
         "source": "Nationalist priorities; Arab municipality funding not a Smotrich priority"
-      },
-      "voted_position": {
-        "score": -1.5,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
       },
       "divergence_flag": false
     },
@@ -282,8 +237,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset — voted against Nation-State Law repeal"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -295,8 +250,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -308,8 +263,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -318,11 +273,6 @@
       "stated_position": {
         "score": -1,
         "source": "Small-medium party; higher threshold is a risk"
-      },
-      "voted_position": {
-        "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "25th Knesset coalition votes"
       },
       "divergence_flag": false
     },
@@ -334,8 +284,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -346,9 +296,9 @@
         "source": "Smotrich allied with Haredim; opposes mandating secular curriculum in Haredi schools"
       },
       "voted_position": {
-        "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+        "score": -2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -360,8 +310,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },

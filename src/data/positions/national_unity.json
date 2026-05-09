@@ -8,11 +8,11 @@
         "source": "Security-focused, supports settlement blocs"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": true
+      "divergence_flag": false
     },
     {
       "question_id": "q02",
@@ -21,11 +21,11 @@
         "source": "Open to future arrangements but not urgent"
       },
       "voted_position": {
-        "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q03",
@@ -35,8 +35,8 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -48,8 +48,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -61,8 +61,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -73,9 +73,9 @@
         "source": "Not a stated position"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
     },
@@ -87,8 +87,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -99,9 +99,9 @@
         "source": "Supports civil marriage option"
       },
       "voted_position": {
-        "score": 0.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 1.33,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -113,8 +113,8 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -126,8 +126,8 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -138,9 +138,9 @@
         "source": "Conditional on military service"
       },
       "voted_position": {
-        "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": -2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -152,8 +152,8 @@
       },
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -165,8 +165,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
     },
@@ -178,8 +178,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -190,9 +190,9 @@
         "source": "Wants moderate reform, not political control"
       },
       "voted_position": {
-        "score": -1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": -2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -204,8 +204,8 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -217,8 +217,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -229,11 +229,11 @@
         "source": "Left coalition over judicial independence"
       },
       "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": -2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q23",
@@ -242,9 +242,9 @@
         "source": "Supports equality"
       },
       "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -256,8 +256,8 @@
       },
       "voted_position": {
         "score": 0.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -268,9 +268,9 @@
         "source": "Supports equal funding"
       },
       "voted_position": {
-        "score": 1.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -282,8 +282,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -295,8 +295,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -307,11 +307,11 @@
         "source": "Open to term limits"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 1.33,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": true
+      "divergence_flag": false
     },
     {
       "question_id": "q29",
@@ -321,8 +321,8 @@
       },
       "voted_position": {
         "score": 0.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },
@@ -334,8 +334,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -346,9 +346,9 @@
         "source": "Supports core curriculum requirement; advanced it during Bennett government"
       },
       "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -360,8 +360,8 @@
       },
       "voted_position": {
         "score": 1.0,
-        "last_updated": "2026-04-24",
-        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+        "last_updated": "2026-05-09",
+        "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
     },

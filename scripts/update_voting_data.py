@@ -1,186 +1,122 @@
 #!/usr/bin/env python3
 """
-Fetches Knesset voting records from the official Knesset OData service and
-the hasadna pipelines CSV, then computes per-party voted_position scores for
-each survey question.
+Computes per-party voted_position scores by aggregating MK-level vote data.
+
+Run build_mk_data.py first to generate mks.json and mk_positions.json.
 
 Sources:
-  - production.oknesset.org/pipelines/data/votes/vote_rslts_kmmbr_shadow/
-    Contains individual MK votes up through the 24th Knesset.
-  - src/data/vote_mappings.json
-    Maps survey questions to vote IDs + manual_k25 overrides for 25th Knesset
-    landmark votes that are not yet in the pipeline data.
+  - src/data/mks.json            MK profiles with party assignments (K25 members)
+  - src/data/mk_positions.json   Per-MK per-question scores (K25 preferred, fallback to prior)
+  - src/data/vote_mappings.json  Provides manual_k25 fallback scores for parties/questions
+                                 not covered by MK data (new parties, questions with no vote IDs)
 
 Writes voted_position into each party JSON file under src/data/positions/.
+
+otzma_rzp (historical combined bloc) is derived from the union of otzma + religious_zionism MKs.
 """
 
-import csv, json, urllib.request, io, sys, os
+import json, datetime
+from collections import defaultdict
 from pathlib import Path
+from statistics import mean
 
-ROOT = Path(__file__).parent.parent
-POSITIONS_DIR = ROOT / "src" / "data" / "positions"
-MAPPINGS_FILE = ROOT / "src" / "data" / "vote_mappings.json"
-SHADOW_CSV_URL = "https://production.oknesset.org/pipelines/data/votes/vote_rslts_kmmbr_shadow/vote_rslts_kmmbr_shadow.csv"
+ROOT            = Path(__file__).parent.parent
+POSITIONS_DIR   = ROOT / "src" / "data" / "positions"
+MAPPINGS_FILE   = ROOT / "src" / "data" / "vote_mappings.json"
+MKS_FILE        = ROOT / "src" / "data" / "mks.json"
+MK_POSITIONS_FILE = ROOT / "src" / "data" / "mk_positions.json"
 
-# Maps faction_id (str) -> our party_id
-# Covers 22nd, 23rd, and 24th Knessets so we can use votes across all three
-FACTION_MAP = {
-    # 22nd Knesset (2019)
-    "942": "likud",
-    "945": "yisrael_beitenu",
-    "946": "national_unity",  # כחול לבן
-    "947": "shas",
-    "944": "utj",
-    "948": "otzma_rzp",       # ימינה
-    "949": "democrats",       # עבודה-גשר-מרצ
-    "943": "hadash_taal",     # רשימה משותפת
-
-    # 23rd Knesset (2020-2021)
-    "962": "likud",
-    "971": "shas",
-    "965": "utj",
-    "961": "otzma_rzp",       # ציונות דתית
-    "967": "yesh_atid",       # יש עתיד
-    "969": "national_unity",  # כחול לבן
-    "963": "democrats",       # עבודה
-    "970": "democrats",       # מרצ (same bloc → democrats)
-    "968": "yisrael_beitenu",
-    "964": "hadash_taal",
-    "973": "raam",
-    "966": "otzma_rzp",       # ימינה
-    "972": "national_unity",  # תקווה חדשה → national_unity bloc
-
-    # 24th Knesset (2021)
-    "942": "likud",
-    "947": "shas",
-    "944": "utj",
-    "945": "yisrael_beitenu",
-    "959": "democrats",       # מרצ
-    "958": "democrats",       # עבודה
-    "955": "yesh_atid",       # יש עתיד-תל"ם
+# Combined party → set of component party IDs whose MKs are pooled together.
+# otzma_rzp ran as separate parties in K25 but is treated as a bloc in the party data.
+COMBINED_PARTIES = {
+    "otzma_rzp": {"otzma", "religious_zionism"},
 }
 
-# vote_result codes
-FOR     = "1"
-AGAINST = "2"
-ABSTAIN = "3"
+SOURCE_MK     = "Knesset vote data aggregated from MK-level votes via oknesset.org"
+SOURCE_MANUAL = "Manual encoding of 25th Knesset voting positions"
 
 
-def load_shadow_votes():
-    print("Downloading MK shadow votes CSV...", flush=True)
-    with urllib.request.urlopen(SHADOW_CSV_URL, timeout=120) as r:
-        content = r.read().decode("utf-8")
-    rows = list(csv.DictReader(io.StringIO(content)))
-    print(f"  Loaded {len(rows):,} records.", flush=True)
-    return rows
+def load_mk_data() -> tuple[dict[str, str], dict[str, dict[str, float]]]:
+    with open(MKS_FILE) as f:
+        mks = json.load(f)
+    with open(MK_POSITIONS_FILE) as f:
+        positions = json.load(f)
+    mk_party = {mk["id"]: mk["party_id"] for mk in mks}
+    return mk_party, positions
 
 
-def compute_party_scores_from_votes(shadow_rows, vote_ids_directions):
-    """
-    vote_ids_directions: list of (vote_id: int, direction: str)
-      direction: 'for_means_agree' | 'against_means_agree'
-    Returns: dict party_id -> float score in [-2, +2] (or None if no data)
-    """
-    vote_id_strs = {str(vid) for vid, _ in vote_ids_directions}
-    direction_map = {str(vid): d for vid, d in vote_ids_directions}
+def compute_party_scores_from_mks(
+    mk_party: dict[str, str],
+    mk_positions: dict[str, dict[str, float]],
+) -> dict[str, dict[str, float]]:
+    """Aggregate MK-level scores to party-level means."""
+    raw: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
 
-    relevant = [r for r in shadow_rows if r.get("vote_id") in vote_id_strs]
-    if not relevant:
-        return {}
-
-    # Accumulate per-party vote counts, tracking direction per vote
-    # party_data[party][vote_id] = {"for": n, "against": n, "abstain": n, "total": n}
-    party_vote_data = {}
-    for r in relevant:
-        fid = r.get("faction_id", "")
-        party = FACTION_MAP.get(fid)
+    for mk_id, scores in mk_positions.items():
+        party = mk_party.get(mk_id)
         if not party:
             continue
-        vote_res = r.get("vote_result", "")
-        vid = r.get("vote_id", "")
+        for qid, score in scores.items():
+            raw[qid][party].append(score)
 
-        if party not in party_vote_data:
-            party_vote_data[party] = {}
-        if vid not in party_vote_data[party]:
-            party_vote_data[party][vid] = {"for": 0, "against": 0, "abstain": 0, "total": 0}
+    # Build combined-party pools from component parties' MKs
+    for combined, sources in COMBINED_PARTIES.items():
+        for qid, party_lists in raw.items():
+            pool: list[float] = []
+            for src in sources:
+                pool.extend(party_lists.get(src, []))
+            if pool:
+                raw[qid][combined] = pool
 
-        party_vote_data[party][vid]["total"] += 1
-        if vote_res == FOR:
-            party_vote_data[party][vid]["for"] += 1
-        elif vote_res == AGAINST:
-            party_vote_data[party][vid]["against"] += 1
-        elif vote_res == ABSTAIN:
-            party_vote_data[party][vid]["abstain"] += 1
-
-    scores = {}
-    for party, vote_map in party_vote_data.items():
-        total_weight = 0
-        weighted_raw = 0.0
-        for vid, data in vote_map.items():
-            total = data["total"]
-            if total == 0:
-                continue
-            for_pct = data["for"] / total
-            against_pct = data["against"] / total
-            raw = for_pct * 2 - against_pct * 2  # range [-2, +2]
-            direction = direction_map.get(vid, "for_means_agree")
-            if direction == "against_means_agree":
-                raw = -raw
-            weighted_raw += raw
-            total_weight += 1
-        if total_weight == 0:
-            scores[party] = None
-        else:
-            scores[party] = round(weighted_raw / total_weight, 2)
-
-    return scores
+    return {
+        qid: {party: round(mean(vals), 2) for party, vals in party_lists.items()}
+        for qid, party_lists in raw.items()
+    }
 
 
-def merge_scores(from_votes, manual_k25):
+def apply_manual_fallback(
+    mk_scores: dict[str, dict[str, float]],
+    mappings: dict,
+) -> tuple[dict[str, dict[str, float]], dict[str, set[str]]]:
     """
-    Combine CSV-derived scores with manual 25th Knesset overrides.
-    Manual scores take precedence when present.
-    """
-    merged = dict(from_votes)
-    if manual_k25 and "party_scores" in manual_k25:
-        for party, data in manual_k25["party_scores"].items():
-            score = data.get("score") if isinstance(data, dict) else data
-            if score is not None:
-                merged[party] = score
-    return merged
+    For each question:
+      - MK-aggregated scores are primary.
+      - manual_k25 fills in only parties not already covered by MK data.
+      - Questions with no MK data get all scores from manual_k25.
 
+    Returns (voted_positions, manual_parties) where manual_parties tracks
+    which (qid, party_id) pairs came from manual encoding.
+    """
+    voted: dict[str, dict[str, float]] = {}
+    manual_set: dict[str, set[str]] = defaultdict(set)
 
-def build_voted_positions(shadow_rows, mappings):
-    """
-    Returns: dict question_id -> dict party_id -> score
-    """
-    results = {}
     for qid, mapping in mappings.items():
         if qid.startswith("_"):
             continue
 
-        vote_ids_directions = [
-            (v["vote_id"], v["direction"])
-            for v in mapping.get("votes", [])
-        ]
+        base = dict(mk_scores.get(qid, {}))
+        manual = mapping.get("manual_k25") or {}
 
-        csv_scores = {}
-        if vote_ids_directions:
-            csv_scores = compute_party_scores_from_votes(shadow_rows, vote_ids_directions)
+        if manual.get("party_scores"):
+            for party, data in manual["party_scores"].items():
+                score = data.get("score") if isinstance(data, dict) else data
+                if score is not None and party not in base:
+                    base[party] = score
+                    manual_set[qid].add(party)
 
-        manual = mapping.get("manual_k25")
-        final_scores = merge_scores(csv_scores, manual)
+        if base:
+            voted[qid] = base
 
-        results[qid] = final_scores
-        n = len([s for s in final_scores.values() if s is not None])
-        print(f"  {qid}: {n} parties scored", flush=True)
-
-    return results
+    return voted, manual_set
 
 
-def update_party_files(voted_positions):
-    """Update voted_position in each party JSON file."""
-    party_ids = set()
+def update_party_files(
+    voted_positions: dict[str, dict[str, float]],
+    manual_set: dict[str, set[str]],
+) -> None:
+    today = datetime.date.today().isoformat()
+
+    party_ids: set[str] = set()
     for scores in voted_positions.values():
         party_ids.update(scores.keys())
 
@@ -200,15 +136,14 @@ def update_party_files(voted_positions):
             score = scores.get(party_id)
 
             if score is not None:
+                is_manual = party_id in manual_set.get(qid, set())
                 pos["voted_position"] = {
                     "score": score,
-                    "last_updated": "2026-04-24",
-                    "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+                    "last_updated": today,
+                    "source": SOURCE_MANUAL if is_manual else SOURCE_MK,
                 }
-                if abs(score - pos.get("stated_position", {}).get("score", 0)) > 1:
-                    pos["divergence_flag"] = True
-                else:
-                    pos["divergence_flag"] = False
+                stated = pos.get("stated_position", {}).get("score", 0)
+                pos["divergence_flag"] = abs(score - stated) > 1
                 updated += 1
             elif "voted_position" in pos:
                 del pos["voted_position"]
@@ -216,23 +151,31 @@ def update_party_files(voted_positions):
         with open(filepath, "w") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
-        print(f"  Updated {party_id}: {updated}/{len(data.get('positions', []))} questions", flush=True)
+        print(f"  {party_id}: {updated}/{len(data.get('positions', []))} questions", flush=True)
 
 
 def main():
-    print("=== Knesset voting data update ===")
+    print("=== Party voted positions update (aggregated from MK-level data) ===\n")
 
     with open(MAPPINGS_FILE) as f:
         mappings = json.load(f)
 
-    print("Loading shadow votes from oknesset pipelines...")
-    shadow_rows = load_shadow_votes()
+    print("Loading MK data...")
+    mk_party, mk_positions = load_mk_data()
+    print(f"  {len(mk_positions):,} MKs scored, {len(mk_party):,} party assignments")
 
-    print("\nComputing per-question party scores...")
-    voted_positions = build_voted_positions(shadow_rows, mappings)
+    print("\nAggregating MK scores to party level...")
+    mk_scores = compute_party_scores_from_mks(mk_party, mk_positions)
+    for qid, scores in sorted(mk_scores.items()):
+        print(f"  {qid}: {len(scores)} parties — {sorted(scores.keys())}")
+
+    print("\nApplying manual fallback for unscored parties/questions...")
+    voted_positions, manual_set = apply_manual_fallback(mk_scores, mappings)
+    total_manual = sum(len(v) for v in manual_set.values())
+    print(f"  {total_manual} party-question scores filled from manual_k25")
 
     print("\nWriting voted_position to party JSON files...")
-    update_party_files(voted_positions)
+    update_party_files(voted_positions, manual_set)
 
     print("\nDone.")
 

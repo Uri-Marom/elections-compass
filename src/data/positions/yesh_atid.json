@@ -9,8 +9,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -20,11 +20,6 @@
         "score": 1,
         "source": "Supports two-state solution in principle"
       },
-      "voted_position": {
-        "score": -1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
       "divergence_flag": true
     },
     {
@@ -32,11 +27,6 @@
       "stated_position": {
         "score": 1,
         "source": "Supports operations but questions open-ended timeline"
-      },
-      "voted_position": {
-        "score": 1.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -46,11 +36,6 @@
         "score": 1,
         "source": "Unified Jerusalem as capital but open to functional arrangements"
       },
-      "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
       "divergence_flag": false
     },
     {
@@ -58,11 +43,6 @@
       "stated_position": {
         "score": -2,
         "source": "Opposes right of return"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -74,8 +54,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -87,8 +67,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -100,8 +80,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -111,11 +91,6 @@
         "score": 2,
         "source": "Shabbat commerce freedom is party position"
       },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
       "divergence_flag": false
     },
     {
@@ -123,11 +98,6 @@
       "stated_position": {
         "score": 2,
         "source": "Supports Kotel reform"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -139,8 +109,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -149,11 +119,6 @@
       "stated_position": {
         "score": -1,
         "source": "Opposes state kashrut enforcement"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -165,8 +130,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
     },
@@ -178,8 +143,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -191,8 +156,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -202,11 +167,6 @@
         "score": 2,
         "source": "AG opinions must be binding"
       },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
-      },
       "divergence_flag": false
     },
     {
@@ -214,11 +174,6 @@
       "stated_position": {
         "score": 2,
         "source": "Defends reasonableness standard"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -229,11 +184,11 @@
         "source": "Judicial independence is central party platform"
       },
       "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": -2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q23",
@@ -242,9 +197,9 @@
         "source": "Supports equality but focus on Jewish-state identity"
       },
       "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -253,11 +208,6 @@
       "stated_position": {
         "score": 0,
         "source": "Ambivalent — concerned about optics"
-      },
-      "voted_position": {
-        "score": 0.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -268,9 +218,9 @@
         "source": "Supports equal municipal funding"
       },
       "voted_position": {
-        "score": 1.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -281,9 +231,9 @@
         "source": "Did not oppose Nation-State Law strongly"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
     },
@@ -295,8 +245,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -308,8 +258,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -318,11 +268,6 @@
       "stated_position": {
         "score": 1,
         "source": "Larger parties benefit from higher threshold"
-      },
-      "voted_position": {
-        "score": 1.0,
-        "last_updated": "2026-04-24",
-        "source": "Knesset vote data via oknesset.org + manual encoding for 25th Knesset"
       },
       "divergence_flag": false
     },
@@ -334,8 +279,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -347,8 +292,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
+        "last_updated": "2026-05-09",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -357,11 +302,6 @@
       "stated_position": {
         "score": 1,
         "source": "Supports professional journalistic standards; concerned about Channel 14 disinformation"
-      },
-      "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Manual encoding: 25th Knesset votes — last updated 2026-04-24"
       },
       "divergence_flag": false
     },

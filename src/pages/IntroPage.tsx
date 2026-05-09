@@ -5,6 +5,10 @@ import { DIMENSIONS } from '../utils/matching'
 
 const TOTAL = Object.values(DIMENSIONS).reduce((s, d) => s + d.questions.length, 0)
 
+function hasPendingCompare() {
+  try { return !!sessionStorage.getItem('pendingCompare') } catch { return false }
+}
+
 const DIMENSION_ICONS: Record<string, string> = {
   security:      '🛡️',
   religion:      '✡️',
@@ -17,12 +21,19 @@ const DIMENSION_ICONS: Record<string, string> = {
 export function IntroPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const pendingCompare = hasPendingCompare()
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col">
       <header className="flex justify-end p-4">
         <LanguageSwitcher />
       </header>
+
+      {pendingCompare && (
+        <div className="mx-4 mt-2 p-3 bg-purple-50 border border-purple-200 rounded-xl text-center text-sm text-purple-800">
+          {t('friend_banner')}
+        </div>
+      )}
 
       <main className="flex-1 flex flex-col items-center justify-center px-4 pb-12">
         <div className="max-w-md w-full text-center">

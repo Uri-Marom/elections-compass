@@ -9,6 +9,7 @@ interface Props {
   onModeChange: (m: 'stated' | 'voted') => void
   lang: 'he' | 'en'
   userPoint?: { x: number; y: number } | null
+  friendPoint?: { x: number; y: number } | null
 }
 
 const SVG_W = 500
@@ -77,7 +78,7 @@ function layoutMargin(items: DotItem[], side: 'left' | 'right'): PlacedLabel[] {
   }))
 }
 
-export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint }: Props) {
+export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint, friendPoint }: Props) {
   const { t } = useTranslation()
 
   const dots = points.map(pt => {
@@ -104,6 +105,8 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
 
   const userSvgX = userPoint ? toSvgX(userPoint.x) : null
   const userSvgY = userPoint ? toSvgY(userPoint.y) : null
+  const friendSvgX = friendPoint ? toSvgX(friendPoint.x) : null
+  const friendSvgY = friendPoint ? toSvgY(friendPoint.y) : null
 
   return (
     <div>
@@ -194,6 +197,19 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint 
                 textAnchor="middle" fontSize={9} fontWeight={700} fill="#4f46e5"
                 style={{ userSelect: 'none' }}>
                 {lang === 'he' ? 'אתם' : 'You'}
+              </text>
+            </g>
+          )}
+
+          {/* Friend star */}
+          {friendSvgX !== null && friendSvgY !== null && (
+            <g>
+              <title>{lang === 'he' ? 'חבר/ה' : 'Friend'}</title>
+              <path d={starPath(friendSvgX, friendSvgY, 11)} fill="#9333ea" stroke="white" strokeWidth={1.5} />
+              <text x={friendSvgX} y={friendSvgY + 19}
+                textAnchor="middle" fontSize={9} fontWeight={700} fill="#9333ea"
+                style={{ userSelect: 'none' }}>
+                {lang === 'he' ? 'חבר/ה' : 'Friend'}
               </text>
             </g>
           )}

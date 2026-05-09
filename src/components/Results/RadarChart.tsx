@@ -11,19 +11,24 @@ interface Props {
   partyDimScores: Record<DimensionKey, number>
   partyName: string
   partyColor: string
+  friendDimScores?: Record<DimensionKey, number> | null
 }
 
-export function MatchRadarChart({ userDimScores, partyDimScores, partyName, partyColor }: Props) {
+const FRIEND_COLOR = '#9333ea'
+
+export function MatchRadarChart({ userDimScores, partyDimScores, partyName, partyColor, friendDimScores }: Props) {
   const { t } = useTranslation()
   const { lang } = useSurveyStore()
 
   const youLabel = t('radar_you')
+  const friendLabel = t('comparison_friend')
   const dims = Object.keys(DIMENSIONS) as DimensionKey[]
 
   const data = dims.map(dim => ({
     dimension: lang === 'he' ? DIMENSIONS[dim].label_he : DIMENSIONS[dim].label_en,
     [youLabel]: userDimScores[dim] ?? 50,
     [partyName]: partyDimScores[dim] ?? 50,
+    ...(friendDimScores ? { [friendLabel]: friendDimScores[dim] ?? 50 } : {}),
   }))
 
   return (
@@ -54,9 +59,25 @@ export function MatchRadarChart({ userDimScores, partyDimScores, partyName, part
           dot={{ r: 3, fill: partyColor, strokeWidth: 0 }}
           strokeDasharray="5 3"
         />
+        {friendDimScores && (
+          <Radar
+            name={friendLabel}
+            dataKey={friendLabel}
+            stroke={FRIEND_COLOR}
+            fill={FRIEND_COLOR}
+            fillOpacity={0.1}
+            strokeWidth={2}
+            dot={{ r: 3, fill: FRIEND_COLOR, strokeWidth: 0 }}
+            strokeDasharray="3 3"
+          />
+        )}
         <Legend
           wrapperStyle={{ fontSize: 12, paddingTop: 8 }}
-          formatter={(value) => <span style={{ color: value === youLabel ? '#6366F1' : partyColor }}>{value}</span>}
+          formatter={(value) => (
+            <span style={{ color: value === youLabel ? '#6366F1' : value === friendLabel ? FRIEND_COLOR : partyColor }}>
+              {value}
+            </span>
+          )}
         />
       </RadarChart>
     </ResponsiveContainer>

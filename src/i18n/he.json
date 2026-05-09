@@ -100,5 +100,20 @@
   "mk_no_answers": "ענו על לפחות 5 שאלות בשאלון כדי לראות את ההתאמות שלכם לח\"כים.",
   "go_to_survey": "לשאלון ←",
   "filter_by_party": "כל המפלגות",
-  "mk_map_data_note": "המפה מבוססת על הצבעות בכנסת"
+  "mk_map_data_note": "המפה מבוססת על הצבעות בכנסת",
+  "feedback": "משוב",
+  "feedback_placeholder": "מה דעתכם? באגים, הצעות, שאלות...",
+  "feedback_name_placeholder": "שם (אופציונלי)",
+  "feedback_send": "שליחה",
+  "feedback_thanks": "תודה! קיבלנו את המשוב שלכם.",
+  "feedback_error": "שגיאה בשליחה. נסו שנית.",
+  "compare_with_friend": "השוו עם חבר/ה",
+  "compare_copied": "קישור ההשוואה הועתק!",
+  "comparison_title": "השוואה עם חבר/ה",
+  "compatibility_score": "ציון תאימות",
+  "comparison_you": "אתם",
+  "comparison_friend": "חבר/ה",
+  "comparison_shared": "שניכם בחרתם",
+  "friend_banner": "חבר/ה שלכם ענה על השאלון — ענו גם כדי להשוות!",
+  "take_quiz_to_compare": "לשאלון →"
 }

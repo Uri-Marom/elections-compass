@@ -5,6 +5,7 @@ import { SurveyPage } from './pages/SurveyPage'
 import { ResultsPage } from './pages/ResultsPage'
 import { ResearchPage } from './pages/ResearchPage'
 import { MKsPage } from './pages/MKsPage'
+import { FeedbackButton } from './components/FeedbackButton'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/mks" element={<MKsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <FeedbackButton />
     </BrowserRouter>
   )
 }
