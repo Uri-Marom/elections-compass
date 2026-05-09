@@ -24,6 +24,14 @@ const PLOT_X1 = SVG_W - MARGIN
 const LABEL_X_L = MARGIN / 2          // centre of left margin  = 63
 const LABEL_X_R = SVG_W - MARGIN / 2  // centre of right margin = 437
 
+// Axis label positions — all placed OUTSIDE the plot area so no dot or connector line can reach them
+const AXIS_LABEL_Y_CENTER = SVG_H / 2  // L/R labels: in the margin columns at vertical centre
+const AXIS_LABEL_TOP_Y    = PAD_Y - 18 // above the plot (plot starts at PAD_Y=36, dots at ≥43)
+const AXIS_LABEL_BOT_Y    = SVG_H - PAD_Y + 18 // below the plot
+
+// Min distance (px) from a connector segment to any OTHER label centre before the line is suppressed
+const LINE_LABEL_CLEAR = 10
+
 function toSvgX(x: number) { return PLOT_X0 + ((x + 1) / 2) * (PLOT_X1 - PLOT_X0) }
 function toSvgY(y: number) { return PAD_Y + ((1 - y) / 2) * (SVG_H - PAD_Y * 2) }
 
@@ -37,6 +45,15 @@ function starPath(cx: number, cy: number, r: number, n = 5): string {
   return `M${pts.join('L')}Z`
 }
 
+/** Shortest distance from point (px,py) to segment (ax,ay)→(bx,by) */
+function segToPointDist(ax: number, ay: number, bx: number, by: number, px: number, py: number): number {
+  const dx = bx - ax, dy = by - ay
+  const len2 = dx * dx + dy * dy
+  if (len2 === 0) return Math.hypot(px - ax, py - ay)
+  const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / len2))
+  return Math.hypot(px - (ax + t * dx), py - (ay + t * dy))
+}
+
 interface DotItem { svgX: number; svgY: number; name: string; color: string; party_id: string }
 interface PlacedLabel {
   labelX: number; labelY: number
@@ -45,13 +62,23 @@ interface PlacedLabel {
   side: 'left' | 'right'
 }
 
-function layoutMargin(items: DotItem[], side: 'left' | 'right'): PlacedLabel[] {
+/**
+ * Layout labels in one margin column.
+ * reservedYs: y positions that must be kept clear (e.g. the axis label at SVG_H/2).
+ */
+function layoutMargin(items: DotItem[], side: 'left' | 'right', reservedYs: number[] = []): PlacedLabel[] {
   if (items.length === 0) return []
   const minY = PAD_Y + 4
   const maxY = SVG_H - PAD_Y - 4
 
-  const sorted = [...items].sort((a, b) => a.svgY - b.svgY)
-  const ys = sorted.map(d => Math.max(minY, Math.min(maxY, d.svgY)))
+  // Insert phantom entries at reserved positions so the spacing pass treats them as occupied slots.
+  type Entry = { svgY: number; phantom?: true; idx?: number }
+  const entries: Entry[] = [
+    ...items.map((d, i) => ({ svgY: d.svgY, idx: i })),
+    ...reservedYs.map(y => ({ svgY: y, phantom: true as true })),
+  ]
+  const sorted = [...entries].sort((a, b) => a.svgY - b.svgY)
+  const ys = sorted.map(e => Math.max(minY, Math.min(maxY, e.svgY)))
 
   // push down
   for (let i = 1; i < ys.length; i++) {
@@ -67,15 +94,21 @@ function layoutMargin(items: DotItem[], side: 'left' | 'right'): PlacedLabel[] {
 
   const labelX = side === 'left' ? LABEL_X_L : LABEL_X_R
 
-  return sorted.map((d, i) => ({
-    labelX,
-    labelY: ys[i],
-    name: d.name,
-    color: d.color,
-    dotX: d.svgX,
-    dotY: d.svgY,
-    side,
-  }))
+  return sorted
+    .map((e, i) => ({ e, y: ys[i] }))
+    .filter(({ e }) => e.phantom !== true)
+    .map(({ e, y }) => {
+      const item = items[e.idx!]
+      return {
+        labelX,
+        labelY: y,
+        name: item.name,
+        color: item.color,
+        dotX: item.svgX,
+        dotY: item.svgY,
+        side,
+      }
+    })
 }
 
 export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint, friendPoint }: Props) {
@@ -95,9 +128,11 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
   // Split by which half of the plot the dot lands in
   const leftDots  = dots.filter(d => d.svgX <= (PLOT_X0 + PLOT_X1) / 2)
   const rightDots = dots.filter(d => d.svgX >  (PLOT_X0 + PLOT_X1) / 2)
+
+  // Reserve the vertical centre in both margin columns (where the L/R axis labels sit)
   const labels: PlacedLabel[] = [
-    ...layoutMargin(leftDots,  'left'),
-    ...layoutMargin(rightDots, 'right'),
+    ...layoutMargin(leftDots,  'left',  [AXIS_LABEL_Y_CENTER]),
+    ...layoutMargin(rightDots, 'right', [AXIS_LABEL_Y_CENTER]),
   ]
 
   const axisColor = '#e5e7eb'
@@ -131,32 +166,40 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
       <div className="w-full overflow-hidden rounded-xl border border-gray-100 bg-white">
         <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} width="100%" style={{ display: 'block' }}>
 
-          {/* Axis lines — leave 28px gap at each end for the labels */}
-          <line x1={PLOT_X0 + 28} y1={SVG_H / 2} x2={PLOT_X1 - 28} y2={SVG_H / 2} stroke={axisColor} strokeWidth={1} />
-          <line x1={SVG_W / 2} y1={PAD_Y + 14} x2={SVG_W / 2} y2={SVG_H - PAD_Y - 14} stroke={axisColor} strokeWidth={1} />
+          {/* Axis lines — full width/height, no gap needed since labels are outside the plot area */}
+          <line x1={PLOT_X0} y1={SVG_H / 2} x2={PLOT_X1} y2={SVG_H / 2} stroke={axisColor} strokeWidth={1} />
+          <line x1={SVG_W / 2} y1={PAD_Y} x2={SVG_W / 2} y2={SVG_H - PAD_Y} stroke={axisColor} strokeWidth={1} />
 
-          {/* Axis labels */}
-          <text x={PLOT_X0 + 14} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle"
+          {/* Axis labels — L/R in the margin columns (connector lines start there, so they can't cross these)
+              Top/Bottom above/below plot boundary (outside any dot or connector-line y-range) */}
+          <text x={LABEL_X_L} y={AXIS_LABEL_Y_CENTER} textAnchor="middle" dominantBaseline="middle"
             fontSize={11} fill={axisLabelColor} fontWeight={700}>{t('map_axis_left')}</text>
-          <text x={PLOT_X1 - 14} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle"
+          <text x={LABEL_X_R} y={AXIS_LABEL_Y_CENTER} textAnchor="middle" dominantBaseline="middle"
             fontSize={11} fill={axisLabelColor} fontWeight={700}>{t('map_axis_right')}</text>
-          <text x={SVG_W / 2} y={PAD_Y + 7} textAnchor="middle" dominantBaseline="middle"
+          <text x={SVG_W / 2} y={AXIS_LABEL_TOP_Y} textAnchor="middle" dominantBaseline="middle"
             fontSize={11} fill={axisLabelColor} fontWeight={700}>{t('map_axis_religious')}</text>
-          <text x={SVG_W / 2} y={SVG_H - PAD_Y - 7} textAnchor="middle" dominantBaseline="middle"
+          <text x={SVG_W / 2} y={AXIS_LABEL_BOT_Y} textAnchor="middle" dominantBaseline="middle"
             fontSize={11} fill={axisLabelColor} fontWeight={700}>{t('map_axis_secular')}</text>
 
-          {/* Leader lines: from label centre to dot edge */}
+          {/* Leader lines: from label centre to dot edge
+              Suppressed if the segment passes within LINE_LABEL_CLEAR px of any other label centre */}
           {labels.map((lb, i) => {
             const dx = lb.dotX - lb.labelX, dy = lb.dotY - lb.labelY
             const dist = Math.sqrt(dx * dx + dy * dy) || 1
-            // shorten at dot end so the line doesn't overlap the circle
             const endX = lb.dotX - (dx / dist) * (DOT_R + 2)
             const endY = lb.dotY - (dy / dist) * (DOT_R + 2)
-            // shorten at label end (~half the text width to clear the label)
             const clearance = Math.min(dist * 0.35, 38)
             const startX = lb.labelX + (dx / dist) * clearance
             const startY = lb.labelY + (dy / dist) * clearance
             if (dist < DOT_R + clearance + 4) return null
+
+            // Suppress if the segment would cross too close to any other label
+            const blocked = labels.some((other, j) => {
+              if (j === i) return false
+              return segToPointDist(startX, startY, endX, endY, other.labelX, other.labelY) < LINE_LABEL_CLEAR
+            })
+            if (blocked) return null
+
             return (
               <line key={`line-${i}`}
                 x1={startX} y1={startY} x2={endX} y2={endY}

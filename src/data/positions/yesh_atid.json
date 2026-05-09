@@ -9,7 +9,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -54,7 +54,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -67,7 +67,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -80,7 +80,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -109,7 +109,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -130,7 +130,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -143,7 +143,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -156,7 +156,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -184,11 +184,11 @@
         "source": "Judicial independence is central party platform"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-05-09",
+        "score": 2.0,
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": true
+      "divergence_flag": false
     },
     {
       "question_id": "q23",
@@ -198,7 +198,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -219,7 +219,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -232,7 +232,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -245,7 +245,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -258,7 +258,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -279,7 +279,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -292,7 +292,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-09",
+        "last_updated": "2026-05-10",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false

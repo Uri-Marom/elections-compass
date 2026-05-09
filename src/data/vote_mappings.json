@@ -18,8 +18,8 @@
       {
         "vote_id": 41319,
         "knesset": 25,
-        "direction": "against_means_agree",
-        "note": "K25 Jul 18 2024 — resolution AGAINST recognizing Palestinian state (68-9); voting AGAINST this resolution = supports Palestinian state = agrees with q02"
+        "direction": "for_means_agree",
+        "note": "K25 Jul 18 2024 — motion FOR recognizing Palestinian state (9-62, failed); FOR = supports Palestinian state = agrees with q02"
       }
     ],
     "manual_k25": {
@@ -792,8 +792,8 @@
       {
         "vote_id": 38298,
         "knesset": 25,
-        "direction": "for_means_agree",
-        "note": "K25 Feb 20 2023 — Basic Law: Judiciary (amendment 3): strengthening separation of powers (opposition counter-proposal); FOR = supports judicial independence = agrees with q22"
+        "direction": "against_means_agree",
+        "note": "K25 Feb 20 2023 — Basic Law: Judiciary (amendment 3): government judicial reform bill; AGAINST = opposes reform = supports judicial independence = agrees with q22"
       }
     ],
     "manual_k25": {
