@@ -68,7 +68,7 @@
   "no_gaps_found": "לא נמצאו פערים משמעותיים",
   "gap_label": "פער",
   "similarity_title": "מפת דמיון אידיאולוגי",
-  "similarity_subtitle": "מפלגות קרובות מייצגות עמדות מדיניות דומות. המרחק מחושב מתוך כל 29 השאלות.",
+  "similarity_subtitle": "מפלגות קרובות מייצגות עמדות מדיניות דומות. המרחק מחושב מתוך כל {{total}} השאלות.",
   "map_axis_left": "שמאל",
   "map_axis_right": "ימין",
   "map_axis_religious": "דתי",
@@ -84,7 +84,7 @@
   "open_mk_compass": "לכל חברי הכנסת ←",
   "data_note_knessets": "הצבעות מהכנסת",
   "current_mk": "ח\"כ מכהן",
-  "coverage_questions": "{{n}}/29 שאלות",
+  "coverage_questions": "{{n}}/{{total}} שאלות",
   "mk_tab_matches": "ההתאמות שלי",
   "mk_tab_variance": "פיזור תוך-מפלגתי",
   "mk_tab_crossaisle": "מצביעים חוצי מפלגות",
@@ -115,5 +115,9 @@
   "comparison_friend": "חבר/ה",
   "comparison_shared": "שניכם בחרתם",
   "friend_banner": "חבר/ה שלכם ענה על השאלון — ענו גם כדי להשוות!",
-  "take_quiz_to_compare": "לשאלון →"
+  "take_quiz_to_compare": "לשאלון →",
+  "comparison_shared_top5": "מפלגות שדורגו בחמישייה הראשונה אצל שניכם",
+  "comparison_no_shared": "אין מפלגות משותפות בחמישייה הראשונה",
+  "you_both_agree": "שניכם בעמדות דומות ב:",
+  "you_disagree": "הפערים הגדולים ביניכם:"
 }

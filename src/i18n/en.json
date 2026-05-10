@@ -68,7 +68,7 @@
   "no_gaps_found": "No significant gaps found",
   "gap_label": "Gap",
   "similarity_title": "Ideological Similarity Map",
-  "similarity_subtitle": "Closer parties share similar policy positions. Distance computed across all 28 questions.",
+  "similarity_subtitle": "Closer parties share similar policy positions. Distance computed across all {{total}} questions.",
   "map_axis_left": "Left",
   "map_axis_right": "Right",
   "map_axis_religious": "Religious",
@@ -84,7 +84,7 @@
   "open_mk_compass": "Explore all MK matches →",
   "data_note_knessets": "Knesset voting records",
   "current_mk": "Current MK",
-  "coverage_questions": "{{n}}/29 questions",
+  "coverage_questions": "{{n}}/{{total}} questions",
   "mk_tab_matches": "Your Matches",
   "mk_tab_variance": "Intra-Party Variance",
   "mk_tab_crossaisle": "Cross-Aisle MKs",
@@ -115,5 +115,9 @@
   "comparison_friend": "Friend",
   "comparison_shared": "Both chose",
   "friend_banner": "A friend took the quiz — take it too to compare!",
-  "take_quiz_to_compare": "Take the quiz →"
+  "take_quiz_to_compare": "Take the quiz →",
+  "comparison_shared_top5": "Parties you both ranked in your top 5",
+  "comparison_no_shared": "No parties appear in both your top 5",
+  "you_both_agree": "You both lean similarly on:",
+  "you_disagree": "You diverge most on:"
 }

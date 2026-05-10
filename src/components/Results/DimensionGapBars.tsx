@@ -10,6 +10,8 @@ const DIMENSION_ICONS: Record<string, string> = {
   judicial: '⚖️', minority: '🤝', governance: '🏛️',
 }
 
+const FRIEND_COLOR = '#9333ea'
+
 interface Props {
   userAnswers: Record<string, number | null>
   partyPositions: PartyPosition[]
@@ -17,6 +19,7 @@ interface Props {
   partyName: string
   mode: 'stated' | 'voted'
   questions: Question[]
+  friendAnswers?: Record<string, number | null> | null
 }
 
 function dimAvg(scores: number[]): number | null {
@@ -34,7 +37,7 @@ function gapColor(gap: number): string {
   return '#ef4444'                  // red
 }
 
-export function DimensionGapBars({ userAnswers, partyPositions, partyColor, partyName, mode, questions }: Props) {
+export function DimensionGapBars({ userAnswers, partyPositions, partyColor, partyName, mode, questions, friendAnswers }: Props) {
   const { t } = useTranslation()
   const { lang } = useSurveyStore()
   const dims = Object.keys(DIMENSIONS) as DimensionKey[]
@@ -65,6 +68,18 @@ export function DimensionGapBars({ userAnswers, partyPositions, partyColor, part
         const partyAvg = paired.length > 0 ? dimAvg(paired.map(p => p.party * p.polarity)) : null
         const userPct = userAvg !== null ? toPct(userAvg) : null
         const partyPct = partyAvg !== null ? toPct(partyAvg) : null
+
+        // Friend position on this dimension axis (polarity-adjusted, independent of pairing)
+        const friendScores = friendAnswers
+          ? qids.flatMap(qid => {
+              const fv = friendAnswers[qid]
+              if (fv === null || fv === undefined) return []
+              const polarity = questions.find(q => q.id === qid)?.polarity ?? 1
+              return [fv * polarity]
+            })
+          : []
+        const friendAvg = friendScores.length > 0 ? dimAvg(friendScores) : null
+        const friendPct = friendAvg !== null ? toPct(friendAvg) : null
         // avg of per-question absolute differences — polarity doesn't affect absolute diff
         const gap = paired.length > 0
           ? paired.reduce((sum, p) => sum + Math.abs(p.user - p.party), 0) / paired.length
@@ -138,13 +153,27 @@ export function DimensionGapBars({ userAnswers, partyPositions, partyColor, part
                   title={partyName}
                 />
               )}
+
+              {/* Friend dot — diamond shape */}
+              {friendPct !== null && (
+                <div
+                  className="absolute w-3.5 h-3.5 border-2 border-white shadow z-10"
+                  style={{
+                    left: `calc(${friendPct}% - 7px)`,
+                    top: '50%',
+                    transform: 'translateY(-50%) rotate(45deg)',
+                    backgroundColor: FRIEND_COLOR,
+                  }}
+                  title={t('comparison_friend')}
+                />
+              )}
             </div>
           </div>
         )
       })}
 
       {/* Legend */}
-      <div className="flex items-center gap-4 pt-1 text-xs text-gray-500">
+      <div className="flex items-center gap-4 pt-1 text-xs text-gray-500 flex-wrap">
         <span className="flex items-center gap-1.5">
           <span className="w-3.5 h-3.5 rounded-full bg-indigo-500 inline-block shrink-0" />
           {t('radar_you')}
@@ -156,6 +185,15 @@ export function DimensionGapBars({ userAnswers, partyPositions, partyColor, part
           />
           {partyName}
         </span>
+        {friendAnswers && (
+          <span className="flex items-center gap-1.5">
+            <span
+              className="w-3 h-3 inline-block shrink-0"
+              style={{ backgroundColor: FRIEND_COLOR, transform: 'rotate(45deg)' }}
+            />
+            {t('comparison_friend')}
+          </span>
+        )}
       </div>
     </div>
 

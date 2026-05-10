@@ -403,6 +403,7 @@ export function ResultsPage() {
               partyName={partyName}
               mode={mode}
               questions={questions}
+              friendAnswers={friendAnswers}
             />
           </div>
         </div>
@@ -445,6 +446,8 @@ export function ResultsPage() {
             parties={parties}
             lang={lang}
             mode={mode}
+            myDimScores={userDimScores}
+            friendDimScores={friendDimScores}
           />
         )}
 
