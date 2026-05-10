@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
@@ -22,6 +23,7 @@ export function IntroPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const pendingCompare = hasPendingCompare()
+  const [showAbout, setShowAbout] = useState(false)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col">
@@ -73,6 +75,32 @@ export function IntroPage() {
           >
             {t('explore_research')}
           </button>
+
+          <button
+            onClick={() => setShowAbout(v => !v)}
+            className="w-full py-3 mt-4 text-xs text-gray-400 hover:text-gray-600 transition-colors flex items-center justify-center gap-1"
+          >
+            <span>{showAbout ? '▲' : '▼'}</span>
+            <span>{t('about_toggle')}</span>
+          </button>
+
+          {showAbout && (
+            <div className="mt-2 p-4 bg-gray-50 rounded-2xl border border-gray-100 text-start space-y-3">
+              <div>
+                <p className="text-xs font-semibold text-gray-700 mb-1">{t('about_how_title')}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{t('about_how_body', { total: TOTAL })}</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-gray-700 mb-1">{t('about_privacy_title')}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{t('about_privacy_body')}</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-gray-700 mb-1">{t('about_independence_title')}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{t('about_independence_body')}</p>
+              </div>
+              <p className="text-xs text-gray-500 leading-relaxed">{t('about_feedback_body')}</p>
+            </div>
+          )}
         </div>
       </main>
     </div>

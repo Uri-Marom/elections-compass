@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { Question } from '../../types'
 import { useSurveyStore } from '../../store/survey'
+import { LearnMoreModal } from './LearnMoreModal'
 
 interface Props {
   question: Question
@@ -20,6 +22,7 @@ const LIKERT: { score: number; key: string }[] = [
 export function QuestionCard({ question, questionNumber, totalQuestions, onSelect }: Props) {
   const { t } = useTranslation()
   const { answers, setAnswer, lang } = useSurveyStore()
+  const [showInfo, setShowInfo] = useState(false)
   const current = answers[question.id]
   const text = lang === 'he' ? question.text_he : question.text_en
 
@@ -39,9 +42,18 @@ export function QuestionCard({ question, questionNumber, totalQuestions, onSelec
         {t('question_of', { current: questionNumber, total: totalQuestions })}
       </div>
 
-      <p className="text-lg font-medium text-gray-900 leading-snug mb-6">
+      <p className="text-lg font-medium text-gray-900 leading-snug mb-3">
         {text}
       </p>
+
+      {question.info_en && (
+        <button
+          onClick={() => setShowInfo(true)}
+          className="mb-4 text-xs text-blue-500 hover:text-blue-700 transition-colors"
+        >
+          {t('learn_more')}
+        </button>
+      )}
 
       <div className="flex flex-col gap-2">
         {LIKERT.map(({ score, key }) => (
@@ -66,6 +78,10 @@ export function QuestionCard({ question, questionNumber, totalQuestions, onSelec
           {t('skip_question')}
         </button>
       </div>
+
+      {showInfo && (
+        <LearnMoreModal question={question} onClose={() => setShowInfo(false)} />
+      )}
     </div>
   )
 }

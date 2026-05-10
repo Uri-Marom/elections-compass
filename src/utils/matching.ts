@@ -9,6 +9,8 @@ export const DIMENSIONS = {
   governance:    { label_en: 'Governance',         label_he: 'ממשל ושקיפות', questions: ['q27','q28','q29','q31','q33','q34'] },
 } as const
 
+export const TOTAL_QUESTIONS = Object.values(DIMENSIONS).reduce((s, d) => s + d.questions.length, 0)
+
 export type DimensionKey = keyof typeof DIMENSIONS
 
 export interface DimensionScore {

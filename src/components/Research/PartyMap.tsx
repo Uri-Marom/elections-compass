@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import type { PartyPoint } from '../../utils/research'
 import type { Party } from '../../types'
+import { TOTAL_QUESTIONS } from '../../utils/matching'
 
 interface Props {
   points: PartyPoint[]
@@ -161,7 +162,7 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
         ))}
       </div>
 
-      <p className="text-xs text-gray-400 mb-3 leading-relaxed">{t('similarity_subtitle')}</p>
+      <p className="text-xs text-gray-400 mb-3 leading-relaxed">{t('similarity_subtitle', { total: TOTAL_QUESTIONS })}</p>
 
       <div className="w-full overflow-hidden rounded-xl border border-gray-100 bg-white">
         <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} width="100%" style={{ display: 'block' }}>

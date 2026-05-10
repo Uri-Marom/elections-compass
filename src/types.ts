@@ -7,6 +7,10 @@ export interface Question {
   text_he: string
   // 1 = positive score aligns with dimension's canonical direction; -1 = needs flipping for display
   polarity: 1 | -1
+  info_en?: string
+  info_he?: string
+  info_source?: string
+  info_source_url?: string
 }
 
 export interface Party {

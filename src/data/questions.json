@@ -4,209 +4,329 @@
     "dimension": "security",
     "polarity": -1,
     "text_en": "Israeli civilian settlements in the West Bank strengthen Israel's long-term security.",
-    "text_he": "ההתנחלויות האזרחיות הישראליות בגדה המערבית מחזקות את ביטחון ישראל לטווח הארוך."
+    "text_he": "ההתנחלויות האזרחיות הישראליות בגדה המערבית מחזקות את ביטחון ישראל לטווח הארוך.",
+    "info_en": "Israeli settlements in the West Bank are home to over 700,000 Israelis and are viewed by supporters as a strategic asset reinforcing security buffers and historical ties to the land. Critics argue that the settlements complicate prospects for a two-state solution, increase friction with Palestinian residents, and create ongoing security burdens for the IDF.",
+    "info_he": "ההתנחלויות הישראליות בגדה המערבית מונות למעלה מ-700,000 תושבים, ותומכיהן רואים בהן נכס אסטרטגי המחזק מחסומי ביטחון וקשרים היסטוריים לארץ. המתנגדים טוענים כי ההתנחלויות מקשות על פתרון שתי המדינות, מגבירות חיכוך עם תושבים פלסטינים, ומטילות עומס ביטחוני מתמשך על צה\"ל.",
+    "info_source": "Wikipedia: Israeli settlement",
+    "info_source_url": "https://en.wikipedia.org/wiki/Israeli_settlement"
   },
   {
     "id": "q02",
     "dimension": "security",
     "polarity": 1,
     "text_en": "Israel should work toward the establishment of an independent Palestinian state as part of a peace agreement.",
-    "text_he": "ישראל צריכה לפעול להקמת מדינה פלסטינית עצמאית במסגרת הסכם שלום."
+    "text_he": "ישראל צריכה לפעול להקמת מדינה פלסטינית עצמאית במסגרת הסכם שלום.",
+    "info_en": "The two-state solution envisions an independent Palestinian state alongside Israel as the framework for resolving the Israeli-Palestinian conflict, and is supported by most international bodies and a range of Israeli political parties. Opponents argue that Palestinian statehood poses security risks to Israel, that there is no reliable Palestinian partner for such an agreement, or that the historical and religious connection to the land precludes it.",
+    "info_he": "פתרון שתי המדינות מדמיין מדינה פלסטינית עצמאית לצד ישראל כמסגרת לפתרון הסכסוך, ונתמך על ידי רוב גופים בינלאומיים ומספר מפלגות ישראליות. המתנגדים טוענים כי מדינה פלסטינית מסכנת את ישראל מבחינה ביטחונית, שאין שותף פלסטיני אמין להסכם כזה, או שהקשר ההיסטורי והדתי לארץ שולל זאת.",
+    "info_source": "Wikipedia: Two-state solution",
+    "info_source_url": "https://en.wikipedia.org/wiki/Two-state_solution"
   },
   {
     "id": "q03",
     "dimension": "security",
     "polarity": -1,
     "text_en": "Israel's military operations in Gaza should continue until Hamas is fully dismantled, even if it prolongs the conflict.",
-    "text_he": "המבצעים הצבאיים של ישראל בעזה צריכים להימשך עד לפירוק מלא של חמאס, גם אם הדבר מאריך את הסכסוך."
+    "text_he": "המבצעים הצבאיים של ישראל בעזה צריכים להימשך עד לפירוק מלא של חמאס, גם אם הדבר מאריך את הסכסוך.",
+    "info_en": "Since the Hamas attacks of October 7, 2023, Israel launched a major military campaign in Gaza aimed at dismantling Hamas's military and governing capacity. Supporters of continued operations argue only full dismantlement eliminates the threat; critics contend a prolonged campaign increases civilian casualties, risks hostage lives, and may not achieve lasting security without a political solution.",
+    "info_he": "בעקבות מתקפת חמאס ב-7 באוקטובר 2023, ישראל פתחה במסע צבאי נרחב בעזה במטרה לפרק את יכולת חמאס הצבאית והשלטונית. תומכי המשך המבצע טוענים שרק פירוק מוחלט יסלק את האיום; המתנגדים טוענים שמסע ממושך גורם לקורבנות אזרחיים, מסכן את חיי החטופים, ולא יבטיח ביטחון מתמשך ללא פתרון מדיני.",
+    "info_source": "Wikipedia: 2023 Hamas-led attack on Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/2023_Hamas-led_attack_on_Israel"
   },
   {
     "id": "q04",
     "dimension": "security",
     "polarity": -1,
     "text_en": "Jerusalem should remain under exclusive Israeli sovereignty and not be divided under any peace agreement.",
-    "text_he": "ירושלים צריכה להישאר תחת ריבונות ישראלית בלעדית ולא להתחלק בשום הסכם שלום."
+    "text_he": "ירושלים צריכה להישאר תחת ריבונות ישראלית בלעדית ולא להתחלק בשום הסכם שלום.",
+    "info_en": "Israel declared Jerusalem its \"complete and united\" capital in 1980, a status not recognized by most of the international community, who view East Jerusalem as occupied territory. Supporters of undivided Israeli sovereignty argue it reflects a historical and religious imperative; those favoring a negotiated division see it as necessary for any viable two-state agreement, with East Jerusalem as the capital of a future Palestinian state.",
+    "info_he": "ישראל הכריזה על ירושלים כבירתה \"השלמה והמאוחדת\" ב-1980, מעמד שאינו מוכר על ידי רוב הקהילה הבינלאומית, הרואה במזרח ירושלים שטח כבוש. תומכי הריבונות הישראלית הבלעדית רואים בה הכרח היסטורי ודתי; המצדדים בחלוקה במשא ומתן רואים בה תנאי הכרחי לכל הסכם שתי מדינות, עם מזרח ירושלים כבירת המדינה הפלסטינית העתידית.",
+    "info_source": "Wikipedia: Status of Jerusalem",
+    "info_source_url": "https://en.wikipedia.org/wiki/Status_of_Jerusalem"
   },
   {
     "id": "q05",
     "dimension": "security",
     "polarity": 1,
     "text_en": "Palestinian refugees and their descendants should have a right to return to territory inside Israel's pre-1967 borders.",
-    "text_he": "לפליטים הפלסטינים וצאצאיהם צריכה להיות זכות שיבה לשטחים בתוך גבולות ישראל לפני 1967."
+    "text_he": "לפליטים הפלסטינים וצאצאיהם צריכה להיות זכות שיבה לשטחים בתוך גבולות ישראל לפני 1967.",
+    "info_en": "The Palestinian refugee issue concerns the approximately 700,000 Palestinians who fled or were expelled during Israel's 1948 War of Independence, and their millions of descendants. Israel opposes a full right of return, arguing it would undermine Israel's Jewish majority; Palestinian leaders view it as a fundamental right enshrined in UN Resolution 194.",
+    "info_he": "סוגיית הפליטים הפלסטינים נוגעת לכ-700,000 פלסטינים שנסו או גורשו במהלך מלחמת העצמאות של ישראל ב-1948, ולצאצאיהם הרבים. ישראל מתנגדת לזכות שיבה מלאה, בטענה שהיא תפגע ברוב היהודי; המנהיגות הפלסטינית רואה בה זכות יסוד המעוגנת בהחלטה 194 של האו\"ם.",
+    "info_source": "Wikipedia: Palestinian right of return",
+    "info_source_url": "https://en.wikipedia.org/wiki/Palestinian_right_of_return"
   },
   {
     "id": "q06",
     "dimension": "security",
     "polarity": -1,
     "text_en": "Israel should formally annex parts of the West Bank where major settlement blocs exist.",
-    "text_he": "ישראל צריכה לספח רשמית חלקים מהגדה המערבית בהם נמצאים גושי ההתנחלויות הגדולים."
+    "text_he": "ישראל צריכה לספח רשמית חלקים מהגדה המערבית בהם נמצאים גושי ההתנחלויות הגדולים.",
+    "info_en": "Formal annexation of parts of the West Bank has been debated for decades; Israel's 2020 annexation plan was ultimately suspended as part of the Abraham Accords. Proponents argue that major settlement blocs are permanent facts on the ground that should be legally formalized; opponents contend annexation violates international law, undermines Palestinian self-determination, and would damage Israel's international standing.",
+    "info_he": "סיפוח רשמי של חלקים מהגדה המערבית על ידי ישראל נדון עשרות שנים; תוכנית הסיפוח של ישראל ב-2020 הושהתה כחלק מהסכמי אברהם. המצדדים טוענים שגושי ההתנחלויות הגדולים הם עובדות שטח קבועות שיש לעגן משפטית; המתנגדים טוענים שסיפוח מפר את המשפט הבינלאומי, פוגע בזכות ההגדרה העצמית של הפלסטינים, ויפגע במעמדה הבינלאומי של ישראל.",
+    "info_source": "Wikipedia: Israeli annexation of the West Bank",
+    "info_source_url": "https://en.wikipedia.org/wiki/Israeli_annexation_of_the_West_Bank"
   },
   {
     "id": "q07",
     "dimension": "religion",
     "polarity": -1,
     "text_en": "Ultra-Orthodox (Haredi) men should be required to serve in the military or national service, as other Israeli citizens are.",
-    "text_he": "גברים חרדים חייבים לשרת בצבא או בשירות לאומי, כמו שאר אזרחי ישראל."
+    "text_he": "גברים חרדים חייבים לשרת בצבא או בשירות לאומי, כמו שאר אזרחי ישראל.",
+    "info_en": "Ultra-Orthodox (Haredi) men in Israel have historically been exempted from mandatory military service to allow full-time Torah study, an arrangement that has grown increasingly controversial as the Haredi population expands. Supporters of mandatory service argue it is a matter of equality and shared civic burden; the Haredi community contends that Torah study is a vital national contribution and that military service threatens their way of life.",
+    "info_he": "גברים חרדים בישראל פטורים היסטורית משירות צבאי חובה כדי לאפשר לימוד תורה מלא, הסדר שנעשה שנוי במחלוקת יותר ויותר עם גידול האוכלוסייה החרדית. תומכי השירות החובה טוענים שמדובר בשאלת שוויון ונשיאה שווה בנטל האזרחי; הקהילה החרדית טוענת שלימוד תורה הוא תרומה לאומית חיונית ושהשירות הצבאי מאיים על אורח חייהם.",
+    "info_source": "Wikipedia: Haredi Judaism and Israeli military service",
+    "info_source_url": "https://en.wikipedia.org/wiki/Haredi_Judaism_and_Israeli_military_service"
   },
   {
     "id": "q08",
     "dimension": "religion",
     "polarity": -1,
     "text_en": "Israel should allow civil marriage for all citizens, not only religious marriages recognized by the Rabbinate.",
-    "text_he": "ישראל צריכה לאפשר נישואים אזרחיים לכל האזרחים, ולא רק נישואים דתיים המוכרים על ידי הרבנות."
+    "text_he": "ישראל צריכה לאפשר נישואים אזרחיים לכל האזרחים, ולא רק נישואים דתיים המוכרים על ידי הרבנות.",
+    "info_en": "Israel currently recognizes only religious marriages (Jewish, Muslim, Christian, Druze), meaning couples of different religions or who do not wish a religious ceremony must marry abroad. Proponents of civil marriage argue it is a matter of personal freedom and equality; opponents, primarily religious parties, argue it could undermine the Jewish character of the state and create complex family-law issues.",
+    "info_he": "ישראל מכירה כיום רק בנישואים דתיים (יהודיים, מוסלמים, נוצריים, דרוזים), כלומר זוגות מדתות שונות או שאינם מעוניינים בטקס דתי נאלצים להינשא בחו\"ל. תומכי הנישואים האזרחיים טוענים שמדובר בחופש אישי ושוויון; המתנגדים, בעיקר מפלגות דתיות, טוענים שהדבר עלול לפגוע באופי היהודי של המדינה וליצור בעיות מורכבות בדיני המשפחה.",
+    "info_source": "Wikipedia: Marriage in Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Marriage_in_Israel"
   },
   {
     "id": "q09",
     "dimension": "religion",
     "polarity": -1,
     "text_en": "Public businesses and malls should be legally permitted to operate on Shabbat.",
-    "text_he": "בתי עסק ומרכזי קניות ציבוריים צריכים להיות רשאים על פי חוק לפעול בשבת."
+    "text_he": "בתי עסק ומרכזי קניות ציבוריים צריכים להיות רשאים על פי חוק לפעול בשבת.",
+    "info_en": "The status quo in Israel largely restricts commercial activity on Shabbat (Saturday), though enforcement varies by municipality. Secular and liberal Israelis argue for freedom of commerce and personal choice on Shabbat; religious and traditional Israelis contend that public Shabbat observance is integral to the Jewish character of the state and protects workers from pressure to labor on a day of rest.",
+    "info_he": "הסטטוס קוו בישראל מגביל במידה רבה פעילות מסחרית בשבת, אם כי האכיפה משתנה בין הרשויות המקומיות. ישראלים חילוניים וליברלים תומכים בחופש מסחר ובחירה אישית בשבת; ישראלים דתיים ומסורתיים טוענים כי שמירת שבת ציבורית היא חלק מהאופי היהודי של המדינה ומגנה על עובדים מלחץ לעבוד ביום מנוחה.",
+    "info_source": "Wikipedia: Shabbat in Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Shabbat_in_Israel"
   },
   {
     "id": "q10",
     "dimension": "religion",
     "polarity": -1,
     "text_en": "Women should be permitted to pray aloud with Torah scrolls at the Western Wall alongside men.",
-    "text_he": "נשים צריכות להיות רשאיות להתפלל בקול עם ספרי תורה בכותל המערבי לצד גברים."
+    "text_he": "נשים צריכות להיות רשאיות להתפלל בקול עם ספרי תורה בכותל המערבי לצד גברים.",
+    "info_en": "The Western Wall is Judaism's holiest accessible prayer site, currently divided by gender with women restricted to a smaller section and prohibited from carrying Torah scrolls or praying aloud in the main plaza. The Women of the Wall movement advocates for an egalitarian prayer space; Orthodox authorities argue the site must preserve Orthodox tradition as the accepted practice at this holy site.",
+    "info_he": "הכותל המערבי הוא המקום הקדוש ביותר ליהדות הנגיש לתפילה, מחולק כיום לפי מין כשנשים מוגבלות לחלק קטן יותר ואסורות להביא ספרי תורה או להתפלל בקול ברחבה הראשית. תנועת \"נשות הכותל\" דוגלת במרחב תפילה שוויוני; הרשויות האורתודוקסיות טוענות כי המקום חייב לשמר את המסורת האורתודוקסית כפרקטיקה המקובלת באתר הקדוש.",
+    "info_source": "Wikipedia: Women of the Wall",
+    "info_source_url": "https://en.wikipedia.org/wiki/Women_of_the_Wall"
   },
   {
     "id": "q11",
     "dimension": "religion",
     "polarity": 1,
     "text_en": "The state should fund Haredi yeshiva students at the same level as university students.",
-    "text_he": "המדינה צריכה לממן סטודנטים חרדים בישיבות באותה רמה כמו סטודנטים באוניברסיטאות."
+    "text_he": "המדינה צריכה לממן סטודנטים חרדים בישיבות באותה רמה כמו סטודנטים באוניברסיטאות.",
+    "info_en": "The Israeli government provides significant subsidies to Haredi yeshiva students, though at rates generally lower than university student support. Supporters argue the state should fund all forms of higher learning equally, including Torah study which is seen as culturally and spiritually vital; critics contend that funding students who don't enter the workforce or serve in the military places an unfair burden on other taxpayers.",
+    "info_he": "הממשלה הישראלית מעניקה סובסידיות משמעותיות לסטודנטים חרדים בישיבות, אם כי בשיעורים הנמוכים בדרך כלל מהתמיכה בסטודנטים אקדמאים. התומכים טוענים שהמדינה צריכה לממן את כל צורות ההשכלה הגבוהה שווה, כולל לימוד תורה הנתפס כחיוני תרבותית ורוחנית; המבקרים טוענים כי מימון סטודנטים שאינם נכנסים לשוק העבודה ואינם משרתים בצבא מטיל עומס בלתי הוגן על שאר משלמי המסים.",
+    "info_source": "Wikipedia: Haredim in Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Haredi_Judaism_in_Israel"
   },
   {
     "id": "q12",
     "dimension": "religion",
     "polarity": 1,
     "text_en": "The government should enforce kosher certification standards in state-funded institutions.",
-    "text_he": "הממשלה צריכה לאכוף תקני כשרות במוסדות הממומנים על ידי המדינה."
+    "text_he": "הממשלה צריכה לאכוף תקני כשרות במוסדות הממומנים על ידי המדינה.",
+    "info_en": "Israel's Chief Rabbinate holds a monopoly on kosher certification, which is required by law in military bases and many public institutions. Supporters of state enforcement argue that kosher standards are part of Israel's Jewish character and protect observant Jews in public spaces; critics argue that the monopoly is economically inefficient, limits consumer choice, and privileges Orthodox religious authority over other Jewish interpretations.",
+    "info_he": "הרבנות הראשית של ישראל מחזיקה במונופול על כשרות, הנדרשת בחוק בבסיסים צבאיים ובמוסדות ציבוריים רבים. תומכי אכיפת המדינה טוענים שתקני הכשרות הם חלק מהאופי היהודי של ישראל ומגנים על יהודים שומרי מסורת במרחבים ציבוריים; המבקרים טוענים שהמונופול לא יעיל כלכלית, מגביל את בחירת הצרכן, ומעדיף את הסמכות הדתית האורתודוקסית על פני פרשנויות יהודיות אחרות.",
+    "info_source": "Wikipedia: Kashrut in Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Kashrut_in_Israel"
   },
   {
     "id": "q16",
     "dimension": "socioeconomic",
     "polarity": 1,
     "text_en": "Strategic state-owned companies (electricity, water, ports) should remain in public ownership rather than being privatized.",
-    "text_he": "חברות ממשלתיות אסטרטגיות (חשמל, מים, נמלים) צריכות להישאר בבעלות ציבורית ולא להיות מופרטות."
+    "text_he": "חברות ממשלתיות אסטרטגיות (חשמל, מים, נמלים) צריכות להישאר בבעלות ציבורית ולא להיות מופרטות.",
+    "info_en": "Israel has privatized many state-owned enterprises over the past three decades, including parts of the telecommunications and banking sectors. Supporters of continued privatization argue it increases efficiency and reduces government involvement in the economy; opponents argue that strategic utilities provide essential public services and should not be subject to profit motives, particularly in a small economy prone to monopolies.",
+    "info_he": "ישראל הפריטה מפעלים ממשלתיים רבים בשלושת העשורים האחרונים, לרבות חלקים ממגזרי הטלקומוניקציה והבנקאות. תומכי הפרטה נוספת טוענים שהיא מגבירה יעילות ומפחיתה את מעורבות הממשלה בכלכלה; המתנגדים טוענים כי שירותי תשתית אסטרטגיים מספקים שירותים ציבוריים חיוניים ואינם צריכים להיות נתונים למניעי רווח, בפרט בכלכלה קטנה הנוטה למונופולים.",
+    "info_source": "Wikipedia: Economy of Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Economy_of_Israel"
   },
   {
     "id": "q18",
     "dimension": "judicial",
     "polarity": -1,
     "text_en": "The Knesset should have the power to override Supreme Court rulings with a simple majority.",
-    "text_he": "לכנסת צריכה להיות הסמכות לבטל פסיקות של בית המשפט העליון ברוב פשוט."
+    "text_he": "לכנסת צריכה להיות הסמכות לבטל פסיקות של בית המשפט העליון ברוב פשוט.",
+    "info_en": "Israel's judicial reform debate centers on a proposed \"override clause\" that would allow the Knesset to re-enact laws struck down by the Supreme Court with a simple majority. Proponents argue the current system gives unelected judges excessive power over elected legislators; opponents warn that without judicial review there are no checks on majority rule and minority rights may be left unprotected.",
+    "info_he": "הוויכוח על הרפורמה המשפטית בישראל מתמקד בסעיף עקיפה מוצע שיאפשר לכנסת לחוקק מחדש חוקים שנפסלו על ידי בית המשפט העליון ברוב פשוט. התומכים טוענים שהמערכת הנוכחית מעניקה לשופטים לא נבחרים כוח מופרז על מחוקקים נבחרים; המתנגדים מזהירים שללא ביקורת שיפוטית אין בלמים על שלטון הרוב וזכויות המיעוט עלולות להיוותר ללא הגנה.",
+    "info_source": "Wikipedia: 2023 Israeli judicial reform",
+    "info_source_url": "https://en.wikipedia.org/wiki/2023_Israeli_judicial_reform"
   },
   {
     "id": "q19",
     "dimension": "judicial",
     "polarity": -1,
     "text_en": "Politicians should have greater influence over the selection of Supreme Court judges.",
-    "text_he": "לפוליטיקאים צריכה להיות השפעה גדולה יותר על מינוי שופטי בית המשפט העליון."
+    "text_he": "לפוליטיקאים צריכה להיות השפעה גדולה יותר על מינוי שופטי בית המשפט העליון.",
+    "info_en": "Supreme Court judges in Israel are currently selected by a nine-member committee in which the legal establishment holds a structural majority. Supporters of greater political influence argue that in a democracy judges should reflect the values of elected governments; opponents argue that political appointment of judges undermines judicial independence and risks turning courts into partisan bodies.",
+    "info_he": "שופטי בית המשפט העליון בישראל נבחרים כיום על ידי ועדה בת תשעה חברים שבה לממסד המשפטי יש רוב מבני. תומכי השפעה פוליטית גדולה יותר טוענים שבדמוקרטיה שופטים צריכים לשקף את ערכי הממשלות הנבחרות; המתנגדים טוענים שמינוי פוליטי של שופטים פוגע בעצמאות השיפוטית ועלול להפוך את בתי המשפט לגופים מפלגתיים.",
+    "info_source": "Wikipedia: Supreme Court of Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Supreme_Court_of_Israel"
   },
   {
     "id": "q20",
     "dimension": "judicial",
     "polarity": 1,
     "text_en": "The Attorney General's legal opinions should be binding on the government.",
-    "text_he": "חוות הדעת של היועצ/ת המשפטית לממשלה צריכה להיות מחייבת לממשלה."
+    "text_he": "חוות הדעת של היועצ/ת המשפטית לממשלה צריכה להיות מחייבת לממשלה.",
+    "info_en": "Israel's Attorney General advises the government on legal matters and represents the state in court; whether the AG's legal opinions are binding on the government was a central dispute in the 2023 judicial reform. Supporters of binding opinions argue they prevent governments from acting illegally and ensure rule of law; opponents argue this concentrates too much power in an unelected official and limits democratic governance.",
+    "info_he": "היועץ המשפטי לממשלה מייעץ לממשלה בענייני משפט ומייצג את המדינה בבית המשפט; השאלה האם חוות דעתו מחייבות את הממשלה הייתה במחלוקת מרכזית ברפורמה המשפטית 2023. תומכי הדעות המחייבות טוענים שהן מונעות מהממשלות לפעול שלא כחוק ומבטיחות שלטון חוק; המתנגדים טוענים שהדבר מרכז כוח רב מדי בידי פקיד לא נבחר ומגביל את הממשל הדמוקרטי.",
+    "info_source": "Wikipedia: Attorney General of Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Attorney_General_of_Israel"
   },
   {
     "id": "q21",
     "dimension": "judicial",
     "polarity": 1,
     "text_en": "Courts should be permitted to strike down government decisions they deem \"unreasonable.\"",
-    "text_he": "בתי המשפט צריכים להיות רשאים לבטל החלטות ממשלה שהם מוצאים כ\"בלתי סבירות\"."
+    "text_he": "בתי המשפט צריכים להיות רשאים לבטל החלטות ממשלה שהם מוצאים כ\"בלתי סבירות\".",
+    "info_en": "Israeli courts have used the \"reasonableness\" doctrine to review and occasionally strike down government decisions deemed arbitrary or disproportionate. The 2023 judicial reform included a measure to abolish this standard, which the Supreme Court itself later struck down. Supporters of the standard argue it is a key check on government excess; opponents argue it gives courts unlimited power to substitute their judgment for that of elected officials.",
+    "info_he": "בתי המשפט בישראל השתמשו בדוקטרינת ה\"סבירות\" לביקורת על החלטות ממשלה שנחשבו שרירותיות או בלתי מידתיות. הרפורמה המשפטית 2023 כללה ביטול סטנדרט זה, אותו פסל בית המשפט העליון עצמו לאחר מכן. תומכי הסטנדרט טוענים שהוא בלם מרכזי מפני חריגות ממשלתיות; המתנגדים טוענים שהוא מעניק לבתי המשפט כוח בלתי מוגבל להחליף את שיקול דעתם בזה של הנבחרים.",
+    "info_source": "Wikipedia: 2023 Israeli judicial reform",
+    "info_source_url": "https://en.wikipedia.org/wiki/2023_Israeli_judicial_reform"
   },
   {
     "id": "q22",
     "dimension": "judicial",
     "polarity": 1,
     "text_en": "An independent judiciary is essential to preventing government corruption and abuse of power.",
-    "text_he": "מערכת שפיטה עצמאית חיונית למניעת שחיתות ממשלתית וניצול לרעה של כוח."
+    "text_he": "מערכת שפיטה עצמאית חיונית למניעת שחיתות ממשלתית וניצול לרעה של כוח.",
+    "info_en": "An independent judiciary — insulated from political pressure — is widely considered foundational to democratic governance and the protection of individual rights. In Israel, debates over judicial reform have put judicial independence at the center of national controversy, with reformers arguing current independence is excessive and enables judicial overreach, while defenders argue it is essential to preventing abuse of power.",
+    "info_he": "שיפוט עצמאי — מבודד מלחץ פוליטי — נחשב לבסיס של ממשל דמוקרטי ולהגנה על זכויות הפרט. בישראל, הוויכוחים על הרפורמה המשפטית העמידו את מידת העצמאות השיפוטית במרכז המחלוקת הלאומית, כשהרפורמטורים טוענים שהעצמאות הנוכחית מופרזת ומאפשרת חריגה שיפוטית, ואילו המגנים טוענים שהיא חיונית למניעת ניצול כוח לרעה.",
+    "info_source": "Wikipedia: Judicial independence",
+    "info_source_url": "https://en.wikipedia.org/wiki/Judicial_independence"
   },
   {
     "id": "q23",
     "dimension": "minority",
     "polarity": 1,
     "text_en": "Israel should pass a Basic Law guaranteeing full equality for all citizens regardless of ethnicity or religion.",
-    "text_he": "ישראל צריכה לחוקק חוק יסוד המבטיח שוויון מלא לכל האזרחים ללא קשר לאתניות או דת."
+    "text_he": "ישראל צריכה לחוקק חוק יסוד המבטיח שוויון מלא לכל האזרחים ללא קשר לאתניות או דת.",
+    "info_en": "Israel lacks a comprehensive equality law; its Basic Law: Human Dignity and Liberty does not explicitly prohibit discrimination on grounds of religion or nationality. Supporters of a new Basic Law on equality argue it would protect all citizens equally and align Israel with democratic norms; opponents argue it could conflict with Israel's Jewish character and undermine laws that grant Jews special immigration rights.",
+    "info_he": "לישראל אין חוק שוויון כולל; חוק היסוד: כבוד האדם וחירותו אינו אוסר במפורש על אפליה על בסיס דת או לאום. תומכי חוק יסוד חדש לשוויון טוענים שהוא יגן על כל האזרחים שווה ויתאים את ישראל לנורמות דמוקרטיות; המתנגדים טוענים שהוא עלול להתנגש עם האופי היהודי של ישראל ולפגוע בחוקים המעניקים ליהודים זכויות עלייה מיוחדות.",
+    "info_source": "Wikipedia: Basic Laws of Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Basic_Laws_of_Israel"
   },
   {
     "id": "q24",
     "dimension": "minority",
     "polarity": 1,
     "text_en": "Jewish parties should be willing to form a government that relies on the support of Arab parties to achieve a Knesset majority.",
-    "text_he": "מפלגות יהודיות צריכות להיות מוכנות להקים ממשלה הנשענת על תמיכת מפלגות ערביות להשגת רוב בכנסת."
+    "text_he": "מפלגות יהודיות צריכות להיות מוכנות להקים ממשלה הנשענת על תמיכת מפלגות ערביות להשגת רוב בכנסת.",
+    "info_en": "Arab citizens make up roughly 21% of Israel's population and are represented in the Knesset by Arab-majority parties. Whether Jewish-led parties should form governments relying on Arab party support has become a major political question; supporters argue it promotes shared citizenship and democratic inclusion, while opponents cite security concerns, ideological differences, and the claim that Arab parties do not support Israel as a Jewish state.",
+    "info_he": "אזרחים ערבים מהווים כ-21% מאוכלוסיית ישראל ומיוצגים בכנסת על ידי מפלגות ערביות. השאלה האם מפלגות יהודיות צריכות להקים ממשלות הנשענות על תמיכת מפלגות ערביות הפכה לשאלה פוליטית מרכזית; התומכים טוענים שהדבר מקדם אזרחות משותפת והכלה דמוקרטית, בעוד המתנגדים מציינים חששות ביטחוניים, הבדלים אידיאולוגיים, וטענה שמפלגות ערביות אינן תומכות בישראל כמדינה יהודית.",
+    "info_source": "Wikipedia: Arab citizens of Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Arab_citizens_of_Israel"
   },
   {
     "id": "q25",
     "dimension": "minority",
     "polarity": 1,
     "text_en": "Arab municipalities should receive equal per-capita government funding compared to Jewish municipalities.",
-    "text_he": "רשויות מקומיות ערביות צריכות לקבל מימון ממשלתי שווה לנפש בהשוואה לרשויות יהודיות."
+    "text_he": "רשויות מקומיות ערביות צריכות לקבל מימון ממשלתי שווה לנפש בהשוואה לרשויות יהודיות.",
+    "info_en": "A long-standing disparity exists in per-capita government transfers to Arab municipalities compared to Jewish ones, stemming partly from tax base differences and partly from historical underfunding. Proponents of equal per-capita funding argue it addresses historical inequality and improves public services in Arab communities; critics argue that per-capita equality does not account for different service needs and local government capacities.",
+    "info_he": "קיים פער ותיק בהעברות ממשלתיות לנפש לרשויות מקומיות ערביות בהשוואה ליהודיות, הנובע בחלקו מהבדלים בבסיס המס ובחלקו מתת-מימון היסטורי. המצדדים במימון שווה לנפש טוענים שהוא מתקן אי-שוויון היסטורי ומשפר שירותים ציבוריים בקהילות ערביות; המבקרים טוענים ששוויון לנפש אינו מתחשב בצרכי שירות שונים ובכושר של ממשל מקומי.",
+    "info_source": "Wikipedia: Arab citizens of Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Arab_citizens_of_Israel"
   },
   {
     "id": "q26",
     "dimension": "minority",
     "polarity": -1,
     "text_en": "Israel's Nation-State Law correctly defines Israel as the national home of the Jewish people and does not discriminate against minorities.",
-    "text_he": "חוק הלאום של ישראל מגדיר נכון את ישראל כמולדת הלאומית של העם היהודי ואינו מפלה מיעוטים."
+    "text_he": "חוק הלאום של ישראל מגדיר נכון את ישראל כמולדת הלאומית של העם היהודי ואינו מפלה מיעוטים.",
+    "info_en": "Israel's 2018 Nation-State Law formally defines Israel as the historic homeland of the Jewish people and downgrades Arabic from an official to a \"special status\" language. Proponents argue it appropriately codifies Israel's founding principles; critics, including Israeli Arab groups and some Jewish organizations, argue it institutionalizes discrimination and creates a two-tier citizenship.",
+    "info_he": "חוק הלאום של ישראל משנת 2018 מגדיר רשמית את ישראל כמולדתו ההיסטורית של העם היהודי ומוריד את הערבית ממעמד שפה רשמית ל\"מעמד מיוחד\". התומכים טוענים שהוא מעגן כראוי את עקרונות הייסוד של ישראל; המבקרים, לרבות קבוצות ערביות ישראליות וארגונים יהודיים מסוימים, טוענים שהוא ממסד אפליה ויוצר אזרחות דו-שכבתית.",
+    "info_source": "Wikipedia: Nation-state law (Israel)",
+    "info_source_url": "https://en.wikipedia.org/wiki/Nation-state_law_(Israel)"
   },
   {
     "id": "q27",
     "dimension": "governance",
     "polarity": 1,
     "text_en": "A sitting Prime Minister under criminal indictment should be required to suspend their duties until the case is resolved.",
-    "text_he": "ראש ממשלה מכהן הנמצא תחת כתב אישום פלילי צריך להיות מחויב להשעות את תפקידיו עד לסיום הדיון."
+    "text_he": "ראש ממשלה מכהן הנמצא תחת כתב אישום פלילי צריך להיות מחויב להשעות את תפקידיו עד לסיום הדיון.",
+    "info_en": "Prime Minister Benjamin Netanyahu became the first sitting Israeli PM to face criminal indictment (2019), charged with bribery, fraud, and breach of trust. His continued service while under trial has been controversial; supporters argue he is innocent until proven guilty and voters have the right to choose their leader, while opponents argue that a PM under criminal charges faces irreconcilable conflicts of interest that compromise governance.",
+    "info_he": "ראש הממשלה בנימין נתניהו הפך לראש הממשלה הישראלי הראשון המכהן הנמצא תחת כתב אישום פלילי (2019), מואשם בשוחד, הונאה והפרת אמונים. המשך כהונתו בעת המשפט שנוי במחלוקת; התומכים טוענים שהוא חף מפשע עד שיוכח אחרת וכי לבוחרים יש זכות לבחור את מנהיגם, בעוד המתנגדים טוענים שראש ממשלה הנמצא תחת אישומים פליליים מצוי בניגוד עניינים בלתי ניתן לגישור שפוגע בממשל.",
+    "info_source": "Wikipedia: Legal affairs of Benjamin Netanyahu",
+    "info_source_url": "https://en.wikipedia.org/wiki/Legal_affairs_of_Benjamin_Netanyahu"
   },
   {
     "id": "q28",
     "dimension": "governance",
     "polarity": 1,
     "text_en": "A Prime Minister should not serve more than 8 cumulative years in office (two terms of 4 years).",
-    "text_he": "ראש ממשלה לא יכהן יותר מ-8 שנים מצטברות בתפקיד (שתי קדנציות של 4 שנים)."
+    "text_he": "ראש ממשלה לא יכהן יותר מ-8 שנים מצטברות בתפקיד (שתי קדנציות של 4 שנים).",
+    "info_en": "Israel has no constitutional term limit for Prime Ministers, and Benjamin Netanyahu has served as PM for a total of over 16 years. Supporters of term limits argue they prevent entrenchment of power, encourage fresh leadership, and protect democratic norms; opponents argue that voters should decide how long a leader serves and that term limits artificially constrain democratic choice.",
+    "info_he": "לישראל אין הגבלת כהונה חוקתית לראשי ממשלה, ובנימין נתניהו כיהן בסך הכל למעלה מ-16 שנים. תומכי הגבלת הכהונה טוענים שהיא מונעת התבצרות בשלטון, מעודדת מנהיגות חדשה ומגינה על נורמות דמוקרטיות; המתנגדים טוענים שהבוחרים הם שצריכים להחליט כמה זמן מנהיג יכהן ושהגבלת כהונה מגבילה באופן מלאכותי את הבחירה הדמוקרטית.",
+    "info_source": "Wikipedia: Prime Minister of Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Prime_Minister_of_Israel"
   },
   {
     "id": "q29",
     "dimension": "governance",
     "polarity": 1,
     "text_en": "The electoral threshold for entering the Knesset should be raised above 3.25% to reduce political fragmentation.",
-    "text_he": "אחוז החסימה לכניסה לכנסת צריך להיות מוגבה מעל 3.25% כדי להפחית פיצול פוליטי."
+    "text_he": "אחוז החסימה לכניסה לכנסת צריך להיות מוגבה מעל 3.25% כדי להפחית פיצול פוליטי.",
+    "info_en": "Israel's current electoral threshold is 3.25% of the national vote, meaning parties must earn at least this share to enter the Knesset. Proponents of raising the threshold argue it would reduce fragmentation and enable more stable governments; opponents argue that a higher threshold excludes smaller communities and minority voices, concentrating power among larger parties.",
+    "info_he": "אחוז החסימה הנוכחי בישראל הוא 3.25% מהקולות הארציים, כלומר מפלגות חייבות לזכות לפחות בנתח זה כדי להיכנס לכנסת. המצדדים בהעלאת אחוז החסימה טוענים שזה יפחית את הפיצול ויאפשר ממשלות יציבות יותר; המתנגדים טוענים שאחוז חסימה גבוה יותר מדיר קהילות קטנות וקולות מיעוט, ומרכז כוח במפלגות הגדולות.",
+    "info_source": "Wikipedia: Israeli legislative election threshold",
+    "info_source_url": "https://en.wikipedia.org/wiki/Israeli_legislative_election_threshold"
   },
   {
     "id": "q31",
     "dimension": "governance",
     "polarity": 1,
     "text_en": "A state commission of inquiry should be established to investigate the failures that led to the October 7, 2023 massacre.",
-    "text_he": "יש להקים ועדת חקירה ממלכתית לבדיקת המחדלים שהובילו לטבח ה-7 באוקטובר 2023."
+    "text_he": "יש להקים ועדת חקירה ממלכתית לבדיקת המחדלים שהובילו לטבח ה-7 באוקטובר 2023.",
+    "info_en": "The October 7, 2023 Hamas-led attacks on Israel resulted in approximately 1,200 deaths and the abduction of over 250 people. Critics of the government argue a state commission (the strongest investigative body in Israel) is essential to accountability for the intelligence and security failures; the government has resisted a full state commission, with some ministers arguing it would be premature during an ongoing conflict.",
+    "info_he": "מתקפות חמאס ב-7 באוקטובר 2023 גרמו למות כ-1,200 בני אדם ולחטיפת למעלה מ-250. מבקרי הממשלה טוענים שוועדת חקירה ממלכתית (הגוף החוקר החזק ביותר בישראל) חיונית לאחריות על כשלי המודיעין והביטחון; הממשלה עמדה בפני הקמת ועדה מלאה, כשחלק מהשרים טוענים שהדבר יהיה מוקדם מדי בזמן עימות מתמשך.",
+    "info_source": "Wikipedia: 2023 Hamas-led attack on Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/2023_Hamas-led_attack_on_Israel"
   },
   {
     "id": "q32",
     "dimension": "socioeconomic",
     "polarity": 1,
     "text_en": "All publicly funded schools, including Haredi institutions, should be required to teach a core curriculum including math, English, and sciences.",
-    "text_he": "כל מוסדות חינוך הממומנים על ידי המדינה, לרבות ישיבות ומוסדות חרדיים, חייבים ללמד תכנית ליבה הכוללת מתמטיקה, אנגלית ומדעים."
+    "text_he": "כל מוסדות חינוך הממומנים על ידי המדינה, לרבות ישיבות ומוסדות חרדיים, חייבים ללמד תכנית ליבה הכוללת מתמטיקה, אנגלית ומדעים.",
+    "info_en": "Many Haredi schools in Israel receive state funding but do not teach a core secular curriculum, instead focusing almost entirely on religious studies. Proponents of mandatory core curriculum argue it is necessary for economic integration and civic participation; Haredi leaders argue that religious autonomy and the right to educate children according to one's values are fundamental rights that should not be overridden by state curriculum mandates.",
+    "info_he": "בתי ספר חרדיים רבים בישראל מקבלים מימון ממדינה אך אינם מלמדים תכנית ליבה חילונית, ובמקום זאת מתמקדים כמעט לחלוטין בלימודי דת. המצדדים בתכנית ליבה חובה טוענים שהיא נחוצה לשילוב כלכלי ולהשתתפות אזרחית; מנהיגים חרדיים טוענים שאוטונומיה דתית וזכות החינוך לפי ערכיו הם זכויות יסוד שאין לגבור עליהן בצו תכנית לימודים ממשלתי.",
+    "info_source": "Wikipedia: Haredi education",
+    "info_source_url": "https://en.wikipedia.org/wiki/Haredi_education"
   },
   {
     "id": "q33",
     "dimension": "governance",
     "polarity": 1,
     "text_en": "Media regulators should enforce journalistic accountability on commercial broadcast channels and prevent the systematic spread of disinformation.",
-    "text_he": "רגולטורי התקשורת צריכים לאכוף אחריות עיתונאית על ערוצי שידור מסחריים ולמנוע הפצה שיטתית של מידע כוזב."
+    "text_he": "רגולטורי התקשורת צריכים לאכוף אחריות עיתונאית על ערוצי שידור מסחריים ולמנוע הפצה שיטתית של מידע כוזב.",
+    "info_en": "Freedom of the press and broadcast media regulation are in tension globally; in Israel, debates over politically aligned outlets have intensified concerns about disinformation. Supporters of stricter media regulation argue it protects democratic discourse and public trust; opponents argue that state-enforced \"journalistic accountability\" risks becoming a tool for governments to silence critical reporting.",
+    "info_he": "חופש העיתונות ורגולציית שידורים נמצאים במתח ברחבי העולם; בישראל, ויכוחים על ערוצי שידור בעלי נטייה פוליטית החריפו את החששות מפני מידע כוזב. תומכי רגולציה תקשורתית קפדנית יותר טוענים שהיא מגינה על השיח הדמוקרטי ועל אמון הציבור; המתנגדים טוענים ש\"אחריות עיתונאית\" בכפייה ממשלתית עלולה להפוך לכלי לממשלות לשתק דיווח ביקורתי.",
+    "info_source": "Wikipedia: Freedom of the press in Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Freedom_of_the_press_in_Israel"
   },
   {
     "id": "q34",
     "dimension": "governance",
     "polarity": 1,
     "text_en": "Political parties should commit to equal gender representation (50/50) in their electoral candidate lists.",
-    "text_he": "מפלגות צריכות להתחייב לייצוג שווה בין גברים לנשים (50/50) ברשימות הבחירות שלהן."
+    "text_he": "מפלגות צריכות להתחייב לייצוג שווה בין גברים לנשים (50/50) ברשימות הבחירות שלהן.",
+    "info_en": "Women are significantly underrepresented in the Israeli Knesset, making up roughly 30% of members in recent terms. Proponents of mandatory 50/50 representation argue it is the most reliable way to achieve gender parity and counteract structural barriers women face in politics; opponents argue that parties should be free to select candidates based on merit and voter preference, and that quotas may conflict with internal party democracy.",
+    "info_he": "נשים מיוצגות בחסר משמעותי בכנסת הישראלית, המהוות כ-30% מהחברים בכנסות האחרונות. המצדדים בייצוג 50/50 חובה טוענים שזוהי הדרך האמינה ביותר להשגת שוויון מגדרי ולמאבק במכשולים מבניים בפני נשים בפוליטיקה; המתנגדים טוענים שלמפלגות צריכה להיות חופש לבחור מועמדות לפי כישורים והעדפות מצביעים, ושמכסות עלולות להתנגש עם הדמוקרטיה המפלגתית הפנימית.",
+    "info_source": "Wikipedia: Women in the Knesset",
+    "info_source_url": "https://en.wikipedia.org/wiki/Women_in_the_Knesset"
   },
   {
     "id": "q35",
     "dimension": "socioeconomic",
     "polarity": 1,
     "text_en": "Israel should pass a binding climate law that commits to emissions reduction targets aligned with the Paris Agreement, as most OECD countries have done.",
-    "text_he": "ישראל צריכה לחוקק חוק אקלים מחייב המעגן יעדי הפחתת פליטות בהתאם להסכם פריז, כפי שעשו רוב מדינות ה-OECD."
+    "text_he": "ישראל צריכה לחוקק חוק אקלים מחייב המעגן יעדי הפחתת פליטות בהתאם להסכם פריז, כפי שעשו רוב מדינות ה-OECD.",
+    "info_en": "Israel has committed to net-zero emissions by 2050 but does not yet have a binding national climate law, unlike most OECD members. Proponents argue a binding law creates accountability, certainty for investment, and alignment with international obligations; opponents argue that binding targets constrain economic flexibility, could harm industries dependent on fossil fuels, and are best addressed through policy rather than legislation.",
+    "info_he": "ישראל התחייבה לאפס נטו פליטות עד 2050 אך עדיין אין לה חוק אקלים מחייב ברמה הלאומית, בניגוד לרוב מדינות ה-OECD. התומכים טוענים שחוק מחייב יוצר אחריות, ודאות להשקעות, והתאמה להתחייבויות הבינלאומיות; המתנגדים טוענים שיעדים מחייבים מגבילים גמישות כלכלית, עלולים לפגוע בתעשיות התלויות בדלקים מאובנים, ועדיף לטפל בהם באמצעות מדיניות ולא חקיקה.",
+    "info_source": "Wikipedia: Climate change in Israel",
+    "info_source_url": "https://en.wikipedia.org/wiki/Climate_change_in_Israel"
   }
 ]
