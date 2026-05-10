@@ -56,6 +56,7 @@ export function MatchRadarChart({ userDimScores, partyDimScores, partyName, part
           fill={partyColor}
           fillOpacity={0.18}
           strokeWidth={2.5}
+          strokeDasharray="6 3"
           dot={{ r: 4, fill: partyColor, stroke: '#fff', strokeWidth: 1.5 }}
         />
         {friendDimScores && (
@@ -66,8 +67,8 @@ export function MatchRadarChart({ userDimScores, partyDimScores, partyName, part
             fill={FRIEND_COLOR}
             fillOpacity={0.08}
             strokeWidth={1.5}
+            strokeDasharray="2 4"
             dot={{ r: 3, fill: '#fff', stroke: FRIEND_COLOR, strokeWidth: 2 }}
-            strokeDasharray="5 4"
           />
         )}
         <Legend

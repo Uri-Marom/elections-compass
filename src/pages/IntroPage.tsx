@@ -88,7 +88,7 @@ export function IntroPage() {
             <div className="mt-2 p-4 bg-gray-50 rounded-2xl border border-gray-100 text-start space-y-3">
               <div>
                 <p className="text-xs font-semibold text-gray-700 mb-1">{t('about_how_title')}</p>
-                <p className="text-xs text-gray-500 leading-relaxed">{t('about_how_body', { total: TOTAL })}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{t('about_how_body')}</p>
               </div>
               <div>
                 <p className="text-xs font-semibold text-gray-700 mb-1">{t('about_privacy_title')}</p>
@@ -97,6 +97,21 @@ export function IntroPage() {
               <div>
                 <p className="text-xs font-semibold text-gray-700 mb-1">{t('about_independence_title')}</p>
                 <p className="text-xs text-gray-500 leading-relaxed">{t('about_independence_body')}</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-gray-700 mb-1">{t('about_improvement_title')}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  {t('about_data_sources_body')}{' '}
+                  <a
+                    href="https://oknesset.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:text-blue-700 hover:underline"
+                  >
+                    {t('about_data_sources_link')}
+                  </a>
+                  .
+                </p>
               </div>
               <p className="text-xs text-gray-500 leading-relaxed">{t('about_feedback_body')}</p>
             </div>
