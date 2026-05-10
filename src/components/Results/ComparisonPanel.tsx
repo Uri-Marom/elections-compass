@@ -46,7 +46,6 @@ export function ComparisonPanel({ myAnswers, friendAnswers, allPositions, partie
 
   // Only parties in BOTH top 5s, sorted by combined score
   const friendScoreMap = new Map(friendRanked.map(m => [m.party_id, getScore(m, mode)]))
-  const myScoreMap = new Map(myRanked.map(m => [m.party_id, getScore(m, mode)]))
 
   const sharedRows = myRanked
     .filter(m => myTop5.has(m.party_id) && friendTop5.has(m.party_id))
