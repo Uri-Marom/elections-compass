@@ -29,6 +29,19 @@ const PLOT_X1 = SVG_W - MARGIN
 const LABEL_X_L = MARGIN / 2
 const LABEL_X_R = SVG_W - MARGIN / 2
 
+// Lighten colors that are too dark to read on the dark map background
+function forDark(hex: string): string {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+  if (lum < 0.28) {
+    const f = 1 - lum / 0.28
+    return `rgb(${Math.round(r + (220 - r) * f)},${Math.round(g + (220 - g) * f)},${Math.round(b + (220 - b) * f)})`
+  }
+  return hex
+}
+
 function toSvgX(x: number) { return PLOT_X0 + ((x + 1) / 2) * (PLOT_X1 - PLOT_X0) }
 function toSvgY(y: number) { return PAD_Y + ((1 - y) / 2) * (SVG_H - PAD_Y * 2) }
 
@@ -80,7 +93,7 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
     const party = parties.find(p => p.id === pt.party_id)
     return {
       party_id: pt.party_id,
-      color: party?.color ?? '#888',
+      color: forDark(party?.color ?? '#888'),
       name: party ? (lang === 'he' ? party.name_he : party.name_en) : pt.party_id,
       svgX: toSvgX(pt.x),
       svgY: toSvgY(pt.y),

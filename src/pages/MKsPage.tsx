@@ -305,7 +305,7 @@ export function MKsPage() {
                             </span>
                             {' '}{result.actual_similarity}%
                           </span>
-                          <span style={{ color: B.borderMid }}>→</span>
+                          <span style={{ color: B.borderMid }}>←</span>
                           <span>
                             {t('mk_crossaisle_votes_like')}:{' '}
                             <span style={{ fontWeight: 700, color: closestParty?.color }}>

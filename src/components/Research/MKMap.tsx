@@ -35,6 +35,19 @@ const DIM_TO_KEY: Record<MKDimKey, string> = {
   religion: 'religion', judicial: 'judicial', governance: 'governance',
 }
 
+// Lighten colors that are too dark to read on the dark map background
+function forDark(hex: string): string {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+  if (lum < 0.28) {
+    const f = 1 - lum / 0.28
+    return `rgb(${Math.round(r + (220 - r) * f)},${Math.round(g + (220 - g) * f)},${Math.round(b + (220 - b) * f)})`
+  }
+  return hex
+}
+
 function toSvgX(x: number) { return PLOT_X0 + ((x + 1) / 2) * (PLOT_X1 - PLOT_X0) }
 function toSvgY(y: number) { return PAD_Y + ((1 - y) / 2) * (SVG_H - PAD_Y * 2) }
 
@@ -72,7 +85,6 @@ function layoutMargin(items: LabelItem[], side: 'left' | 'right'): PlacedLabel[]
 export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, userAnswers }: Props) {
   const [xDim, setXDim] = useState<MKDimKey>('religion')
   const [yDim, setYDim] = useState<MKDimKey>('judicial')
-  const [hoveredMkId, setHoveredMkId] = useState<string | null>(null)
 
   const result = useMemo(
     () => computeMKAxisMap(allPartyPositions, mks, mkPositions, xDim, yDim),
@@ -87,20 +99,16 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
   const partyDots = result.partyPoints.map(pt => {
     const party = parties.find(p => p.id === pt.party_id)
     return {
-      party_id: pt.party_id, color: party?.color ?? '#888',
+      party_id: pt.party_id, color: forDark(party?.color ?? '#888'),
       name: party ? (lang === 'he' ? party.name_he : party.name_en) : pt.party_id,
       svgX: toSvgX(pt.x), svgY: toSvgY(pt.y),
     }
   })
 
   const mkDots = result.mkPoints.map(pt => {
-    const mk = mks.find(m => m.id === pt.mk_id)
     const party = parties.find(p => p.id === pt.party_id)
     return {
-      mk_id: pt.mk_id, color: party?.color ?? '#888',
-      name: mk ? (lang === 'he' ? mk.name_he : (mk.name_en || mk.name_he)) : pt.mk_id,
-      partyName: party ? (lang === 'he' ? party.name_he : party.name_en) : '',
-      partyColor: party?.color ?? '#888',
+      mk_id: pt.mk_id, color: forDark(party?.color ?? '#888'),
       svgX: toSvgX(pt.x), svgY: toSvgY(pt.y),
     }
   })
@@ -111,7 +119,6 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
     ...layoutMargin(partyDots.filter(d => d.svgX > midX),  'right'),
   ]
 
-  const hoveredMk = hoveredMkId ? mkDots.find(d => d.mk_id === hoveredMkId) : null
   const userSvgX = userPoint ? toSvgX(userPoint.x) : null
   const userSvgY = userPoint ? toSvgY(userPoint.y) : null
   const xL = MK_DIM_LABELS[xDim], yL = MK_DIM_LABELS[yDim]
@@ -150,22 +157,6 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
           </div>
         ))}
       </div>
-
-      {/* Hover tooltip */}
-      {hoveredMk ? (
-        <div style={{
-          padding: '8px 14px', background: B.white, borderRadius: B.radius,
-          border: `1px solid ${B.border}`, display: 'flex', alignItems: 'center', gap: 10,
-        }}>
-          <div style={{ width: 8, height: 8, borderRadius: '50%', background: hoveredMk.partyColor, flexShrink: 0 }} />
-          <span style={{ fontSize: 13, fontWeight: 700, color: B.ink }}>{hoveredMk.name}</span>
-          <span style={{ fontSize: 11, fontWeight: 600, color: hoveredMk.partyColor }}>{hoveredMk.partyName}</span>
-        </div>
-      ) : (
-        <p style={{ fontSize: 11, color: B.inkHint }}>
-          {lang === 'he' ? 'עברו על נקודה לשם הח״כ' : 'Hover a dot to see the MK name'}
-        </p>
-      )}
 
       {/* Map */}
       <div style={{ width: '100%', overflow: 'hidden', borderRadius: B.radiusLg, background: B.ink }}>
@@ -225,23 +216,16 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
           })}
 
           {/* MK dots */}
-          {mkDots.map(d => {
-            const isHov = d.mk_id === hoveredMkId
-            return (
-              <circle key={d.mk_id}
-                cx={d.svgX} cy={d.svgY}
-                r={isHov ? MK_R + 2 : MK_R}
-                fill={d.color}
-                opacity={isHov ? 1 : 0.5}
-                stroke={isHov ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.1)'}
-                strokeWidth={isHov ? 1.5 : 0.5}
-                style={{ cursor: 'pointer' }}
-                onMouseEnter={() => setHoveredMkId(d.mk_id)}
-                onMouseLeave={() => setHoveredMkId(null)}
-                onTouchStart={() => setHoveredMkId(d.mk_id)}
-              />
-            )
-          })}
+          {mkDots.map(d => (
+            <circle key={d.mk_id}
+              cx={d.svgX} cy={d.svgY}
+              r={MK_R}
+              fill={d.color}
+              opacity={0.5}
+              stroke="rgba(255,255,255,0.1)"
+              strokeWidth={0.5}
+            />
+          ))}
 
           {/* Party dots — larger, glow */}
           {partyDots.map(d => (
