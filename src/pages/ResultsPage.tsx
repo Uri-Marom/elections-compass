@@ -11,7 +11,6 @@ import { PartyMap } from '../components/Research/PartyMap'
 import { useSurveyStore } from '../store/survey'
 import { rankParties, rankMKs, DIMENSIONS, type DimensionKey } from '../utils/matching'
 import { encodeAnswers, decodeAnswers } from '../utils/encoding'
-import { computePartyAxes, computeUserMapPoint } from '../utils/research'
 import { CompassRose, GridPaper, B, ACCENT, BureauCard } from '../components/bureau/BureauComponents'
 import type { Party, PartyPosition, Question, KnessetMember } from '../types'
 
@@ -208,10 +207,6 @@ export function ResultsPage() {
   const topPartyPositions = allPositions[ranked[0]?.party_id ?? ''] ?? []
   const topPartyDimScores = useMemo(() => computePartyDimScores(topPartyPositions, 'stated'), [ranked[0]?.party_id]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const axisResult = useMemo(() => computePartyAxes(allPositions, mapMode), [mapMode])
-  const mapPoints = axisResult.points
-  const userMapPoint = useMemo(() => computeUserMapPoint(answers, axisResult), [answers, axisResult])
-  const friendMapPoint = useMemo(() => friendAnswers ? computeUserMapPoint(friendAnswers, axisResult) : null, [friendAnswers, axisResult])
   const friendDimScores = useMemo(() => friendAnswers ? computeUserDimScores(friendAnswers) : null, [friendAnswers])
 
   const answered = answeredCount()
@@ -505,13 +500,13 @@ export function ResultsPage() {
         <BureauCard style={{ marginBottom: 16, padding: '16px' }}>
           <h2 style={{ fontSize: 13, fontWeight: 700, color: B.ink, marginBottom: 12 }}>{t('similarity_title')}</h2>
           <PartyMap
-            points={mapPoints}
+            allPositions={allPositions}
             parties={parties}
             mode={mapMode}
             onModeChange={setMapMode}
             lang={lang}
-            userPoint={userMapPoint}
-            friendPoint={friendMapPoint}
+            userAnswers={answers}
+            friendAnswers={friendAnswers ?? undefined}
           />
         </BureauCard>
 

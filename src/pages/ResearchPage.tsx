@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
 import { HypocrisyChart } from '../components/Research/HypocrisyChart'
 import { PartyMap } from '../components/Research/PartyMap'
-import { computeHypocrisy, computePartyAxes, computeUserMapPoint } from '../utils/research'
+import { computeHypocrisy } from '../utils/research'
 import { useSurveyStore } from '../store/survey'
 import type { Party, PartyPosition, Question } from '../types'
 import { B, ACCENT, CompassRose, GridPaper } from '../components/bureau/BureauComponents'
@@ -52,9 +52,6 @@ export function ResearchPage() {
   const [mapMode, setMapMode] = useState<'stated' | 'voted'>('stated')
 
   const hypocrisyResults = useMemo(() => computeHypocrisy(allPositions), [])
-  const axisResult = useMemo(() => computePartyAxes(allPositions, mapMode), [mapMode])
-  const partyPoints = axisResult.points
-  const userPoint = useMemo(() => computeUserMapPoint(answers, axisResult), [answers, axisResult])
 
   const sectionHeadStyle: React.CSSProperties = {
     fontSize: 15, fontWeight: 800, color: B.ink,
@@ -97,12 +94,12 @@ export function ResearchPage() {
         <section style={{ marginBottom: 32 }}>
           <h2 style={sectionHeadStyle}>{t('similarity_title')}</h2>
           <PartyMap
-            points={partyPoints}
+            allPositions={allPositions}
             parties={parties}
             mode={mapMode}
             onModeChange={setMapMode}
             lang={lang}
-            userPoint={userPoint}
+            userAnswers={answers}
           />
         </section>
 

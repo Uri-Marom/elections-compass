@@ -387,6 +387,138 @@ export function computeUserMapPoint(
   }
 }
 
+// ---------- Party 2-D axis map (multi-dim) ----------
+
+export type PartyDimKey = 'security' | 'religion' | 'judicial' | 'minority' | 'governance'
+
+const PARTY_DIM_QIDS: Record<PartyDimKey, string[]> = {
+  security:   ['q01','q02','q03','q04','q05','q06'],
+  religion:   ['q07','q08','q09','q10','q11','q12'],
+  judicial:   ['q18','q19','q20','q21','q22'],
+  minority:   ['q23','q24','q25','q26'],
+  governance: ['q27','q28','q29','q31','q33','q34'],
+}
+
+const PARTY_DIM_ANCHORS: Record<PartyDimKey, { high: string; low: string }> = {
+  security:   { high: 'likud',       low: 'hadash_taal'     },
+  religion:   { high: 'utj',         low: 'yisrael_beitenu' },
+  judicial:   { high: 'likud',       low: 'hadash_taal'     },
+  minority:   { high: 'hadash_taal', low: 'otzma'           },
+  governance: { high: 'democrats',   low: 'likud'           },
+}
+
+export const PARTY_DIM_LABELS: Record<PartyDimKey, { he: string; lowHe: string; highHe: string; lowEn: string; highEn: string }> = {
+  security:   { he: 'ביטחון',         lowHe: 'יוני',           highHe: 'נצי',          lowEn: 'Dovish',         highEn: 'Hawkish'        },
+  religion:   { he: 'דת ומדינה',      lowHe: 'חילוני',         highHe: 'דתי',          lowEn: 'Secular',        highEn: 'Religious'      },
+  judicial:   { he: 'רפורמה משפטית',  lowHe: 'נגד הרפורמה',   highHe: 'בעד הרפורמה', lowEn: 'Anti-reform',    highEn: 'Pro-reform'     },
+  minority:   { he: 'שוויון מיעוטים', lowHe: 'נגד שוויון',    highHe: 'בעד שוויון',  lowEn: 'Anti-rights',    highEn: 'Pro-rights'     },
+  governance: { he: 'ממשל',           lowHe: 'ריכוז כוח',     highHe: 'אחריות',       lowEn: 'Power-central',  highEn: 'Accountability' },
+}
+
+export interface PartyAxisPreset {
+  x: PartyDimKey
+  y: PartyDimKey
+  labelHe: string
+  labelEn: string
+}
+
+export const PARTY_AXIS_PRESETS: PartyAxisPreset[] = [
+  { x: 'security', y: 'religion',   labelHe: 'ביטחון × דת',      labelEn: 'Security × Religion'  },
+  { x: 'judicial', y: 'religion',   labelHe: 'רפורמה × דת',      labelEn: 'Reform × Religion'    },
+  { x: 'security', y: 'judicial',   labelHe: 'ביטחון × רפורמה',  labelEn: 'Security × Reform'    },
+  { x: 'minority', y: 'security',   labelHe: 'מיעוטים × ביטחון', labelEn: 'Minority × Security'  },
+  { x: 'judicial', y: 'governance', labelHe: 'רפורמה × ממשל',    labelEn: 'Reform × Governance'  },
+]
+
+export interface PartyAxisResult {
+  points: PartyPoint[]
+  xSigns: number[]
+  ySigns: number[]
+  xQids: string[]
+  yQids: string[]
+  xMin: number; xMax: number
+  yMin: number; yMax: number
+}
+
+export function computePartyAxesByDim(
+  allPositions: Record<string, PartyPosition[]>,
+  mode: 'stated' | 'voted',
+  xDim: PartyDimKey,
+  yDim: PartyDimKey
+): PartyAxisResult {
+  const score = (pid: string, qid: string): number => {
+    const pos = allPositions[pid]?.find(p => p.question_id === qid)
+    if (!pos) return 0
+    return mode === 'voted'
+      ? pos.voted_position?.score ?? pos.stated_position?.score ?? 0
+      : pos.stated_position?.score ?? 0
+  }
+
+  const xQids = PARTY_DIM_QIDS[xDim]
+  const yQids = PARTY_DIM_QIDS[yDim]
+  const { high: xHigh, low: xLow } = PARTY_DIM_ANCHORS[xDim]
+  const { high: yHigh, low: yLow } = PARTY_DIM_ANCHORS[yDim]
+
+  const xSigns = xQids.map(qid => Math.sign(score(xHigh, qid) - score(xLow, qid)) || 1)
+  const ySigns = yQids.map(qid => Math.sign(score(yHigh, qid) - score(yLow, qid)) || 1)
+
+  const partyIds = Object.keys(allPositions)
+  const raw = partyIds.map(pid => ({
+    party_id: pid,
+    x: xQids.reduce((s, qid, i) => s + xSigns[i] * score(pid, qid), 0) / xQids.length,
+    y: yQids.reduce((s, qid, i) => s + ySigns[i] * score(pid, qid), 0) / yQids.length,
+  }))
+
+  const xs = raw.map(p => p.x), ys = raw.map(p => p.y)
+  const xMin = Math.min(...xs), xMax = Math.max(...xs)
+  const yMin = Math.min(...ys), yMax = Math.max(...ys)
+
+  const JITTER = 0.04
+  const seen = new Map<string, number>()
+  const points: PartyPoint[] = raw.map(p => {
+    const nx = xMax > xMin ? ((p.x - xMin) / (xMax - xMin)) * 2 - 1 : 0
+    const ny = yMax > yMin ? ((p.y - yMin) / (yMax - yMin)) * 2 - 1 : 0
+    const key = `${nx.toFixed(3)},${ny.toFixed(3)}`
+    const count = seen.get(key) ?? 0
+    seen.set(key, count + 1)
+    const angle = (Math.PI / 2) * count
+    return {
+      party_id: p.party_id,
+      x: nx + (count > 0 ? JITTER * Math.cos(angle) : 0),
+      y: ny + (count > 0 ? JITTER * Math.sin(angle) : 0),
+    }
+  })
+
+  return { points, xSigns, ySigns, xQids, yQids, xMin, xMax, yMin, yMax }
+}
+
+export function computeUserMapPointByDim(
+  answers: Record<string, number | null | undefined>,
+  result: PartyAxisResult
+): { x: number; y: number } | null {
+  const { xSigns, ySigns, xQids, yQids, xMin, xMax, yMin, yMax } = result
+
+  const xScores = xQids.map((qid, i) => {
+    const v = answers[qid]
+    return (v !== null && v !== undefined) ? xSigns[i] * v : null
+  }).filter((v): v is number => v !== null)
+
+  const yScores = yQids.map((qid, i) => {
+    const v = answers[qid]
+    return (v !== null && v !== undefined) ? ySigns[i] * v : null
+  }).filter((v): v is number => v !== null)
+
+  if (xScores.length === 0 && yScores.length === 0) return null
+
+  const rawX = xScores.length > 0 ? xScores.reduce((s, v) => s + v, 0) / xScores.length : (xMin + xMax) / 2
+  const rawY = yScores.length > 0 ? yScores.reduce((s, v) => s + v, 0) / yScores.length : (yMin + yMax) / 2
+
+  return {
+    x: xMax > xMin ? Math.max(-1, Math.min(1, ((rawX - xMin) / (xMax - xMin)) * 2 - 1)) : 0,
+    y: yMax > yMin ? Math.max(-1, Math.min(1, ((rawY - yMin) / (yMax - yMin)) * 2 - 1)) : 0,
+  }
+}
+
 // ---------- MK 2-D axis map ----------
 
 export type MKDimKey = 'religion' | 'judicial' | 'governance'

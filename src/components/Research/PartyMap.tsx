@@ -1,17 +1,19 @@
-import { useTranslation } from 'react-i18next'
-import type { PartyPoint } from '../../utils/research'
-import type { Party } from '../../types'
-import { TOTAL_QUESTIONS } from '../../utils/matching'
+import { useState, useMemo } from 'react'
+import type { Party, PartyPosition } from '../../types'
+import {
+  computePartyAxesByDim, computeUserMapPointByDim,
+  PARTY_AXIS_PRESETS, PARTY_DIM_LABELS,
+} from '../../utils/research'
 import { B, ACCENT, CompassWatermarkSVG } from '../bureau/BureauComponents'
 
 interface Props {
-  points: PartyPoint[]
+  allPositions: Record<string, PartyPosition[]>
   parties: Party[]
   mode: 'stated' | 'voted'
   onModeChange: (m: 'stated' | 'voted') => void
   lang: 'he' | 'en'
-  userPoint?: { x: number; y: number } | null
-  friendPoint?: { x: number; y: number } | null
+  userAnswers?: Record<string, number | null | undefined>
+  friendAnswers?: Record<string, number | null | undefined>
 }
 
 const SVG_W = 500
@@ -29,7 +31,7 @@ const PLOT_X1 = SVG_W - MARGIN
 const LABEL_X_L = MARGIN / 2
 const LABEL_X_R = SVG_W - MARGIN / 2
 
-// Lighten colors that are too dark to read on the dark map background
+// Lighten colors too dark for the dark map background
 function forDark(hex: string): string {
   const r = parseInt(hex.slice(1, 3), 16)
   const g = parseInt(hex.slice(3, 5), 16)
@@ -86,10 +88,28 @@ function layoutMargin(items: DotItem[], side: 'left' | 'right'): PlacedLabel[] {
   }))
 }
 
-export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint, friendPoint }: Props) {
-  const { t } = useTranslation()
+export function PartyMap({ allPositions, parties, mode, onModeChange, lang, userAnswers, friendAnswers }: Props) {
+  const [presetIdx, setPresetIdx] = useState(0)
+  const preset = PARTY_AXIS_PRESETS[presetIdx]
 
-  const dots = points.map(pt => {
+  const axisResult = useMemo(
+    () => computePartyAxesByDim(allPositions, mode, preset.x, preset.y),
+    [mode, presetIdx] // eslint-disable-line react-hooks/exhaustive-deps
+  )
+
+  const userPoint = useMemo(
+    () => userAnswers ? computeUserMapPointByDim(userAnswers, axisResult) : null,
+    [userAnswers, axisResult]
+  )
+  const friendPoint = useMemo(
+    () => friendAnswers ? computeUserMapPointByDim(friendAnswers, axisResult) : null,
+    [friendAnswers, axisResult]
+  )
+
+  const xL = PARTY_DIM_LABELS[preset.x]
+  const yL = PARTY_DIM_LABELS[preset.y]
+
+  const dots = axisResult.points.map(pt => {
     const party = parties.find(p => p.id === pt.party_id)
     return {
       party_id: pt.party_id,
@@ -111,13 +131,12 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
   const userSvgY  = userPoint   ? toSvgY(userPoint.y)   : null
   const friendSvgX = friendPoint ? toSvgX(friendPoint.x) : null
   const friendSvgY = friendPoint ? toSvgY(friendPoint.y) : null
-
   const cx = SVG_W / 2, cy = SVG_H / 2
 
   return (
     <div>
       {/* Mode toggle */}
-      <div style={{ display: 'flex', background: B.bgMid, borderRadius: B.radius, padding: 4, gap: 4, marginBottom: 14 }}>
+      <div style={{ display: 'flex', background: B.bgMid, borderRadius: B.radius, padding: 4, gap: 4, marginBottom: 12 }}>
         {(['stated', 'voted'] as const).map(m => (
           <button key={m} onClick={() => onModeChange(m)} style={{
             flex: 1, padding: '8px 0', borderRadius: 10, border: 'none', cursor: 'pointer',
@@ -126,14 +145,25 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
             color: mode === m ? B.ink : B.inkFaint,
             boxShadow: mode === m ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
           }}>
-            {m === 'stated' ? t('stated_positions') : t('actual_votes')}
+            {m === 'stated' ? (lang === 'he' ? 'עמדות מוצהרות' : 'Stated Positions') : (lang === 'he' ? 'הצבעות בפועל' : 'Actual Votes')}
           </button>
         ))}
       </div>
 
-      <p style={{ fontSize: 11, color: B.inkHint, marginBottom: 12, lineHeight: 1.55, fontFamily: B.font }}>
-        {t('similarity_subtitle', { total: TOTAL_QUESTIONS })}
-      </p>
+      {/* Axis preset selector */}
+      <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 8, marginBottom: 12 }}>
+        {PARTY_AXIS_PRESETS.map((p, i) => (
+          <button key={i} onClick={() => setPresetIdx(i)} style={{
+            padding: '5px 12px', borderRadius: 99, flexShrink: 0, border: 'none', cursor: 'pointer',
+            fontSize: 11, fontWeight: 600, fontFamily: B.font,
+            background: presetIdx === i ? B.ink : B.white,
+            color: presetIdx === i ? B.bg : B.inkSoft,
+            outline: `1px solid ${presetIdx === i ? B.ink : B.border}`,
+          }}>
+            {lang === 'he' ? p.labelHe : p.labelEn}
+          </button>
+        ))}
+      </div>
 
       {/* Map */}
       <div style={{ width: '100%', overflow: 'hidden', borderRadius: B.radiusLg, background: B.ink }}>
@@ -148,38 +178,32 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
             </radialGradient>
           </defs>
 
-          {/* Background layers */}
           <rect width={SVG_W} height={SVG_H} fill={B.ink} />
           <rect width={SVG_W} height={SVG_H} fill="url(#pm-grid)" opacity="0.3" />
           <rect width={SVG_W} height={SVG_H} fill="url(#pm-glow)" />
 
-          {/* Compass rose — the map's visual anchor */}
           <CompassWatermarkSVG cx={cx} cy={cy} size={300} opacity={0.1} />
 
-          {/* Full-bleed axis lines */}
+          {/* Axis lines */}
           <line x1={0} y1={cy} x2={SVG_W} y2={cy} stroke="white" strokeWidth={0.7} opacity={0.1} strokeDasharray="5 8" />
           <line x1={cx} y1={0} x2={cx} y2={SVG_H} stroke="white" strokeWidth={0.7} opacity={0.1} strokeDasharray="5 8" />
 
-          {/* Axis labels at the four cardinal edges */}
-          <text x={8} y={cy - 7} textAnchor="start" dominantBaseline="auto"
-            fontSize={9} fill="white" fillOpacity={0.35} fontWeight={700}
-            fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
-            {t('map_axis_left')}
+          {/* Axis labels */}
+          <text x={8} y={cy - 7} textAnchor="start" fontSize={9} fill="white" fillOpacity={0.35}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+            {lang === 'he' ? xL.lowHe : xL.lowEn}
           </text>
-          <text x={SVG_W - 8} y={cy - 7} textAnchor="end" dominantBaseline="auto"
-            fontSize={9} fill="white" fillOpacity={0.35} fontWeight={700}
-            fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
-            {t('map_axis_right')}
+          <text x={SVG_W - 8} y={cy - 7} textAnchor="end" fontSize={9} fill="white" fillOpacity={0.35}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+            {lang === 'he' ? xL.highHe : xL.highEn}
           </text>
-          <text x={cx} y={12} textAnchor="middle" dominantBaseline="auto"
-            fontSize={9} fill="white" fillOpacity={0.35} fontWeight={700}
-            fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
-            {t('map_axis_religious')}
+          <text x={cx} y={12} textAnchor="middle" fontSize={9} fill="white" fillOpacity={0.35}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+            {lang === 'he' ? yL.highHe : yL.highEn}
           </text>
-          <text x={cx} y={SVG_H - 5} textAnchor="middle" dominantBaseline="auto"
-            fontSize={9} fill="white" fillOpacity={0.35} fontWeight={700}
-            fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
-            {t('map_axis_secular')}
+          <text x={cx} y={SVG_H - 5} textAnchor="middle" fontSize={9} fill="white" fillOpacity={0.35}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+            {lang === 'he' ? yL.lowHe : yL.lowEn}
           </text>
 
           {/* Leader lines */}
@@ -201,7 +225,7 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
               stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.45} />
           })}
 
-          {/* Party dots — glow + fill */}
+          {/* Party dots */}
           {dots.map(d => (
             <g key={d.party_id}>
               <circle cx={d.svgX} cy={d.svgY} r={DOT_R + 7} fill={d.color} opacity={0.12} />

@@ -2,7 +2,6 @@ import { useState, useMemo, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
-import { MKMap } from '../components/Research/MKMap'
 import { useSurveyStore } from '../store/survey'
 import { rankMKs, TOTAL_QUESTIONS } from '../utils/matching'
 import { findCrossAisleMKs } from '../utils/research'
@@ -46,8 +45,7 @@ const allPartyPositions: Record<string, PartyPosition[]> = {
   raam: raamPos.positions as PartyPosition[],
 }
 
-
-type Tab = 'matches' | 'crossaisle' | 'map'
+type Tab = 'matches' | 'crossaisle'
 
 export function MKsPage() {
   const { t } = useTranslation()
@@ -81,7 +79,6 @@ export function MKsPage() {
   const TABS: Array<{ id: Tab; label: string }> = [
     { id: 'matches',    label: t('mk_tab_matches') },
     { id: 'crossaisle', label: t('mk_tab_crossaisle') },
-    { id: 'map',        label: t('mk_tab_map') },
   ]
 
   return (
@@ -327,17 +324,6 @@ export function MKsPage() {
           </div>
         )}
 
-        {/* Tab 3: MK Map */}
-        {activeTab === 'map' && (
-          <MKMap
-            allPartyPositions={allPartyPositions}
-            mks={mks}
-            mkPositions={mkPositions}
-            parties={parties}
-            lang={lang}
-            userAnswers={answers}
-          />
-        )}
       </main>
     </div>
   )
