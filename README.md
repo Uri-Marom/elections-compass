@@ -1,73 +1,36 @@
-# React + TypeScript + Vite
+# Bureau Design — Drop-in Files
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Copy each file into your `elections-tool/` codebase at the same path shown below.
+Then `git push origin main` and Vercel will deploy automatically.
 
-Currently, two official plugins are available:
+## Files to copy
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Source (this package)                                    | Destination in your repo                                        |
+|----------------------------------------------------------|-----------------------------------------------------------------|
+| `src/index.css`                                          | `src/index.css`                                                 |
+| `src/components/bureau/BureauComponents.tsx`             | `src/components/bureau/BureauComponents.tsx`  ← new folder     |
+| `src/components/shared/LanguageSwitcher.tsx`             | `src/components/shared/LanguageSwitcher.tsx`                    |
+| `src/components/Survey/QuestionCard.tsx`                 | `src/components/Survey/QuestionCard.tsx`                        |
+| `src/components/Survey/DimensionHeader.tsx`              | `src/components/Survey/DimensionHeader.tsx`                     |
+| `src/pages/IntroPage.tsx`                                | `src/pages/IntroPage.tsx`                                       |
+| `src/pages/PrioritiesPage.tsx`                           | `src/pages/PrioritiesPage.tsx`                                  |
+| `src/pages/SurveyPage.tsx`                               | `src/pages/SurveyPage.tsx`                                      |
+| `src/pages/ResultsPage.tsx`                              | `src/pages/ResultsPage.tsx`                                     |
 
-## React Compiler
+## What changed
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Visual design** — Bureau palette (`#fafaf7` bg, `#0a0a0a` ink, `#0891b2` accent), Heebo/Rubik fonts, card borders, compass rose motif, grid-paper dot backgrounds
+- **Dimension transitions** — SurveyPage now shows a full-screen dimension intro screen when entering each new topic (new feature)
+- **Question card** — radio-button scale, compass rose label, "learn more" link
+- **No logic changes** — all state management, routing, scoring, share/compare, analytics, API calls are identical
 
-## Expanding the ESLint configuration
+## After copying
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd elections-tool
+git add -A
+git commit -m "apply Bureau design"
+git push origin main
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Vercel picks it up automatically → live on vote-compass.vercel.app

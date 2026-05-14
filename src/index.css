@@ -1,15 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Rubik:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-body {
+html, body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  background: #fafaf7;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-[dir="rtl"] {
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-}
+/* LTR default */
+body { font-family: 'Rubik', system-ui, sans-serif; }
+
+/* RTL — Hebrew */
+[dir="rtl"] { font-family: 'Heebo', system-ui, sans-serif; }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Smooth answer button press */
+.ans-btn { transition: all 0.15s ease; }
+.ans-btn:active { transform: scale(0.97); }

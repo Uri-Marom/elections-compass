@@ -12,6 +12,7 @@ import { useSurveyStore } from '../store/survey'
 import { rankParties, rankMKs, DIMENSIONS, type DimensionKey } from '../utils/matching'
 import { encodeAnswers, decodeAnswers } from '../utils/encoding'
 import { computePartyAxes, computeUserMapPoint } from '../utils/research'
+import { CompassRose, GridPaper, B, ACCENT, DIM_COLOR, BureauCard } from '../components/bureau/BureauComponents'
 import type { Party, PartyPosition, Question, KnessetMember } from '../types'
 
 import partiesData from '../data/parties.json'
@@ -53,7 +54,6 @@ const allPositions: Record<string, PartyPosition[]> = {
   raam:             raamPos.positions as PartyPosition[],
 }
 
-// Map raw score [-2, +2] → [0, 100] for radar axes
 function toRadarPct(score: number) {
   return Math.round(((score + 2) / 4) * 100)
 }
@@ -61,41 +61,31 @@ function toRadarPct(score: number) {
 function computeUserDimScores(answers: Record<string, number | null>): Record<DimensionKey, number> {
   const result = {} as Record<DimensionKey, number>
   for (const dim of Object.keys(DIMENSIONS) as DimensionKey[]) {
-    const vals = (DIMENSIONS[dim].questions as readonly string[])
-      .flatMap(qid => {
-        const v = answers[qid]
-        if (v === null || v === undefined) return []
-        const polarity = questions.find(q => q.id === qid)?.polarity ?? 1
-        return [v * polarity]
-      })
-    result[dim] = vals.length > 0
-      ? toRadarPct(vals.reduce((a, b) => a + b, 0) / vals.length)
-      : 50
+    const vals = (DIMENSIONS[dim].questions as readonly string[]).flatMap(qid => {
+      const v = answers[qid]
+      if (v === null || v === undefined) return []
+      const polarity = questions.find(q => q.id === qid)?.polarity ?? 1
+      return [v * polarity]
+    })
+    result[dim] = vals.length > 0 ? toRadarPct(vals.reduce((a, b) => a + b, 0) / vals.length) : 50
   }
   return result
 }
 
-function computePartyDimScores(
-  positions: PartyPosition[],
-  mode: 'stated' | 'voted'
-): Record<DimensionKey, number> {
+function computePartyDimScores(positions: PartyPosition[], mode: 'stated' | 'voted'): Record<DimensionKey, number> {
   const result = {} as Record<DimensionKey, number>
   for (const dim of Object.keys(DIMENSIONS) as DimensionKey[]) {
     const vals: number[] = []
     for (const qid of DIMENSIONS[dim].questions as readonly string[]) {
       const pos = positions.find(p => p.question_id === qid)
       if (!pos) continue
-      const s = mode === 'stated'
-        ? pos.stated_position?.score
-        : (pos.voted_position?.score ?? pos.stated_position?.score)
+      const s = mode === 'stated' ? pos.stated_position?.score : (pos.voted_position?.score ?? pos.stated_position?.score)
       if (s !== null && s !== undefined) {
         const polarity = questions.find(q => q.id === qid)?.polarity ?? 1
         vals.push(s * polarity)
       }
     }
-    result[dim] = vals.length > 0
-      ? toRadarPct(vals.reduce((a, b) => a + b, 0) / vals.length)
-      : 50
+    result[dim] = vals.length > 0 ? toRadarPct(vals.reduce((a, b) => a + b, 0) / vals.length) : 50
   }
   return result
 }
@@ -105,6 +95,7 @@ export function ResultsPage() {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const { answers, weights, lang, reset, setAnswer, answeredCount, totalCount } = useSurveyStore()
+  const isHe = lang === 'he'
   const [mode, setMode] = useState<'stated' | 'voted'>('stated')
   const [mapMode, setMapMode] = useState<'stated' | 'voted'>('stated')
   const [selectedPartyId, setSelectedPartyId] = useState<string | null>(null)
@@ -115,45 +106,34 @@ export function ResultsPage() {
   const shareCardRef = useRef<HTMLDivElement>(null)
   const sharePendingRef = useRef(false)
 
-  const SHARE_TEXT_HE = 'עניתי על השאלון של מצפן הבחירות וגיליתי למי כדאי לי להצביע!\nרוצים גם?\ntinyurl.com/matzpen26'
-  const SHARE_TEXT_EN = 'I took the Election Compass quiz and found out who I should vote for!\nWant to find out too?\ntinyurl.com/matzpen26'
-  const shareText = lang === 'he' ? SHARE_TEXT_HE : SHARE_TEXT_EN
+  const SHARE_TEXT_HE = 'עניתי על השאלון של מצפן הצבעה וגיליתי למי כדאי לי להצביע!\nרוצים גם?\ntinyurl.com/matzpen26'
+  const SHARE_TEXT_EN = 'I took the Vote Compass quiz and found out who I should vote for!\nWant to find out too?\ntinyurl.com/matzpen26'
+  const shareText = isHe ? SHARE_TEXT_HE : SHARE_TEXT_EN
 
   const compareParam = searchParams.get('compare')
   const aParam = searchParams.get('a')
 
-  // Decode friend's answers from URL (never put into store)
   const friendAnswers = useMemo(() => {
     if (!compareParam) return null
     const decoded = decodeAnswers(compareParam)
     return Object.keys(decoded).length > 0 ? decoded : null
   }, [compareParam])
 
-  // Hydrate own answers from ?a= and handle compare routing
   useEffect(() => {
     if (aParam && answeredCount() === 0) {
       const decoded = decodeAnswers(aParam)
-      for (const [qid, score] of Object.entries(decoded)) {
-        setAnswer(qid, score)
-      }
+      for (const [qid, score] of Object.entries(decoded)) setAnswer(qid, score)
     }
-
-    // Pending compare from sessionStorage (B just finished the quiz)
     if (!compareParam) {
       const pending = sessionStorage.getItem('pendingCompare')
       if (pending && answeredCount() > 0) {
         sessionStorage.removeItem('pendingCompare')
-        setSearchParams(prev => {
-          const next = new URLSearchParams(prev)
-          next.set('compare', pending)
-          return next
-        }, { replace: true })
+        setSearchParams(prev => { const next = new URLSearchParams(prev); next.set('compare', pending); return next }, { replace: true })
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Anonymous analytics: fire-and-forget on first real visit
   useEffect(() => {
     if (answeredCount() < 5) return
     if (sessionStorage.getItem('submitted')) return
@@ -169,31 +149,20 @@ export function ResultsPage() {
   const handleShare = useCallback(() => {
     const encoded = encodeAnswers(answers)
     const url = `${window.location.origin}/results?a=${encoded}`
-    navigator.clipboard.writeText(url).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2500)
-    })
+    navigator.clipboard.writeText(url).then(() => { setCopied(true); setTimeout(() => setCopied(false), 2500) })
   }, [answers])
 
   const handleCompare = useCallback(async () => {
     const encoded = encodeAnswers(answers)
     const url = `${window.location.origin}/results?compare=${encoded}`
-    const compareText = lang === 'he'
-      ? `עניתי על מצפן הבחירות. ענו גם אתם ונוכל להשוות את התוצאות שלנו!\n${url}`
-      : `Take the Election Compass quiz and let's compare results!\n${url}`
+    const compareText = isHe
+      ? `עניתי על מצפן הצבעה. ענו גם אתם ונוכל להשוות את התוצאות שלנו!\n${url}`
+      : `Take the Vote Compass quiz and let's compare results!\n${url}`
     if (navigator.share) {
-      try {
-        await navigator.share({ text: compareText })
-        return
-      } catch {
-        // user cancelled or share not supported — fall through to clipboard
-      }
+      try { await navigator.share({ text: compareText }); return } catch {}
     }
-    navigator.clipboard.writeText(url).then(() => {
-      setCompareCopied(true)
-      setTimeout(() => setCompareCopied(false), 2500)
-    })
-  }, [answers, lang])
+    navigator.clipboard.writeText(url).then(() => { setCompareCopied(true); setTimeout(() => setCompareCopied(false), 2500) })
+  }, [answers, isHe])
 
   const handleShareImage = useCallback(async () => {
     if (!shareCardRef.current || sharePendingRef.current) return
@@ -201,108 +170,55 @@ export function ResultsPage() {
     setSharingImage(true)
     try {
       const { toCanvas } = await import('html-to-image')
-
-      // 2x pixel ratio for high-res output. The previous share-sheet doubling bug is
-      // gone since we now write directly to clipboard via ClipboardItem.
       const canvas = await toCanvas(shareCardRef.current, { pixelRatio: 2 })
-
       const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, 'image/png'))
-
       if (!blob) throw new Error('toBlob returned null')
       const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
-
-      // On mobile, use the native share sheet — it receives both the image file and the
-      // pre-written text, so WhatsApp/Instagram/Facebook each get both in one tap.
-      // On desktop we skip the share sheet (its "Copy" puts two clipboard items, causing
-      // WhatsApp to paste twice) and write directly via ClipboardItem instead.
       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
       if (isMobile && navigator.share && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          text: shareText,
-          title: lang === 'he' ? 'מצפן בחירות - התוצאות שלי' : 'Election Compass - My Results',
-        })
+        await navigator.share({ files: [file], text: shareText, title: isHe ? 'מצפן הצבעה - התוצאות שלי' : 'Vote Compass - My Results' })
       } else {
-        // Desktop: write image + text as a single ClipboardItem so WhatsApp Web gets the
-        // image on paste, and the caption field can pick up the text/plain format.
         const textBlob = new Blob([shareText], { type: 'text/plain' })
         if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
           await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob, 'text/plain': textBlob })])
         } else {
-          // Fallback: download the file if ClipboardItem isn't available
           const objectUrl = URL.createObjectURL(blob)
           const link = document.createElement('a')
-          link.href = objectUrl
-          link.download = 'matzpen-results.png'
-          link.click()
+          link.href = objectUrl; link.download = 'matzpen-results.png'; link.click()
           URL.revokeObjectURL(objectUrl)
         }
-        setImageCopied(true)
-        setTimeout(() => setImageCopied(false), 3000)
+        setImageCopied(true); setTimeout(() => setImageCopied(false), 3000)
       }
-    } catch (err) {
-      console.error('Share image failed:', err)
-    } finally {
-      setSharingImage(false)
-      sharePendingRef.current = false
-    }
-  }, [lang, shareText])
+    } catch (err) { console.error('Share image failed:', err) }
+    finally { setSharingImage(false); sharePendingRef.current = false }
+  }, [isHe, shareText])
 
-  const rankedBase = useMemo(
-    () => rankParties(answers, allPositions, weights),
-    [answers, weights]
-  )
-
-  const ranked = useMemo(
-    () => mode === 'voted'
-      ? [...rankedBase].sort((a, b) =>
-          (b.overall_voted ?? b.overall_stated) - (a.overall_voted ?? a.overall_stated))
-      : rankedBase,
-    [rankedBase, mode]
-  )
-
-  const rankedMKs = useMemo(
-    () => rankMKs(answers, mkPositions, weights),
-    [answers, weights]
-  )
-
+  const rankedBase = useMemo(() => rankParties(answers, allPositions, weights), [answers, weights])
+  const ranked = useMemo(() => mode === 'voted'
+    ? [...rankedBase].sort((a, b) => (b.overall_voted ?? b.overall_stated) - (a.overall_voted ?? a.overall_stated))
+    : rankedBase, [rankedBase, mode])
+  const rankedMKs = useMemo(() => rankMKs(answers, mkPositions, weights), [answers, weights])
   const userDimScores = useMemo(() => computeUserDimScores(answers), [answers])
 
   const effectivePartyId = selectedPartyId ?? ranked[0]?.party_id ?? ''
   const selectedParty = parties.find(p => p.id === effectivePartyId)
   const selectedPositions = allPositions[effectivePartyId] ?? []
-  const partyName = selectedParty
-    ? (lang === 'he' ? selectedParty.name_he : selectedParty.name_en)
-    : effectivePartyId
-
-  const partyDimScores = useMemo(
-    () => computePartyDimScores(selectedPositions, mode),
-    [effectivePartyId, mode] // eslint-disable-line react-hooks/exhaustive-deps
-  )
-
+  const partyName = selectedParty ? (isHe ? selectedParty.name_he : selectedParty.name_en) : effectivePartyId
+  const partyDimScores = useMemo(() => computePartyDimScores(selectedPositions, mode), [effectivePartyId, mode]) // eslint-disable-line react-hooks/exhaustive-deps
   const topPartyPositions = allPositions[ranked[0]?.party_id ?? ''] ?? []
-  const topPartyDimScores = useMemo(
-    () => computePartyDimScores(topPartyPositions, 'stated'),
-    [ranked[0]?.party_id] // eslint-disable-line react-hooks/exhaustive-deps
-  )
+  const topPartyDimScores = useMemo(() => computePartyDimScores(topPartyPositions, 'stated'), [ranked[0]?.party_id]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const axisResult = useMemo(() => computePartyAxes(allPositions, mapMode), [mapMode])
   const mapPoints = axisResult.points
   const userMapPoint = useMemo(() => computeUserMapPoint(answers, axisResult), [answers, axisResult])
-  const friendMapPoint = useMemo(
-    () => friendAnswers ? computeUserMapPoint(friendAnswers, axisResult) : null,
-    [friendAnswers, axisResult]
-  )
-  const friendDimScores = useMemo(
-    () => friendAnswers ? computeUserDimScores(friendAnswers) : null,
-    [friendAnswers]
-  )
+  const friendMapPoint = useMemo(() => friendAnswers ? computeUserMapPoint(friendAnswers, axisResult) : null, [friendAnswers, axisResult])
+  const friendDimScores = useMemo(() => friendAnswers ? computeUserDimScores(friendAnswers) : null, [friendAnswers])
 
   const answered = answeredCount()
   const total = totalCount()
+  const topMatch = ranked[0]
+  const topParty = topMatch ? parties.find(p => p.id === topMatch.party_id) : null
 
-  // Redirect to intro when there are no answers and no ?a= to hydrate from.
-  // If ?a= is present, return null briefly while the useEffect hydrates the store.
   if (answered === 0) {
     if (aParam) return null
     if (compareParam) sessionStorage.setItem('pendingCompare', compareParam)
@@ -310,31 +226,131 @@ export function ResultsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-          <h1 className="flex-1 text-lg font-bold text-gray-900">{t('results_title')}</h1>
+    <div style={{ minHeight: '100dvh', background: B.bg }}>
+
+      {/* Header */}
+      <header style={{
+        background: `${B.bg}f5`,
+        backdropFilter: 'blur(8px)',
+        borderBottom: `1px solid ${B.border}`,
+        position: 'sticky',
+        top: 0,
+        zIndex: 10,
+        padding: '12px 20px',
+      }}>
+        <div style={{
+          maxWidth: 480,
+          margin: '0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+        }}>
+          <CompassRose size={20} accent={ACCENT} lang={lang} />
+          <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: B.ink }}>
+            {isHe ? 'מצפן הצבעה' : 'Vote Compass Israel'}
+          </span>
           <LanguageSwitcher />
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto px-4 py-6 space-y-6">
-        <p className="text-sm text-gray-500">
-          {t('results_subtitle', { answered, total })}
-        </p>
+      <main style={{ maxWidth: 480, margin: '0 auto', padding: '0 20px 40px' }}>
+
+        {/* Hero headline */}
+        <div style={{ padding: '24px 0 20px', position: 'relative' }}>
+          <GridPaper opacity={0.025} />
+          <h1 style={{
+            fontSize: 34,
+            fontWeight: 900,
+            letterSpacing: '-0.025em',
+            lineHeight: 0.95,
+            color: B.ink,
+            marginBottom: 6,
+            position: 'relative',
+          }}>
+            {isHe
+              ? <>{`הנה איפה`}<br /><span style={{ color: ACCENT }}>{`אתם עומדים.`}</span></>
+              : <>{`Here is`}<br /><span style={{ color: ACCENT }}>{`where you stand.`}</span></>
+            }
+          </h1>
+          <p style={{ fontSize: 13, color: B.inkFaint, position: 'relative' }}>
+            {t('results_subtitle', { answered, total })}
+          </p>
+        </div>
+
+        {/* Top match hero */}
+        {topParty && topMatch && (
+          <div style={{
+            marginBottom: 16,
+            padding: '16px',
+            background: `${topParty.color}08`,
+            border: `1.5px solid ${topParty.color}25`,
+            borderRadius: B.radiusLg,
+            position: 'relative',
+            overflow: 'hidden',
+          }}>
+            <div style={{
+              position: 'absolute',
+              insetInlineEnd: -20,
+              bottom: -20,
+              opacity: 0.06,
+            }}>
+              <CompassRose size={120} color={topParty.color} accent={topParty.color} lang={lang} />
+            </div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: B.inkFaint, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 10 }}>
+              {t('top_match')}
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, position: 'relative' }}>
+              {topParty.logo && (
+                <img
+                  src={topParty.logo}
+                  alt={topParty.name_en}
+                  style={{ width: 52, height: 52, borderRadius: '50%', objectFit: 'contain', background: `${topParty.color}14`, border: `1.5px solid ${topParty.color}44`, padding: 4, flexShrink: 0 }}
+                />
+              )}
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 20, fontWeight: 800, color: B.ink, lineHeight: 1.05 }}>
+                  {isHe ? topParty.name_he : topParty.name_en}
+                </div>
+                <div style={{ fontSize: 12, color: B.inkFaint, marginTop: 3 }}>
+                  {topParty.poll_seats ? `${topParty.poll_seats} ${t('poll_seats')}` : `${topParty.seats} ${t('seats')}`}
+                </div>
+              </div>
+              <div style={{ textAlign: 'center', flexShrink: 0 }}>
+                <div style={{ fontSize: 38, fontWeight: 900, color: topParty.color, lineHeight: 0.95 }}>
+                  {topMatch.overall_stated}<span style={{ fontSize: 18 }}>%</span>
+                </div>
+                <div style={{ fontSize: 10, color: B.inkFaint, letterSpacing: '0.08em' }}>{t('match')}</div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Mode toggle */}
-        <div className="flex bg-gray-100 rounded-xl p-1 gap-1">
+        <div style={{
+          display: 'flex',
+          background: B.bgMid,
+          borderRadius: 12,
+          padding: 3,
+          gap: 2,
+          marginBottom: 16,
+        }}>
           {(['stated', 'voted'] as const).map(m => (
             <button
               key={m}
               onClick={() => setMode(m)}
-              className={[
-                'flex-1 py-2 rounded-lg text-sm font-medium transition-all',
-                mode === m
-                  ? 'bg-white text-gray-900 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700',
-              ].join(' ')}
+              style={{
+                flex: 1,
+                padding: '8px',
+                borderRadius: 9,
+                border: 'none',
+                background: mode === m ? B.white : 'transparent',
+                fontSize: 13,
+                fontWeight: 600,
+                color: mode === m ? B.ink : B.inkFaint,
+                cursor: 'pointer',
+                boxShadow: mode === m ? '0 1px 3px rgba(0,0,0,0.06)' : 'none',
+                transition: 'all 0.15s ease',
+              }}
             >
               {m === 'stated' ? t('stated_positions') : t('actual_votes')}
             </button>
@@ -342,40 +358,50 @@ export function ResultsPage() {
         </div>
 
         {/* Comparison card */}
-        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+        <BureauCard style={{ marginBottom: 16, overflow: 'visible' }}>
           {/* Party selector */}
-          <div className="border-b border-gray-100 px-4 py-3">
-            <p className="text-xs text-gray-400 mb-2">{t('compare_with')}</p>
-            <div className="flex gap-3 overflow-x-auto pb-1 no-scrollbar">
+          <div style={{ borderBottom: `1px solid ${B.border}`, padding: '14px 16px 12px' }}>
+            <p style={{ fontSize: 11, color: B.inkFaint, marginBottom: 10, letterSpacing: '0.04em' }}>{t('compare_with')}</p>
+            <div style={{ display: 'flex', gap: 10, overflowX: 'auto', paddingBottom: 4 }} className="no-scrollbar">
               {ranked.map((match, i) => {
                 const party = parties.find(p => p.id === match.party_id)
                 if (!party) return null
-                const name = lang === 'he' ? party.name_he : party.name_en
+                const name = isHe ? party.name_he : party.name_en
                 const isSelected = match.party_id === effectivePartyId
-                const score = mode === 'stated'
-                  ? match.overall_stated
-                  : (match.overall_voted ?? match.overall_stated)
+                const score = mode === 'stated' ? match.overall_stated : (match.overall_voted ?? match.overall_stated)
                 return (
                   <button
                     key={match.party_id}
                     onClick={() => setSelectedPartyId(match.party_id)}
-                    className={[
-                      'flex flex-col items-center gap-1 shrink-0 transition-all rounded-xl px-2 py-1.5',
-                      isSelected ? 'bg-gray-100' : 'hover:bg-gray-50',
-                    ].join(' ')}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: 4,
+                      flexShrink: 0,
+                      padding: '6px 8px',
+                      borderRadius: 10,
+                      background: isSelected ? B.bgMid : 'transparent',
+                      border: 'none',
+                      cursor: 'pointer',
+                    }}
                   >
-                    <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold border-2"
-                      style={{
-                        backgroundColor: party.color,
-                        borderColor: isSelected ? '#1d4ed8' : 'transparent',
-                        boxShadow: isSelected ? `0 0 0 2px white, 0 0 0 4px ${party.color}` : 'none',
-                      }}
-                    >
+                    <div style={{
+                      width: 32, height: 32,
+                      borderRadius: '50%',
+                      background: party.color,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#fff',
+                      fontSize: 11,
+                      fontWeight: 800,
+                      boxShadow: isSelected ? `0 0 0 2px ${B.white}, 0 0 0 4px ${party.color}` : 'none',
+                    }}>
                       {i + 1}
                     </div>
-                    <span className="text-[10px] text-gray-600 max-w-[80px] text-center leading-tight line-clamp-2 break-words">{name}</span>
-                    <span className="text-xs font-semibold" style={{ color: party.color }}>{score}%</span>
+                    <span style={{ fontSize: 10, color: B.inkSoft, maxWidth: 70, textAlign: 'center', lineHeight: 1.3 }}>{name}</span>
+                    <span style={{ fontSize: 12, fontWeight: 700, color: party.color }}>{score}%</span>
                   </button>
                 )
               })}
@@ -383,7 +409,7 @@ export function ResultsPage() {
           </div>
 
           {/* Radar */}
-          <div className="px-2 pt-4">
+          <div style={{ padding: '4px 4px 0' }}>
             <MatchRadarChart
               userDimScores={userDimScores}
               partyDimScores={partyDimScores}
@@ -394,8 +420,8 @@ export function ResultsPage() {
           </div>
 
           {/* Dimension gap bars */}
-          <div className="px-5 pb-5 pt-2">
-            <p className="text-xs text-gray-400 mb-3">{t('dimension_breakdown')}</p>
+          <div style={{ padding: '8px 16px 16px' }}>
+            <p style={{ fontSize: 11, color: B.inkFaint, marginBottom: 12, letterSpacing: '0.04em' }}>{t('dimension_breakdown')}</p>
             <DimensionGapBars
               userAnswers={answers}
               partyPositions={selectedPositions}
@@ -406,38 +432,62 @@ export function ResultsPage() {
               friendAnswers={friendAnswers}
             />
           </div>
-        </div>
+        </BureauCard>
 
-        {/* Share image button */}
+        {/* Share image */}
         <button
           onClick={handleShareImage}
           disabled={sharingImage}
-          className="w-full py-3 rounded-xl bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors disabled:opacity-60"
+          style={{
+            width: '100%',
+            padding: '14px',
+            background: ACCENT,
+            color: '#fff',
+            border: 'none',
+            borderRadius: B.radius,
+            fontSize: 14,
+            fontWeight: 700,
+            cursor: sharingImage ? 'not-allowed' : 'pointer',
+            opacity: sharingImage ? 0.7 : 1,
+            marginBottom: 10,
+          }}
         >
-          {sharingImage
-            ? t('share_generating')
-            : imageCopied
-            ? (lang === 'he' ? '✓ הועתק! הדביקו בווצאפ' : '✓ Copied! Paste in WhatsApp')
-            : t('share_image')}
+          {sharingImage ? t('share_generating') : imageCopied ? (isHe ? '✓ הועתק! הדביקו בווצאפ' : '✓ Copied! Paste in WhatsApp') : t('share_image')}
         </button>
 
-        {/* Share buttons row */}
-        <div className="flex gap-2">
+        {/* Share / compare links */}
+        <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
           <button
             onClick={handleShare}
-            className="flex-1 py-2 text-sm text-indigo-600 hover:text-indigo-800 transition-colors"
+            style={{
+              flex: 1, padding: '12px',
+              background: B.white,
+              border: `1px solid ${B.border}`,
+              borderRadius: B.radius,
+              fontSize: 13, fontWeight: 500,
+              color: ACCENT,
+              cursor: 'pointer',
+            }}
           >
             {copied ? t('share_copied') : t('share_link')}
           </button>
           <button
             onClick={handleCompare}
-            className="flex-1 py-2 text-sm text-purple-600 hover:text-purple-800 transition-colors font-medium"
+            style={{
+              flex: 1, padding: '12px',
+              background: B.white,
+              border: `1px solid ${B.border}`,
+              borderRadius: B.radius,
+              fontSize: 13, fontWeight: 600,
+              color: '#7c3aed',
+              cursor: 'pointer',
+            }}
           >
-            {compareCopied ? t('compare_copied') : `👥 ${t('compare_with_friend')}`}
+            {compareCopied ? t('compare_copied') : t('compare_with_friend')}
           </button>
         </div>
 
-        {/* Friend comparison panel (shown when ?compare= is in URL) */}
+        {/* Friend comparison panel */}
         {friendAnswers && (
           <ComparisonPanel
             myAnswers={answers}
@@ -451,9 +501,9 @@ export function ResultsPage() {
           />
         )}
 
-        {/* 2D ideological map */}
-        <section className="bg-white rounded-2xl border border-gray-200 shadow-sm px-4 pt-4 pb-3">
-          <h2 className="text-sm font-bold text-gray-900 mb-3">{t('similarity_title')}</h2>
+        {/* Ideological map */}
+        <BureauCard style={{ marginBottom: 16, padding: '16px' }}>
+          <h2 style={{ fontSize: 13, fontWeight: 700, color: B.ink, marginBottom: 12 }}>{t('similarity_title')}</h2>
           <PartyMap
             points={mapPoints}
             parties={parties}
@@ -463,14 +513,19 @@ export function ResultsPage() {
             userPoint={userMapPoint}
             friendPoint={friendMapPoint}
           />
-        </section>
+        </BureauCard>
 
         <MKMatchList topMKs={rankedMKs} mks={mks} parties={parties} />
 
         {rankedMKs.length > 0 && (
           <button
             onClick={() => navigate('/mks')}
-            className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
+            style={{
+              width: '100%', padding: '13px',
+              background: B.white, border: `1px solid ${B.border}`,
+              borderRadius: B.radius, fontSize: 13, fontWeight: 600,
+              color: B.inkSoft, cursor: 'pointer', marginBottom: 8,
+            }}
           >
             {t('open_mk_compass')}
           </button>
@@ -478,25 +533,33 @@ export function ResultsPage() {
 
         <button
           onClick={() => navigate('/research')}
-          className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
+          style={{
+            width: '100%', padding: '13px',
+            background: B.white, border: `1px solid ${B.border}`,
+            borderRadius: B.radius, fontSize: 13, fontWeight: 600,
+            color: B.inkSoft, cursor: 'pointer', marginBottom: 8,
+          }}
         >
           {t('explore_research')}
         </button>
 
         <button
           onClick={() => { reset(); navigate('/') }}
-          className="w-full py-3 text-sm text-gray-500 hover:text-gray-700 underline"
+          style={{
+            width: '100%', padding: '12px',
+            background: 'transparent', border: 'none',
+            fontSize: 13, color: B.inkFaint,
+            textDecoration: 'underline', textDecorationColor: B.border,
+            cursor: 'pointer',
+          }}
         >
           {t('restart')}
         </button>
       </main>
 
-      {/* Share card: zero-size container keeps it in the render tree but invisible */}
+      {/* Hidden share card */}
       {ranked[0] && parties.find(p => p.id === ranked[0].party_id) && (
-        <div
-          aria-hidden="true"
-          style={{ position: 'absolute', top: 0, left: 0, width: 0, height: 0, overflow: 'hidden', pointerEvents: 'none' }}
-        >
+        <div aria-hidden="true" style={{ position: 'absolute', top: 0, left: 0, width: 0, height: 0, overflow: 'hidden', pointerEvents: 'none' }}>
           <ShareCard
             ref={shareCardRef}
             topMatches={[ranked[0], ranked[1], ranked[2]]}

@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 import type { Question } from '../../types'
 import { useSurveyStore } from '../../store/survey'
 import { LearnMoreModal } from './LearnMoreModal'
+import { CompassRose, B, DIM_COLOR } from '../bureau/BureauComponents'
+import { DIMENSIONS, type DimensionKey } from '../../utils/matching'
 
 interface Props {
   question: Question
@@ -12,23 +14,32 @@ interface Props {
 }
 
 const LIKERT: { score: number; key: string }[] = [
-  { score: 2,  key: 'strongly_agree' },
-  { score: 1,  key: 'agree' },
-  { score: 0,  key: 'neutral' },
-  { score: -1, key: 'disagree' },
+  { score:  2, key: 'strongly_agree'    },
+  { score:  1, key: 'agree'             },
+  { score:  0, key: 'neutral'           },
+  { score: -1, key: 'disagree'          },
   { score: -2, key: 'strongly_disagree' },
 ]
+
+function getDimForQuestion(qid: string): DimensionKey | undefined {
+  return (Object.keys(DIMENSIONS) as DimensionKey[]).find(dim =>
+    (DIMENSIONS[dim].questions as readonly string[]).includes(qid)
+  )
+}
 
 export function QuestionCard({ question, questionNumber, totalQuestions, onSelect }: Props) {
   const { t } = useTranslation()
   const { answers, setAnswer, lang } = useSurveyStore()
   const [showInfo, setShowInfo] = useState(false)
+
   const current = answers[question.id]
   const text = lang === 'he' ? question.text_he : question.text_en
+  const dim = getDimForQuestion(question.id)
+  const color = dim ? DIM_COLOR[dim] : B.accent
 
   function handleSelect(score: number) {
     setAnswer(question.id, score)
-    setTimeout(onSelect, 220)
+    setTimeout(onSelect, 240)
   }
 
   function handleSkip() {
@@ -37,43 +48,122 @@ export function QuestionCard({ question, questionNumber, totalQuestions, onSelec
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto px-4">
-      <div className="text-xs text-gray-400 mb-3">
-        {t('question_of', { current: questionNumber, total: totalQuestions })}
+    <div style={{
+      width: '100%',
+      maxWidth: 480,
+      padding: '0 20px',
+    }}>
+      {/* Question label */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 16 }}>
+        <CompassRose size={18} color={B.inkHint} accent={color} lang={lang} />
+        <span style={{
+          fontSize: 11,
+          color: B.inkHint,
+          fontFamily: 'ui-monospace, monospace',
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
+        }}>
+          {t('question_of', { current: questionNumber, total: totalQuestions })}
+        </span>
       </div>
 
-      <p className="text-lg font-medium text-gray-900 leading-snug mb-3">
-        {text}
+      {/* Question text */}
+      <p style={{
+        fontSize: 19,
+        fontWeight: 600,
+        color: B.ink,
+        lineHeight: 1.45,
+        marginBottom: 8,
+      }}>
+        "{text}"
       </p>
 
-      {question.info_en && (
+      {/* Learn more */}
+      {(question.info_en || question.info_he) && (
         <button
           onClick={() => setShowInfo(true)}
-          className="mb-4 text-xs text-blue-500 hover:text-blue-700 transition-colors"
+          style={{
+            marginBottom: 24,
+            padding: 0,
+            border: 'none',
+            background: 'transparent',
+            fontSize: 12,
+            color,
+            cursor: 'pointer',
+            textDecoration: 'underline',
+            textDecorationColor: `${color}55`,
+          }}
         >
           {t('learn_more')}
         </button>
       )}
 
-      <div className="flex flex-col gap-2">
-        {LIKERT.map(({ score, key }) => (
-          <button
-            key={score}
-            onClick={() => handleSelect(score)}
-            className={[
-              'w-full py-3 px-4 rounded-xl border-2 text-sm font-medium transition-all text-start',
-              current === score
-                ? 'border-blue-600 bg-blue-50 text-blue-800'
-                : 'border-gray-200 bg-white text-gray-700 hover:border-blue-300 hover:bg-blue-50/50',
-            ].join(' ')}
-          >
-            {t(key)}
-          </button>
-        ))}
+      {!question.info_en && !question.info_he && (
+        <div style={{ marginBottom: 24 }} />
+      )}
 
+      {/* 5-point scale */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {LIKERT.map(({ score, key }) => {
+          const isSel = current === score
+          return (
+            <button
+              key={score}
+              className="ans-btn"
+              onClick={() => handleSelect(score)}
+              style={{
+                padding: '13px 16px',
+                borderRadius: 12,
+                border: `1.5px solid ${isSel ? color : B.border}`,
+                background: isSel ? `${color}10` : B.white,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+                textAlign: 'start',
+                cursor: 'pointer',
+              }}
+            >
+              {/* Radio dot */}
+              <div style={{
+                width: 20,
+                height: 20,
+                borderRadius: '50%',
+                border: `2px solid ${isSel ? color : B.borderMid}`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}>
+                {isSel && (
+                  <div style={{ width: 10, height: 10, borderRadius: '50%', background: color }} />
+                )}
+              </div>
+              <span style={{
+                fontSize: 14,
+                fontWeight: isSel ? 700 : 400,
+                color: isSel ? B.ink : '#3f3f46',
+              }}>
+                {t(key)}
+              </span>
+            </button>
+          )
+        })}
+      </div>
+
+      {/* Skip */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, marginTop: 20 }}>
         <button
           onClick={handleSkip}
-          className="w-full py-2 px-4 rounded-xl border border-dashed border-gray-300 text-sm text-gray-400 hover:border-gray-400 transition-all"
+          style={{
+            padding: '8px 16px',
+            border: 'none',
+            background: 'transparent',
+            fontSize: 13,
+            color: B.inkHint,
+            textDecoration: 'underline',
+            textDecorationColor: B.border,
+            cursor: 'pointer',
+          }}
         >
           {t('skip_question')}
         </button>
