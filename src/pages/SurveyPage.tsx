@@ -201,7 +201,7 @@ export function SurveyPage() {
   const total = orderedQuestions.length
 
   const currentDimKey = getDimForQuestion(current?.id ?? '')
-  const dimIdx = DIM_KEYS.indexOf(transitionDim)
+
   const qIdxInDim = (DIMENSIONS[currentDimKey].questions as readonly string[]).indexOf(current?.id)
   const dimLength = DIMENSIONS[currentDimKey].questions.length
 

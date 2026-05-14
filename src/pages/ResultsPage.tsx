@@ -12,7 +12,7 @@ import { useSurveyStore } from '../store/survey'
 import { rankParties, rankMKs, DIMENSIONS, type DimensionKey } from '../utils/matching'
 import { encodeAnswers, decodeAnswers } from '../utils/encoding'
 import { computePartyAxes, computeUserMapPoint } from '../utils/research'
-import { CompassRose, GridPaper, B, ACCENT, DIM_COLOR, BureauCard } from '../components/bureau/BureauComponents'
+import { CompassRose, GridPaper, B, ACCENT, BureauCard } from '../components/bureau/BureauComponents'
 import type { Party, PartyPosition, Question, KnessetMember } from '../types'
 
 import partiesData from '../data/parties.json'
