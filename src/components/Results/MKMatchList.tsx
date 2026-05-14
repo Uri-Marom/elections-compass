@@ -5,10 +5,6 @@ import type { MKMatch, KnessetMember, Party } from '../../types'
 import { TOTAL_QUESTIONS } from '../../utils/matching'
 import { B } from '../bureau/BureauComponents'
 
-const GRADE_BG: Record<string, string>   = { A: '#f0fdf4', B: '#ecfeff', C: '#fefce8', D: '#fff7ed', F: '#fef2f2' }
-const GRADE_FG: Record<string, string>   = { A: '#15803d', B: '#0e7490', C: '#a16207', D: '#c2410c', F: '#b91c1c' }
-const GRADE_BD: Record<string, string>   = { A: '#bbf7d0', B: '#a5f3fc', C: '#fde68a', D: '#fed7aa', F: '#fecaca' }
-
 interface Props {
   topMKs: MKMatch[]
   mks: KnessetMember[]
@@ -53,6 +49,13 @@ export function MKMatchList({ topMKs, mks, parties }: Props) {
             if (!mk) return null
             const party = parties.find(p => p.id === mk.party_id)
             const name = lang === 'he' ? mk.name_he : (mk.name_en || mk.name_he)
+            const isFormerYeshAtid = mk.party_id === 'yesh_atid'
+            const partyLabel = party
+              ? (lang === 'he' ? party.name_he : party.name_en)
+              : isFormerYeshAtid
+                ? (lang === 'he' ? 'יש עתיד (לשעבר)' : 'Yesh Atid (former)')
+                : null
+            const partyColor = party?.color ?? (isFormerYeshAtid ? '#f59e0b' : B.inkHint)
 
             return (
               <div
@@ -72,39 +75,22 @@ export function MKMatchList({ topMKs, mks, parties }: Props) {
                 </span>
 
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
-                    <span style={{ fontSize: 13, fontWeight: 600, color: B.ink }}>{name}</span>
-                    {mk.activity_grade && (
-                      <span style={{
-                        fontSize: 10, padding: '1px 6px', borderRadius: 99, fontWeight: 700,
-                        background: GRADE_BG[mk.activity_grade] ?? B.bgMid,
-                        color: GRADE_FG[mk.activity_grade] ?? B.inkSoft,
-                        border: `1px solid ${GRADE_BD[mk.activity_grade] ?? B.border}`,
-                        flexShrink: 0,
-                      }}
-                        title={`${mk.attendance_pct}% attendance · ${mk.bill_count} bills`}
-                      >
-                        {mk.activity_grade}
-                      </span>
-                    )}
-                    {mk.is_current && (
-                      <span style={{
-                        fontSize: 10, padding: '1px 6px', borderRadius: 99,
-                        background: '#f0fdf4', color: '#15803d', border: '1px solid #bbf7d0', flexShrink: 0,
-                      }}>
-                        {t('current_mk')}
-                      </span>
-                    )}
-                  </div>
-                  {party && (
-                    <span style={{ fontSize: 11, fontWeight: 600, color: party.color, marginTop: 1, display: 'block' }}>
-                      {lang === 'he' ? party.name_he : party.name_en}
+                  <span style={{ fontSize: 13, fontWeight: 600, color: B.ink }}>{name}</span>
+                  {partyLabel && (
+                    <span style={{ fontSize: 11, fontWeight: 600, color: partyColor, marginTop: 1, display: 'block' }}>
+                      {partyLabel}
                     </span>
                   )}
+                  <p style={{ fontSize: 11, color: B.inkHint, marginTop: 1 }}>
+                    {mk.attendance_pct != null
+                      ? `${mk.attendance_pct}% ${lang === 'he' ? 'נוכחות' : 'attendance'}`
+                      : (lang === 'he' ? 'נוכחות: לא זמין' : 'attendance: N/A')
+                    } · {mk.bill_count} {lang === 'he' ? 'הצעות חוק' : 'bills'}
+                  </p>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
-                  <span style={{ fontSize: 13, fontWeight: 800, color: party?.color ?? B.inkHint }}>
+                  <span style={{ fontSize: 13, fontWeight: 800, color: partyColor }}>
                     {match.overall}%
                   </span>
                   <span style={{ fontSize: 10, color: B.inkHint }}>

@@ -124,6 +124,40 @@ export function GridPaper({ color = '#0a0a0a', opacity = 0.04, dotSize = 24 }: G
   )
 }
 
+// ── CompassWatermarkSVG ───────────────────────────────────────────────────────
+// Pure SVG <g> element — must be placed inside an <svg> parent.
+
+export function CompassWatermarkSVG({ cx, cy, size, opacity = 0.1 }: { cx: number; cy: number; size: number; opacity?: number }) {
+  const scale = size / 100
+  return (
+    <g transform={`translate(${cx - size / 2}, ${cy - size / 2}) scale(${scale})`} opacity={opacity} style={{ pointerEvents: 'none' }}>
+      <circle cx={50} cy={50} r={46} fill="none" stroke="white" strokeWidth={0.6} />
+      <circle cx={50} cy={50} r={40} fill="none" stroke="white" strokeWidth={0.4} opacity={0.6} />
+      {Array.from({ length: 32 }).map((_, i) => {
+        const a = (i / 32) * Math.PI * 2
+        const r1 = i % 4 === 0 ? 38 : 41
+        return (
+          <line key={i}
+            x1={50 + Math.cos(a) * r1} y1={50 + Math.sin(a) * r1}
+            x2={50 + Math.cos(a) * 46} y2={50 + Math.sin(a) * 46}
+            stroke="white" strokeWidth={i % 8 === 0 ? 0.8 : 0.3} opacity={i % 4 === 0 ? 0.7 : 0.3}
+          />
+        )
+      })}
+      <polygon points="50,10 54,48 50,50 46,48" fill={ACCENT} />
+      <polygon points="50,10 46,48 50,50 54,48" fill="white" opacity={0.6} />
+      <polygon points="50,90 54,52 50,50 46,52" fill="white" opacity={0.5} />
+      <polygon points="50,90 46,52 50,50 54,52" fill="white" opacity={0.3} />
+      <polygon points="10,50 48,54 50,50 48,46" fill="white" opacity={0.3} />
+      <polygon points="10,50 48,46 50,50 48,54" fill="white" opacity={0.5} />
+      <polygon points="90,50 52,46 50,50 52,54" fill="white" opacity={0.5} />
+      <polygon points="90,50 52,54 50,50 52,46" fill="white" opacity={0.3} />
+      <circle cx={50} cy={50} r={3.5} fill={ACCENT} />
+      <circle cx={50} cy={50} r={1.2} fill="white" />
+    </g>
+  )
+}
+
 // ── BureauCard ────────────────────────────────────────────────────────────────
 
 export function BureauCard({ children, style = {} }: { children: React.ReactNode; style?: React.CSSProperties }) {

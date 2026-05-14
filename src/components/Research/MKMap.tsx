@@ -5,7 +5,7 @@ import {
   MK_DIM_LABELS,
   type MKDimKey,
 } from '../../utils/research'
-import { B, ACCENT, DIM_COLOR } from '../bureau/BureauComponents'
+import { B, ACCENT, DIM_COLOR, CompassWatermarkSVG } from '../bureau/BureauComponents'
 
 interface Props {
   allPartyPositions: Record<string, PartyPosition[]>
@@ -18,21 +18,19 @@ interface Props {
 
 const SVG_W = 500
 const SVG_H = 460
-const MARGIN = 126
-const PAD_Y = 44
+const MARGIN = 100
+const PAD_Y = 36
 const PARTY_R = 7
 const MK_R = 3.5
 const LABEL_GAP = 15
+const FONT = "'Heebo', 'Rubik', system-ui, sans-serif"
 
 const PLOT_X0 = MARGIN
 const PLOT_X1 = SVG_W - MARGIN
 const LABEL_X_L = MARGIN / 2
 const LABEL_X_R = SVG_W - MARGIN / 2
 
-const FONT = "'Heebo', 'Rubik', system-ui, sans-serif"
 const DIMS: MKDimKey[] = ['religion', 'judicial', 'governance']
-
-// Map each axis dim to a DIM_COLOR for the selector highlight
 const DIM_TO_KEY: Record<MKDimKey, string> = {
   religion: 'religion', judicial: 'judicial', governance: 'governance',
 }
@@ -117,6 +115,7 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
   const userSvgX = userPoint ? toSvgX(userPoint.x) : null
   const userSvgY = userPoint ? toSvgY(userPoint.y) : null
   const xL = MK_DIM_LABELS[xDim], yL = MK_DIM_LABELS[yDim]
+  const cx = SVG_W / 2, cy = SVG_H / 2
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontFamily: B.font }}>
@@ -169,51 +168,45 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
       )}
 
       {/* Map */}
-      <div style={{
-        width: '100%', overflow: 'hidden',
-        borderRadius: B.radiusLg, border: `1px solid ${B.border}`,
-        background: B.bg,
-      }}>
+      <div style={{ width: '100%', overflow: 'hidden', borderRadius: B.radiusLg, background: B.ink }}>
         <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} width="100%" style={{ display: 'block' }}>
           <defs>
-            <pattern id="mk-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="0.55" fill={B.ink} opacity="0.12" />
+            <pattern id="mk-grid" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+              <circle cx="9" cy="9" r="0.5" fill="white" />
             </pattern>
+            <radialGradient id="mk-glow" cx="50%" cy="50%" r="40%">
+              <stop offset="0%" stopColor="white" stopOpacity="0.025" />
+              <stop offset="100%" stopColor="transparent" />
+            </radialGradient>
           </defs>
 
-          {/* Background */}
-          <rect width={SVG_W} height={SVG_H} fill={B.bg} />
-          <rect x={0} y={0} width={PLOT_X0} height={SVG_H} fill="url(#mk-dots)" />
-          <rect x={PLOT_X1} y={0} width={SVG_W - PLOT_X1} height={SVG_H} fill="url(#mk-dots)" />
+          {/* Background layers */}
+          <rect width={SVG_W} height={SVG_H} fill={B.ink} />
+          <rect width={SVG_W} height={SVG_H} fill="url(#mk-grid)" opacity="0.3" />
+          <rect width={SVG_W} height={SVG_H} fill="url(#mk-glow)" />
 
-          {/* White plot area */}
-          <rect
-            x={PLOT_X0} y={PAD_Y}
-            width={PLOT_X1 - PLOT_X0} height={SVG_H - PAD_Y * 2}
-            fill={B.white} rx={4} stroke={B.border} strokeWidth={0.8}
-          />
+          {/* Compass rose watermark */}
+          <CompassWatermarkSVG cx={cx} cy={cy} size={300} opacity={0.1} />
 
-          {/* Dashed axis lines */}
-          <line x1={PLOT_X0 + 2} y1={SVG_H / 2} x2={PLOT_X1 - 2} y2={SVG_H / 2}
-            stroke={B.borderMid} strokeWidth={1} strokeDasharray="4 4" />
-          <line x1={SVG_W / 2} y1={PAD_Y + 2} x2={SVG_W / 2} y2={SVG_H - PAD_Y - 2}
-            stroke={B.borderMid} strokeWidth={1} strokeDasharray="4 4" />
+          {/* Full-bleed axis lines */}
+          <line x1={0} y1={cy} x2={SVG_W} y2={cy} stroke="white" strokeWidth={0.7} opacity={0.1} strokeDasharray="5 8" />
+          <line x1={cx} y1={0} x2={cx} y2={SVG_H} stroke="white" strokeWidth={0.7} opacity={0.1} strokeDasharray="5 8" />
 
-          {/* Axis end labels */}
-          <text x={PLOT_X0 + 16} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle"
-            fontSize={9} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace">
+          {/* Axis labels at cardinal edges */}
+          <text x={8} y={cy - 7} textAnchor="start" fontSize={9} fill="white" fillOpacity={0.35}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
             {lang === 'he' ? xL.lowHe : xL.lowEn}
           </text>
-          <text x={PLOT_X1 - 16} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle"
-            fontSize={9} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace">
+          <text x={SVG_W - 8} y={cy - 7} textAnchor="end" fontSize={9} fill="white" fillOpacity={0.35}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
             {lang === 'he' ? xL.highHe : xL.highEn}
           </text>
-          <text x={SVG_W / 2} y={PAD_Y + 9} textAnchor="middle" dominantBaseline="middle"
-            fontSize={9} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace">
+          <text x={cx} y={12} textAnchor="middle" fontSize={9} fill="white" fillOpacity={0.35}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
             {lang === 'he' ? yL.highHe : yL.highEn}
           </text>
-          <text x={SVG_W / 2} y={SVG_H - PAD_Y - 9} textAnchor="middle" dominantBaseline="middle"
-            fontSize={9} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace">
+          <text x={cx} y={SVG_H - 5} textAnchor="middle" fontSize={9} fill="white" fillOpacity={0.35}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
             {lang === 'he' ? yL.lowHe : yL.lowEn}
           </text>
 
@@ -223,12 +216,12 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
             const dist = Math.sqrt(dx * dx + dy * dy) || 1
             const endX = lb.dotX - (dx / dist) * (PARTY_R + 2)
             const endY = lb.dotY - (dy / dist) * (PARTY_R + 2)
-            const clearance = Math.min(dist * 0.35, 38)
+            const clearance = Math.min(dist * 0.35, 36)
             const startX = lb.labelX + (dx / dist) * clearance
             const startY = lb.labelY + (dy / dist) * clearance
             if (dist < PARTY_R + clearance + 4) return null
             return <line key={`line-${i}`} x1={startX} y1={startY} x2={endX} y2={endY}
-              stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.45} />
+              stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.4} />
           })}
 
           {/* MK dots */}
@@ -239,9 +232,9 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
                 cx={d.svgX} cy={d.svgY}
                 r={isHov ? MK_R + 2 : MK_R}
                 fill={d.color}
-                opacity={isHov ? 1 : 0.45}
-                stroke={isHov ? B.white : 'none'}
-                strokeWidth={isHov ? 1.5 : 0}
+                opacity={isHov ? 1 : 0.5}
+                stroke={isHov ? 'rgba(255,255,255,0.8)' : 'rgba(255,255,255,0.1)'}
+                strokeWidth={isHov ? 1.5 : 0.5}
                 style={{ cursor: 'pointer' }}
                 onMouseEnter={() => setHoveredMkId(d.mk_id)}
                 onMouseLeave={() => setHoveredMkId(null)}
@@ -250,11 +243,12 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
             )
           })}
 
-          {/* Party dots */}
+          {/* Party dots — larger, glow */}
           {partyDots.map(d => (
             <g key={d.party_id}>
-              <circle cx={d.svgX} cy={d.svgY} r={PARTY_R + 2} fill={B.white} opacity={0.5} />
-              <circle cx={d.svgX} cy={d.svgY} r={PARTY_R} fill={d.color} />
+              <circle cx={d.svgX} cy={d.svgY} r={PARTY_R + 7} fill={d.color} opacity={0.12} />
+              <circle cx={d.svgX} cy={d.svgY} r={PARTY_R + 3} fill={d.color} opacity={0.1} />
+              <circle cx={d.svgX} cy={d.svgY} r={PARTY_R} fill={d.color} stroke="rgba(255,255,255,0.22)" strokeWidth={1} />
             </g>
           ))}
 
@@ -272,8 +266,9 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
           {/* User star */}
           {userSvgX !== null && userSvgY !== null && (
             <g>
-              <circle cx={userSvgX} cy={userSvgY} r={16} fill={ACCENT} opacity={0.1} />
-              <path d={starPath(userSvgX, userSvgY, 10)} fill={ACCENT} stroke={B.white} strokeWidth={1.5} />
+              <circle cx={userSvgX} cy={userSvgY} r={22} fill={ACCENT} opacity={0.15} />
+              <circle cx={userSvgX} cy={userSvgY} r={14} fill={ACCENT} opacity={0.12} />
+              <path d={starPath(userSvgX, userSvgY, 10)} fill={ACCENT} stroke="rgba(255,255,255,0.6)" strokeWidth={1.5} />
               <text x={userSvgX} y={userSvgY + 20}
                 textAnchor="middle" fontSize={9} fontWeight={700} fill={ACCENT} fontFamily={FONT}
                 style={{ userSelect: 'none' }}>
@@ -294,7 +289,7 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
         </span>
         <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <svg width={16} height={12} style={{ display: 'inline-block' }}>
-            <circle cx={8} cy={6} r={MK_R} fill={B.inkFaint} opacity={0.45} />
+            <circle cx={8} cy={6} r={MK_R} fill={B.inkFaint} opacity={0.5} />
           </svg>
           {lang === 'he' ? 'ח"כ' : 'MK'}
         </span>

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import type { PartyPoint } from '../../utils/research'
 import type { Party } from '../../types'
 import { TOTAL_QUESTIONS } from '../../utils/matching'
-import { B, ACCENT } from '../bureau/BureauComponents'
+import { B, ACCENT, CompassWatermarkSVG } from '../bureau/BureauComponents'
 
 interface Props {
   points: PartyPoint[]
@@ -16,22 +16,18 @@ interface Props {
 
 const SVG_W = 500
 const SVG_H = 460
-const MARGIN = 126
-const PAD_Y = 44
+const MARGIN = 100
+const PAD_Y = 36
 const DOT_R = 7
 const LABEL_GAP = 15
+const FONT = "'Heebo', 'Rubik', system-ui, sans-serif"
+const FRIEND_COLOR = '#9333ea'
+const LINE_LABEL_CLEAR = 10
 
 const PLOT_X0 = MARGIN
 const PLOT_X1 = SVG_W - MARGIN
 const LABEL_X_L = MARGIN / 2
 const LABEL_X_R = SVG_W - MARGIN / 2
-
-const AXIS_LABEL_Y_CENTER = SVG_H / 2
-const AXIS_LABEL_TOP_Y    = PAD_Y - 22
-const AXIS_LABEL_BOT_Y    = SVG_H - PAD_Y + 22
-
-const LINE_LABEL_CLEAR = 10
-const FONT = "'Heebo', 'Rubik', system-ui, sans-serif"
 
 function toSvgX(x: number) { return PLOT_X0 + ((x + 1) / 2) * (PLOT_X1 - PLOT_X0) }
 function toSvgY(y: number) { return PAD_Y + ((1 - y) / 2) * (SVG_H - PAD_Y * 2) }
@@ -57,15 +53,10 @@ function segToPointDist(ax: number, ay: number, bx: number, by: number, px: numb
 interface DotItem { svgX: number; svgY: number; name: string; color: string; party_id: string }
 interface PlacedLabel { labelX: number; labelY: number; name: string; color: string; dotX: number; dotY: number; side: 'left' | 'right' }
 
-function layoutMargin(items: DotItem[], side: 'left' | 'right', reservedYs: number[] = []): PlacedLabel[] {
+function layoutMargin(items: DotItem[], side: 'left' | 'right'): PlacedLabel[] {
   if (items.length === 0) return []
   const minY = PAD_Y + 4, maxY = SVG_H - PAD_Y - 4
-  type Entry = { svgY: number; phantom?: true; idx?: number }
-  const entries: Entry[] = [
-    ...items.map((d, i) => ({ svgY: d.svgY, idx: i })),
-    ...reservedYs.map(y => ({ svgY: y, phantom: true as true })),
-  ]
-  const sorted = [...entries].sort((a, b) => a.svgY - b.svgY)
+  const sorted = [...items].sort((a, b) => a.svgY - b.svgY)
   const ys = sorted.map(e => Math.max(minY, Math.min(maxY, e.svgY)))
   for (let i = 1; i < ys.length; i++) {
     if (ys[i] < ys[i - 1] + LABEL_GAP) ys[i] = ys[i - 1] + LABEL_GAP
@@ -77,13 +68,9 @@ function layoutMargin(items: DotItem[], side: 'left' | 'right', reservedYs: numb
     }
   }
   const labelX = side === 'left' ? LABEL_X_L : LABEL_X_R
-  return sorted
-    .map((e, i) => ({ e, y: ys[i] }))
-    .filter(({ e }) => e.phantom !== true)
-    .map(({ e, y }) => {
-      const item = items[e.idx!]
-      return { labelX, labelY: y, name: item.name, color: item.color, dotX: item.svgX, dotY: item.svgY, side }
-    })
+  return sorted.map((e, i) => ({
+    labelX, labelY: ys[i], name: e.name, color: e.color, dotX: e.svgX, dotY: e.svgY, side,
+  }))
 }
 
 export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint, friendPoint }: Props) {
@@ -103,14 +90,16 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
   const leftDots  = dots.filter(d => d.svgX <= (PLOT_X0 + PLOT_X1) / 2)
   const rightDots = dots.filter(d => d.svgX >  (PLOT_X0 + PLOT_X1) / 2)
   const labels: PlacedLabel[] = [
-    ...layoutMargin(leftDots,  'left',  [AXIS_LABEL_Y_CENTER]),
-    ...layoutMargin(rightDots, 'right', [AXIS_LABEL_Y_CENTER]),
+    ...layoutMargin(leftDots,  'left'),
+    ...layoutMargin(rightDots, 'right'),
   ]
 
-  const userSvgX = userPoint ? toSvgX(userPoint.x) : null
-  const userSvgY = userPoint ? toSvgY(userPoint.y) : null
+  const userSvgX  = userPoint   ? toSvgX(userPoint.x)   : null
+  const userSvgY  = userPoint   ? toSvgY(userPoint.y)   : null
   const friendSvgX = friendPoint ? toSvgX(friendPoint.x) : null
   const friendSvgY = friendPoint ? toSvgY(friendPoint.y) : null
+
+  const cx = SVG_W / 2, cy = SVG_H / 2
 
   return (
     <div>
@@ -134,49 +123,51 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
       </p>
 
       {/* Map */}
-      <div style={{
-        width: '100%', overflow: 'hidden',
-        borderRadius: B.radiusLg, border: `1px solid ${B.border}`,
-        background: B.bg,
-      }}>
+      <div style={{ width: '100%', overflow: 'hidden', borderRadius: B.radiusLg, background: B.ink }}>
         <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} width="100%" style={{ display: 'block' }}>
           <defs>
-            <pattern id="pm-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="0.55" fill={B.ink} opacity="0.12" />
+            <pattern id="pm-grid" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+              <circle cx="9" cy="9" r="0.5" fill="white" />
             </pattern>
+            <radialGradient id="pm-glow" cx="50%" cy="50%" r="40%">
+              <stop offset="0%" stopColor="white" stopOpacity="0.025" />
+              <stop offset="100%" stopColor="transparent" />
+            </radialGradient>
           </defs>
 
-          {/* Full background */}
-          <rect width={SVG_W} height={SVG_H} fill={B.bg} />
-          {/* Dot-grid on margins only */}
-          <rect x={0} y={0} width={PLOT_X0} height={SVG_H} fill="url(#pm-dots)" />
-          <rect x={PLOT_X1} y={0} width={SVG_W - PLOT_X1} height={SVG_H} fill="url(#pm-dots)" />
+          {/* Background layers */}
+          <rect width={SVG_W} height={SVG_H} fill={B.ink} />
+          <rect width={SVG_W} height={SVG_H} fill="url(#pm-grid)" opacity="0.3" />
+          <rect width={SVG_W} height={SVG_H} fill="url(#pm-glow)" />
 
-          {/* Plot area — white with border */}
-          <rect
-            x={PLOT_X0} y={PAD_Y}
-            width={PLOT_X1 - PLOT_X0} height={SVG_H - PAD_Y * 2}
-            fill={B.white} rx={4}
-            stroke={B.border} strokeWidth={0.8}
-          />
+          {/* Compass rose — the map's visual anchor */}
+          <CompassWatermarkSVG cx={cx} cy={cy} size={300} opacity={0.1} />
 
-          {/* Axis lines */}
-          <line x1={PLOT_X0} y1={SVG_H / 2} x2={PLOT_X1} y2={SVG_H / 2} stroke={B.borderMid} strokeWidth={1} strokeDasharray="4 4" />
-          <line x1={SVG_W / 2} y1={PAD_Y} x2={SVG_W / 2} y2={SVG_H - PAD_Y} stroke={B.borderMid} strokeWidth={1} strokeDasharray="4 4" />
+          {/* Full-bleed axis lines */}
+          <line x1={0} y1={cy} x2={SVG_W} y2={cy} stroke="white" strokeWidth={0.7} opacity={0.1} strokeDasharray="5 8" />
+          <line x1={cx} y1={0} x2={cx} y2={SVG_H} stroke="white" strokeWidth={0.7} opacity={0.1} strokeDasharray="5 8" />
 
-          {/* Axis labels */}
-          <text x={LABEL_X_L} y={AXIS_LABEL_Y_CENTER} textAnchor="middle" dominantBaseline="middle"
-            fontSize={10} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace"
-            letterSpacing="0.04em">{t('map_axis_left')}</text>
-          <text x={LABEL_X_R} y={AXIS_LABEL_Y_CENTER} textAnchor="middle" dominantBaseline="middle"
-            fontSize={10} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace"
-            letterSpacing="0.04em">{t('map_axis_right')}</text>
-          <text x={SVG_W / 2} y={AXIS_LABEL_TOP_Y} textAnchor="middle" dominantBaseline="middle"
-            fontSize={10} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace"
-            letterSpacing="0.04em">{t('map_axis_religious')}</text>
-          <text x={SVG_W / 2} y={AXIS_LABEL_BOT_Y} textAnchor="middle" dominantBaseline="middle"
-            fontSize={10} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace"
-            letterSpacing="0.04em">{t('map_axis_secular')}</text>
+          {/* Axis labels at the four cardinal edges */}
+          <text x={8} y={cy - 7} textAnchor="start" dominantBaseline="auto"
+            fontSize={9} fill="white" fillOpacity={0.35} fontWeight={700}
+            fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+            {t('map_axis_left')}
+          </text>
+          <text x={SVG_W - 8} y={cy - 7} textAnchor="end" dominantBaseline="auto"
+            fontSize={9} fill="white" fillOpacity={0.35} fontWeight={700}
+            fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+            {t('map_axis_right')}
+          </text>
+          <text x={cx} y={12} textAnchor="middle" dominantBaseline="auto"
+            fontSize={9} fill="white" fillOpacity={0.35} fontWeight={700}
+            fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+            {t('map_axis_religious')}
+          </text>
+          <text x={cx} y={SVG_H - 5} textAnchor="middle" dominantBaseline="auto"
+            fontSize={9} fill="white" fillOpacity={0.35} fontWeight={700}
+            fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+            {t('map_axis_secular')}
+          </text>
 
           {/* Leader lines */}
           {labels.map((lb, i) => {
@@ -184,7 +175,7 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
             const dist = Math.sqrt(dx * dx + dy * dy) || 1
             const endX = lb.dotX - (dx / dist) * (DOT_R + 2)
             const endY = lb.dotY - (dy / dist) * (DOT_R + 2)
-            const clearance = Math.min(dist * 0.35, 38)
+            const clearance = Math.min(dist * 0.35, 36)
             const startX = lb.labelX + (dx / dist) * clearance
             const startY = lb.labelY + (dy / dist) * clearance
             if (dist < DOT_R + clearance + 4) return null
@@ -194,15 +185,15 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
             })
             if (blocked) return null
             return <line key={`line-${i}`} x1={startX} y1={startY} x2={endX} y2={endY}
-              stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.5} />
+              stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.45} />
           })}
 
-          {/* Party dots */}
+          {/* Party dots — glow + fill */}
           {dots.map(d => (
             <g key={d.party_id}>
-              <title>{d.name}</title>
-              <circle cx={d.svgX} cy={d.svgY} r={DOT_R + 2} fill={B.white} opacity={0.6} />
-              <circle cx={d.svgX} cy={d.svgY} r={DOT_R} fill={d.color} />
+              <circle cx={d.svgX} cy={d.svgY} r={DOT_R + 7} fill={d.color} opacity={0.12} />
+              <circle cx={d.svgX} cy={d.svgY} r={DOT_R + 3} fill={d.color} opacity={0.1} />
+              <circle cx={d.svgX} cy={d.svgY} r={DOT_R} fill={d.color} stroke="rgba(255,255,255,0.22)" strokeWidth={1} />
             </g>
           ))}
 
@@ -217,30 +208,30 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
             </text>
           ))}
 
-          {/* User star */}
-          {userSvgX !== null && userSvgY !== null && (
+          {/* Friend star */}
+          {friendSvgX !== null && friendSvgY !== null && (
             <g>
-              <title>{lang === 'he' ? 'אתם' : 'You'}</title>
-              <circle cx={userSvgX} cy={userSvgY} r={16} fill={ACCENT} opacity={0.1} />
-              <path d={starPath(userSvgX, userSvgY, 11)} fill={ACCENT} stroke={B.white} strokeWidth={1.5} />
-              <text x={userSvgX} y={userSvgY + 21}
-                textAnchor="middle" fontSize={9} fontWeight={700} fill={ACCENT} fontFamily={FONT}
+              <circle cx={friendSvgX} cy={friendSvgY} r={22} fill={FRIEND_COLOR} opacity={0.12} />
+              <circle cx={friendSvgX} cy={friendSvgY} r={14} fill={FRIEND_COLOR} opacity={0.1} />
+              <path d={starPath(friendSvgX, friendSvgY, 11)} fill={FRIEND_COLOR} stroke="rgba(255,255,255,0.5)" strokeWidth={1.5} />
+              <text x={friendSvgX} y={friendSvgY + 21}
+                textAnchor="middle" fontSize={9} fontWeight={700} fill={FRIEND_COLOR} fontFamily={FONT}
                 style={{ userSelect: 'none' }}>
-                {lang === 'he' ? 'אתם' : 'You'}
+                {lang === 'he' ? 'חבר/ה' : 'Friend'}
               </text>
             </g>
           )}
 
-          {/* Friend star */}
-          {friendSvgX !== null && friendSvgY !== null && (
+          {/* User star */}
+          {userSvgX !== null && userSvgY !== null && (
             <g>
-              <title>{lang === 'he' ? 'חבר/ה' : 'Friend'}</title>
-              <circle cx={friendSvgX} cy={friendSvgY} r={16} fill="#9333ea" opacity={0.08} />
-              <path d={starPath(friendSvgX, friendSvgY, 11)} fill="#9333ea" stroke={B.white} strokeWidth={1.5} />
-              <text x={friendSvgX} y={friendSvgY + 21}
-                textAnchor="middle" fontSize={9} fontWeight={700} fill="#9333ea" fontFamily={FONT}
+              <circle cx={userSvgX} cy={userSvgY} r={22} fill={ACCENT} opacity={0.15} />
+              <circle cx={userSvgX} cy={userSvgY} r={14} fill={ACCENT} opacity={0.12} />
+              <path d={starPath(userSvgX, userSvgY, 11)} fill={ACCENT} stroke="rgba(255,255,255,0.6)" strokeWidth={1.5} />
+              <text x={userSvgX} y={userSvgY + 21}
+                textAnchor="middle" fontSize={9} fontWeight={700} fill={ACCENT} fontFamily={FONT}
                 style={{ userSelect: 'none' }}>
-                {lang === 'he' ? 'חבר/ה' : 'Friend'}
+                {lang === 'he' ? 'אתם' : 'You'}
               </text>
             </g>
           )}
