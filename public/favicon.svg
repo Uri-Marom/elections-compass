@@ -1,15 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <!-- Outer ring -->
-  <circle cx="32" cy="32" r="30" fill="#1e1e2e" stroke="#6c63ff" stroke-width="2.5"/>
-  <!-- Cardinal tick marks -->
-  <line x1="32" y1="4" x2="32" y2="10" stroke="#6c63ff" stroke-width="2" stroke-linecap="round"/>
-  <line x1="32" y1="54" x2="32" y2="60" stroke="#6c63ff" stroke-width="2" stroke-linecap="round"/>
-  <line x1="4" y1="32" x2="10" y2="32" stroke="#6c63ff" stroke-width="2" stroke-linecap="round"/>
-  <line x1="54" y1="32" x2="60" y2="32" stroke="#6c63ff" stroke-width="2" stroke-linecap="round"/>
-  <!-- North needle (red) -->
-  <polygon points="32,10 28,34 32,30 36,34" fill="#ff4d6d"/>
-  <!-- South needle (white/light) -->
-  <polygon points="32,54 28,30 32,34 36,30" fill="#e0e0ff" opacity="0.7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background -->
+  <circle cx="50" cy="50" r="50" fill="#0a0a0a"/>
+
+  <!-- Outer rings -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="white" stroke-width="0.8" opacity="0.4"/>
+  <circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="0.5" opacity="0.25"/>
+
+  <!-- 8 major tick marks (every 45°) -->
+  <line x1="88" y1="50" x2="96" y2="50" stroke="white" stroke-width="1.2" opacity="0.6"/>
+  <line x1="76.9" y1="76.9" x2="82.5" y2="82.5" stroke="white" stroke-width="0.8" opacity="0.4"/>
+  <line x1="50" y1="88" x2="50" y2="96" stroke="white" stroke-width="1.2" opacity="0.6"/>
+  <line x1="23.1" y1="76.9" x2="17.5" y2="82.5" stroke="white" stroke-width="0.8" opacity="0.4"/>
+  <line x1="12" y1="50" x2="4" y2="50" stroke="white" stroke-width="1.2" opacity="0.6"/>
+  <line x1="23.1" y1="23.1" x2="17.5" y2="17.5" stroke="white" stroke-width="0.8" opacity="0.4"/>
+  <line x1="50" y1="12" x2="50" y2="4" stroke="white" stroke-width="1.2" opacity="0.6"/>
+  <line x1="76.9" y1="23.1" x2="82.5" y2="17.5" stroke="white" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- 16 minor tick marks (every 22.5°) -->
+  <line x1="79.6" y1="20.4" x2="83.0" y2="17.0" stroke="white" stroke-width="0.4" opacity="0.25"/>
+  <line x1="70.0" y1="12.0" x2="72.4" y2="8.5" stroke="white" stroke-width="0.4" opacity="0.25"/>
+  <line x1="70.0" y1="88.0" x2="72.4" y2="91.5" stroke="white" stroke-width="0.4" opacity="0.25"/>
+  <line x1="79.6" y1="79.6" x2="83.0" y2="83.0" stroke="white" stroke-width="0.4" opacity="0.25"/>
+  <line x1="20.4" y1="79.6" x2="17.0" y2="83.0" stroke="white" stroke-width="0.4" opacity="0.25"/>
+  <line x1="30.0" y1="88.0" x2="27.6" y2="91.5" stroke="white" stroke-width="0.4" opacity="0.25"/>
+  <line x1="30.0" y1="12.0" x2="27.6" y2="8.5" stroke="white" stroke-width="0.4" opacity="0.25"/>
+  <line x1="20.4" y1="20.4" x2="17.0" y2="17.0" stroke="white" stroke-width="0.4" opacity="0.25"/>
+
+  <!-- North needle — accent (#0891b2) right half, white left half -->
+  <polygon points="50,10 54,48 50,50 46,48" fill="#0891b2"/>
+  <polygon points="50,10 46,48 50,50 54,48" fill="white" opacity="0.6"/>
+
+  <!-- South needle -->
+  <polygon points="50,90 54,52 50,50 46,52" fill="white" opacity="0.5"/>
+  <polygon points="50,90 46,52 50,50 54,52" fill="white" opacity="0.3"/>
+
+  <!-- West needle -->
+  <polygon points="10,50 48,54 50,50 48,46" fill="white" opacity="0.3"/>
+  <polygon points="10,50 48,46 50,50 48,54" fill="white" opacity="0.5"/>
+
+  <!-- East needle -->
+  <polygon points="90,50 52,46 50,50 52,54" fill="white" opacity="0.5"/>
+  <polygon points="90,50 52,54 50,50 52,46" fill="white" opacity="0.3"/>
+
   <!-- Center dot -->
-  <circle cx="32" cy="32" r="3" fill="#6c63ff"/>
+  <circle cx="50" cy="50" r="4" fill="#0891b2"/>
+  <circle cx="50" cy="50" r="1.5" fill="white"/>
 </svg>
