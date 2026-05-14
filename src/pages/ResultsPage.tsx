@@ -268,7 +268,7 @@ export function ResultsPage() {
             position: 'relative',
           }}>
             {isHe
-              ? <>{`הנה איפה`}<br /><span style={{ color: ACCENT }}>{`אתם עומדים.`}</span></>
+              ? <>{`אתם נמצאים`}<br /><span style={{ color: ACCENT }}>{`כאן`}</span></>
               : <>{`Here is`}<br /><span style={{ color: ACCENT }}>{`where you stand.`}</span></>
             }
           </h1>

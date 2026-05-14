@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
 import { DIMENSIONS, type DimensionKey, type PartyMatch } from '../../utils/matching'
+import { B, ACCENT, DIM_COLOR } from '../bureau/BureauComponents'
 import type { Party } from '../../types'
 
 const SITE_URL = 'https://tinyurl.com/matzpen26'
@@ -50,8 +51,8 @@ function PartyLogo({ party, size }: { party: Party; size: number }) {
           height: `${size}px`,
           borderRadius: '50%',
           objectFit: 'contain',
-          background: `rgba(${r},${g},${b},0.1)`,
-          border: `2px solid rgba(${r},${g},${b},0.25)`,
+          background: `rgba(${r},${g},${b},0.08)`,
+          border: `1.5px solid rgba(${r},${g},${b},0.2)`,
           padding: '3px',
           flexShrink: 0,
         }}
@@ -78,6 +79,40 @@ function PartyLogo({ party, size }: { party: Party; size: number }) {
   )
 }
 
+function CompassRoseSVG({ size, color, accent }: { size: number; color: string; accent: string }) {
+  const cx = 50, cy = 50
+  return (
+    <svg viewBox="0 0 100 100" width={size} height={size} style={{ display: 'block' }}>
+      <circle cx={cx} cy={cy} r="46" fill="none" stroke={color} strokeWidth="0.6" opacity="0.4" />
+      <circle cx={cx} cy={cy} r="40" fill="none" stroke={color} strokeWidth="0.4" opacity="0.3" />
+      {Array.from({ length: 32 }).map((_, i) => {
+        const a = (i / 32) * Math.PI * 2
+        const r1 = i % 4 === 0 ? 38 : 41
+        return (
+          <line
+            key={i}
+            x1={cx + Math.cos(a) * r1} y1={cy + Math.sin(a) * r1}
+            x2={cx + Math.cos(a) * 46} y2={cy + Math.sin(a) * 46}
+            stroke={color}
+            strokeWidth={i % 8 === 0 ? '0.8' : '0.3'}
+            opacity={i % 4 === 0 ? 0.6 : 0.3}
+          />
+        )
+      })}
+      <polygon points={`${cx},10 ${cx + 4},${cy - 2} ${cx},${cy} ${cx - 4},${cy - 2}`} fill={accent} />
+      <polygon points={`${cx},10 ${cx - 4},${cy - 2} ${cx},${cy} ${cx + 4},${cy - 2}`} fill={color} />
+      <polygon points={`${cx},90 ${cx + 4},${cy + 2} ${cx},${cy} ${cx - 4},${cy + 2}`} fill={color} opacity="0.7" />
+      <polygon points={`${cx},90 ${cx - 4},${cy + 2} ${cx},${cy} ${cx + 4},${cy + 2}`} fill={color} opacity="0.5" />
+      <polygon points={`10,${cy} ${cx - 2},${cy + 4} ${cx},${cy} ${cx - 2},${cy - 4}`} fill={color} opacity="0.5" />
+      <polygon points={`10,${cy} ${cx - 2},${cy - 4} ${cx},${cy} ${cx - 2},${cy + 4}`} fill={color} opacity="0.7" />
+      <polygon points={`90,${cy} ${cx + 2},${cy - 4} ${cx},${cy} ${cx + 2},${cy + 4}`} fill={color} opacity="0.7" />
+      <polygon points={`90,${cy} ${cx + 2},${cy + 4} ${cx},${cy} ${cx + 2},${cy - 4}`} fill={color} opacity="0.5" />
+      <circle cx={cx} cy={cy} r="3" fill={accent} />
+      <circle cx={cx} cy={cy} r="1" fill={color} />
+    </svg>
+  )
+}
+
 interface RadarProps {
   userScores: Record<DimensionKey, number>
   partyScores: Record<DimensionKey, number>
@@ -88,87 +123,71 @@ interface RadarProps {
 function RadarSVG({ userScores, partyScores, partyColor, lang }: RadarProps) {
   const dims = Object.keys(DIMENSIONS) as DimensionKey[]
   const n = dims.length
-  const cx = 130
-  const cy = 130
-  const maxR = 100
+  const cx = 120, cy = 120, maxR = 88
   const levels = [25, 50, 75, 100]
   const labels = lang === 'he' ? DIM_LABELS_HE : DIM_LABELS_EN
-  const { r, g, b } = hexToRgb(partyColor)
 
   const angleFor = (i: number) => (i / n) * 2 * Math.PI - Math.PI / 2
-
   const toXY = (i: number, val: number) => {
     const angle = angleFor(i)
     const rr = (val / 100) * maxR
     return { x: cx + rr * Math.cos(angle), y: cy + rr * Math.sin(angle) }
   }
-
-  const axisEnd = (i: number) => toXY(i, 100)
-
   const polyPoints = (scores: Record<DimensionKey, number>) =>
     dims.map((d, i) => toXY(i, scores[d] ?? 50)).map(p => `${p.x},${p.y}`).join(' ')
 
   const labelPos = (i: number) => {
     const angle = angleFor(i)
-    const isDiagonal = Math.abs(Math.cos(angle)) > 0.15 && Math.abs(Math.sin(angle)) > 0.15
-    const labelR = maxR + (isDiagonal ? 30 : 22)
+    const isDiag = Math.abs(Math.cos(angle)) > 0.15 && Math.abs(Math.sin(angle)) > 0.15
+    const lr = maxR + (isDiag ? 28 : 20)
     return {
-      x: cx + labelR * Math.cos(angle),
-      y: cy + labelR * Math.sin(angle),
+      x: cx + lr * Math.cos(angle),
+      y: cy + lr * Math.sin(angle),
       anchor: (Math.cos(angle) > 0.1 ? 'start' : Math.cos(angle) < -0.1 ? 'end' : 'middle') as 'start' | 'end' | 'middle',
     }
   }
 
   return (
-    <svg width="270" height="270" style={{ display: 'block' }}>
+    <svg width="248" height="248" style={{ display: 'block' }}>
       {/* Grid rings */}
       {levels.map(lv => (
         <polygon
           key={lv}
           points={dims.map((_, i) => toXY(i, lv)).map(p => `${p.x},${p.y}`).join(' ')}
           fill="none"
-          stroke="#e5e7eb"
+          stroke={B.border}
           strokeWidth="1"
         />
       ))}
       {/* Axes */}
       {dims.map((_, i) => {
-        const end = axisEnd(i)
-        return <line key={i} x1={cx} y1={cy} x2={end.x} y2={end.y} stroke="#d1d5db" strokeWidth="1" />
+        const end = toXY(i, 100)
+        return <line key={i} x1={cx} y1={cy} x2={end.x} y2={end.y} stroke={B.borderMid} strokeWidth="0.8" />
       })}
-
-      {/* User polygon — solid line */}
+      {/* User polygon */}
       <polygon
         points={polyPoints(userScores)}
-        fill="rgba(99,102,241,0.15)"
-        stroke="#6366f1"
+        fill={`${ACCENT}1a`}
+        stroke={ACCENT}
         strokeWidth="2"
         strokeLinejoin="round"
       />
-      {/* Party polygon — dashed line, drawn on top */}
+      {/* Party polygon — dashed */}
       <polygon
         points={polyPoints(partyScores)}
-        fill={`rgba(${r},${g},${b},0.18)`}
+        fill={`${partyColor}20`}
         stroke={partyColor}
         strokeWidth="2"
         strokeDasharray="5,3"
         strokeLinejoin="round"
       />
-
-      {/* Axis labels */}
+      {/* Labels */}
       {dims.map((dim, i) => {
         const { x, y, anchor } = labelPos(i)
         return (
-          <text
-            key={dim}
-            x={x}
-            y={y}
-            fontSize="10"
-            fontWeight="600"
-            fill="#374151"
-            textAnchor={anchor}
-            dominantBaseline="middle"
-          >
+          <text key={dim} x={x} y={y} fontSize="9" fontWeight="700"
+            fill={DIM_COLOR[dim]} textAnchor={anchor} dominantBaseline="middle"
+            fontFamily="'Heebo', 'Rubik', system-ui, sans-serif">
             {labels[dim]}
           </text>
         )
@@ -180,16 +199,12 @@ function RadarSVG({ userScores, partyScores, partyColor, lang }: RadarProps) {
 export const ShareCard = forwardRef<HTMLDivElement, Props>(
   ({ topMatches, parties, userDimScores, partyDimScores, lang }, ref) => {
     const isHe = lang === 'he'
-
     const [m1, m2, m3] = topMatches
     const p1 = parties.find(p => p.id === m1.party_id)!
     const p2 = m2 ? parties.find(p => p.id === m2.party_id) : undefined
     const p3 = m3 ? parties.find(p => p.id === m3.party_id) : undefined
 
     const col = p1.color
-    const { r, g, b } = hexToRgb(col)
-    const tint = `rgba(${r},${g},${b},0.05)`
-
     const score1 = m1.overall_stated
     const p1Name = isHe ? p1.name_he : p1.name_en
 
@@ -200,59 +215,131 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
         style={{
           width: '480px',
           height: '700px',
-          background: '#ffffff',
-          fontFamily: '"Segoe UI", system-ui, -apple-system, Arial, sans-serif',
+          background: B.bg,
+          fontFamily: B.font,
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
+          position: 'relative',
         }}
       >
-        {/* Header — explicit LTR for the title to avoid BiDi emoji artifacts */}
+        {/* Dot-grid background */}
+        <div aria-hidden="true" style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `radial-gradient(${B.ink} 0.6px, transparent 0.6px)`,
+          backgroundSize: '24px 24px',
+          opacity: 0.035,
+          pointerEvents: 'none',
+        }} />
+
+        {/* Header */}
         <div style={{
-          background: col,
-          padding: '13px 22px',
+          background: B.ink,
+          padding: '14px 22px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           flexShrink: 0,
+          position: 'relative',
         }}>
-          <span dir="ltr" style={{ color: 'white', fontSize: '17px', fontWeight: 700, letterSpacing: '0.01em' }}>
-            {isHe ? 'מצפן בחירות 2026' : 'Election Compass 2026'}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <CompassRoseSVG size={28} color={B.bg} accent={ACCENT} />
+            <span style={{ color: B.bg, fontSize: 15, fontWeight: 800, letterSpacing: '-0.01em' }}>
+              {isHe ? 'מצפן בחירות' : 'Vote Compass'}
+            </span>
+          </div>
+          <span style={{
+            fontFamily: 'ui-monospace, monospace',
+            fontSize: 10,
+            letterSpacing: '0.12em',
+            color: B.inkHint,
+            textTransform: 'uppercase',
+          }}>
+            2026
           </span>
         </div>
 
         {/* Body */}
         <div style={{
           flex: 1,
-          background: tint,
-          padding: '16px 22px',
+          padding: '18px 22px 14px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '14px',
+          gap: 14,
+          position: 'relative',
         }}>
-          {/* #1 hero */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
-            <PartyLogo party={p1} size={62} />
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '11px', color: '#6b7280', marginBottom: '1px' }}>
+
+          {/* Hero — best match */}
+          <div style={{
+            background: B.white,
+            border: `1.5px solid ${col}30`,
+            borderRadius: B.radiusLg,
+            padding: '14px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 14,
+            position: 'relative',
+            overflow: 'hidden',
+          }}>
+            {/* faint compass rose watermark */}
+            <div style={{
+              position: 'absolute',
+              insetInlineEnd: -14,
+              bottom: -14,
+              opacity: 0.06,
+              pointerEvents: 'none',
+            }}>
+              <CompassRoseSVG size={100} color={col} accent={col} />
+            </div>
+
+            <PartyLogo party={p1} size={56} />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: B.inkHint,
+                marginBottom: 2,
+              }}>
                 {isHe ? 'ההתאמה הטובה ביותר' : 'Best match'}
               </div>
-              <div style={{ fontSize: '21px', fontWeight: 800, color: '#111827', lineHeight: 1.1 }}>
+              <div style={{
+                fontSize: 20,
+                fontWeight: 900,
+                color: B.ink,
+                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
+                marginBottom: 4,
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              }}>
                 {p1Name}
               </div>
-              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '4px', marginTop: '2px' }}>
-                <span style={{ fontSize: '36px', fontWeight: 900, color: col, lineHeight: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
+                <span style={{ fontSize: 32, fontWeight: 900, color: col, lineHeight: 1 }}>
                   {score1}%
                 </span>
-                <span style={{ fontSize: '13px', color: '#6b7280' }}>
+                <span style={{ fontSize: 12, color: B.inkFaint }}>
                   {isHe ? 'התאמה' : 'match'}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Radar chart */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+          {/* Radar */}
+          <div style={{
+            background: B.white,
+            border: `1px solid ${B.border}`,
+            borderRadius: B.radiusLg,
+            padding: '12px 16px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 8,
+          }}>
             <RadarSVG
               userScores={userDimScores}
               partyScores={partyDimScores}
@@ -260,19 +347,17 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
               lang={lang}
             />
             {/* Legend */}
-            <div style={{ display: 'flex', gap: '16px', fontSize: '11px', color: '#6b7280' }}>
-              {/* User — solid line */}
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <div style={{ display: 'flex', gap: 18, fontSize: 11, color: B.inkFaint }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                 <span style={{
-                  display: 'inline-block', width: '18px', height: '3px',
-                  background: '#6366f1', borderRadius: '2px',
+                  display: 'inline-block', width: 18, height: 2.5,
+                  background: ACCENT, borderRadius: 2,
                 }} />
                 {isHe ? 'אתם' : 'You'}
               </span>
-              {/* Party — dashed line */}
-              <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                 <span style={{
-                  display: 'inline-block', width: '18px', height: '3px',
+                  display: 'inline-block', width: 18, height: 2.5,
                   backgroundImage: `repeating-linear-gradient(90deg, ${col} 0 5px, transparent 5px 8px)`,
                 }} />
                 {p1Name}
@@ -282,8 +367,8 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
 
           {/* #2 and #3 */}
           {(p2 || p3) && (
-            <div style={{ display: 'flex', gap: '10px' }}>
-              {[{ m: m2, p: p2, rank: 2 }, { m: m3, p: p3, rank: 3 }].map(({ m, p, rank }) => {
+            <div style={{ display: 'flex', gap: 10 }}>
+              {([{ m: m2, p: p2, rank: 2 }, { m: m3, p: p3, rank: 3 }] as const).map(({ m, p, rank }) => {
                 if (!m || !p) return null
                 const name = isHe ? p.name_he : p.name_en
                 const score = m.overall_stated
@@ -293,22 +378,36 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
                     key={p.id}
                     style={{
                       flex: 1,
-                      background: `rgba(${pr},${pg},${pb},0.06)`,
-                      border: `1px solid rgba(${pr},${pg},${pb},0.18)`,
-                      borderRadius: '10px',
-                      padding: '9px 12px',
+                      background: B.white,
+                      border: `1px solid rgba(${pr},${pg},${pb},0.2)`,
+                      borderRadius: B.radius,
+                      padding: '10px 12px',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '9px',
+                      gap: 10,
                     }}
                   >
-                    <PartyLogo party={p} size={36} />
-                    <div>
-                      <div style={{ fontSize: '10px', color: '#9ca3af', fontWeight: 600 }}>#{rank}</div>
-                      <div style={{ fontSize: '13px', fontWeight: 700, color: '#374151', lineHeight: 1.2 }}>
+                    <PartyLogo party={p} size={34} />
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{
+                        fontFamily: 'ui-monospace, monospace',
+                        fontSize: 9,
+                        letterSpacing: '0.1em',
+                        color: B.inkHint,
+                        marginBottom: 1,
+                      }}>#{rank}</div>
+                      <div style={{
+                        fontSize: 12,
+                        fontWeight: 700,
+                        color: B.ink,
+                        lineHeight: 1.2,
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      }}>
                         {name}
                       </div>
-                      <div style={{ fontSize: '17px', fontWeight: 800, color: p.color, lineHeight: 1 }}>
+                      <div style={{ fontSize: 16, fontWeight: 900, color: p.color, lineHeight: 1.1 }}>
                         {score}%
                       </div>
                     </div>
@@ -319,30 +418,36 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
           )}
         </div>
 
-        {/* Footer — QR code + short URL */}
+        {/* Footer */}
         <div style={{
-          background: '#f9fafb',
-          borderTop: '1px solid #e5e7eb',
+          borderTop: `1px solid ${B.border}`,
           padding: '10px 22px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          gap: 12,
+          background: B.white,
           flexShrink: 0,
-          gap: '12px',
         }}>
           <div>
-            <div style={{ fontSize: '12px', color: '#6b7280', marginBottom: '2px' }}>
+            <div style={{ fontSize: 11, color: B.inkFaint, marginBottom: 2 }}>
               {isHe ? 'איזו מפלגה הכי מתאימה לך?' : "What's your match?"}
             </div>
-            <div dir="ltr" style={{ fontSize: '12px', fontWeight: 700, color: col }}>
+            <div dir="ltr" style={{
+              fontSize: 12,
+              fontWeight: 700,
+              color: ACCENT,
+              fontFamily: 'ui-monospace, monospace',
+              letterSpacing: '0.04em',
+            }}>
               tinyurl.com/matzpen26
             </div>
           </div>
           <QRCodeSVG
             value={SITE_URL}
-            size={56}
-            bgColor="#f9fafb"
-            fgColor="#111827"
+            size={52}
+            bgColor={B.white}
+            fgColor={B.ink}
             level="M"
           />
         </div>

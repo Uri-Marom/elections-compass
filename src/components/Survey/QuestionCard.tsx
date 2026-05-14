@@ -75,7 +75,7 @@ export function QuestionCard({ question, questionNumber, totalQuestions, onSelec
         lineHeight: 1.45,
         marginBottom: 8,
       }}>
-        "{text}"
+        {text}
       </p>
 
       {/* Learn more */}
