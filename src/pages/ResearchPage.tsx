@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
@@ -46,6 +46,7 @@ const allPositions: Record<string, PartyPosition[]> = {
 
 export function ResearchPage() {
   const { t } = useTranslation()
+  useEffect(() => { window.scrollTo(0, 0) }, [])
   const navigate = useNavigate()
   const { lang, answers } = useSurveyStore()
   const [mapMode, setMapMode] = useState<'stated' | 'voted'>('stated')
