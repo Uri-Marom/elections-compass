@@ -107,29 +107,30 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
   const hoveredMk = hoveredMkId ? mkDots.find(d => d.mk_id === hoveredMkId) : null
   const userSvgX = userPoint ? toSvgX(userPoint.x) : null
   const userSvgY = userPoint ? toSvgY(userPoint.y) : null
-  const axisColor = '#e5e7eb'
-  const axisLabelColor = '#9ca3af'
+  const axisColor = '#e4e4e7'
+  const axisLabelColor = '#a1a1aa'
   const xL = MK_DIM_LABELS[xDim], yL = MK_DIM_LABELS[yDim]
 
   return (
-    <div className="space-y-3">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
 
       {/* Axis selectors */}
-      <div className="grid grid-cols-2 gap-2">
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
         {([['x', xDim, setXDim], ['y', yDim, setYDim]] as const).map(([axis, current, setter]) => (
           <div key={axis}>
-            <p className="text-xs text-gray-400 mb-1">
-              {axis === 'x'
-                ? (lang === 'he' ? 'ציר אופקי' : 'X axis')
-                : (lang === 'he' ? 'ציר אנכי' : 'Y axis')}
+            <p style={{ fontSize: 11, color: '#a1a1aa', marginBottom: 4 }}>
+              {axis === 'x' ? (lang === 'he' ? 'ציר אופקי' : 'X axis') : (lang === 'he' ? 'ציר אנכי' : 'Y axis')}
             </p>
-            <div className="flex bg-gray-100 rounded-lg p-0.5 gap-0.5">
+            <div style={{ display: 'flex', background: '#f4f4f5', borderRadius: 10, padding: 3, gap: 2 }}>
               {DIMS.map(d => (
                 <button key={d} onClick={() => setter(d as MKDimKey)}
-                  className={[
-                    'flex-1 py-1 rounded-md text-[10px] font-medium transition-all leading-tight',
-                    current === d ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500',
-                  ].join(' ')}>
+                  style={{
+                    flex: 1, padding: '5px 2px', borderRadius: 7, border: 'none', cursor: 'pointer',
+                    fontSize: 10, fontWeight: 600, lineHeight: 1.3,
+                    background: current === d ? '#ffffff' : 'transparent',
+                    color: current === d ? '#0a0a0a' : '#71717a',
+                    boxShadow: current === d ? '0 1px 2px rgba(0,0,0,0.07)' : 'none',
+                  }}>
                   {MK_DIM_LABELS[d][lang === 'he' ? 'he' : 'en']}
                 </button>
               ))}
@@ -140,16 +141,19 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
 
       {/* Hovered MK tooltip */}
       {hoveredMk ? (
-        <div className="px-3 py-2 bg-white rounded-xl border border-gray-200 text-sm flex items-center gap-2">
-          <span className="font-medium text-gray-900">{hoveredMk.name}</span>
-          <span className="text-xs font-medium" style={{ color: hoveredMk.partyColor }}>{hoveredMk.partyName}</span>
+        <div style={{
+          padding: '8px 12px', background: '#ffffff', borderRadius: 12,
+          border: '1px solid #e4e4e7', display: 'flex', alignItems: 'center', gap: 8,
+        }}>
+          <span style={{ fontSize: 13, fontWeight: 600, color: '#0a0a0a' }}>{hoveredMk.name}</span>
+          <span style={{ fontSize: 11, fontWeight: 600, color: hoveredMk.partyColor }}>{hoveredMk.partyName}</span>
         </div>
       ) : (
-        <p className="text-xs text-gray-400">{lang === 'he' ? 'עברו על נקודה לשם הח״כ' : 'Hover a dot to see the MK name'}</p>
+        <p style={{ fontSize: 11, color: '#a1a1aa' }}>{lang === 'he' ? 'עברו על נקודה לשם הח״כ' : 'Hover a dot to see the MK name'}</p>
       )}
 
       {/* Map */}
-      <div className="w-full overflow-hidden rounded-xl border border-gray-100 bg-white">
+      <div style={{ width: '100%', overflow: 'hidden', borderRadius: 14, border: '1px solid #e4e4e7', background: '#ffffff' }}>
         <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} width="100%" style={{ display: 'block' }}>
 
           {/* Axis lines with gaps at ends for labels */}
@@ -222,9 +226,9 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
           {/* User star */}
           {userSvgX !== null && userSvgY !== null && (
             <g>
-              <path d={starPath(userSvgX, userSvgY, 10)} fill="#4f46e5" stroke="white" strokeWidth={1.5} />
+              <path d={starPath(userSvgX, userSvgY, 10)} fill="#0891b2" stroke="white" strokeWidth={1.5} />
               <text x={userSvgX} y={userSvgY + 18}
-                textAnchor="middle" fontSize={9} fontWeight={700} fill="#4f46e5"
+                textAnchor="middle" fontSize={9} fontWeight={700} fill="#0891b2"
                 style={{ userSelect: 'none' }}>
                 {lang === 'he' ? 'אתם' : 'You'}
               </text>
@@ -234,14 +238,14 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
       </div>
 
       {/* Legend */}
-      <div className="flex items-center gap-4 text-xs text-gray-400">
-        <span className="flex items-center gap-1.5">
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 11, color: '#a1a1aa' }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <svg width={16} height={12} style={{ display: 'inline-block' }}>
             <circle cx={8} cy={6} r={PARTY_R - 1} fill="#888" opacity={0.9} />
           </svg>
           {lang === 'he' ? 'מפלגה' : 'Party'}
         </span>
-        <span className="flex items-center gap-1.5">
+        <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <svg width={16} height={12} style={{ display: 'inline-block' }}>
             <circle cx={8} cy={6} r={MK_R} fill="#888" opacity={0.5} />
           </svg>

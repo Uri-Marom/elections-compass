@@ -3,11 +3,7 @@ import type { DimensionKey } from '../../utils/matching'
 import { DIMENSIONS } from '../../utils/matching'
 import type { PartyPosition, Question } from '../../types'
 import { useSurveyStore } from '../../store/survey'
-
-const DIMENSION_ICONS: Record<string, string> = {
-  security: '🛡️', religion: '✡️', socioeconomic: '📊',
-  judicial: '⚖️', minority: '🤝', governance: '🏛️',
-}
+import { B, ACCENT, DIM_COLOR } from '../bureau/BureauComponents'
 
 function scoreLabel(score: number, t: (k: string) => string): string {
   const rounded = Math.round(score)
@@ -20,16 +16,16 @@ function scoreLabel(score: number, t: (k: string) => string): string {
 }
 
 function scoreBg(score: number): string {
-  if (score >= 1.5) return '#dcfce7'
-  if (score >= 0.5) return '#d1fae5'
-  if (score > -0.5) return '#f3f4f6'
-  if (score > -1.5) return '#fee2e2'
+  if (score >= 1.5)  return '#f0fdf4'
+  if (score >= 0.5)  return '#ecfef3'
+  if (score > -0.5)  return B.bgMid
+  if (score > -1.5)  return '#fef2f2'
   return '#fecaca'
 }
 
 function scoreText(score: number): string {
-  if (score >= 0.5) return '#15803d'
-  if (score > -0.5) return '#6b7280'
+  if (score >= 0.5)  return '#15803d'
+  if (score > -0.5)  return B.inkFaint
   return '#b91c1c'
 }
 
@@ -51,6 +47,7 @@ export function DimensionDetailModal({
   const { lang } = useSurveyStore()
   const dimLabel = lang === 'he' ? DIMENSIONS[dim].label_he : DIMENSIONS[dim].label_en
   const qids = DIMENSIONS[dim].questions as readonly string[]
+  const dimColor = DIM_COLOR[dim] ?? ACCENT
 
   const rows = qids.map(qid => {
     const question = questions.find(q => q.id === qid)
@@ -73,22 +70,46 @@ export function DimensionDetailModal({
     Math.sign(r.userScore!) === Math.sign(r.partyScore!) || (Math.abs(r.userScore! - r.partyScore!) < 1)
   ).length
 
+  const scorePillStyle = (score: number): React.CSSProperties => ({
+    display: 'inline-block', fontSize: 11, fontWeight: 600,
+    padding: '2px 8px', borderRadius: 99,
+    background: scoreBg(score), color: scoreText(score),
+  })
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
-      style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 50,
+        display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
+        background: 'rgba(10,10,10,0.4)',
+      }}
       onClick={onClose}
     >
       <div
-        className="bg-white w-full sm:max-w-lg rounded-t-2xl sm:rounded-2xl shadow-xl max-h-[85vh] flex flex-col"
+        style={{
+          width: '100%', maxWidth: 520,
+          background: B.white,
+          borderRadius: `${B.radiusXl}px ${B.radiusXl}px 0 0`,
+          maxHeight: '85dvh',
+          display: 'flex', flexDirection: 'column',
+          fontFamily: B.font,
+          overflow: 'hidden',
+        }}
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center gap-2 px-5 py-4 border-b border-gray-100">
-          <span className="text-lg">{DIMENSION_ICONS[dim]}</span>
-          <div className="flex-1 min-w-0">
-            <div className="font-semibold text-gray-900 text-sm">{dimLabel}</div>
-            <div className="text-xs text-gray-500">
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 10,
+          padding: '16px 20px',
+          borderBottom: `1px solid ${B.border}`,
+          flexShrink: 0,
+        }}>
+          <div style={{
+            width: 10, height: 10, borderRadius: '50%', background: dimColor, flexShrink: 0,
+          }} />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: B.ink }}>{dimLabel}</div>
+            <div style={{ fontSize: 11, color: B.inkFaint, marginTop: 1 }}>
               {lang === 'he'
                 ? `${agreementCount} מתוך ${answeredRows.length} שאלות — עמדות קרובות`
                 : `${agreementCount} of ${answeredRows.length} questions — close positions`}
@@ -96,71 +117,64 @@ export function DimensionDetailModal({
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 text-xl leading-none"
+            style={{ border: 'none', background: 'transparent', fontSize: 20, color: B.inkHint, cursor: 'pointer', padding: 0 }}
             aria-label="Close"
-          >
-            ×
-          </button>
+          >×</button>
         </div>
 
         {/* Party label row */}
-        <div className="flex items-center gap-2 px-5 py-2 bg-gray-50 text-xs text-gray-500 border-b border-gray-100">
-          <span className="flex items-center gap-1 w-[45%]">
-            <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block shrink-0" />
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 8,
+          padding: '8px 20px',
+          background: B.bg,
+          borderBottom: `1px solid ${B.border}`,
+          fontSize: 11, color: B.inkFaint,
+          flexShrink: 0,
+        }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: 5, width: '45%' }}>
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: ACCENT, display: 'inline-block', flexShrink: 0 }} />
             {t('radar_you')}
           </span>
-          <span className="flex items-center gap-1">
-            <span className="w-2.5 h-2.5 rounded-full inline-block shrink-0" style={{ backgroundColor: partyColor }} />
+          <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <span style={{ width: 8, height: 8, borderRadius: '50%', background: partyColor, display: 'inline-block', flexShrink: 0 }} />
             {partyName}
           </span>
         </div>
 
         {/* Question rows */}
-        <div className="overflow-y-auto flex-1 divide-y divide-gray-50">
+        <div style={{ overflowY: 'auto', flex: 1 }}>
           {rows.map(({ qid, question, userScore, partyScore, source, sourceUrl }) => {
             const text = lang === 'he' ? question!.text_he : question!.text_en
             const diffSignificant = userScore !== null && partyScore !== null && Math.abs(userScore - partyScore) >= 1.5
 
             return (
-              <div key={qid} className={`px-5 py-4 ${diffSignificant ? 'bg-red-50/40' : ''}`}>
-                <p className="text-sm text-gray-800 mb-3 leading-snug">{text}</p>
-                <div className="flex gap-2">
-                  {/* User answer */}
-                  <div className="flex-1">
-                    {userScore !== null ? (
-                      <span
-                        className="inline-block text-xs font-medium px-2 py-0.5 rounded-full"
-                        style={{ backgroundColor: scoreBg(userScore), color: scoreText(userScore) }}
-                      >
-                        {scoreLabel(userScore, t)}
-                      </span>
-                    ) : (
-                      <span className="text-xs text-gray-400 italic">
-                        {lang === 'he' ? 'לא ענית' : 'Not answered'}
-                      </span>
-                    )}
+              <div
+                key={qid}
+                style={{
+                  padding: '14px 20px',
+                  borderBottom: `1px solid ${B.bg}`,
+                  background: diffSignificant ? '#fef2f2' : B.white,
+                }}
+              >
+                <p style={{ fontSize: 13, color: B.ink, marginBottom: 10, lineHeight: 1.5 }}>{text}</p>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <div style={{ flex: 1 }}>
+                    {userScore !== null
+                      ? <span style={scorePillStyle(userScore)}>{scoreLabel(userScore, t)}</span>
+                      : <span style={{ fontSize: 11, color: B.inkHint, fontStyle: 'italic' }}>{lang === 'he' ? 'לא ענית' : 'Not answered'}</span>
+                    }
                   </div>
-
-                  {/* Party position */}
-                  <div className="flex-1">
-                    {partyScore !== null ? (
-                      <span
-                        className="inline-block text-xs font-medium px-2 py-0.5 rounded-full"
-                        style={{ backgroundColor: scoreBg(partyScore), color: scoreText(partyScore) }}
-                      >
-                        {scoreLabel(partyScore, t)}
-                      </span>
-                    ) : (
-                      <span className="text-xs text-gray-400 italic">—</span>
-                    )}
+                  <div style={{ flex: 1 }}>
+                    {partyScore !== null
+                      ? <span style={scorePillStyle(partyScore)}>{scoreLabel(partyScore, t)}</span>
+                      : <span style={{ fontSize: 11, color: B.inkHint, fontStyle: 'italic' }}>—</span>
+                    }
                   </div>
                 </div>
-
-                {/* Source */}
                 {source && (
-                  <div className="mt-2 text-xs text-gray-400">
+                  <div style={{ marginTop: 8, fontSize: 11, color: B.inkHint }}>
                     {t('source')}: {sourceUrl
-                      ? <a href={sourceUrl} target="_blank" rel="noreferrer" className="underline hover:text-gray-600">{source}</a>
+                      ? <a href={sourceUrl} target="_blank" rel="noreferrer" style={{ color: ACCENT, textDecoration: 'underline' }}>{source}</a>
                       : source}
                   </div>
                 )}

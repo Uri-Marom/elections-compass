@@ -7,6 +7,7 @@ import { PartyMap } from '../components/Research/PartyMap'
 import { computeHypocrisy, computePartyAxes, computeUserMapPoint } from '../utils/research'
 import { useSurveyStore } from '../store/survey'
 import type { Party, PartyPosition, Question } from '../types'
+import { B, ACCENT, CompassRose, GridPaper } from '../components/bureau/BureauComponents'
 
 import partiesData from '../data/parties.json'
 import questionsData from '../data/questions.json'
@@ -54,27 +55,46 @@ export function ResearchPage() {
   const partyPoints = axisResult.points
   const userPoint = useMemo(() => computeUserMapPoint(answers, axisResult), [answers, axisResult])
 
+  const sectionHeadStyle: React.CSSProperties = {
+    fontSize: 15, fontWeight: 800, color: B.ink,
+    letterSpacing: '-0.01em', marginBottom: 4,
+  }
+  const sectionSubStyle: React.CSSProperties = {
+    fontSize: 12, color: B.inkFaint, marginBottom: 16, lineHeight: 1.55,
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
+    <div style={{ minHeight: '100dvh', background: B.bg, fontFamily: B.font }}>
+      <header style={{
+        background: `${B.bg}f5`, backdropFilter: 'blur(8px)',
+        borderBottom: `1px solid ${B.border}`,
+        position: 'sticky', top: 0, zIndex: 10,
+        padding: '12px 20px',
+      }}>
+        <div style={{ maxWidth: 640, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 10 }}>
           <button
             onClick={() => navigate(-1)}
-            className="text-gray-500 hover:text-gray-800 text-lg leading-none"
+            style={{
+              border: 'none', background: 'transparent',
+              fontSize: 18, color: B.inkFaint, cursor: 'pointer', padding: 0, lineHeight: 1,
+            }}
             aria-label="back"
           >
             {lang === 'he' ? '→' : '←'}
           </button>
-          <h1 className="flex-1 text-lg font-bold text-gray-900">{t('research_nav_label')}</h1>
+          <CompassRose size={20} accent={ACCENT} lang={lang} />
+          <h1 style={{ flex: 1, fontSize: 15, fontWeight: 700, color: B.ink, margin: 0 }}>
+            {t('research_nav_label')}
+          </h1>
           <LanguageSwitcher />
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto px-4 py-6 space-y-8">
+      <main style={{ maxWidth: 640, margin: '0 auto', padding: '24px 20px 48px' }}>
 
-        {/* Section 1: Party map */}
-        <section>
-          <h2 className="text-base font-bold text-gray-900 mb-1">{t('similarity_title')}</h2>
+        {/* Party map */}
+        <section style={{ marginBottom: 32 }}>
+          <h2 style={sectionHeadStyle}>{t('similarity_title')}</h2>
           <PartyMap
             points={partyPoints}
             parties={parties}
@@ -85,12 +105,12 @@ export function ResearchPage() {
           />
         </section>
 
-        <hr className="border-gray-200" />
+        <div style={{ height: 1, background: B.border, margin: '0 0 32px' }} />
 
-        {/* Section 2: Hypocrisy */}
-        <section>
-          <h2 className="text-base font-bold text-gray-900 mb-1">{t('hypocrisy_title')}</h2>
-          <p className="text-xs text-gray-500 mb-4 leading-relaxed">{t('hypocrisy_subtitle')}</p>
+        {/* Hypocrisy */}
+        <section style={{ marginBottom: 32 }}>
+          <h2 style={sectionHeadStyle}>{t('hypocrisy_title')}</h2>
+          <p style={sectionSubStyle}>{t('hypocrisy_subtitle')}</p>
           <HypocrisyChart
             results={hypocrisyResults}
             parties={parties}
@@ -99,21 +119,28 @@ export function ResearchPage() {
           />
         </section>
 
-        <hr className="border-gray-200" />
+        <div style={{ height: 1, background: B.border, margin: '0 0 32px' }} />
 
-        {/* Section 3: MK Compass teaser */}
-        <section>
-          <h2 className="text-base font-bold text-gray-900 mb-1">{t('mk_compass')}</h2>
-          <p className="text-xs text-gray-500 mb-4 leading-relaxed">{t('mk_compass_subtitle')}</p>
+        {/* MK Compass teaser */}
+        <section style={{ position: 'relative', overflow: 'hidden' }}>
+          <GridPaper opacity={0.03} />
+          <h2 style={{ ...sectionHeadStyle, position: 'relative' }}>{t('mk_compass')}</h2>
+          <p style={{ ...sectionSubStyle, position: 'relative' }}>{t('mk_compass_subtitle')}</p>
           <button
             onClick={() => navigate('/mks')}
-            className="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-700 font-medium text-sm hover:bg-gray-50 transition-colors"
+            style={{
+              width: '100%', padding: '13px 0',
+              borderRadius: B.radius,
+              border: `1px solid ${B.border}`,
+              background: B.white,
+              fontSize: 14, fontWeight: 600, color: B.ink,
+              cursor: 'pointer', fontFamily: B.font,
+              position: 'relative',
+            }}
           >
             {t('open_mk_compass')}
           </button>
         </section>
-
-        <div className="h-6" />
       </main>
     </div>
   )

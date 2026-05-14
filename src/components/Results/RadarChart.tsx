@@ -5,6 +5,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { DIMENSIONS, type DimensionKey } from '../../utils/matching'
 import { useSurveyStore } from '../../store/survey'
+import { B, ACCENT } from '../bureau/BureauComponents'
 
 interface Props {
   userDimScores: Record<DimensionKey, number>
@@ -34,30 +35,30 @@ export function MatchRadarChart({ userDimScores, partyDimScores, partyName, part
   return (
     <ResponsiveContainer width="100%" height={300}>
       <RadarChart data={data} margin={{ top: 10, right: 30, bottom: 10, left: 30 }}>
-        <PolarGrid stroke="#e5e7eb" />
+        <PolarGrid stroke={B.border} />
         <PolarAngleAxis
           dataKey="dimension"
-          tick={{ fontSize: 11, fill: '#6B7280' }}
+          tick={{ fontSize: 11, fill: B.inkFaint, fontFamily: B.font }}
         />
         <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
         <Radar
           name={youLabel}
           dataKey={youLabel}
-          stroke="#6366F1"
-          fill="#6366F1"
-          fillOpacity={0.25}
+          stroke={ACCENT}
+          fill={ACCENT}
+          fillOpacity={0.2}
           strokeWidth={2.5}
-          dot={{ r: 3, fill: '#6366F1', strokeWidth: 0 }}
+          dot={{ r: 3, fill: ACCENT, strokeWidth: 0 }}
         />
         <Radar
           name={partyName}
           dataKey={partyName}
           stroke={partyColor}
           fill={partyColor}
-          fillOpacity={0.18}
+          fillOpacity={0.15}
           strokeWidth={2.5}
           strokeDasharray="6 3"
-          dot={{ r: 4, fill: partyColor, stroke: '#fff', strokeWidth: 1.5 }}
+          dot={{ r: 4, fill: partyColor, stroke: B.white, strokeWidth: 1.5 }}
         />
         {friendDimScores && (
           <Radar
@@ -68,13 +69,13 @@ export function MatchRadarChart({ userDimScores, partyDimScores, partyName, part
             fillOpacity={0.08}
             strokeWidth={1.5}
             strokeDasharray="2 4"
-            dot={{ r: 3, fill: '#fff', stroke: FRIEND_COLOR, strokeWidth: 2 }}
+            dot={{ r: 3, fill: B.white, stroke: FRIEND_COLOR, strokeWidth: 2 }}
           />
         )}
         <Legend
-          wrapperStyle={{ fontSize: 12, paddingTop: 8 }}
+          wrapperStyle={{ fontSize: 12, paddingTop: 8, fontFamily: B.font }}
           formatter={(value) => (
-            <span style={{ color: value === youLabel ? '#6366F1' : value === friendLabel ? FRIEND_COLOR : partyColor }}>
+            <span style={{ color: value === youLabel ? ACCENT : value === friendLabel ? FRIEND_COLOR : partyColor }}>
               {value}
             </span>
           )}

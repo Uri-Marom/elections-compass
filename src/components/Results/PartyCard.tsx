@@ -4,6 +4,7 @@ import type { PartyMatch, DimensionKey } from '../../utils/matching'
 import { DIMENSIONS } from '../../utils/matching'
 import type { Party } from '../../types'
 import { useSurveyStore } from '../../store/survey'
+import { B, ACCENT, DIM_COLOR } from '../bureau/BureauComponents'
 
 interface Props {
   match: PartyMatch
@@ -23,21 +24,31 @@ export function PartyCard({ match, party, rank, mode }: Props) {
   const hasVotingData = match.overall_voted !== null
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-      <div className="p-4">
-        <div className="flex items-center gap-3 mb-3">
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0"
-            style={{ backgroundColor: party.color }}
-          >
+    <div style={{
+      background: B.white,
+      border: `1px solid ${B.border}`,
+      borderRadius: B.radiusLg,
+      overflow: 'hidden',
+      fontFamily: B.font,
+    }}>
+      <div style={{ padding: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+          {/* Rank badge */}
+          <div style={{
+            width: 36, height: 36, borderRadius: '50%',
+            background: party.color,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: '#fff', fontSize: 13, fontWeight: 800, flexShrink: 0,
+          }}>
             {rank}
           </div>
-          <div className="flex-1 min-w-0">
-            <div className="font-semibold text-gray-900">{name}</div>
-            <div className="text-xs text-gray-500">
+
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 15, fontWeight: 700, color: B.ink }}>{name}</div>
+            <div style={{ fontSize: 12, color: B.inkFaint, marginTop: 1 }}>
               {party.seats > 0 && `${party.seats} ${t('seats')}`}
               {party.poll_seats !== undefined && (
-                <span className="text-gray-400">
+                <span style={{ color: B.inkHint }}>
                   {party.seats > 0 ? ' ' : ''}{`(${party.poll_seats} ${t('poll_seats')})`}
                 </span>
               )}
@@ -45,25 +56,26 @@ export function PartyCard({ match, party, rank, mode }: Props) {
               {t(party.bloc === 'arab' ? 'opposition' : party.bloc)}
             </div>
           </div>
-          <div className="text-2xl font-bold" style={{ color: party.color }}>
+
+          <div style={{ fontSize: 22, fontWeight: 900, color: party.color, flexShrink: 0 }}>
             {score}%
           </div>
         </div>
 
         {/* Match bar */}
-        <div className="space-y-1">
-          <div className="flex items-center gap-2">
-            <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-              <div
-                className="h-2 rounded-full transition-all"
-                style={{ width: `${score}%`, backgroundColor: party.color }}
-              />
-            </div>
+        <div style={{ marginBottom: 4 }}>
+          <div style={{
+            height: 6, background: B.bgMid, borderRadius: 99, overflow: 'hidden',
+          }}>
+            <div style={{
+              height: 6, borderRadius: 99,
+              width: `${score}%`, background: party.color,
+              transition: 'width 0.4s',
+            }} />
           </div>
 
-          {/* Divergence indicator */}
           {hasVotingData && otherScore !== null && Math.abs(score - otherScore) >= 5 && (
-            <div className="flex items-center gap-1 text-xs text-amber-600">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginTop: 6, fontSize: 12, color: '#d97706' }}>
               <span>⚠</span>
               <span>
                 {mode === 'stated' ? t('actual_votes') : t('stated_positions')}: {otherScore}%
@@ -73,14 +85,17 @@ export function PartyCard({ match, party, rank, mode }: Props) {
           )}
 
           {mode === 'voted' && !hasVotingData && (
-            <div className="text-xs text-gray-400">{t('no_voting_data')}</div>
+            <div style={{ fontSize: 12, color: B.inkHint, marginTop: 4 }}>{t('no_voting_data')}</div>
           )}
         </div>
 
-        {/* Expand button */}
+        {/* Expand */}
         <button
           onClick={() => setExpanded(!expanded)}
-          className="mt-3 text-xs text-blue-600 hover:underline"
+          style={{
+            marginTop: 10, padding: 0, border: 'none', background: 'transparent',
+            fontSize: 12, color: ACCENT, cursor: 'pointer', fontFamily: B.font,
+          }}
         >
           {expanded ? '▲' : '▼'} {t('dimension_breakdown')}
         </button>
@@ -88,25 +103,28 @@ export function PartyCard({ match, party, rank, mode }: Props) {
 
       {/* Dimension breakdown */}
       {expanded && (
-        <div className="border-t border-gray-100 p-4 bg-gray-50 space-y-2">
+        <div style={{
+          borderTop: `1px solid ${B.border}`,
+          padding: 16,
+          background: B.bg,
+          display: 'flex', flexDirection: 'column', gap: 10,
+        }}>
           {(Object.keys(DIMENSIONS) as DimensionKey[]).map(dim => {
             const dimScore = mode === 'stated'
               ? match.by_dimension[dim]?.stated
               : (match.by_dimension[dim]?.voted ?? match.by_dimension[dim]?.stated)
             const label = lang === 'he' ? DIMENSIONS[dim].label_he : DIMENSIONS[dim].label_en
+            const dimColor = DIM_COLOR[dim] ?? party.color
 
             return (
-              <div key={dim} className="flex items-center gap-2">
-                <div className="text-xs text-gray-600 w-32 shrink-0">{label}</div>
-                <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div key={dim} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div style={{ fontSize: 11, color: dimColor, width: 88, flexShrink: 0, fontWeight: 600 }}>{label}</div>
+                <div style={{ flex: 1, height: 5, background: B.bgMid, borderRadius: 99, overflow: 'hidden' }}>
                   {dimScore !== null && dimScore !== undefined && (
-                    <div
-                      className="h-1.5 rounded-full"
-                      style={{ width: `${dimScore}%`, backgroundColor: party.color }}
-                    />
+                    <div style={{ height: 5, borderRadius: 99, width: `${dimScore}%`, background: dimColor }} />
                   )}
                 </div>
-                <div className="text-xs text-gray-500 w-8 text-end">
+                <div style={{ fontSize: 11, color: B.inkFaint, width: 28, textAlign: 'end', flexShrink: 0 }}>
                   {dimScore !== null && dimScore !== undefined ? `${dimScore}%` : '—'}
                 </div>
               </div>

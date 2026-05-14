@@ -136,8 +136,8 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
     ...layoutMargin(rightDots, 'right', [AXIS_LABEL_Y_CENTER]),
   ]
 
-  const axisColor = '#e5e7eb'
-  const axisLabelColor = '#9ca3af'
+  const axisColor = '#e4e4e7'
+  const axisLabelColor = '#a1a1aa'
 
   const userSvgX = userPoint ? toSvgX(userPoint.x) : null
   const userSvgY = userPoint ? toSvgY(userPoint.y) : null
@@ -147,24 +147,27 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
   return (
     <div>
       {/* Mode toggle */}
-      <div className="flex bg-gray-100 rounded-xl p-1 gap-1 mb-4">
+      <div style={{ display: 'flex', background: '#f4f4f5', borderRadius: 14, padding: 4, gap: 4, marginBottom: 16 }}>
         {(['stated', 'voted'] as const).map(m => (
           <button
             key={m}
             onClick={() => onModeChange(m)}
-            className={[
-              'flex-1 py-2 rounded-lg text-sm font-medium transition-all',
-              mode === m ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700',
-            ].join(' ')}
+            style={{
+              flex: 1, padding: '8px 0', borderRadius: 10, border: 'none', cursor: 'pointer',
+              fontSize: 13, fontWeight: 600,
+              background: mode === m ? '#ffffff' : 'transparent',
+              color: mode === m ? '#0a0a0a' : '#71717a',
+              boxShadow: mode === m ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+            }}
           >
             {m === 'stated' ? t('stated_positions') : t('actual_votes')}
           </button>
         ))}
       </div>
 
-      <p className="text-xs text-gray-400 mb-3 leading-relaxed">{t('similarity_subtitle', { total: TOTAL_QUESTIONS })}</p>
+      <p style={{ fontSize: 11, color: '#a1a1aa', marginBottom: 12, lineHeight: 1.55 }}>{t('similarity_subtitle', { total: TOTAL_QUESTIONS })}</p>
 
-      <div className="w-full overflow-hidden rounded-xl border border-gray-100 bg-white">
+      <div style={{ width: '100%', overflow: 'hidden', borderRadius: 14, border: '1px solid #e4e4e7', background: '#ffffff' }}>
         <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} width="100%" style={{ display: 'block' }}>
 
           {/* Axis lines — full width/height, no gap needed since labels are outside the plot area */}
@@ -236,9 +239,9 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
           {userSvgX !== null && userSvgY !== null && (
             <g>
               <title>{lang === 'he' ? 'אתם' : 'You'}</title>
-              <path d={starPath(userSvgX, userSvgY, 11)} fill="#4f46e5" stroke="white" strokeWidth={1.5} />
+              <path d={starPath(userSvgX, userSvgY, 11)} fill="#0891b2" stroke="white" strokeWidth={1.5} />
               <text x={userSvgX} y={userSvgY + 19}
-                textAnchor="middle" fontSize={9} fontWeight={700} fill="#4f46e5"
+                textAnchor="middle" fontSize={9} fontWeight={700} fill="#0891b2"
                 style={{ userSelect: 'none' }}>
                 {lang === 'he' ? 'אתם' : 'You'}
               </text>
@@ -252,6 +255,7 @@ export function PartyMap({ points, parties, mode, onModeChange, lang, userPoint,
               <path d={starPath(friendSvgX, friendSvgY, 11)} fill="#9333ea" stroke="white" strokeWidth={1.5} />
               <text x={friendSvgX} y={friendSvgY + 19}
                 textAnchor="middle" fontSize={9} fontWeight={700} fill="#9333ea"
+
                 style={{ userSelect: 'none' }}>
                 {lang === 'he' ? 'חבר/ה' : 'Friend'}
               </text>

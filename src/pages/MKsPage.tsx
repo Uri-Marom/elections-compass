@@ -7,6 +7,7 @@ import { useSurveyStore } from '../store/survey'
 import { rankMKs, TOTAL_QUESTIONS } from '../utils/matching'
 import { findCrossAisleMKs } from '../utils/research'
 import type { Party, PartyPosition, KnessetMember } from '../types'
+import { B, ACCENT, CompassRose } from '../components/bureau/BureauComponents'
 
 import partiesData from '../data/parties.json'
 import mksData from '../data/mks.json'
@@ -45,6 +46,10 @@ const allPartyPositions: Record<string, PartyPosition[]> = {
   raam: raamPos.positions as PartyPosition[],
 }
 
+const GRADE_BG: Record<string, string> = { A: '#f0fdf4', B: '#ecfeff', C: '#fefce8', D: '#fff7ed', F: '#fef2f2' }
+const GRADE_FG: Record<string, string> = { A: '#15803d', B: '#0e7490', C: '#a16207', D: '#c2410c', F: '#b91c1c' }
+const GRADE_BD: Record<string, string> = { A: '#bbf7d0', B: '#a5f3fc', C: '#fde68a', D: '#fed7aa', F: '#fecaca' }
+
 type Tab = 'matches' | 'crossaisle' | 'map'
 
 export function MKsPage() {
@@ -57,25 +62,9 @@ export function MKsPage() {
 
   const answered = answeredCount()
 
-  const rankedMKs = useMemo(
-    () => rankMKs(answers, mkPositions, weights),
-    [answers, weights]
-  )
-
-  const crossAisleResults = useMemo(
-    () => findCrossAisleMKs(mks, mkPositions, allPartyPositions),
-    []
-  )
-
+  const rankedMKs = useMemo(() => rankMKs(answers, mkPositions, weights), [answers, weights])
+  const crossAisleResults = useMemo(() => findCrossAisleMKs(mks, mkPositions, allPartyPositions), [])
   const partyIds = [...new Set(mks.map(m => m.party_id))].sort()
-
-  const gradeColors: Record<string, string> = {
-    A: 'bg-green-50 text-green-700 border-green-200',
-    B: 'bg-blue-50 text-blue-700 border-blue-200',
-    C: 'bg-yellow-50 text-yellow-700 border-yellow-200',
-    D: 'bg-orange-50 text-orange-700 border-orange-200',
-    F: 'bg-red-50 text-red-700 border-red-200',
-  }
 
   const filteredRanked = useMemo(() => {
     let list = partyFilter === 'all'
@@ -92,38 +81,45 @@ export function MKsPage() {
   }, [rankedMKs, partyFilter, matchSort])
 
   const TABS: Array<{ id: Tab; label: string }> = [
-    { id: 'matches',   label: t('mk_tab_matches') },
+    { id: 'matches',    label: t('mk_tab_matches') },
     { id: 'crossaisle', label: t('mk_tab_crossaisle') },
-    { id: 'map',       label: t('mk_tab_map') },
+    { id: 'map',        label: t('mk_tab_map') },
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
+    <div style={{ minHeight: '100dvh', background: B.bg, fontFamily: B.font }}>
+      <header style={{
+        background: `${B.bg}f5`, backdropFilter: 'blur(8px)',
+        borderBottom: `1px solid ${B.border}`,
+        position: 'sticky', top: 0, zIndex: 10,
+      }}>
+        <div style={{ maxWidth: 640, margin: '0 auto', padding: '12px 20px', display: 'flex', alignItems: 'center', gap: 10 }}>
           <button
             onClick={() => navigate(-1)}
-            className="text-gray-500 hover:text-gray-800 text-lg leading-none"
+            style={{ border: 'none', background: 'transparent', fontSize: 18, color: B.inkFaint, cursor: 'pointer', padding: 0, lineHeight: 1 }}
             aria-label="back"
           >
             {lang === 'he' ? '→' : '←'}
           </button>
-          <h1 className="flex-1 text-lg font-bold text-gray-900">{t('mk_compass')}</h1>
+          <CompassRose size={20} accent={ACCENT} lang={lang} />
+          <h1 style={{ flex: 1, fontSize: 15, fontWeight: 700, color: B.ink, margin: 0 }}>{t('mk_compass')}</h1>
           <LanguageSwitcher />
         </div>
 
         {/* Tabs */}
-        <div className="max-w-2xl mx-auto px-4 pb-0 flex gap-0 overflow-x-auto no-scrollbar">
+        <div style={{ maxWidth: 640, margin: '0 auto', padding: '0 20px', display: 'flex', overflowX: 'auto' }}>
           {TABS.map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={[
-                'py-2.5 px-3 text-xs font-medium shrink-0 border-b-2 transition-colors',
-                activeTab === tab.id
-                  ? 'border-indigo-600 text-indigo-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700',
-              ].join(' ')}
+              style={{
+                padding: '10px 12px', flexShrink: 0,
+                fontSize: 12, fontWeight: 600,
+                border: 'none', background: 'transparent',
+                borderBottom: `2px solid ${activeTab === tab.id ? ACCENT : 'transparent'}`,
+                color: activeTab === tab.id ? ACCENT : B.inkFaint,
+                cursor: 'pointer', fontFamily: B.font,
+              }}
             >
               {tab.label}
             </button>
@@ -131,48 +127,56 @@ export function MKsPage() {
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto px-4 py-5">
+      <main style={{ maxWidth: 640, margin: '0 auto', padding: '20px 20px 48px' }}>
 
-        {/* Tab 1: Your Matches */}
+        {/* Tab 1: Matches */}
         {activeTab === 'matches' && (
           <div>
             {answered < 5 ? (
-              <div className="text-center py-12 space-y-4">
-                <p className="text-sm text-gray-500">{t('mk_no_answers')}</p>
+              <div style={{ textAlign: 'center', padding: '48px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+                <p style={{ fontSize: 13, color: B.inkFaint }}>{t('mk_no_answers')}</p>
                 <button
                   onClick={() => navigate('/survey')}
-                  className="px-5 py-2.5 bg-indigo-600 text-white text-sm font-medium rounded-xl hover:bg-indigo-700 transition-colors"
+                  style={{
+                    padding: '10px 20px', borderRadius: B.radius,
+                    border: 'none', background: ACCENT, color: B.white,
+                    fontSize: 13, fontWeight: 600, cursor: 'pointer', fontFamily: B.font,
+                  }}
                 >
                   {t('go_to_survey')}
                 </button>
               </div>
             ) : (
-              <div className="space-y-3">
-                {/* Party filter */}
-                <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                {/* Party filter chips */}
+                <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 4 }}>
                   <button
                     onClick={() => setPartyFilter('all')}
-                    className={[
-                      'px-3 py-1.5 rounded-full text-xs font-medium shrink-0 transition-colors',
-                      partyFilter === 'all'
-                        ? 'bg-gray-900 text-white'
-                        : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-50',
-                    ].join(' ')}
+                    style={{
+                      padding: '5px 12px', borderRadius: 99, flexShrink: 0,
+                      fontSize: 11, fontWeight: 600, cursor: 'pointer', fontFamily: B.font,
+                      background: partyFilter === 'all' ? B.ink : B.white,
+                      color: partyFilter === 'all' ? B.bg : B.inkSoft,
+                      border: `1px solid ${partyFilter === 'all' ? B.ink : B.border}`,
+                    }}
                   >
                     {t('filter_by_party')}
                   </button>
                   {partyIds.map(pid => {
                     const party = parties.find(p => p.id === pid)
                     if (!party) return null
+                    const isSel = partyFilter === pid
                     return (
                       <button
                         key={pid}
                         onClick={() => setPartyFilter(pid)}
-                        className={[
-                          'px-3 py-1.5 rounded-full text-xs font-medium shrink-0 transition-colors border',
-                          partyFilter === pid ? 'text-white' : 'bg-white text-gray-600 hover:bg-gray-50',
-                        ].join(' ')}
-                        style={partyFilter === pid ? { backgroundColor: party.color, borderColor: party.color } : { borderColor: party.color + '60' }}
+                        style={{
+                          padding: '5px 12px', borderRadius: 99, flexShrink: 0,
+                          fontSize: 11, fontWeight: 600, cursor: 'pointer', fontFamily: B.font,
+                          background: isSel ? party.color : B.white,
+                          color: isSel ? '#fff' : B.inkSoft,
+                          border: `1px solid ${isSel ? party.color : party.color + '55'}`,
+                        }}
                       >
                         {lang === 'he' ? party.name_he : party.name_en}
                       </button>
@@ -181,73 +185,104 @@ export function MKsPage() {
                 </div>
 
                 {/* Sort toggle */}
-                <div className="flex bg-gray-100 rounded-xl p-1 gap-1">
+                <div style={{
+                  display: 'flex', background: B.bgMid, borderRadius: B.radius, padding: 4, gap: 4,
+                }}>
                   {(['match', 'activity'] as const).map(s => (
                     <button
                       key={s}
                       onClick={() => setMatchSort(s)}
-                      className={[
-                        'flex-1 py-1.5 rounded-lg text-xs font-medium transition-all',
-                        matchSort === s ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500',
-                      ].join(' ')}
+                      style={{
+                        flex: 1, padding: '7px 0', borderRadius: B.radius - 4,
+                        fontSize: 12, fontWeight: 600, cursor: 'pointer', fontFamily: B.font,
+                        border: 'none',
+                        background: matchSort === s ? B.white : 'transparent',
+                        color: matchSort === s ? B.ink : B.inkFaint,
+                        boxShadow: matchSort === s ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
+                      }}
                     >
                       {s === 'match' ? (lang === 'he' ? 'לפי התאמה' : 'By Match') : (lang === 'he' ? 'לפי פעילות' : 'By Activity')}
                     </button>
                   ))}
                 </div>
 
-                <p className="text-xs text-gray-400">{t('mk_matches_subtitle')}</p>
+                <p style={{ fontSize: 11, color: B.inkHint }}>{t('mk_matches_subtitle')}</p>
 
                 {/* Ranked list */}
-                <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-50 overflow-hidden shadow-sm">
+                <div style={{
+                  background: B.white, borderRadius: B.radiusLg,
+                  border: `1px solid ${B.border}`, overflow: 'hidden',
+                }}>
                   {filteredRanked.map((match, i) => {
                     const mk = mks.find(m => m.id === match.mk_id)
                     if (!mk) return null
                     const party = parties.find(p => p.id === mk.party_id)
                     const name = lang === 'he' ? mk.name_he : (mk.name_en || mk.name_he)
                     return (
-                      <div key={match.mk_id} className="flex items-center gap-3 px-4 py-3">
-                        <span className="text-xs font-bold text-gray-300 w-5 text-center shrink-0">{i + 1}</span>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-sm font-medium text-gray-900 truncate">{name}</span>
+                      <div
+                        key={match.mk_id}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: 12,
+                          padding: '10px 16px',
+                          borderBottom: `1px solid ${B.bg}`,
+                        }}
+                      >
+                        <span style={{
+                          fontSize: 10, fontWeight: 700, color: B.inkHint,
+                          width: 18, textAlign: 'center', flexShrink: 0,
+                          fontFamily: 'ui-monospace, monospace',
+                        }}>
+                          {i + 1}
+                        </span>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+                            <span style={{ fontSize: 13, fontWeight: 600, color: B.ink }}>{name}</span>
                             {mk.activity_grade && (
-                              <span
-                                className={`text-xs px-1.5 py-0.5 rounded-full border font-semibold shrink-0 ${gradeColors[mk.activity_grade] ?? ''}`}
+                              <span style={{
+                                fontSize: 10, padding: '1px 6px', borderRadius: 99, fontWeight: 700, flexShrink: 0,
+                                background: GRADE_BG[mk.activity_grade] ?? B.bgMid,
+                                color: GRADE_FG[mk.activity_grade] ?? B.inkSoft,
+                                border: `1px solid ${GRADE_BD[mk.activity_grade] ?? B.border}`,
+                              }}
                                 title={`${mk.attendance_pct != null ? mk.attendance_pct + '% attendance' : 'attendance N/A'} · ${mk.bill_count} bills`}
                               >
                                 {mk.activity_grade}
                               </span>
                             )}
                             {mk.is_current && (
-                              <span className="text-xs px-1.5 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-100 shrink-0">
+                              <span style={{
+                                fontSize: 10, padding: '1px 6px', borderRadius: 99, flexShrink: 0,
+                                background: '#f0fdf4', color: '#15803d', border: '1px solid #bbf7d0',
+                              }}>
                                 {t('current_mk')}
                               </span>
                             )}
                           </div>
                           {party && (
-                            <span className="text-xs font-medium mt-0.5 inline-block" style={{ color: party.color }}>
+                            <span style={{ fontSize: 11, fontWeight: 600, color: party.color, marginTop: 1, display: 'block' }}>
                               {lang === 'he' ? party.name_he : party.name_en}
                             </span>
                           )}
-                          <p className="text-xs text-gray-400 mt-0.5">
+                          <p style={{ fontSize: 11, color: B.inkHint, marginTop: 1 }}>
                             {mk.attendance_pct != null
                               ? `${mk.attendance_pct}% ${lang === 'he' ? 'נוכחות' : 'attendance'}`
                               : (lang === 'he' ? 'נוכחות: לא זמין' : 'attendance: N/A')
                             } · {mk.bill_count} {lang === 'he' ? 'הצעות חוק' : 'bills'}
                           </p>
                         </div>
-                        <div className="flex flex-col items-end shrink-0">
-                          <span className="text-sm font-bold" style={{ color: party?.color ?? '#888' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
+                          <span style={{ fontSize: 13, fontWeight: 800, color: party?.color ?? B.inkHint }}>
                             {match.overall}%
                           </span>
-                          <span className="text-xs text-gray-400">{t('coverage_questions', { n: match.question_count, total: TOTAL_QUESTIONS })}</span>
+                          <span style={{ fontSize: 10, color: B.inkHint }}>
+                            {t('coverage_questions', { n: match.question_count, total: TOTAL_QUESTIONS })}
+                          </span>
                         </div>
                       </div>
                     )
                   })}
                   {filteredRanked.length === 0 && (
-                    <div className="py-8 text-center text-sm text-gray-400">—</div>
+                    <div style={{ padding: '32px 0', textAlign: 'center', fontSize: 13, color: B.inkHint }}>—</div>
                   )}
                 </div>
               </div>
@@ -255,50 +290,59 @@ export function MKsPage() {
           </div>
         )}
 
-        {/* Tab 2: Cross-Aisle MKs */}
+        {/* Tab 2: Cross-Aisle */}
         {activeTab === 'crossaisle' && (
-          <div className="space-y-3">
-            <p className="text-xs text-gray-500">{t('mk_crossaisle_subtitle')}</p>
-            <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-50 overflow-hidden shadow-sm">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <p style={{ fontSize: 12, color: B.inkFaint }}>{t('mk_crossaisle_subtitle')}</p>
+            <div style={{
+              background: B.white, borderRadius: B.radiusLg,
+              border: `1px solid ${B.border}`, overflow: 'hidden',
+            }}>
               {crossAisleResults.filter(r => r.closest_party_id !== r.actual_party_id && r.divergence > 5).map(result => {
                 const mk = mks.find(m => m.id === result.mk_id)
                 if (!mk) return null
-                const actualParty = parties.find(p => p.id === result.actual_party_id)
-                const closestParty = parties.find(p => p.id === result.closest_party_id)
+                const actualParty   = parties.find(p => p.id === result.actual_party_id)
+                const closestParty  = parties.find(p => p.id === result.closest_party_id)
                 const name = lang === 'he' ? mk.name_he : (mk.name_en || mk.name_he)
 
                 return (
-                  <div key={result.mk_id} className="px-4 py-3">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-2 flex-wrap mb-1">
-                          <span className="text-sm font-medium text-gray-900">{name}</span>
+                  <div
+                    key={result.mk_id}
+                    style={{ padding: '12px 16px', borderBottom: `1px solid ${B.bg}` }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12 }}>
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 4 }}>
+                          <span style={{ fontSize: 13, fontWeight: 600, color: B.ink }}>{name}</span>
                           {mk.is_current && (
-                            <span className="text-xs px-1.5 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-100 shrink-0">
+                            <span style={{
+                              fontSize: 10, padding: '1px 6px', borderRadius: 99,
+                              background: '#f0fdf4', color: '#15803d', border: '1px solid #bbf7d0', flexShrink: 0,
+                            }}>
                               {t('current_mk')}
                             </span>
                           )}
                         </div>
-                        <div className="flex items-center gap-2 text-xs text-gray-500 flex-wrap">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: B.inkFaint, flexWrap: 'wrap' }}>
                           <span>
                             {t('mk_crossaisle_own_party')}:{' '}
-                            <span className="font-medium" style={{ color: actualParty?.color }}>
+                            <span style={{ fontWeight: 700, color: actualParty?.color }}>
                               {lang === 'he' ? actualParty?.name_he : actualParty?.name_en}
                             </span>
                             {' '}{result.actual_similarity}%
                           </span>
-                          <span className="text-gray-300">→</span>
+                          <span style={{ color: B.borderMid }}>→</span>
                           <span>
                             {t('mk_crossaisle_votes_like')}:{' '}
-                            <span className="font-medium" style={{ color: closestParty?.color }}>
+                            <span style={{ fontWeight: 700, color: closestParty?.color }}>
                               {lang === 'he' ? closestParty?.name_he : closestParty?.name_en}
                             </span>
                             {' '}{result.closest_similarity}%
                           </span>
                         </div>
                       </div>
-                      <div className="shrink-0 text-right">
-                        <span className="text-sm font-bold text-amber-500">+{result.divergence}</span>
+                      <div style={{ flexShrink: 0 }}>
+                        <span style={{ fontSize: 13, fontWeight: 800, color: '#d97706' }}>+{result.divergence}</span>
                       </div>
                     </div>
                   </div>
@@ -319,7 +363,6 @@ export function MKsPage() {
             userAnswers={answers}
           />
         )}
-
       </main>
     </div>
   )

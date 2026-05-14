@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSurveyStore } from '../store/survey'
+import { B, ACCENT } from './bureau/BureauComponents'
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
@@ -12,17 +13,11 @@ export function FeedbackButton() {
   const [name, setName] = useState('')
   const [status, setStatus] = useState<Status>('idle')
 
-  function handleOpen() {
-    setOpen(true)
-    setStatus('idle')
-  }
+  function handleOpen() { setOpen(true); setStatus('idle') }
 
   function handleClose() {
     if (status === 'sending') return
-    setOpen(false)
-    setMessage('')
-    setName('')
-    setStatus('idle')
+    setOpen(false); setMessage(''); setName(''); setStatus('idle')
   }
 
   async function handleSubmit() {
@@ -37,48 +32,78 @@ export function FeedbackButton() {
       if (!res.ok) throw new Error('server error')
       setStatus('sent')
       setTimeout(() => handleClose(), 3000)
-    } catch {
-      setStatus('error')
-    }
+    } catch { setStatus('error') }
   }
 
   const isRtl = lang === 'he'
 
+  const inputStyle: React.CSSProperties = {
+    width: '100%', boxSizing: 'border-box',
+    fontSize: 13, fontFamily: B.font,
+    border: `1px solid ${B.border}`,
+    borderRadius: B.radius,
+    padding: '10px 12px',
+    background: B.bg,
+    color: B.ink,
+    outline: 'none',
+  }
+
   return (
     <>
-      {/* Floating button */}
       <button
         onClick={handleOpen}
         dir={isRtl ? 'rtl' : 'ltr'}
-        className="fixed bottom-5 left-5 z-50 flex items-center gap-1.5 px-3 py-2 rounded-full bg-white border border-gray-200 shadow-md text-sm text-gray-600 hover:bg-gray-50 hover:shadow-lg transition-all"
+        style={{
+          position: 'fixed', bottom: 20, left: 20, zIndex: 50,
+          display: 'flex', alignItems: 'center', gap: 6,
+          padding: '8px 14px',
+          borderRadius: 999,
+          background: B.white,
+          border: `1px solid ${B.border}`,
+          boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+          fontSize: 13, color: B.inkSoft,
+          cursor: 'pointer', fontFamily: B.font,
+        }}
         aria-label={t('feedback')}
       >
         <span>💬</span>
-        <span className="font-medium">{t('feedback')}</span>
+        <span style={{ fontWeight: 500 }}>{t('feedback')}</span>
       </button>
 
-      {/* Modal overlay */}
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-end justify-start p-5"
+          style={{
+            position: 'fixed', inset: 0, zIndex: 50,
+            display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-start',
+            padding: 20,
+          }}
           onClick={e => { if (e.target === e.currentTarget) handleClose() }}
         >
           <div
             dir={isRtl ? 'rtl' : 'ltr'}
-            className="w-full max-w-xs bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 mb-14"
+            style={{
+              width: '100%', maxWidth: 320,
+              background: B.white,
+              borderRadius: B.radiusXl,
+              border: `1px solid ${B.border}`,
+              boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+              padding: 16,
+              marginBottom: 56,
+              fontFamily: B.font,
+            }}
           >
-            <div className="flex items-center justify-between mb-3">
-              <span className="font-semibold text-gray-800 text-sm">💬 {t('feedback')}</span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: B.ink }}>💬 {t('feedback')}</span>
               <button
                 onClick={handleClose}
-                className="text-gray-400 hover:text-gray-600 text-lg leading-none"
-              >
-                ×
-              </button>
+                style={{ border: 'none', background: 'transparent', fontSize: 18, color: B.inkHint, cursor: 'pointer', padding: 0 }}
+              >×</button>
             </div>
 
             {status === 'sent' ? (
-              <p className="text-green-600 text-sm text-center py-4">{t('feedback_thanks')}</p>
+              <p style={{ fontSize: 13, color: '#16a34a', textAlign: 'center', padding: '16px 0' }}>
+                {t('feedback_thanks')}
+              </p>
             ) : (
               <>
                 <textarea
@@ -88,7 +113,7 @@ export function FeedbackButton() {
                   maxLength={2000}
                   rows={4}
                   disabled={status === 'sending'}
-                  className="w-full text-sm rounded-xl border border-gray-200 p-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-50"
+                  style={{ ...inputStyle, resize: 'none', marginBottom: 8 }}
                 />
                 <input
                   value={name}
@@ -96,15 +121,22 @@ export function FeedbackButton() {
                   placeholder={t('feedback_name_placeholder')}
                   maxLength={80}
                   disabled={status === 'sending'}
-                  className="w-full mt-2 text-sm rounded-xl border border-gray-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-50"
+                  style={{ ...inputStyle, marginBottom: 8 }}
                 />
                 {status === 'error' && (
-                  <p className="text-red-500 text-xs mt-1">{t('feedback_error')}</p>
+                  <p style={{ fontSize: 12, color: '#dc2626', marginBottom: 6 }}>{t('feedback_error')}</p>
                 )}
                 <button
                   onClick={handleSubmit}
                   disabled={!message.trim() || status === 'sending'}
-                  className="w-full mt-3 py-2 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors disabled:opacity-50"
+                  style={{
+                    width: '100%', padding: '10px 0',
+                    borderRadius: B.radius, border: 'none',
+                    background: ACCENT, color: B.white,
+                    fontSize: 13, fontWeight: 600,
+                    cursor: 'pointer', fontFamily: B.font,
+                    opacity: (!message.trim() || status === 'sending') ? 0.5 : 1,
+                  }}
                 >
                   {status === 'sending' ? '...' : t('feedback_send')}
                 </button>
