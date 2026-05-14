@@ -59,7 +59,7 @@ export function IntroPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <CompassRose size={22} accent={ACCENT} lang={lang} />
           <span style={{ fontSize: 14, fontWeight: 700, color: B.ink, letterSpacing: '0.02em' }}>
-            {isHe ? 'מצפן הצבעה' : 'Vote Compass Israel'}
+            {isHe ? 'מצפן הבחירות' : 'Vote Compass Israel'}
           </span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>

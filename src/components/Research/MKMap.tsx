@@ -5,6 +5,7 @@ import {
   MK_DIM_LABELS,
   type MKDimKey,
 } from '../../utils/research'
+import { B, ACCENT, DIM_COLOR } from '../bureau/BureauComponents'
 
 interface Props {
   allPartyPositions: Record<string, PartyPosition[]>
@@ -16,9 +17,9 @@ interface Props {
 }
 
 const SVG_W = 500
-const SVG_H = 440
+const SVG_H = 460
 const MARGIN = 126
-const PAD_Y = 36
+const PAD_Y = 44
 const PARTY_R = 7
 const MK_R = 3.5
 const LABEL_GAP = 15
@@ -27,6 +28,14 @@ const PLOT_X0 = MARGIN
 const PLOT_X1 = SVG_W - MARGIN
 const LABEL_X_L = MARGIN / 2
 const LABEL_X_R = SVG_W - MARGIN / 2
+
+const FONT = "'Heebo', 'Rubik', system-ui, sans-serif"
+const DIMS: MKDimKey[] = ['religion', 'judicial', 'governance']
+
+// Map each axis dim to a DIM_COLOR for the selector highlight
+const DIM_TO_KEY: Record<MKDimKey, string> = {
+  religion: 'religion', judicial: 'judicial', governance: 'governance',
+}
 
 function toSvgX(x: number) { return PLOT_X0 + ((x + 1) / 2) * (PLOT_X1 - PLOT_X0) }
 function toSvgY(y: number) { return PAD_Y + ((1 - y) / 2) * (SVG_H - PAD_Y * 2) }
@@ -62,8 +71,6 @@ function layoutMargin(items: LabelItem[], side: 'left' | 'right'): PlacedLabel[]
   return sorted.map((d, i) => ({ labelX, labelY: ys[i], name: d.name, color: d.color, dotX: d.svgX, dotY: d.svgY, side }))
 }
 
-const DIMS: MKDimKey[] = ['religion', 'judicial', 'governance']
-
 export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, userAnswers }: Props) {
   const [xDim, setXDim] = useState<MKDimKey>('religion')
   const [yDim, setYDim] = useState<MKDimKey>('judicial')
@@ -81,96 +88,132 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
 
   const partyDots = result.partyPoints.map(pt => {
     const party = parties.find(p => p.id === pt.party_id)
-    return { party_id: pt.party_id, color: party?.color ?? '#888',
+    return {
+      party_id: pt.party_id, color: party?.color ?? '#888',
       name: party ? (lang === 'he' ? party.name_he : party.name_en) : pt.party_id,
-      svgX: toSvgX(pt.x), svgY: toSvgY(pt.y) }
+      svgX: toSvgX(pt.x), svgY: toSvgY(pt.y),
+    }
   })
 
   const mkDots = result.mkPoints.map(pt => {
     const mk = mks.find(m => m.id === pt.mk_id)
     const party = parties.find(p => p.id === pt.party_id)
-    return { mk_id: pt.mk_id, color: party?.color ?? '#888',
+    return {
+      mk_id: pt.mk_id, color: party?.color ?? '#888',
       name: mk ? (lang === 'he' ? mk.name_he : (mk.name_en || mk.name_he)) : pt.mk_id,
       partyName: party ? (lang === 'he' ? party.name_he : party.name_en) : '',
       partyColor: party?.color ?? '#888',
-      svgX: toSvgX(pt.x), svgY: toSvgY(pt.y) }
+      svgX: toSvgX(pt.x), svgY: toSvgY(pt.y),
+    }
   })
 
   const midX = (PLOT_X0 + PLOT_X1) / 2
-  const leftParties = partyDots.filter(d => d.svgX <= midX)
-  const rightParties = partyDots.filter(d => d.svgX > midX)
   const labels: PlacedLabel[] = [
-    ...layoutMargin(leftParties, 'left'),
-    ...layoutMargin(rightParties, 'right'),
+    ...layoutMargin(partyDots.filter(d => d.svgX <= midX), 'left'),
+    ...layoutMargin(partyDots.filter(d => d.svgX > midX),  'right'),
   ]
 
   const hoveredMk = hoveredMkId ? mkDots.find(d => d.mk_id === hoveredMkId) : null
   const userSvgX = userPoint ? toSvgX(userPoint.x) : null
   const userSvgY = userPoint ? toSvgY(userPoint.y) : null
-  const axisColor = '#e4e4e7'
-  const axisLabelColor = '#a1a1aa'
   const xL = MK_DIM_LABELS[xDim], yL = MK_DIM_LABELS[yDim]
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontFamily: B.font }}>
 
       {/* Axis selectors */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
         {([['x', xDim, setXDim], ['y', yDim, setYDim]] as const).map(([axis, current, setter]) => (
           <div key={axis}>
-            <p style={{ fontSize: 11, color: '#a1a1aa', marginBottom: 4 }}>
+            <p style={{
+              fontSize: 10, color: B.inkHint, marginBottom: 4,
+              fontFamily: 'ui-monospace, monospace', letterSpacing: '0.08em', textTransform: 'uppercase',
+            }}>
               {axis === 'x' ? (lang === 'he' ? 'ציר אופקי' : 'X axis') : (lang === 'he' ? 'ציר אנכי' : 'Y axis')}
             </p>
-            <div style={{ display: 'flex', background: '#f4f4f5', borderRadius: 10, padding: 3, gap: 2 }}>
-              {DIMS.map(d => (
-                <button key={d} onClick={() => setter(d as MKDimKey)}
-                  style={{
-                    flex: 1, padding: '5px 2px', borderRadius: 7, border: 'none', cursor: 'pointer',
-                    fontSize: 10, fontWeight: 600, lineHeight: 1.3,
-                    background: current === d ? '#ffffff' : 'transparent',
-                    color: current === d ? '#0a0a0a' : '#71717a',
-                    boxShadow: current === d ? '0 1px 2px rgba(0,0,0,0.07)' : 'none',
+            <div style={{ display: 'flex', background: B.bgMid, borderRadius: B.radius, padding: 3, gap: 2 }}>
+              {DIMS.map(d => {
+                const isSel = current === d
+                const dimColor = DIM_COLOR[DIM_TO_KEY[d]] ?? ACCENT
+                return (
+                  <button key={d} onClick={() => setter(d as MKDimKey)} style={{
+                    flex: 1, padding: '6px 2px', borderRadius: 10, border: 'none', cursor: 'pointer',
+                    fontSize: 10, fontWeight: 700, lineHeight: 1.3, fontFamily: B.font,
+                    background: isSel ? B.white : 'transparent',
+                    color: isSel ? dimColor : B.inkFaint,
+                    boxShadow: isSel ? '0 1px 3px rgba(0,0,0,0.08)' : 'none',
                   }}>
-                  {MK_DIM_LABELS[d][lang === 'he' ? 'he' : 'en']}
-                </button>
-              ))}
+                    {MK_DIM_LABELS[d][lang === 'he' ? 'he' : 'en']}
+                  </button>
+                )
+              })}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Hovered MK tooltip */}
+      {/* Hover tooltip */}
       {hoveredMk ? (
         <div style={{
-          padding: '8px 12px', background: '#ffffff', borderRadius: 12,
-          border: '1px solid #e4e4e7', display: 'flex', alignItems: 'center', gap: 8,
+          padding: '8px 14px', background: B.white, borderRadius: B.radius,
+          border: `1px solid ${B.border}`, display: 'flex', alignItems: 'center', gap: 10,
         }}>
-          <span style={{ fontSize: 13, fontWeight: 600, color: '#0a0a0a' }}>{hoveredMk.name}</span>
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: hoveredMk.partyColor, flexShrink: 0 }} />
+          <span style={{ fontSize: 13, fontWeight: 700, color: B.ink }}>{hoveredMk.name}</span>
           <span style={{ fontSize: 11, fontWeight: 600, color: hoveredMk.partyColor }}>{hoveredMk.partyName}</span>
         </div>
       ) : (
-        <p style={{ fontSize: 11, color: '#a1a1aa' }}>{lang === 'he' ? 'עברו על נקודה לשם הח״כ' : 'Hover a dot to see the MK name'}</p>
+        <p style={{ fontSize: 11, color: B.inkHint }}>
+          {lang === 'he' ? 'עברו על נקודה לשם הח״כ' : 'Hover a dot to see the MK name'}
+        </p>
       )}
 
       {/* Map */}
-      <div style={{ width: '100%', overflow: 'hidden', borderRadius: 14, border: '1px solid #e4e4e7', background: '#ffffff' }}>
+      <div style={{
+        width: '100%', overflow: 'hidden',
+        borderRadius: B.radiusLg, border: `1px solid ${B.border}`,
+        background: B.bg,
+      }}>
         <svg viewBox={`0 0 ${SVG_W} ${SVG_H}`} width="100%" style={{ display: 'block' }}>
+          <defs>
+            <pattern id="mk-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="0.55" fill={B.ink} opacity="0.12" />
+            </pattern>
+          </defs>
 
-          {/* Axis lines with gaps at ends for labels */}
-          <line x1={PLOT_X0 + 28} y1={SVG_H / 2} x2={PLOT_X1 - 28} y2={SVG_H / 2} stroke={axisColor} strokeWidth={1} />
-          <line x1={SVG_W / 2} y1={PAD_Y + 14} x2={SVG_W / 2} y2={SVG_H - PAD_Y - 14} stroke={axisColor} strokeWidth={1} />
+          {/* Background */}
+          <rect width={SVG_W} height={SVG_H} fill={B.bg} />
+          <rect x={0} y={0} width={PLOT_X0} height={SVG_H} fill="url(#mk-dots)" />
+          <rect x={PLOT_X1} y={0} width={SVG_W - PLOT_X1} height={SVG_H} fill="url(#mk-dots)" />
+
+          {/* White plot area */}
+          <rect
+            x={PLOT_X0} y={PAD_Y}
+            width={PLOT_X1 - PLOT_X0} height={SVG_H - PAD_Y * 2}
+            fill={B.white} rx={4} stroke={B.border} strokeWidth={0.8}
+          />
+
+          {/* Dashed axis lines */}
+          <line x1={PLOT_X0 + 2} y1={SVG_H / 2} x2={PLOT_X1 - 2} y2={SVG_H / 2}
+            stroke={B.borderMid} strokeWidth={1} strokeDasharray="4 4" />
+          <line x1={SVG_W / 2} y1={PAD_Y + 2} x2={SVG_W / 2} y2={SVG_H - PAD_Y - 2}
+            stroke={B.borderMid} strokeWidth={1} strokeDasharray="4 4" />
 
           {/* Axis end labels */}
-          <text x={PLOT_X0 + 14} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle" fontSize={10} fill={axisLabelColor} fontWeight={700}>
+          <text x={PLOT_X0 + 16} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle"
+            fontSize={9} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace">
             {lang === 'he' ? xL.lowHe : xL.lowEn}
           </text>
-          <text x={PLOT_X1 - 14} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle" fontSize={10} fill={axisLabelColor} fontWeight={700}>
+          <text x={PLOT_X1 - 16} y={SVG_H / 2} textAnchor="middle" dominantBaseline="middle"
+            fontSize={9} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace">
             {lang === 'he' ? xL.highHe : xL.highEn}
           </text>
-          <text x={SVG_W / 2} y={PAD_Y + 7} textAnchor="middle" dominantBaseline="middle" fontSize={10} fill={axisLabelColor} fontWeight={700}>
+          <text x={SVG_W / 2} y={PAD_Y + 9} textAnchor="middle" dominantBaseline="middle"
+            fontSize={9} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace">
             {lang === 'he' ? yL.highHe : yL.highEn}
           </text>
-          <text x={SVG_W / 2} y={SVG_H - PAD_Y - 7} textAnchor="middle" dominantBaseline="middle" fontSize={10} fill={axisLabelColor} fontWeight={700}>
+          <text x={SVG_W / 2} y={SVG_H - PAD_Y - 9} textAnchor="middle" dominantBaseline="middle"
+            fontSize={9} fill={B.inkHint} fontWeight={700} fontFamily="ui-monospace, monospace">
             {lang === 'he' ? yL.lowHe : yL.lowEn}
           </text>
 
@@ -185,10 +228,10 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
             const startY = lb.labelY + (dy / dist) * clearance
             if (dist < PARTY_R + clearance + 4) return null
             return <line key={`line-${i}`} x1={startX} y1={startY} x2={endX} y2={endY}
-              stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.4} />
+              stroke={lb.color} strokeWidth={0.8} strokeOpacity={0.45} />
           })}
 
-          {/* MK dots — rendered below party dots */}
+          {/* MK dots */}
           {mkDots.map(d => {
             const isHov = d.mk_id === hoveredMkId
             return (
@@ -196,8 +239,8 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
                 cx={d.svgX} cy={d.svgY}
                 r={isHov ? MK_R + 2 : MK_R}
                 fill={d.color}
-                opacity={isHov ? 1 : 0.5}
-                stroke={isHov ? '#fff' : 'none'}
+                opacity={isHov ? 1 : 0.45}
+                stroke={isHov ? B.white : 'none'}
                 strokeWidth={isHov ? 1.5 : 0}
                 style={{ cursor: 'pointer' }}
                 onMouseEnter={() => setHoveredMkId(d.mk_id)}
@@ -209,7 +252,10 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
 
           {/* Party dots */}
           {partyDots.map(d => (
-            <circle key={d.party_id} cx={d.svgX} cy={d.svgY} r={PARTY_R} fill={d.color} opacity={0.9} />
+            <g key={d.party_id}>
+              <circle cx={d.svgX} cy={d.svgY} r={PARTY_R + 2} fill={B.white} opacity={0.5} />
+              <circle cx={d.svgX} cy={d.svgY} r={PARTY_R} fill={d.color} />
+            </g>
           ))}
 
           {/* Party labels */}
@@ -217,7 +263,7 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
             <text key={`label-${i}`}
               x={lb.labelX} y={lb.labelY}
               textAnchor="middle" dominantBaseline="middle"
-              fontSize={9} fontWeight={600} fill={lb.color}
+              fontSize={9} fontWeight={700} fill={lb.color} fontFamily={FONT}
               style={{ userSelect: 'none' }}>
               {lb.name}
             </text>
@@ -226,9 +272,10 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
           {/* User star */}
           {userSvgX !== null && userSvgY !== null && (
             <g>
-              <path d={starPath(userSvgX, userSvgY, 10)} fill="#0891b2" stroke="white" strokeWidth={1.5} />
-              <text x={userSvgX} y={userSvgY + 18}
-                textAnchor="middle" fontSize={9} fontWeight={700} fill="#0891b2"
+              <circle cx={userSvgX} cy={userSvgY} r={16} fill={ACCENT} opacity={0.1} />
+              <path d={starPath(userSvgX, userSvgY, 10)} fill={ACCENT} stroke={B.white} strokeWidth={1.5} />
+              <text x={userSvgX} y={userSvgY + 20}
+                textAnchor="middle" fontSize={9} fontWeight={700} fill={ACCENT} fontFamily={FONT}
                 style={{ userSelect: 'none' }}>
                 {lang === 'he' ? 'אתם' : 'You'}
               </text>
@@ -238,19 +285,27 @@ export function MKMap({ allPartyPositions, mks, mkPositions, parties, lang, user
       </div>
 
       {/* Legend */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 11, color: '#a1a1aa' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 11, color: B.inkHint }}>
         <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <svg width={16} height={12} style={{ display: 'inline-block' }}>
-            <circle cx={8} cy={6} r={PARTY_R - 1} fill="#888" opacity={0.9} />
+            <circle cx={8} cy={6} r={PARTY_R - 1} fill={B.inkFaint} />
           </svg>
           {lang === 'he' ? 'מפלגה' : 'Party'}
         </span>
         <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <svg width={16} height={12} style={{ display: 'inline-block' }}>
-            <circle cx={8} cy={6} r={MK_R} fill="#888" opacity={0.5} />
+            <circle cx={8} cy={6} r={MK_R} fill={B.inkFaint} opacity={0.45} />
           </svg>
           {lang === 'he' ? 'ח"כ' : 'MK'}
         </span>
+        {userAnswers && (
+          <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <svg width={16} height={12} style={{ display: 'inline-block' }}>
+              <path d={starPath(8, 6, 6)} fill={ACCENT} />
+            </svg>
+            {lang === 'he' ? 'אתם' : 'You'}
+          </span>
+        )}
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 {
-  "app_title": "מצפן הצבעה",
+  "app_title": "מצפן הבחירות",
   "app_subtitle": "גלו איזו מפלגה באמת מייצגת אתכם",
   "start_survey": "התחילו",
   "continue": "המשך",
@@ -126,7 +126,7 @@
   "about_privacy_title": "פרטיות",
   "about_privacy_body": "התשובות נאספות באופן אנונימי לצורך שיפור המצפן — לא נשמרות כתובות IP, עוגיות, או כל פרט מזהה אישי.",
   "about_independence_title": "עצמאות",
-  "about_independence_body": "מצפן הצבעה הוא פרויקט עצמאי ולא מפלגתי. אין לו כל קשר למפלגה או ארגון פוליטי.",
+  "about_independence_body": "מצפן הבחירות הוא פרויקט עצמאי ולא מפלגתי. אין לו כל קשר למפלגה או ארגון פוליטי.",
   "about_improvement_title": "שיפור המצפן",
   "about_data_sources_body": "נתוני ההצבעות מבוססים על",
   "about_data_sources_link": "כנסת פתוחה",

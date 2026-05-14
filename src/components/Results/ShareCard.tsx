@@ -246,7 +246,7 @@ export const ShareCard = forwardRef<HTMLDivElement, Props>(
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <CompassRoseSVG size={28} color={B.bg} accent={ACCENT} />
             <span style={{ color: B.bg, fontSize: 15, fontWeight: 800, letterSpacing: '-0.01em' }}>
-              {isHe ? 'מצפן בחירות' : 'Vote Compass'}
+              {isHe ? 'מצפן הבחירות' : 'Vote Compass'}
             </span>
           </div>
           <span style={{

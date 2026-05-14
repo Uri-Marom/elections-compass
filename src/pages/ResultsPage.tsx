@@ -106,7 +106,7 @@ export function ResultsPage() {
   const shareCardRef = useRef<HTMLDivElement>(null)
   const sharePendingRef = useRef(false)
 
-  const SHARE_TEXT_HE = 'עניתי על השאלון של מצפן הצבעה וגיליתי למי כדאי לי להצביע!\nרוצים גם?\ntinyurl.com/matzpen26'
+  const SHARE_TEXT_HE = 'עניתי על השאלון של מצפן הבחירות וגיליתי למי כדאי לי להצביע!\nרוצים גם?\ntinyurl.com/matzpen26'
   const SHARE_TEXT_EN = 'I took the Vote Compass quiz and found out who I should vote for!\nWant to find out too?\ntinyurl.com/matzpen26'
   const shareText = isHe ? SHARE_TEXT_HE : SHARE_TEXT_EN
 
@@ -156,7 +156,7 @@ export function ResultsPage() {
     const encoded = encodeAnswers(answers)
     const url = `${window.location.origin}/results?compare=${encoded}`
     const compareText = isHe
-      ? `עניתי על מצפן הצבעה. ענו גם אתם ונוכל להשוות את התוצאות שלנו!\n${url}`
+      ? `עניתי על מצפן הבחירות. ענו גם אתם ונוכל להשוות את התוצאות שלנו!\n${url}`
       : `Take the Vote Compass quiz and let's compare results!\n${url}`
     if (navigator.share) {
       try { await navigator.share({ text: compareText }); return } catch {}
@@ -176,7 +176,7 @@ export function ResultsPage() {
       const file = new File([blob], 'matzpen-results.png', { type: 'image/png' })
       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
       if (isMobile && navigator.share && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], text: shareText, title: isHe ? 'מצפן הצבעה - התוצאות שלי' : 'Vote Compass - My Results' })
+        await navigator.share({ files: [file], text: shareText, title: isHe ? 'מצפן הבחירות - התוצאות שלי' : 'Vote Compass - My Results' })
       } else {
         const textBlob = new Blob([shareText], { type: 'text/plain' })
         if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
@@ -247,7 +247,7 @@ export function ResultsPage() {
         }}>
           <CompassRose size={20} accent={ACCENT} lang={lang} />
           <span style={{ flex: 1, fontSize: 14, fontWeight: 700, color: B.ink }}>
-            {isHe ? 'מצפן הצבעה' : 'Vote Compass Israel'}
+            {isHe ? 'מצפן הבחירות' : 'Vote Compass Israel'}
           </span>
           <LanguageSwitcher />
         </div>
