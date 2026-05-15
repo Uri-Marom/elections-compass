@@ -412,7 +412,7 @@ export const PARTY_DIM_LABELS: Record<PartyDimKey, { he: string; lowHe: string; 
   religion:   { he: 'דת ומדינה',      lowHe: 'חילוני',         highHe: 'דתי',          lowEn: 'Secular',        highEn: 'Religious'      },
   judicial:   { he: 'רפורמה משפטית',  lowHe: 'נגד הרפורמה',   highHe: 'בעד הרפורמה', lowEn: 'Anti-reform',    highEn: 'Pro-reform'     },
   minority:   { he: 'שוויון מיעוטים', lowHe: 'נגד שוויון',    highHe: 'בעד שוויון',  lowEn: 'Anti-rights',    highEn: 'Pro-rights'     },
-  governance: { he: 'ממשל',           lowHe: 'ריכוז כוח',     highHe: 'אחריות',       lowEn: 'Power-central',  highEn: 'Accountability' },
+  governance: { he: 'ממשל',           lowHe: 'ריכוז כוח',     highHe: 'פיקוח ואיזונים', lowEn: 'Power-central',  highEn: 'Checks & Balances' },
 }
 
 export interface PartyAxisPreset {
