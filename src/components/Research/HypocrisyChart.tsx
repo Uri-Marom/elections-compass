@@ -116,15 +116,15 @@ export function HypocrisyChart({ results, parties, questions, lang }: Props) {
                                 fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 99,
                                 color: ACCENT, background: `${ACCENT}15`,
                               }}>
-                                {formatScore(gap.stated, lang)} ({gap.stated > 0 ? '+' : ''}{gap.stated})
+                                {formatScore(gap.stated, lang)} ({gap.stated > 0 ? '+' : '‒'}{Math.abs(gap.stated)})
                               </span>
-                              <span style={{ color: B.borderMid }}>→</span>
+                              <span style={{ color: B.borderMid }}>←</span>
                               <span style={{ fontSize: 11, color: B.inkHint }}>{t('gap_voted')}:</span>
                               <span style={{
                                 fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 99,
                                 color: '#d97706', background: '#fff7ed',
                               }}>
-                                {formatScore(gap.voted, lang)} ({gap.voted > 0 ? '+' : ''}{gap.voted})
+                                {formatScore(gap.voted, lang)} ({gap.voted > 0 ? '+' : '‒'}{Math.abs(gap.voted)})
                               </span>
                               <span style={{
                                 marginInlineStart: 'auto', fontSize: 11, fontWeight: 700, padding: '2px 8px', borderRadius: 99,
