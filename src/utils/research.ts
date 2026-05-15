@@ -422,12 +422,13 @@ export interface PartyAxisPreset {
   labelEn: string
 }
 
+// Each preset shares one axis with the previous — label shows [stays] × [new].
 export const PARTY_AXIS_PRESETS: PartyAxisPreset[] = [
-  { x: 'security',   y: 'religion',  labelHe: 'ביטחון × דת',     labelEn: 'Security × Religion'   },
-  { x: 'religion',   y: 'judicial',  labelHe: 'דת × רפורמה',     labelEn: 'Religion × Reform'     },
-  { x: 'judicial',   y: 'governance',labelHe: 'רפורמה × ממשל',   labelEn: 'Reform × Governance'   },
-  { x: 'minority',   y: 'security',  labelHe: 'מיעוטים × ביטחון',labelEn: 'Minority × Security'   },
-  { x: 'governance', y: 'minority',  labelHe: 'ממשל × מיעוטים',  labelEn: 'Governance × Minority' },
+  { x: 'security', y: 'religion',   labelHe: 'ביטחון × דת',      labelEn: 'Security × Religion'  },
+  { x: 'judicial', y: 'religion',   labelHe: 'דת × רפורמה',      labelEn: 'Religion × Reform'    },
+  { x: 'judicial', y: 'governance', labelHe: 'רפורמה × ממשל',    labelEn: 'Reform × Governance'  },
+  { x: 'minority', y: 'governance', labelHe: 'ממשל × מיעוטים',   labelEn: 'Governance × Minority'},
+  { x: 'minority', y: 'security',   labelHe: 'מיעוטים × ביטחון', labelEn: 'Minority × Security'  },
 ]
 
 export interface PartyAxisResult {
