@@ -188,21 +188,21 @@ export function PartyMap({ allPositions, parties, mode, onModeChange, lang, user
           <line x1={0} y1={cy} x2={SVG_W} y2={cy} stroke="white" strokeWidth={0.7} opacity={0.1} strokeDasharray="5 8" />
           <line x1={cx} y1={0} x2={cx} y2={SVG_H} stroke="white" strokeWidth={0.7} opacity={0.1} strokeDasharray="5 8" />
 
-          {/* Axis labels */}
-          <text x={8} y={cy - 7} textAnchor="start" fontSize={9} fill="white" fillOpacity={0.35}
-            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+          {/* Axis labels — kept inside the plot area to avoid clipping */}
+          <text x={PLOT_X0 + 6} y={cy - 9} textAnchor="start" fontSize={9} fill="white" fillOpacity={0.4}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.05em">
             {lang === 'he' ? xL.lowHe : xL.lowEn}
           </text>
-          <text x={SVG_W - 8} y={cy - 7} textAnchor="end" fontSize={9} fill="white" fillOpacity={0.35}
-            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+          <text x={PLOT_X1 - 6} y={cy - 9} textAnchor="end" fontSize={9} fill="white" fillOpacity={0.4}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.05em">
             {lang === 'he' ? xL.highHe : xL.highEn}
           </text>
-          <text x={cx} y={12} textAnchor="middle" fontSize={9} fill="white" fillOpacity={0.35}
-            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+          <text x={cx} y={PAD_Y + 8} textAnchor="middle" fontSize={9} fill="white" fillOpacity={0.4}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.05em">
             {lang === 'he' ? yL.highHe : yL.highEn}
           </text>
-          <text x={cx} y={SVG_H - 5} textAnchor="middle" fontSize={9} fill="white" fillOpacity={0.35}
-            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.06em">
+          <text x={cx} y={SVG_H - PAD_Y - 6} textAnchor="middle" fontSize={9} fill="white" fillOpacity={0.4}
+            fontWeight={700} fontFamily="ui-monospace, monospace" letterSpacing="0.05em">
             {lang === 'he' ? yL.lowHe : yL.lowEn}
           </text>
 

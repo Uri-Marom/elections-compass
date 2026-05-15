@@ -423,11 +423,11 @@ export interface PartyAxisPreset {
 }
 
 export const PARTY_AXIS_PRESETS: PartyAxisPreset[] = [
-  { x: 'security', y: 'religion',   labelHe: 'ביטחון × דת',      labelEn: 'Security × Religion'  },
-  { x: 'judicial', y: 'religion',   labelHe: 'רפורמה × דת',      labelEn: 'Reform × Religion'    },
-  { x: 'security', y: 'judicial',   labelHe: 'ביטחון × רפורמה',  labelEn: 'Security × Reform'    },
-  { x: 'minority', y: 'security',   labelHe: 'מיעוטים × ביטחון', labelEn: 'Minority × Security'  },
-  { x: 'judicial', y: 'governance', labelHe: 'רפורמה × ממשל',    labelEn: 'Reform × Governance'  },
+  { x: 'security',   y: 'religion',  labelHe: 'ביטחון × דת',     labelEn: 'Security × Religion'   },
+  { x: 'religion',   y: 'judicial',  labelHe: 'דת × רפורמה',     labelEn: 'Religion × Reform'     },
+  { x: 'judicial',   y: 'governance',labelHe: 'רפורמה × ממשל',   labelEn: 'Reform × Governance'   },
+  { x: 'minority',   y: 'security',  labelHe: 'מיעוטים × ביטחון',labelEn: 'Minority × Security'   },
+  { x: 'governance', y: 'minority',  labelHe: 'ממשל × מיעוטים',  labelEn: 'Governance × Minority' },
 ]
 
 export interface PartyAxisResult {
