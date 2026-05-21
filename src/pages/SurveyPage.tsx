@@ -6,19 +6,10 @@ import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
 import { useSurveyStore } from '../store/survey'
 import { DIMENSIONS, type DimensionKey } from '../utils/matching'
 import { CompassRose, GridPaper, B, ACCENT, DIM_COLOR, DIM_REGION } from '../components/bureau/BureauComponents'
-import questionsData from '../data/questions.json'
+import { useSurveyMode, getActiveQuestions } from '../utils/surveyMode'
 import type { Question } from '../types'
 
-const questions = questionsData as Question[]
-
 const DIM_KEYS = Object.keys(DIMENSIONS) as DimensionKey[]
-
-// Flatten questions in dimension order
-const orderedQuestions: Question[] = DIM_KEYS.flatMap(dim =>
-  (DIMENSIONS[dim].questions as readonly string[])
-    .map(qid => questions.find(q => q.id === qid)!)
-    .filter(Boolean)
-)
 
 function getDimForQuestion(qid: string): DimensionKey {
   return DIM_KEYS.find(dim =>
@@ -32,6 +23,7 @@ interface TransitionScreenProps {
   dim: DimensionKey
   dimIdx: number       // 0-based
   totalDims: number
+  dimQCount: number
   lang: 'he' | 'en'
   onContinue: () => void
   currentQIdx: number
@@ -39,12 +31,11 @@ interface TransitionScreenProps {
 }
 
 function DimensionTransitionScreen({
-  dim, dimIdx, totalDims, lang, onContinue, currentQIdx, totalQ,
+  dim, dimIdx, totalDims, dimQCount, lang, onContinue, currentQIdx, totalQ,
 }: TransitionScreenProps) {
   const { t } = useTranslation()
   const color = DIM_COLOR[dim]
   const region = DIM_REGION[dim]
-  const dimQCount = DIMENSIONS[dim].questions.length
   const progress = currentQIdx / totalQ
 
   return (
@@ -193,17 +184,28 @@ export function SurveyPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { setDimension, lang } = useSurveyStore()
+  const { mode, prefix } = useSurveyMode()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showTransition, setShowTransition] = useState(true)
   const [transitionDim, setTransitionDim] = useState<DimensionKey>(DIM_KEYS[0])
+
+  const activeQs = getActiveQuestions(mode)
+  const orderedQuestions: Question[] = DIM_KEYS.flatMap(dim =>
+    (DIMENSIONS[dim].questions as readonly string[])
+      .map(qid => activeQs.find(q => q.id === qid)!)
+      .filter(Boolean)
+  )
 
   const current = orderedQuestions[currentIndex]
   const total = orderedQuestions.length
 
   const currentDimKey = getDimForQuestion(current?.id ?? '')
 
-  const qIdxInDim = (DIMENSIONS[currentDimKey].questions as readonly string[]).indexOf(current?.id)
-  const dimLength = DIMENSIONS[currentDimKey].questions.length
+  const activeDimQs = activeQs.filter(q =>
+    (DIMENSIONS[currentDimKey].questions as readonly string[]).includes(q.id)
+  )
+  const qIdxInDim = activeDimQs.findIndex(q => q.id === current?.id)
+  const dimLength = activeDimQs.length
 
   useEffect(() => {
     const idx = DIM_KEYS.indexOf(currentDimKey)
@@ -218,7 +220,7 @@ export function SurveyPage() {
 
   function goNext() {
     if (currentIndex >= total - 1) {
-      navigate('/results')
+      navigate(prefix + '/results')
       return
     }
     const nextIdx = currentIndex + 1
@@ -253,6 +255,9 @@ export function SurveyPage() {
         dim={transitionDim}
         dimIdx={DIM_KEYS.indexOf(transitionDim)}
         totalDims={DIM_KEYS.length}
+        dimQCount={activeQs.filter(q =>
+          (DIMENSIONS[transitionDim].questions as readonly string[]).includes(q.id)
+        ).length}
         lang={lang}
         onContinue={() => setShowTransition(false)}
         currentQIdx={currentIndex}
@@ -371,7 +376,7 @@ export function SurveyPage() {
         }}>
           <div style={{ maxWidth: 480, margin: '0 auto' }}>
             <button
-              onClick={() => navigate('/results')}
+              onClick={() => navigate(prefix + '/results')}
               style={{
                 width: '100%',
                 padding: '16px',

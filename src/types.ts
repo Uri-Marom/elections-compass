@@ -2,6 +2,7 @@ import type { DimensionKey } from './utils/matching'
 
 export interface Question {
   id: string
+  short?: boolean
   dimension: DimensionKey
   text_en: string
   text_he: string

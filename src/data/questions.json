@@ -12,6 +12,7 @@
   },
   {
     "id": "q02",
+    "short": true,
     "dimension": "security",
     "polarity": 1,
     "text_en": "Israel should work toward the establishment of an independent Palestinian state as part of a peace agreement.",
@@ -23,6 +24,7 @@
   },
   {
     "id": "q03",
+    "short": true,
     "dimension": "security",
     "polarity": -1,
     "text_en": "Israel's military operations in Gaza should continue until Hamas is fully dismantled, even if it prolongs the conflict.",
@@ -67,6 +69,7 @@
   },
   {
     "id": "q07",
+    "short": true,
     "dimension": "religion",
     "polarity": -1,
     "text_en": "Ultra-Orthodox (Haredi) men should be required to serve in the military or national service, as other Israeli citizens are.",
@@ -78,6 +81,7 @@
   },
   {
     "id": "q08",
+    "short": true,
     "dimension": "religion",
     "polarity": -1,
     "text_en": "Israel should allow civil marriage for all citizens, not only religious marriages recognized by the Rabbinate.",
@@ -144,6 +148,7 @@
   },
   {
     "id": "q18",
+    "short": true,
     "dimension": "judicial",
     "polarity": -1,
     "text_en": "The Knesset should have the power to override Supreme Court rulings with a simple majority.",
@@ -177,6 +182,7 @@
   },
   {
     "id": "q21",
+    "short": true,
     "dimension": "judicial",
     "polarity": 1,
     "text_en": "Courts should be permitted to strike down government decisions they deem unreasonable.",
@@ -210,6 +216,7 @@
   },
   {
     "id": "q24",
+    "short": true,
     "dimension": "minority",
     "polarity": 1,
     "text_en": "Jewish parties should be willing to form a government that relies on the support of Arab parties to achieve a Knesset majority.",
@@ -243,6 +250,7 @@
   },
   {
     "id": "q27",
+    "short": true,
     "dimension": "governance",
     "polarity": 1,
     "text_en": "A sitting Prime Minister under criminal indictment should be required to suspend their duties until the case is resolved.",
@@ -276,6 +284,7 @@
   },
   {
     "id": "q31",
+    "short": true,
     "dimension": "governance",
     "polarity": 1,
     "text_en": "A state commission of inquiry should be established to investigate the failures that led to the October 7, 2023 massacre.",
@@ -287,6 +296,7 @@
   },
   {
     "id": "q32",
+    "short": true,
     "dimension": "socioeconomic",
     "polarity": 1,
     "text_en": "All publicly funded schools, including Haredi institutions, should be required to teach a core curriculum including math, English, and sciences.",

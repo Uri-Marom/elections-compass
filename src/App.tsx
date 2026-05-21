@@ -17,6 +17,10 @@ export default function App() {
         <Route path="/results" element={<ResultsPage />} />
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/mks" element={<MKsPage />} />
+        <Route path="/short" element={<IntroPage />} />
+        <Route path="/short/priorities" element={<PrioritiesPage />} />
+        <Route path="/short/survey" element={<SurveyPage />} />
+        <Route path="/short/results" element={<ResultsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <FeedbackButton />

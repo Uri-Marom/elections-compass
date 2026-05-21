@@ -5,6 +5,7 @@ import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
 import { DIMENSIONS, type DimensionKey } from '../utils/matching'
 import { CompassRose, GridPaper, B, ACCENT, DIM_COLOR } from '../components/bureau/BureauComponents'
 import { useSurveyStore } from '../store/survey'
+import { useSurveyMode, SHORT_QUESTION_COUNT } from '../utils/surveyMode'
 
 const TOTAL = Object.values(DIMENSIONS).reduce((s, d) => s + d.questions.length, 0)
 
@@ -16,9 +17,12 @@ export function IntroPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { lang } = useSurveyStore()
+  const { mode, prefix } = useSurveyMode()
   const pendingCompare = hasPendingCompare()
   const [showAbout, setShowAbout] = useState(false)
   const isHe = lang === 'he'
+  const isShort = mode === 'short'
+  const activeTotal = isShort ? SHORT_QUESTION_COUNT : TOTAL
 
   return (
     <div style={{
@@ -112,7 +116,7 @@ export function IntroPage() {
           textTransform: 'uppercase',
           marginBottom: 14,
         }}>
-          {`· ${TOTAL} ${isHe ? 'שאלות' : 'questions'} · 6 ${isHe ? 'תחומים' : 'topics'} ·`}
+          {`· ${activeTotal} ${isHe ? 'שאלות' : 'questions'} · 6 ${isHe ? 'תחומים' : 'topics'} ·`}
         </div>
 
         {/* Headline */}
@@ -133,7 +137,7 @@ export function IntroPage() {
 
         {/* Description */}
         <p style={{ fontSize: 15, color: B.inkSoft, lineHeight: 1.55, marginBottom: 24 }}>
-          {t('intro_description', { total: TOTAL })}
+          {t('intro_description', { total: activeTotal })}
         </p>
 
         {/* Dimension tags */}
@@ -164,9 +168,9 @@ export function IntroPage() {
         {/* Stats row */}
         <div style={{ display: 'flex', gap: 4, marginBottom: 28 }}>
           {[
-            { v: String(TOTAL), l: isHe ? 'שאלות' : 'Questions' },
-            { v: '13',          l: isHe ? 'מפלגות' : 'Parties'   },
-            { v: "10′",         l: isHe ? 'דקות'   : 'Minutes'   },
+            { v: String(activeTotal), l: isHe ? 'שאלות' : 'Questions' },
+            { v: '13',               l: isHe ? 'מפלגות' : 'Parties'   },
+            { v: isShort ? "3′" : "10′", l: isHe ? 'דקות' : 'Minutes' },
           ].map(s => (
             <div key={s.l} style={{
               flex: 1,
@@ -184,7 +188,7 @@ export function IntroPage() {
         {/* CTAs */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           <button
-            onClick={() => navigate('/priorities')}
+            onClick={() => navigate(prefix + '/priorities')}
             style={{
               padding: '16px',
               background: ACCENT,
@@ -198,6 +202,24 @@ export function IntroPage() {
             }}
           >
             {t('start_survey')}
+          </button>
+          <button
+            onClick={() => navigate(isShort ? '/' : '/short')}
+            style={{
+              padding: '12px',
+              background: 'transparent',
+              color: B.inkSoft,
+              border: `1px solid ${B.borderMid}`,
+              borderRadius: B.radius,
+              fontSize: 14,
+              fontWeight: 500,
+              cursor: 'pointer',
+            }}
+          >
+            {isHe
+              ? (isShort ? `גרסה מורחבת ← ${TOTAL} שאלות` : `גרסה מקוצרת ← ${SHORT_QUESTION_COUNT} שאלות`)
+              : (isShort ? `Extended version ← ${TOTAL} questions` : `Short version ← ${SHORT_QUESTION_COUNT} questions`)
+            }
           </button>
           <button
             onClick={() => navigate('/research')}

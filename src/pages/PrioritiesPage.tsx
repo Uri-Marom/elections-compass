@@ -4,6 +4,7 @@ import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
 import { useSurveyStore } from '../store/survey'
 import { DIMENSIONS, type DimensionKey } from '../utils/matching'
 import { GridPaper, B, ACCENT, DIM_COLOR } from '../components/bureau/BureauComponents'
+import { useSurveyMode } from '../utils/surveyMode'
 
 const WEIGHT_VALUES = { low: 0.2, medium: 1, high: 3 } as const
 type Level = keyof typeof WEIGHT_VALUES
@@ -18,6 +19,7 @@ export function PrioritiesPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const { weights, setWeight, lang } = useSurveyStore()
+  const { prefix } = useSurveyMode()
   const isHe = lang === 'he'
   const dims = Object.keys(DIMENSIONS) as DimensionKey[]
 
@@ -47,7 +49,7 @@ export function PrioritiesPage() {
           justifyContent: 'space-between',
         }}>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate(prefix || '/')}
             style={{
               width: 36, height: 36,
               border: `1px solid ${B.border}`,
@@ -157,7 +159,7 @@ export function PrioritiesPage() {
       }}>
         <div style={{ maxWidth: 480, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 8 }}>
           <button
-            onClick={() => navigate('/survey')}
+            onClick={() => navigate(prefix + '/survey')}
             style={{
               width: '100%',
               padding: '16px',
@@ -173,7 +175,7 @@ export function PrioritiesPage() {
             {t('priorities_continue')}
           </button>
           <button
-            onClick={() => navigate('/survey')}
+            onClick={() => navigate(prefix + '/survey')}
             style={{
               width: '100%',
               padding: '10px',

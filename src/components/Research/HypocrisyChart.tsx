@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { HypocrisyResult } from '../../utils/research'
 import type { Party, Question } from '../../types'
+import { DIMENSIONS } from '../../utils/matching'
+import type { DimensionKey } from '../../utils/matching'
 import { B, ACCENT } from '../bureau/BureauComponents'
 
 interface Props {
@@ -28,6 +30,50 @@ function formatScore(s: number, lang: 'he' | 'en'): string {
     ? ['מתנגד בחוזקה', 'מתנגד', 'ניטרלי', 'תומך', 'תומך בחוזקה']
     : ['Strongly Against', 'Against', 'Neutral', 'In Favor', 'Strongly In Favor']
   return labels[Math.min(Math.max(Math.round(s + 2), 0), 4)]
+}
+
+function formatSigned(n: number): string {
+  if (n === 0) return '(0)'
+  return `(${n > 0 ? '+' : '‒'}${Math.abs(n)})`
+}
+
+function partyInsight(
+  result: HypocrisyResult,
+  questions: Question[],
+  lang: 'he' | 'en'
+): string {
+  const { score, coverage, topGaps } = result
+  const covPct = Math.round(coverage * 100)
+  const parts: string[] = []
+
+  if (lang === 'he') {
+    if (score >= 70) parts.push('הצבעות המפלגה עולות בקנה אחד עם עמדותיה המוצהרות.')
+    else if (score >= 40) parts.push('קיימים פערים בין עמדות המצע לבין הצבעות בפועל.')
+    else parts.push('פערים ניכרים בין עמדות המצע לבין הצבעות בפועל.')
+  } else {
+    if (score >= 70) parts.push("Votes align with the party's stated platform.")
+    else if (score >= 40) parts.push('Some gaps exist between stated positions and actual votes.')
+    else parts.push('Major gaps between the stated platform and actual votes.')
+  }
+
+  if (topGaps.length > 0 && score < 70) {
+    const topQ = questions.find(q => q.id === topGaps[0].question_id)
+    if (topQ) {
+      const dim = DIMENSIONS[topQ.dimension as DimensionKey]
+      if (dim) {
+        const dimLabel = lang === 'he' ? dim.label_he : dim.label_en
+        if (lang === 'he') parts.push(`הפער הבולט ביותר הוא בתחום ${dimLabel}.`)
+        else parts.push(`The largest gap is in ${dimLabel}.`)
+      }
+    }
+  }
+
+  if (coverage < 0.6) {
+    if (lang === 'he') parts.push(`נתוני הצבעה קיימים ל-${covPct}% מהשאלות בלבד.`)
+    else parts.push(`Voting data available for only ${covPct}% of questions.`)
+  }
+
+  return parts.join(' ')
 }
 
 export function HypocrisyChart({ results, parties, questions, lang }: Props) {
@@ -91,6 +137,15 @@ export function HypocrisyChart({ results, parties, questions, lang }: Props) {
 
             {isExpanded && (
               <div style={{ padding: '0 16px 16px', borderTop: `1px solid ${B.border}`, background: B.bg }}>
+                <div style={{
+                  marginTop: 12, padding: '10px 14px', borderRadius: B.radius,
+                  background: `${color}0d`, border: `1px solid ${color}30`,
+                }}>
+                  <p style={{ fontSize: 12, color: B.inkSoft, lineHeight: 1.65, margin: 0 }}>
+                    {partyInsight(result, questions, lang)}
+                  </p>
+                </div>
+
                 {result.topGaps.length === 0 ? (
                   <p style={{ fontSize: 12, color: B.inkHint, marginTop: 12 }}>{t('no_gaps_found')}</p>
                 ) : (
@@ -116,7 +171,7 @@ export function HypocrisyChart({ results, parties, questions, lang }: Props) {
                                 fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 99,
                                 color: ACCENT, background: `${ACCENT}15`,
                               }}>
-                                {formatScore(gap.stated, lang)} ({gap.stated > 0 ? '+' : '‒'}{Math.abs(gap.stated)})
+                                {formatScore(gap.stated, lang)} <span dir="ltr" style={{ unicodeBidi: 'embed' }}>{formatSigned(gap.stated)}</span>
                               </span>
                               <span style={{ color: B.borderMid }}>←</span>
                               <span style={{ fontSize: 11, color: B.inkHint }}>{t('gap_voted')}:</span>
@@ -124,7 +179,7 @@ export function HypocrisyChart({ results, parties, questions, lang }: Props) {
                                 fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 99,
                                 color: '#d97706', background: '#fff7ed',
                               }}>
-                                {formatScore(gap.voted, lang)} ({gap.voted > 0 ? '+' : '‒'}{Math.abs(gap.voted)})
+                                {formatScore(gap.voted, lang)} <span dir="ltr" style={{ unicodeBidi: 'embed' }}>{formatSigned(gap.voted)}</span>
                               </span>
                               <span style={{
                                 marginInlineStart: 'auto', fontSize: 11, fontWeight: 700, padding: '2px 8px', borderRadius: 99,

@@ -10,6 +10,7 @@ import { ComparisonPanel } from '../components/Results/ComparisonPanel'
 import { PartyMap } from '../components/Research/PartyMap'
 import { useSurveyStore } from '../store/survey'
 import { rankParties, rankMKs, DIMENSIONS, type DimensionKey } from '../utils/matching'
+import { useSurveyMode } from '../utils/surveyMode'
 import { encodeAnswers, decodeAnswers } from '../utils/encoding'
 import { CompassRose, GridPaper, B, ACCENT, BureauCard } from '../components/bureau/BureauComponents'
 import type { Party, PartyPosition, Question, KnessetMember } from '../types'
@@ -94,6 +95,7 @@ export function ResultsPage() {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const { answers, weights, lang, reset, setAnswer, answeredCount, totalCount } = useSurveyStore()
+  const { prefix } = useSurveyMode()
   const isHe = lang === 'he'
   const [mode, setMode] = useState<'stated' | 'voted'>('stated')
   const [mapMode, setMapMode] = useState<'stated' | 'voted'>('stated')
@@ -539,7 +541,7 @@ export function ResultsPage() {
         </button>
 
         <button
-          onClick={() => { reset(); navigate('/') }}
+          onClick={() => { reset(); navigate(prefix || '/') }}
           style={{
             width: '100%', padding: '12px',
             background: 'transparent', border: 'none',
