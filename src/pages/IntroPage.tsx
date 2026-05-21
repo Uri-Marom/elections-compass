@@ -16,7 +16,7 @@ function hasPendingCompare() {
 export function IntroPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { lang } = useSurveyStore()
+  const { lang, reset } = useSurveyStore()
   const { mode, prefix } = useSurveyMode()
   const pendingCompare = hasPendingCompare()
   const [showAbout, setShowAbout] = useState(false)
@@ -188,7 +188,7 @@ export function IntroPage() {
         {/* CTAs */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           <button
-            onClick={() => navigate(prefix + '/priorities')}
+            onClick={() => { reset(); navigate(prefix + '/priorities') }}
             style={{
               padding: '16px',
               background: ACCENT,

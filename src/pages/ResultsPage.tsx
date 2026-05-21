@@ -10,10 +10,10 @@ import { ComparisonPanel } from '../components/Results/ComparisonPanel'
 import { PartyMap } from '../components/Research/PartyMap'
 import { useSurveyStore } from '../store/survey'
 import { rankParties, rankMKs, DIMENSIONS, type DimensionKey } from '../utils/matching'
-import { useSurveyMode } from '../utils/surveyMode'
+import { useSurveyMode, getActiveQuestions } from '../utils/surveyMode'
 import { encodeAnswers, decodeAnswers } from '../utils/encoding'
 import { CompassRose, GridPaper, B, ACCENT, BureauCard } from '../components/bureau/BureauComponents'
-import type { Party, PartyPosition, Question, KnessetMember } from '../types'
+import type { Party, PartyPosition, Question, KnessetMember, UserAnswers } from '../types'
 
 import partiesData from '../data/parties.json'
 import questionsData from '../data/questions.json'
@@ -95,7 +95,14 @@ export function ResultsPage() {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const { answers, weights, lang, reset, setAnswer, answeredCount, totalCount } = useSurveyStore()
-  const { prefix } = useSurveyMode()
+  const { prefix, mode: surveyMode } = useSurveyMode()
+  const activeAnswers = useMemo((): UserAnswers => {
+    if (surveyMode === 'full') return answers
+    const shortIds = new Set(getActiveQuestions('short').map(q => q.id))
+    return Object.fromEntries(
+      Object.entries(answers).filter(([qid]) => shortIds.has(qid))
+    ) as UserAnswers
+  }, [answers, surveyMode])
   const isHe = lang === 'he'
   const [mode, setMode] = useState<'stated' | 'voted'>('stated')
   const [mapMode, setMapMode] = useState<'stated' | 'voted'>('stated')
@@ -194,12 +201,12 @@ export function ResultsPage() {
     finally { setSharingImage(false); sharePendingRef.current = false }
   }, [isHe, shareText])
 
-  const rankedBase = useMemo(() => rankParties(answers, allPositions, weights), [answers, weights])
+  const rankedBase = useMemo(() => rankParties(activeAnswers, allPositions, weights), [activeAnswers, weights])
   const ranked = useMemo(() => mode === 'voted'
     ? [...rankedBase].sort((a, b) => (b.overall_voted ?? b.overall_stated) - (a.overall_voted ?? a.overall_stated))
     : rankedBase, [rankedBase, mode])
-  const rankedMKs = useMemo(() => rankMKs(answers, mkPositions, weights), [answers, weights])
-  const userDimScores = useMemo(() => computeUserDimScores(answers), [answers])
+  const rankedMKs = useMemo(() => rankMKs(activeAnswers, mkPositions, weights), [activeAnswers, weights])
+  const userDimScores = useMemo(() => computeUserDimScores(activeAnswers), [activeAnswers])
 
   const effectivePartyId = selectedPartyId ?? ranked[0]?.party_id ?? ''
   const selectedParty = parties.find(p => p.id === effectivePartyId)
@@ -420,7 +427,7 @@ export function ResultsPage() {
           <div style={{ padding: '8px 16px 16px' }}>
             <p style={{ fontSize: 11, color: B.inkFaint, marginBottom: 12, letterSpacing: '0.04em' }}>{t('dimension_breakdown')}</p>
             <DimensionGapBars
-              userAnswers={answers}
+              userAnswers={activeAnswers}
               partyPositions={selectedPositions}
               partyColor={selectedParty?.color ?? '#888'}
               partyName={partyName}
@@ -487,7 +494,7 @@ export function ResultsPage() {
         {/* Friend comparison panel */}
         {friendAnswers && (
           <ComparisonPanel
-            myAnswers={answers}
+            myAnswers={activeAnswers}
             friendAnswers={friendAnswers}
             allPositions={allPositions}
             parties={parties}
@@ -507,7 +514,7 @@ export function ResultsPage() {
             mode={mapMode}
             onModeChange={setMapMode}
             lang={lang}
-            userAnswers={answers}
+            userAnswers={activeAnswers}
             friendAnswers={friendAnswers ?? undefined}
           />
         </BureauCard>
