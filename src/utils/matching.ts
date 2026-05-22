@@ -26,20 +26,19 @@ export interface PartyMatch {
   by_dimension: Record<DimensionKey, DimensionScore>
 }
 
-function cosineSimilarity(userVec: number[], partyVec: number[]): number | null {
+// Agreement score: 1 - |user - party| / MAX_DIST, averaged and scaled to 0-100.
+// Works correctly with any number of questions (including 1), unlike cosine similarity
+// which only measures direction and returns 100% whenever two vectors point the same way.
+const MAX_DIST = 4 // distance between -2 and +2
+
+function agreementScore(userVec: number[], partyVec: number[]): number | null {
   if (userVec.length === 0) return null
 
-  let dot = 0, uMag = 0, pMag = 0
+  let total = 0
   for (let i = 0; i < userVec.length; i++) {
-    dot  += userVec[i] * partyVec[i]
-    uMag += userVec[i] ** 2
-    pMag += partyVec[i] ** 2
+    total += 1 - Math.abs(userVec[i] - partyVec[i]) / MAX_DIST
   }
-  if (uMag === 0 || pMag === 0) return null
-
-  const cos = dot / (Math.sqrt(uMag) * Math.sqrt(pMag))
-  // Normalize from [-1, 1] to [0, 100]
-  return Math.round(((cos + 1) / 2) * 100)
+  return Math.round((total / userVec.length) * 100)
 }
 
 function dimensionScore(
@@ -69,7 +68,7 @@ function dimensionScore(
     partyVec.push(partyScore)
   }
 
-  return cosineSimilarity(userVec, partyVec)
+  return agreementScore(userVec, partyVec)
 }
 
 export function computeMatch(
@@ -133,7 +132,7 @@ export function computeMKMatch(
       mkVec.push(mkScore)
     }
 
-    const score = cosineSimilarity(userVec, mkVec)
+    const score = agreementScore(userVec, mkVec)
     byDimension[dim] = score
     questionCount += userVec.length
 
