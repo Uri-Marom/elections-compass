@@ -155,14 +155,14 @@ export function ResultsPage() {
   }, [])
 
   const handleShare = useCallback(() => {
-    const encoded = encodeAnswers(answers)
-    const url = `${window.location.origin}/results?a=${encoded}`
+    const encoded = encodeAnswers(activeAnswers)
+    const url = `${window.location.origin}${prefix}/results?a=${encoded}`
     navigator.clipboard.writeText(url).then(() => { setCopied(true); setTimeout(() => setCopied(false), 2500) })
-  }, [answers])
+  }, [activeAnswers, prefix])
 
   const handleCompare = useCallback(async () => {
-    const encoded = encodeAnswers(answers)
-    const url = `${window.location.origin}/results?compare=${encoded}`
+    const encoded = encodeAnswers(activeAnswers)
+    const url = `${window.location.origin}${prefix}/results?compare=${encoded}`
     const compareText = isHe
       ? `עניתי על מצפן הבחירות. ענו גם אתם ונוכל להשוות את התוצאות שלנו!\n${url}`
       : `Take the Vote Compass quiz and let's compare results!\n${url}`
@@ -170,7 +170,7 @@ export function ResultsPage() {
       try { await navigator.share({ text: compareText }); return } catch {}
     }
     navigator.clipboard.writeText(url).then(() => { setCompareCopied(true); setTimeout(() => setCompareCopied(false), 2500) })
-  }, [answers, isHe])
+  }, [activeAnswers, isHe, prefix])
 
   const handleShareImage = useCallback(async () => {
     if (!shareCardRef.current || sharePendingRef.current) return
