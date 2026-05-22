@@ -188,7 +188,7 @@ export function SurveyPage() {
   const [searchParams] = useSearchParams()
   const isContinuation = searchParams.get('continue') === 'true'
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [showTransition, setShowTransition] = useState(true)
+  const [showTransition, setShowTransition] = useState(() => mode === 'full')
   const [transitionDim, setTransitionDim] = useState<DimensionKey>(DIM_KEYS[0])
 
   const activeQs = getActiveQuestions(mode)
@@ -213,13 +213,6 @@ export function SurveyPage() {
     const idx = DIM_KEYS.indexOf(currentDimKey)
     if (idx >= 0) setDimension(idx)
   }, [currentIndex, currentDimKey, setDimension])
-
-  // Show transition for first dim on mount (full version only)
-  useEffect(() => {
-    if (mode === 'short') return
-    setTransitionDim(DIM_KEYS[0])
-    setShowTransition(true)
-  }, [mode])
 
   function goNext() {
     if (currentIndex >= total - 1) {
