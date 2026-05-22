@@ -3,6 +3,7 @@ import type { DimensionKey } from '../../utils/matching'
 import { DIMENSIONS } from '../../utils/matching'
 import type { PartyPosition, Question } from '../../types'
 import { useSurveyStore } from '../../store/survey'
+import { useSurveyMode, getActiveQuestions } from '../../utils/surveyMode'
 import { B, ACCENT, DIM_COLOR } from '../bureau/BureauComponents'
 
 function scoreLabel(score: number, t: (k: string) => string): string {
@@ -45,8 +46,11 @@ export function DimensionDetailModal({
 }: Props) {
   const { t } = useTranslation()
   const { lang } = useSurveyStore()
+  const { mode: surveyMode } = useSurveyMode()
   const dimLabel = lang === 'he' ? DIMENSIONS[dim].label_he : DIMENSIONS[dim].label_en
-  const qids = DIMENSIONS[dim].questions as readonly string[]
+  const activeQIds = new Set(getActiveQuestions(surveyMode).map(q => q.id))
+  const qids = (DIMENSIONS[dim].questions as readonly string[])
+    .filter(qid => surveyMode === 'full' || activeQIds.has(qid))
   const dimColor = DIM_COLOR[dim] ?? ACCENT
 
   const rows = qids.map(qid => {
