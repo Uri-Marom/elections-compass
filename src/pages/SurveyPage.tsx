@@ -183,7 +183,7 @@ function DimensionTransitionScreen({
 export function SurveyPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { setDimension, lang, answers } = useSurveyStore()
+  const { setDimension, lang } = useSurveyStore()
   const { mode, prefix } = useSurveyMode()
   const [searchParams] = useSearchParams()
   const isContinuation = searchParams.get('continue') === 'true'
@@ -191,21 +191,25 @@ export function SurveyPage() {
   const [showTransition, setShowTransition] = useState(() => mode === 'full')
   const [transitionDim, setTransitionDim] = useState<DimensionKey>(DIM_KEYS[0])
 
-  const activeQs = getActiveQuestions(mode)
-  const orderedQuestions: Question[] = DIM_KEYS.flatMap(dim =>
-    (DIMENSIONS[dim].questions as readonly string[])
-      .map(qid => activeQs.find(q => q.id === qid)!)
-      .filter(Boolean)
-  ).filter(q => !isContinuation || answers[q.id] == null)
+  // Snapshot on mount — must not re-filter as answers accumulate (would shrink total)
+  const [orderedQuestions] = useState<Question[]>(() => {
+    const activeQs = getActiveQuestions(mode)
+    const all = DIM_KEYS.flatMap(dim =>
+      (DIMENSIONS[dim].questions as readonly string[])
+        .map(qid => activeQs.find(q => q.id === qid)!)
+        .filter(Boolean)
+    ) as Question[]
+    if (!isContinuation) return all
+    const snap = useSurveyStore.getState().answers
+    return all.filter(q => snap[q.id] == null)
+  })
 
   const current = orderedQuestions[currentIndex]
   const total = orderedQuestions.length
 
   const currentDimKey = getDimForQuestion(current?.id ?? '')
 
-  const activeDimQs = activeQs.filter(q =>
-    (DIMENSIONS[currentDimKey].questions as readonly string[]).includes(q.id)
-  )
+  const activeDimQs = orderedQuestions.filter(q => getDimForQuestion(q.id) === currentDimKey)
   const qIdxInDim = activeDimQs.findIndex(q => q.id === current?.id)
   const dimLength = activeDimQs.length
 
@@ -251,9 +255,8 @@ export function SurveyPage() {
         dim={transitionDim}
         dimIdx={DIM_KEYS.indexOf(transitionDim)}
         totalDims={DIM_KEYS.length}
-        dimQCount={activeQs.filter(q =>
-          (DIMENSIONS[transitionDim].questions as readonly string[]).includes(q.id) &&
-          (!isContinuation || answers[q.id] == null)
+        dimQCount={orderedQuestions.filter(q =>
+          getDimForQuestion(q.id) === transitionDim
         ).length}
         lang={lang}
         onContinue={() => setShowTransition(false)}
