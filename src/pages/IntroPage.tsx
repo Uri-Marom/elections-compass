@@ -204,7 +204,7 @@ export function IntroPage() {
             {t('start_survey')}
           </button>
           <button
-            onClick={() => navigate(isShort ? '/' : '/short')}
+            onClick={() => navigate(isShort ? '/full' : '/')}
             style={{
               padding: '12px',
               background: 'transparent',

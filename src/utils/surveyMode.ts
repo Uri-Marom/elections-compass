@@ -6,10 +6,10 @@ export type SurveyMode = 'full' | 'short'
 
 export function useSurveyMode() {
   const { pathname } = useLocation()
-  const isShort = pathname.startsWith('/short')
+  const isFull = pathname.startsWith('/full')
   return {
-    mode: (isShort ? 'short' : 'full') as SurveyMode,
-    prefix: isShort ? '/short' : '',
+    mode: (isFull ? 'full' : 'short') as SurveyMode,
+    prefix: isFull ? '/full' : '',
   }
 }
 

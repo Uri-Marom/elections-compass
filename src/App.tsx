@@ -11,16 +11,21 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Short version — default */}
         <Route path="/" element={<IntroPage />} />
         <Route path="/priorities" element={<PrioritiesPage />} />
         <Route path="/survey" element={<SurveyPage />} />
         <Route path="/results" element={<ResultsPage />} />
+        {/* Full version */}
+        <Route path="/full" element={<IntroPage />} />
+        <Route path="/full/priorities" element={<PrioritiesPage />} />
+        <Route path="/full/survey" element={<SurveyPage />} />
+        <Route path="/full/results" element={<ResultsPage />} />
+        {/* Legacy short URLs → redirect to default */}
+        <Route path="/short" element={<Navigate to="/" replace />} />
+        <Route path="/short/*" element={<Navigate to="/" replace />} />
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/mks" element={<MKsPage />} />
-        <Route path="/short" element={<IntroPage />} />
-        <Route path="/short/priorities" element={<PrioritiesPage />} />
-        <Route path="/short/survey" element={<SurveyPage />} />
-        <Route path="/short/results" element={<ResultsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <FeedbackButton />

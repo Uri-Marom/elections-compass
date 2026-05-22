@@ -547,6 +547,20 @@ export function ResultsPage() {
           {t('explore_research')}
         </button>
 
+        {surveyMode === 'short' && (
+          <button
+            onClick={() => navigate('/full/survey?continue=true')}
+            style={{
+              width: '100%', padding: '13px',
+              background: B.white, border: `1px solid ${B.border}`,
+              borderRadius: B.radius, fontSize: 13, fontWeight: 600,
+              color: B.ink, cursor: 'pointer', marginBottom: 8,
+            }}
+          >
+            {isHe ? `שאלון מורחב ← התאמה מדויקת יותר` : `Full survey ← better match accuracy`}
+          </button>
+        )}
+
         <button
           onClick={() => { reset(); navigate(prefix || '/') }}
           style={{

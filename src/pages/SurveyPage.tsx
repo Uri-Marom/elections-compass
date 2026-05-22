@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { QuestionCard } from '../components/Survey/QuestionCard'
 import { LanguageSwitcher } from '../components/shared/LanguageSwitcher'
@@ -183,8 +183,10 @@ function DimensionTransitionScreen({
 export function SurveyPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { setDimension, lang } = useSurveyStore()
+  const { setDimension, lang, answers } = useSurveyStore()
   const { mode, prefix } = useSurveyMode()
+  const [searchParams] = useSearchParams()
+  const isContinuation = searchParams.get('continue') === 'true'
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showTransition, setShowTransition] = useState(true)
   const [transitionDim, setTransitionDim] = useState<DimensionKey>(DIM_KEYS[0])
@@ -194,7 +196,7 @@ export function SurveyPage() {
     (DIMENSIONS[dim].questions as readonly string[])
       .map(qid => activeQs.find(q => q.id === qid)!)
       .filter(Boolean)
-  )
+  ).filter(q => !isContinuation || answers[q.id] == null)
 
   const current = orderedQuestions[currentIndex]
   const total = orderedQuestions.length
@@ -257,7 +259,8 @@ export function SurveyPage() {
         dimIdx={DIM_KEYS.indexOf(transitionDim)}
         totalDims={DIM_KEYS.length}
         dimQCount={activeQs.filter(q =>
-          (DIMENSIONS[transitionDim].questions as readonly string[]).includes(q.id)
+          (DIMENSIONS[transitionDim].questions as readonly string[]).includes(q.id) &&
+          (!isContinuation || answers[q.id] == null)
         ).length}
         lang={lang}
         onContinue={() => setShowTransition(false)}
