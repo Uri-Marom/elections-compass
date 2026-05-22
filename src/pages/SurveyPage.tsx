@@ -212,11 +212,12 @@ export function SurveyPage() {
     if (idx >= 0) setDimension(idx)
   }, [currentIndex, currentDimKey, setDimension])
 
-  // Show transition for first dim on mount
+  // Show transition for first dim on mount (full version only)
   useEffect(() => {
+    if (mode === 'short') return
     setTransitionDim(DIM_KEYS[0])
     setShowTransition(true)
-  }, [])
+  }, [mode])
 
   function goNext() {
     if (currentIndex >= total - 1) {
@@ -229,7 +230,7 @@ export function SurveyPage() {
 
     setCurrentIndex(nextIdx)
 
-    if (nextDim !== currentDimKey) {
+    if (nextDim !== currentDimKey && mode !== 'short') {
       setTransitionDim(nextDim)
       setShowTransition(true)
     }
