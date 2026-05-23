@@ -80,7 +80,7 @@ export function LearnMoreModal({ question, onClose }: Props) {
               letterSpacing: '0.1em', textTransform: 'uppercase',
               marginBottom: 6, fontFamily: 'ui-monospace, monospace',
             }}>
-              {isRtl ? '✓ בעד הסכמה' : '✓ For agreement'}
+              {isRtl ? '✓ בעד' : '✓ For'}
             </div>
             <p style={{ fontSize: 13, color: '#15803d', lineHeight: 1.6, margin: 0 }}>
               {agree}
@@ -102,7 +102,7 @@ export function LearnMoreModal({ question, onClose }: Props) {
               letterSpacing: '0.1em', textTransform: 'uppercase',
               marginBottom: 6, fontFamily: 'ui-monospace, monospace',
             }}>
-              {isRtl ? '✗ בעד אי-הסכמה' : '✗ For disagreement'}
+              {isRtl ? '✗ נגד' : '✗ Against'}
             </div>
             <p style={{ fontSize: 13, color: '#b91c1c', lineHeight: 1.6, margin: 0 }}>
               {disagree}
