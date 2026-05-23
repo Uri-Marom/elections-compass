@@ -12,7 +12,8 @@ export function LearnMoreModal({ question, onClose }: Props) {
   const { t } = useTranslation()
   const { lang } = useSurveyStore()
   const isRtl = lang === 'he'
-  const info = lang === 'he' ? question.info_he : question.info_en
+  const agree    = lang === 'he' ? question.agree_he    : question.agree_en
+  const disagree = lang === 'he' ? question.disagree_he : question.disagree_en
 
   return (
     <div
@@ -37,7 +38,7 @@ export function LearnMoreModal({ question, onClose }: Props) {
         }}
       >
         {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14, gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16, gap: 12 }}>
           <span style={{
             fontSize: 10, fontWeight: 700, letterSpacing: '0.12em',
             textTransform: 'uppercase', color: ACCENT,
@@ -53,17 +54,63 @@ export function LearnMoreModal({ question, onClose }: Props) {
               cursor: 'pointer', flexShrink: 0, padding: 0,
             }}
             aria-label={t('learn_more_close')}
-          >
-            ×
-          </button>
+          >×</button>
         </div>
 
-        {info && (
-          <p style={{ fontSize: 14, color: B.inkSoft, lineHeight: 1.65, marginBottom: 16 }}>
-            {info}
-          </p>
+        {/* Question text */}
+        <p style={{
+          fontSize: 14, fontWeight: 600, color: B.ink,
+          lineHeight: 1.55, marginBottom: 16,
+          paddingBottom: 16, borderBottom: `1px solid ${B.border}`,
+        }}>
+          {lang === 'he' ? question.text_he : question.text_en}
+        </p>
+
+        {/* Agree block */}
+        {agree && (
+          <div style={{
+            marginBottom: 10,
+            padding: '12px 14px',
+            background: '#f0fdf4',
+            borderRadius: B.radius,
+            borderInlineStart: '3px solid #16a34a',
+          }}>
+            <div style={{
+              fontSize: 10, fontWeight: 700, color: '#16a34a',
+              letterSpacing: '0.1em', textTransform: 'uppercase',
+              marginBottom: 6, fontFamily: 'ui-monospace, monospace',
+            }}>
+              {isRtl ? '✓ בעד הסכמה' : '✓ For agreement'}
+            </div>
+            <p style={{ fontSize: 13, color: '#15803d', lineHeight: 1.6, margin: 0 }}>
+              {agree}
+            </p>
+          </div>
         )}
 
+        {/* Disagree block */}
+        {disagree && (
+          <div style={{
+            marginBottom: 16,
+            padding: '12px 14px',
+            background: '#fef2f2',
+            borderRadius: B.radius,
+            borderInlineStart: '3px solid #dc2626',
+          }}>
+            <div style={{
+              fontSize: 10, fontWeight: 700, color: '#dc2626',
+              letterSpacing: '0.1em', textTransform: 'uppercase',
+              marginBottom: 6, fontFamily: 'ui-monospace, monospace',
+            }}>
+              {isRtl ? '✗ בעד אי-הסכמה' : '✗ For disagreement'}
+            </div>
+            <p style={{ fontSize: 13, color: '#b91c1c', lineHeight: 1.6, margin: 0 }}>
+              {disagree}
+            </p>
+          </div>
+        )}
+
+        {/* Source */}
         {question.info_source_url && question.info_source && (
           <a
             href={question.info_source_url}
