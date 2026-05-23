@@ -79,7 +79,7 @@ export function QuestionCard({ question, questionNumber, totalQuestions, onSelec
       </p>
 
       {/* Learn more */}
-      {(question.info_en || question.info_he) && (
+      {(question.agree_en || question.agree_he || question.disagree_en || question.disagree_he) && (
         <button
           onClick={() => setShowInfo(true)}
           style={{
@@ -98,7 +98,7 @@ export function QuestionCard({ question, questionNumber, totalQuestions, onSelec
         </button>
       )}
 
-      {!question.info_en && !question.info_he && (
+      {!question.agree_en && !question.agree_he && !question.disagree_en && !question.disagree_he && (
         <div style={{ marginBottom: 24 }} />
       )}
 
