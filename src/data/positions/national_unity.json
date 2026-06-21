@@ -5,11 +5,12 @@
       "question_id": "q01",
       "stated_position": {
         "score": 1,
-        "source": "Security-focused, supports settlement blocs"
+        "source": "Security-focused, supports settlement blocs",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -18,11 +19,12 @@
       "question_id": "q02",
       "stated_position": {
         "score": 0,
-        "source": "Open to future arrangements but not urgent"
+        "source": "Open to future arrangements but not urgent",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -31,11 +33,12 @@
       "question_id": "q03",
       "stated_position": {
         "score": 2,
-        "source": "Gantz/Eisenkot support military operations"
+        "source": "Gantz/Eisenkot support military operations",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -44,11 +47,12 @@
       "question_id": "q04",
       "stated_position": {
         "score": 2,
-        "source": "Jerusalem as capital"
+        "source": "Jerusalem as capital",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -57,11 +61,12 @@
       "question_id": "q05",
       "stated_position": {
         "score": -2,
-        "source": "Opposes right of return"
+        "source": "Opposes right of return",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -70,11 +75,12 @@
       "question_id": "q06",
       "stated_position": {
         "score": 0,
-        "source": "Not a stated position"
+        "source": "Not a stated position",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -83,11 +89,12 @@
       "question_id": "q07",
       "stated_position": {
         "score": 2,
-        "source": "Supports Haredi conscription"
+        "source": "Supports Haredi conscription",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -96,11 +103,12 @@
       "question_id": "q08",
       "stated_position": {
         "score": 1,
-        "source": "Supports civil marriage option"
+        "source": "Supports civil marriage option",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 1.33,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -109,11 +117,12 @@
       "question_id": "q09",
       "stated_position": {
         "score": 1,
-        "source": "Secular-leaning on commerce"
+        "source": "Secular-leaning on commerce",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -122,11 +131,12 @@
       "question_id": "q10",
       "stated_position": {
         "score": 1,
-        "source": "Supports Kotel pluralism"
+        "source": "Supports Kotel pluralism",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -135,11 +145,12 @@
       "question_id": "q11",
       "stated_position": {
         "score": -1,
-        "source": "Conditional on military service"
+        "source": "Conditional on military service",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -148,11 +159,12 @@
       "question_id": "q12",
       "stated_position": {
         "score": 0,
-        "source": "Neutral"
+        "source": "Neutral",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -161,11 +173,12 @@
       "question_id": "q16",
       "stated_position": {
         "score": 0,
-        "source": "Neutral"
+        "source": "Neutral",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -174,11 +187,12 @@
       "question_id": "q18",
       "stated_position": {
         "score": -2,
-        "source": "Left the coalition over judicial reform"
+        "source": "Left the coalition over judicial reform",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -187,11 +201,12 @@
       "question_id": "q19",
       "stated_position": {
         "score": -1,
-        "source": "Wants moderate reform, not political control"
+        "source": "Wants moderate reform, not political control",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -200,11 +215,12 @@
       "question_id": "q20",
       "stated_position": {
         "score": 1,
-        "source": "Supports AG authority"
+        "source": "Supports AG authority",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -213,11 +229,12 @@
       "question_id": "q21",
       "stated_position": {
         "score": 1,
-        "source": "Supports judicial oversight"
+        "source": "Supports judicial oversight",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -226,11 +243,12 @@
       "question_id": "q22",
       "stated_position": {
         "score": 2,
-        "source": "Left coalition over judicial independence"
+        "source": "Left coalition over judicial independence",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -239,11 +257,12 @@
       "question_id": "q23",
       "stated_position": {
         "score": 1,
-        "source": "Supports equality"
+        "source": "Supports equality",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -252,11 +271,12 @@
       "question_id": "q24",
       "stated_position": {
         "score": 0,
-        "source": "Has not committed"
+        "source": "Has not committed",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 0.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -265,11 +285,12 @@
       "question_id": "q25",
       "stated_position": {
         "score": 1,
-        "source": "Supports equal funding"
+        "source": "Supports equal funding",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -278,11 +299,12 @@
       "question_id": "q26",
       "stated_position": {
         "score": 1,
-        "source": "Zionist party, supports Jewish state definition"
+        "source": "Zionist party, supports Jewish state definition",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -291,11 +313,12 @@
       "question_id": "q27",
       "stated_position": {
         "score": 2,
-        "source": "Supports PM accountability laws"
+        "source": "Supports PM accountability laws",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -304,11 +327,12 @@
       "question_id": "q28",
       "stated_position": {
         "score": 1,
-        "source": "Open to term limits"
+        "source": "Open to term limits",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 1.33,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -317,11 +341,12 @@
       "question_id": "q29",
       "stated_position": {
         "score": 1,
-        "source": "Medium-sized party, moderate benefit from higher threshold"
+        "source": "Medium-sized party, moderate benefit from higher threshold",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 0.5,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -330,11 +355,12 @@
       "question_id": "q31",
       "stated_position": {
         "score": 2,
-        "source": "Gantz left the war cabinet partly demanding an inquiry; strongly supports"
+        "source": "Gantz left the war cabinet partly demanding an inquiry; strongly supports",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -343,11 +369,12 @@
       "question_id": "q32",
       "stated_position": {
         "score": 1,
-        "source": "Supports core curriculum requirement; advanced it during Bennett government"
+        "source": "Supports core curriculum requirement; advanced it during Bennett government",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -356,11 +383,12 @@
       "question_id": "q33",
       "stated_position": {
         "score": 1,
-        "source": "Supports media accountability standards and Broadcasting Authority enforcement powers"
+        "source": "Supports media accountability standards and Broadcasting Authority enforcement powers",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 1.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -369,14 +397,16 @@
       "question_id": "q34",
       "stated_position": {
         "score": 2,
-        "source": "Explicitly committed to balanced 50/50 list by deciles (5050il.co.il)"
+        "source": "Explicitly committed to balanced 50/50 list by deciles (5050il.co.il)",
+        "last_updated": "2026-06-22"
       }
     },
     {
       "question_id": "q35",
       "stated_position": {
         "score": 1.0,
-        "source": "Bennett-Lapid government advanced Israel's first national climate plan; National Unity supports the framework"
+        "source": "Bennett-Lapid government advanced Israel's first national climate plan; National Unity supports the framework",
+        "last_updated": "2026-06-22"
       }
     }
   ]

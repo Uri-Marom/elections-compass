@@ -5,11 +5,12 @@
       "question_id": "q01",
       "stated_position": {
         "score": -1,
-        "source": "Critical of settlement expansion"
+        "source": "Critical of settlement expansion",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -18,7 +19,8 @@
       "question_id": "q02",
       "stated_position": {
         "score": 1,
-        "source": "Supports two-state solution in principle"
+        "source": "Supports two-state solution in principle",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": true
     },
@@ -26,7 +28,8 @@
       "question_id": "q03",
       "stated_position": {
         "score": 1,
-        "source": "Supports operations but questions open-ended timeline"
+        "source": "Supports operations but questions open-ended timeline",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -34,7 +37,8 @@
       "question_id": "q04",
       "stated_position": {
         "score": 1,
-        "source": "Unified Jerusalem as capital but open to functional arrangements"
+        "source": "Unified Jerusalem as capital but open to functional arrangements",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -42,7 +46,8 @@
       "question_id": "q05",
       "stated_position": {
         "score": -2,
-        "source": "Opposes right of return"
+        "source": "Opposes right of return",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -50,11 +55,12 @@
       "question_id": "q06",
       "stated_position": {
         "score": -1,
-        "source": "Opposes annexation"
+        "source": "Opposes annexation",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -63,11 +69,12 @@
       "question_id": "q07",
       "stated_position": {
         "score": 2,
-        "source": "Haredi conscription is top party priority — Lapid's signature issue"
+        "source": "Haredi conscription is top party priority — Lapid's signature issue",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -76,11 +83,12 @@
       "question_id": "q08",
       "stated_position": {
         "score": 2,
-        "source": "Civil marriage is party platform"
+        "source": "Civil marriage is party platform",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -89,7 +97,8 @@
       "question_id": "q09",
       "stated_position": {
         "score": 2,
-        "source": "Shabbat commerce freedom is party position"
+        "source": "Shabbat commerce freedom is party position",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -97,7 +106,8 @@
       "question_id": "q10",
       "stated_position": {
         "score": 2,
-        "source": "Supports Kotel reform"
+        "source": "Supports Kotel reform",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -105,11 +115,12 @@
       "question_id": "q11",
       "stated_position": {
         "score": -1,
-        "source": "Opposes yeshiva funding without military service"
+        "source": "Opposes yeshiva funding without military service",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -118,7 +129,8 @@
       "question_id": "q12",
       "stated_position": {
         "score": -1,
-        "source": "Opposes state kashrut enforcement"
+        "source": "Opposes state kashrut enforcement",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -126,11 +138,12 @@
       "question_id": "q16",
       "stated_position": {
         "score": 0,
-        "source": "Mixed record on privatization"
+        "source": "Mixed record on privatization",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -139,11 +152,12 @@
       "question_id": "q18",
       "stated_position": {
         "score": -2,
-        "source": "Strongly opposes override clause"
+        "source": "Strongly opposes override clause",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -152,11 +166,12 @@
       "question_id": "q19",
       "stated_position": {
         "score": -2,
-        "source": "Defends current judicial selection process"
+        "source": "Defends current judicial selection process",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -165,7 +180,8 @@
       "question_id": "q20",
       "stated_position": {
         "score": 2,
-        "source": "AG opinions must be binding"
+        "source": "AG opinions must be binding",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -173,7 +189,8 @@
       "question_id": "q21",
       "stated_position": {
         "score": 2,
-        "source": "Defends reasonableness standard"
+        "source": "Defends reasonableness standard",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -181,11 +198,12 @@
       "question_id": "q22",
       "stated_position": {
         "score": 2,
-        "source": "Judicial independence is central party platform"
+        "source": "Judicial independence is central party platform",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -194,11 +212,12 @@
       "question_id": "q23",
       "stated_position": {
         "score": 1,
-        "source": "Supports equality but focus on Jewish-state identity"
+        "source": "Supports equality but focus on Jewish-state identity",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -207,7 +226,8 @@
       "question_id": "q24",
       "stated_position": {
         "score": 0,
-        "source": "Ambivalent — concerned about optics"
+        "source": "Ambivalent — concerned about optics",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -215,11 +235,12 @@
       "question_id": "q25",
       "stated_position": {
         "score": 1,
-        "source": "Supports equal municipal funding"
+        "source": "Supports equal municipal funding",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -228,11 +249,12 @@
       "question_id": "q26",
       "stated_position": {
         "score": 0,
-        "source": "Did not oppose Nation-State Law strongly"
+        "source": "Did not oppose Nation-State Law strongly",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -241,11 +263,12 @@
       "question_id": "q27",
       "stated_position": {
         "score": 2,
-        "source": "PM incapacitation law proposed by Yesh Atid"
+        "source": "PM incapacitation law proposed by Yesh Atid",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -254,11 +277,12 @@
       "question_id": "q28",
       "stated_position": {
         "score": 2,
-        "source": "Supports term limits for PM"
+        "source": "Supports term limits for PM",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -267,7 +291,8 @@
       "question_id": "q29",
       "stated_position": {
         "score": 1,
-        "source": "Larger parties benefit from higher threshold"
+        "source": "Larger parties benefit from higher threshold",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -275,11 +300,12 @@
       "question_id": "q31",
       "stated_position": {
         "score": 2,
-        "source": "Lapid has made state inquiry a central opposition demand since October 2023"
+        "source": "Lapid has made state inquiry a central opposition demand since October 2023",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -288,11 +314,12 @@
       "question_id": "q32",
       "stated_position": {
         "score": 2,
-        "source": "Lapid has made mandatory core curriculum (math, English, sciences) a flagship issue for years"
+        "source": "Lapid has made mandatory core curriculum (math, English, sciences) a flagship issue for years",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -301,7 +328,8 @@
       "question_id": "q33",
       "stated_position": {
         "score": 1,
-        "source": "Supports professional journalistic standards; concerned about Channel 14 disinformation"
+        "source": "Supports professional journalistic standards; concerned about Channel 14 disinformation",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -309,7 +337,8 @@
       "question_id": "q34",
       "stated_position": {
         "score": 1,
-        "source": "Progressive-liberal party; publicly supportive of gender equality; no formal 50/50 commitment recorded (5050il.co.il)"
+        "source": "Progressive-liberal party; publicly supportive of gender equality; no formal 50/50 commitment recorded (5050il.co.il)",
+        "last_updated": "2026-06-22"
       }
     }
   ]

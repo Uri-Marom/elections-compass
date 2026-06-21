@@ -4,7 +4,7 @@
     "name_en": "Likud",
     "name_he": "הליכוד",
     "seats": 32,
-    "poll_seats": 26,
+    "poll_seats": 23,
     "bloc": "coalition",
     "color": "#1E3A8A",
     "logo": "/logos/likud.png"
@@ -44,7 +44,7 @@
     "name_en": "Religious Zionism",
     "name_he": "הציונות הדתית",
     "seats": 7,
-    "poll_seats": 0,
+    "poll_seats": 4,
     "bloc": "coalition",
     "color": "#d97706",
     "logo": "/logos/religious_zionism.png"
@@ -54,7 +54,7 @@
     "name_en": "Beyachad",
     "name_he": "ביחד",
     "seats": 24,
-    "poll_seats": 23,
+    "poll_seats": 21,
     "bloc": "opposition",
     "color": "#0369A1",
     "logo": "/logos/beyachad.png"
@@ -74,7 +74,7 @@
     "name_en": "Yashar! (Eisenkot)",
     "name_he": "ישר! (איזנקוט)",
     "seats": 0,
-    "poll_seats": 14,
+    "poll_seats": 18,
     "bloc": "opposition",
     "color": "#7C3AED",
     "logo": "/logos/yashar.png"
@@ -84,7 +84,7 @@
     "name_en": "The Democrats",
     "name_he": "הדמוקרטים",
     "seats": 0,
-    "poll_seats": 9,
+    "poll_seats": 10,
     "bloc": "opposition",
     "color": "#C2410C",
     "logo": "/logos/democrats.png"
@@ -114,7 +114,7 @@
     "name_en": "Hadash-Ta'al",
     "name_he": "חד\"ש-תע\"ל",
     "seats": 5,
-    "poll_seats": 5,
+    "poll_seats": 6,
     "bloc": "arab",
     "color": "#DC2626",
     "logo": "/logos/hadash_taal.png"

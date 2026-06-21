@@ -5,11 +5,12 @@
       "question_id": "q01",
       "stated_position": {
         "score": 2,
-        "source": "Party platform & coalition agreement 2022"
+        "source": "Party platform & coalition agreement 2022",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -18,11 +19,12 @@
       "question_id": "q02",
       "stated_position": {
         "score": -1,
-        "source": "Netanyahu speeches, opposes Palestinian state"
+        "source": "Netanyahu speeches, opposes Palestinian state",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -31,11 +33,12 @@
       "question_id": "q03",
       "stated_position": {
         "score": 2,
-        "source": "Official government policy since Oct 2023"
+        "source": "Official government policy since Oct 2023",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -44,11 +47,12 @@
       "question_id": "q04",
       "stated_position": {
         "score": 2,
-        "source": "Likud platform: undivided Jerusalem"
+        "source": "Likud platform: undivided Jerusalem",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -57,11 +61,12 @@
       "question_id": "q05",
       "stated_position": {
         "score": -2,
-        "source": "Consistent opposition to right of return"
+        "source": "Consistent opposition to right of return",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -70,11 +75,12 @@
       "question_id": "q06",
       "stated_position": {
         "score": 1,
-        "source": "Coalition agreement 2022, annexation elements"
+        "source": "Coalition agreement 2022, annexation elements",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -83,11 +89,12 @@
       "question_id": "q07",
       "stated_position": {
         "score": -1,
-        "source": "Opposed Haredi conscription to preserve coalition"
+        "source": "Opposed Haredi conscription to preserve coalition",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -96,11 +103,12 @@
       "question_id": "q08",
       "stated_position": {
         "score": -1,
-        "source": "Reliant on religious coalition partners"
+        "source": "Reliant on religious coalition partners",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -1.83,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -109,11 +117,12 @@
       "question_id": "q09",
       "stated_position": {
         "score": -1,
-        "source": "Coalition agreement restricts Shabbat commerce"
+        "source": "Coalition agreement restricts Shabbat commerce",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -0.5,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -122,11 +131,12 @@
       "question_id": "q10",
       "stated_position": {
         "score": -1,
-        "source": "Opposed Kotel reform agreement"
+        "source": "Opposed Kotel reform agreement",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -0.5,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -135,11 +145,12 @@
       "question_id": "q11",
       "stated_position": {
         "score": 1,
-        "source": "Budget allocations to Haredi institutions"
+        "source": "Budget allocations to Haredi institutions",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -148,11 +159,12 @@
       "question_id": "q12",
       "stated_position": {
         "score": 1,
-        "source": "Coalition agreement with Shas"
+        "source": "Coalition agreement with Shas",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -161,11 +173,12 @@
       "question_id": "q16",
       "stated_position": {
         "score": -1,
-        "source": "Historical privatization record"
+        "source": "Historical privatization record",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -174,11 +187,12 @@
       "question_id": "q18",
       "stated_position": {
         "score": 2,
-        "source": "Judicial reform package 2023"
+        "source": "Judicial reform package 2023",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -187,11 +201,12 @@
       "question_id": "q19",
       "stated_position": {
         "score": 2,
-        "source": "Judicial reform: Knesset control over appointments"
+        "source": "Judicial reform: Knesset control over appointments",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -200,11 +215,12 @@
       "question_id": "q20",
       "stated_position": {
         "score": -2,
-        "source": "Judicial reform: AG opinions non-binding"
+        "source": "Judicial reform: AG opinions non-binding",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -213,11 +229,12 @@
       "question_id": "q21",
       "stated_position": {
         "score": -2,
-        "source": "Reasonableness standard abolition bill"
+        "source": "Reasonableness standard abolition bill",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -226,11 +243,12 @@
       "question_id": "q22",
       "stated_position": {
         "score": 0,
-        "source": "Supports judiciary but wants reform"
+        "source": "Supports judiciary but wants reform",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -239,11 +257,12 @@
       "question_id": "q23",
       "stated_position": {
         "score": -1,
-        "source": "Nation-State Law sponsor"
+        "source": "Nation-State Law sponsor",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -252,11 +271,12 @@
       "question_id": "q24",
       "stated_position": {
         "score": -2,
-        "source": "Opposed to Arab-reliant coalitions"
+        "source": "Opposed to Arab-reliant coalitions",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -265,11 +285,12 @@
       "question_id": "q25",
       "stated_position": {
         "score": 0,
-        "source": "Decision 922 support but uneven implementation"
+        "source": "Decision 922 support but uneven implementation",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -0.5,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -278,11 +299,12 @@
       "question_id": "q26",
       "stated_position": {
         "score": 2,
-        "source": "Nation-State Law passed by Likud"
+        "source": "Nation-State Law passed by Likud",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -291,11 +313,12 @@
       "question_id": "q27",
       "stated_position": {
         "score": -2,
-        "source": "Netanyahu himself indicted, rejects incapacitation"
+        "source": "Netanyahu himself indicted, rejects incapacitation",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -304,11 +327,12 @@
       "question_id": "q28",
       "stated_position": {
         "score": -1,
-        "source": "Netanyahu seeking extended tenure"
+        "source": "Netanyahu seeking extended tenure",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -317,11 +341,12 @@
       "question_id": "q29",
       "stated_position": {
         "score": 0,
-        "source": "Varied positions across elections"
+        "source": "Varied positions across elections",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 1.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -330,11 +355,12 @@
       "question_id": "q31",
       "stated_position": {
         "score": -2,
-        "source": "Netanyahu strongly resists — would expose his government's failures before Oct 7"
+        "source": "Netanyahu strongly resists — would expose his government's failures before Oct 7",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -343,11 +369,12 @@
       "question_id": "q32",
       "stated_position": {
         "score": -1,
-        "source": "Coalition with Haredi parties prevents enforcement of core curriculum in Haredi schools; has repeatedly backed down"
+        "source": "Coalition with Haredi parties prevents enforcement of core curriculum in Haredi schools; has repeatedly backed down",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -356,11 +383,12 @@
       "question_id": "q33",
       "stated_position": {
         "score": -2,
-        "source": "Channel 14 functions as a pro-Netanyahu platform; strongly opposes tighter media regulation"
+        "source": "Channel 14 functions as a pro-Netanyahu platform; strongly opposes tighter media regulation",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -369,14 +397,16 @@
       "question_id": "q34",
       "stated_position": {
         "score": -1,
-        "source": "No commitment to 50/50 gender parity in party list (5050il.co.il)"
+        "source": "No commitment to 50/50 gender parity in party list (5050il.co.il)",
+        "last_updated": "2026-06-22"
       }
     },
     {
       "question_id": "q35",
       "stated_position": {
         "score": -1.0,
-        "source": "Likud governments de-prioritized climate legislation; Netanyahu skeptical of international binding commitments"
+        "source": "Likud governments de-prioritized climate legislation; Netanyahu skeptical of international binding commitments",
+        "last_updated": "2026-06-22"
       }
     }
   ]

@@ -5,7 +5,8 @@
       "question_id": "q01",
       "stated_position": {
         "score": 2,
-        "source": "Settlements and annexation are core Ben-Gvir platform"
+        "source": "Settlements and annexation are core Ben-Gvir platform",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -13,11 +14,12 @@
       "question_id": "q02",
       "stated_position": {
         "score": -2,
-        "source": "Explicitly and repeatedly opposes Palestinian state"
+        "source": "Explicitly and repeatedly opposes Palestinian state",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -26,7 +28,8 @@
       "question_id": "q03",
       "stated_position": {
         "score": 2,
-        "source": "Calls for maximally aggressive military campaign, no limitations"
+        "source": "Calls for maximally aggressive military campaign, no limitations",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -34,7 +37,8 @@
       "question_id": "q04",
       "stated_position": {
         "score": 2,
-        "source": "Undivided Jerusalem, non-negotiable"
+        "source": "Undivided Jerusalem, non-negotiable",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -42,7 +46,8 @@
       "question_id": "q05",
       "stated_position": {
         "score": -2,
-        "source": "Strongly opposes right of return"
+        "source": "Strongly opposes right of return",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -50,7 +55,8 @@
       "question_id": "q06",
       "stated_position": {
         "score": 2,
-        "source": "Full annexation of Area C is party platform"
+        "source": "Full annexation of Area C is party platform",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -58,11 +64,12 @@
       "question_id": "q07",
       "stated_position": {
         "score": 0,
-        "source": "Ben-Gvir has called for universal service including Haredim — unusual for coalition partner; ambiguous in practice"
+        "source": "Ben-Gvir has called for universal service including Haredim — unusual for coalition partner; ambiguous in practice",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -71,11 +78,12 @@
       "question_id": "q08",
       "stated_position": {
         "score": -1,
-        "source": "Traditional values; religious marriage preferred"
+        "source": "Traditional values; religious marriage preferred",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -84,7 +92,8 @@
       "question_id": "q09",
       "stated_position": {
         "score": -1,
-        "source": "Traditional values on Shabbat"
+        "source": "Traditional values on Shabbat",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -92,7 +101,8 @@
       "question_id": "q10",
       "stated_position": {
         "score": -2,
-        "source": "Strongly opposes Women of the Wall"
+        "source": "Strongly opposes Women of the Wall",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -100,11 +110,12 @@
       "question_id": "q11",
       "stated_position": {
         "score": 1,
-        "source": "Coalition agreement — supports yeshiva funding as part of deal"
+        "source": "Coalition agreement — supports yeshiva funding as part of deal",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -113,7 +124,8 @@
       "question_id": "q12",
       "stated_position": {
         "score": 1,
-        "source": "Supports religious food standards in state institutions"
+        "source": "Supports religious food standards in state institutions",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -121,7 +133,8 @@
       "question_id": "q16",
       "stated_position": {
         "score": -1,
-        "source": "Free market orientation"
+        "source": "Free market orientation",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": true
     },
@@ -129,11 +142,12 @@
       "question_id": "q18",
       "stated_position": {
         "score": 2,
-        "source": "Strong judicial reform advocate — Ben-Gvir as Justice Minister pushed for override"
+        "source": "Strong judicial reform advocate — Ben-Gvir as Justice Minister pushed for override",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -142,11 +156,12 @@
       "question_id": "q19",
       "stated_position": {
         "score": 2,
-        "source": "Political control of judiciary — core demand as condition for coalition"
+        "source": "Political control of judiciary — core demand as condition for coalition",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -155,7 +170,8 @@
       "question_id": "q20",
       "stated_position": {
         "score": -2,
-        "source": "Explicitly rejects binding AG opinions — conflict with AG over Ben-Gvir's conduct as minister"
+        "source": "Explicitly rejects binding AG opinions — conflict with AG over Ben-Gvir's conduct as minister",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -163,11 +179,12 @@
       "question_id": "q21",
       "stated_position": {
         "score": -2,
-        "source": "Supported abolition of reasonableness standard"
+        "source": "Supported abolition of reasonableness standard",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -176,11 +193,12 @@
       "question_id": "q22",
       "stated_position": {
         "score": -2,
-        "source": "Views current judiciary as illegitimate leftist institution"
+        "source": "Views current judiciary as illegitimate leftist institution",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -189,11 +207,12 @@
       "question_id": "q23",
       "stated_position": {
         "score": -2,
-        "source": "Explicitly opposes equality basic law; has spoken of expelling 'disloyal' Arab citizens"
+        "source": "Explicitly opposes equality basic law; has spoken of expelling 'disloyal' Arab citizens",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -202,7 +221,8 @@
       "question_id": "q24",
       "stated_position": {
         "score": -2,
-        "source": "Strongly and vocally opposes any coalition relying on Arab parties"
+        "source": "Strongly and vocally opposes any coalition relying on Arab parties",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -210,7 +230,8 @@
       "question_id": "q25",
       "stated_position": {
         "score": -2,
-        "source": "Nationalist priorities; has opposed Arab municipality funding increases"
+        "source": "Nationalist priorities; has opposed Arab municipality funding increases",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -218,11 +239,12 @@
       "question_id": "q26",
       "stated_position": {
         "score": 2,
-        "source": "Strong supporter of Nation-State Law"
+        "source": "Strong supporter of Nation-State Law",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -231,11 +253,12 @@
       "question_id": "q27",
       "stated_position": {
         "score": -2,
-        "source": "Defends Netanyahu against legal proceedings; passed laws to protect him"
+        "source": "Defends Netanyahu against legal proceedings; passed laws to protect him",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -244,11 +267,12 @@
       "question_id": "q28",
       "stated_position": {
         "score": -1,
-        "source": "Coalition loyalty to Netanyahu"
+        "source": "Coalition loyalty to Netanyahu",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -257,7 +281,8 @@
       "question_id": "q29",
       "stated_position": {
         "score": -1,
-        "source": "Small parties hurt by high threshold"
+        "source": "Small parties hurt by high threshold",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -265,11 +290,12 @@
       "question_id": "q31",
       "stated_position": {
         "score": -1,
-        "source": "Ambivalent — Ben-Gvir may want inquiry that exposes military/Shin Bet; but coalition loyalty prevails"
+        "source": "Ambivalent — Ben-Gvir may want inquiry that exposes military/Shin Bet; but coalition loyalty prevails",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -278,11 +304,12 @@
       "question_id": "q32",
       "stated_position": {
         "score": -1,
-        "source": "Religious Zionist schools already teach core curriculum; not a priority for Ben-Gvir; allied with Haredim"
+        "source": "Religious Zionist schools already teach core curriculum; not a priority for Ben-Gvir; allied with Haredim",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -291,11 +318,12 @@
       "question_id": "q33",
       "stated_position": {
         "score": -2,
-        "source": "Channel 14 strongly supports Ben-Gvir; strongly opposes regulation of commercial broadcasts"
+        "source": "Channel 14 strongly supports Ben-Gvir; strongly opposes regulation of commercial broadcasts",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -304,14 +332,16 @@
       "question_id": "q34",
       "stated_position": {
         "score": -2,
-        "source": "No commitment to gender parity; ideologically opposed to gender quotas (5050il.co.il)"
+        "source": "No commitment to gender parity; ideologically opposed to gender quotas (5050il.co.il)",
+        "last_updated": "2026-06-22"
       }
     },
     {
       "question_id": "q35",
       "stated_position": {
         "score": -1.5,
-        "source": "Ben Gvir's party dismisses climate regulation as ideological overreach; opposes international binding frameworks"
+        "source": "Ben Gvir's party dismisses climate regulation as ideological overreach; opposes international binding frameworks",
+        "last_updated": "2026-06-22"
       }
     }
   ]

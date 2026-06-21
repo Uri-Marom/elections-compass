@@ -5,11 +5,12 @@
       "question_id": "q01",
       "stated_position": {
         "score": 2,
-        "source": "Smotrich's core ideology: Israeli sovereignty over all of historic Land of Israel"
+        "source": "Smotrich's core ideology: Israeli sovereignty over all of historic Land of Israel",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -18,11 +19,12 @@
       "question_id": "q02",
       "stated_position": {
         "score": -2,
-        "source": "Explicitly opposes any Palestinian state; calls for Israeli sovereignty instead"
+        "source": "Explicitly opposes any Palestinian state; calls for Israeli sovereignty instead",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -31,7 +33,8 @@
       "question_id": "q03",
       "stated_position": {
         "score": 2,
-        "source": "Full military victory; Smotrich threatened to resign over any ceasefire"
+        "source": "Full military victory; Smotrich threatened to resign over any ceasefire",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -39,7 +42,8 @@
       "question_id": "q04",
       "stated_position": {
         "score": 2,
-        "source": "Undivided Jerusalem, non-negotiable"
+        "source": "Undivided Jerusalem, non-negotiable",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -47,7 +51,8 @@
       "question_id": "q05",
       "stated_position": {
         "score": -2,
-        "source": "Strongly opposes right of return"
+        "source": "Strongly opposes right of return",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -55,11 +60,12 @@
       "question_id": "q06",
       "stated_position": {
         "score": 2,
-        "source": "Full annexation of West Bank — central to Smotrich's platform and his role in West Bank administration"
+        "source": "Full annexation of West Bank — central to Smotrich's platform and his role in West Bank administration",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -68,11 +74,12 @@
       "question_id": "q07",
       "stated_position": {
         "score": -2,
-        "source": "Opposes Haredi conscription; closely allied with Haredi parties; Torah study as national service"
+        "source": "Opposes Haredi conscription; closely allied with Haredi parties; Torah study as national service",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -81,11 +88,12 @@
       "question_id": "q08",
       "stated_position": {
         "score": -2,
-        "source": "Rabbinate marriage authority is non-negotiable for Religious Zionists"
+        "source": "Rabbinate marriage authority is non-negotiable for Religious Zionists",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -94,7 +102,8 @@
       "question_id": "q09",
       "stated_position": {
         "score": -2,
-        "source": "Shabbat observance as public norm — religious Zionist value"
+        "source": "Shabbat observance as public norm — religious Zionist value",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -102,7 +111,8 @@
       "question_id": "q10",
       "stated_position": {
         "score": -2,
-        "source": "Strongly opposes Women of the Wall; Western Wall under Orthodox control"
+        "source": "Strongly opposes Women of the Wall; Western Wall under Orthodox control",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -110,11 +120,12 @@
       "question_id": "q11",
       "stated_position": {
         "score": 2,
-        "source": "Torah study as national service; strongly supports yeshiva funding"
+        "source": "Torah study as national service; strongly supports yeshiva funding",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -123,7 +134,8 @@
       "question_id": "q12",
       "stated_position": {
         "score": 2,
-        "source": "Kashrut enforcement in state institutions — religious Zionist value"
+        "source": "Kashrut enforcement in state institutions — religious Zionist value",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -131,11 +143,12 @@
       "question_id": "q16",
       "stated_position": {
         "score": -1,
-        "source": "Smotrich pro-market; privatization-friendly"
+        "source": "Smotrich pro-market; privatization-friendly",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -144,11 +157,12 @@
       "question_id": "q18",
       "stated_position": {
         "score": 2,
-        "source": "Key architect of judicial reform; override clause was an explicit coalition demand"
+        "source": "Key architect of judicial reform; override clause was an explicit coalition demand",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -157,11 +171,12 @@
       "question_id": "q19",
       "stated_position": {
         "score": 2,
-        "source": "Political control of judiciary — core coalition demand"
+        "source": "Political control of judiciary — core coalition demand",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -170,7 +185,8 @@
       "question_id": "q20",
       "stated_position": {
         "score": -2,
-        "source": "Rejects binding AG opinions; repeatedly clashed with AG as minister"
+        "source": "Rejects binding AG opinions; repeatedly clashed with AG as minister",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -178,11 +194,12 @@
       "question_id": "q21",
       "stated_position": {
         "score": -2,
-        "source": "Pushed for reasonableness standard abolition — sponsored the bill"
+        "source": "Pushed for reasonableness standard abolition — sponsored the bill",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -191,11 +208,12 @@
       "question_id": "q22",
       "stated_position": {
         "score": -2,
-        "source": "Views Supreme Court as unelected obstacle to democratic will"
+        "source": "Views Supreme Court as unelected obstacle to democratic will",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -204,11 +222,12 @@
       "question_id": "q23",
       "stated_position": {
         "score": -2,
-        "source": "Opposes equality basic law; prefers Jewish state definition over universal equality"
+        "source": "Opposes equality basic law; prefers Jewish state definition over universal equality",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -217,7 +236,8 @@
       "question_id": "q24",
       "stated_position": {
         "score": -2,
-        "source": "Strongly opposes Arab parties in coalition"
+        "source": "Strongly opposes Arab parties in coalition",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -225,7 +245,8 @@
       "question_id": "q25",
       "stated_position": {
         "score": -1,
-        "source": "Nationalist priorities; Arab municipality funding not a Smotrich priority"
+        "source": "Nationalist priorities; Arab municipality funding not a Smotrich priority",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -233,11 +254,12 @@
       "question_id": "q26",
       "stated_position": {
         "score": 2,
-        "source": "Strong supporter of Nation-State Law; Jewish state definition is core ideology"
+        "source": "Strong supporter of Nation-State Law; Jewish state definition is core ideology",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -246,11 +268,12 @@
       "question_id": "q27",
       "stated_position": {
         "score": -2,
-        "source": "Defends Netanyahu; coalition loyalty and legal protection of PM"
+        "source": "Defends Netanyahu; coalition loyalty and legal protection of PM",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -259,11 +282,12 @@
       "question_id": "q28",
       "stated_position": {
         "score": -1,
-        "source": "Coalition loyalty to Netanyahu"
+        "source": "Coalition loyalty to Netanyahu",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -272,7 +296,8 @@
       "question_id": "q29",
       "stated_position": {
         "score": -1,
-        "source": "Small-medium party; higher threshold is a risk"
+        "source": "Small-medium party; higher threshold is a risk",
+        "last_updated": "2026-06-22"
       },
       "divergence_flag": false
     },
@@ -280,11 +305,12 @@
       "question_id": "q31",
       "stated_position": {
         "score": -2,
-        "source": "Coalition loyalty; opposes inquiry"
+        "source": "Coalition loyalty; opposes inquiry",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -293,11 +319,12 @@
       "question_id": "q32",
       "stated_position": {
         "score": -1,
-        "source": "Smotrich allied with Haredim; opposes mandating secular curriculum in Haredi schools"
+        "source": "Smotrich allied with Haredim; opposes mandating secular curriculum in Haredi schools",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -306,11 +333,12 @@
       "question_id": "q33",
       "stated_position": {
         "score": -2,
-        "source": "Benefits from friendly media coverage; opposes stronger enforcement powers for regulators"
+        "source": "Benefits from friendly media coverage; opposes stronger enforcement powers for regulators",
+        "last_updated": "2026-06-22"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-05-10",
+        "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -319,14 +347,16 @@
       "question_id": "q34",
       "stated_position": {
         "score": -2,
-        "source": "No commitment to gender parity; religiously conservative position on gender roles (5050il.co.il)"
+        "source": "No commitment to gender parity; religiously conservative position on gender roles (5050il.co.il)",
+        "last_updated": "2026-06-22"
       }
     },
     {
       "question_id": "q35",
       "stated_position": {
         "score": -1.5,
-        "source": "Smotrich has opposed environmental constraints and international regulatory commitments on ideological and sovereignty grounds"
+        "source": "Smotrich has opposed environmental constraints and international regulatory commitments on ideological and sovereignty grounds",
+        "last_updated": "2026-06-22"
       }
     }
   ]
