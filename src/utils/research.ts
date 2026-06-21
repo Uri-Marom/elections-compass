@@ -403,16 +403,16 @@ const PARTY_DIM_ANCHORS: Record<PartyDimKey, { high: string; low: string }> = {
   security:   { high: 'likud',       low: 'hadash_taal'     },
   religion:   { high: 'utj',         low: 'yisrael_beitenu' },
   judicial:   { high: 'likud',       low: 'hadash_taal'     },
-  minority:   { high: 'hadash_taal', low: 'otzma'           },
-  governance: { high: 'democrats',   low: 'likud'           },
+  minority:   { high: 'otzma',       low: 'hadash_taal'     },  // high=right=נגד שיוויון, low=left=בעד שיוויון
+  governance: { high: 'likud',       low: 'democrats'       },  // high=top=ריכוז כוח, low=bottom=פיקוח ואיזונים
 }
 
 export const PARTY_DIM_LABELS: Record<PartyDimKey, { he: string; lowHe: string; highHe: string; lowEn: string; highEn: string }> = {
   security:   { he: 'ביטחון',         lowHe: 'יוני',           highHe: 'נצי',          lowEn: 'Dovish',         highEn: 'Hawkish'        },
   religion:   { he: 'דת ומדינה',      lowHe: 'חילוני',         highHe: 'דתי',          lowEn: 'Secular',        highEn: 'Religious'      },
   judicial:   { he: 'רפורמה משפטית',  lowHe: 'נגד הרפורמה',   highHe: 'בעד הרפורמה', lowEn: 'Anti-reform',    highEn: 'Pro-reform'     },
-  minority:   { he: 'שוויון מיעוטים', lowHe: 'נגד שוויון',    highHe: 'בעד שוויון',  lowEn: 'Anti-rights',    highEn: 'Pro-rights'     },
-  governance: { he: 'ממשל',           lowHe: 'ריכוז כוח',     highHe: 'פיקוח ואיזונים', lowEn: 'Power-central',  highEn: 'Checks & Balances' },
+  minority:   { he: 'שוויון מיעוטים', lowHe: 'בעד שיוויון',   highHe: 'נגד שיוויון', lowEn: 'Pro-rights',     highEn: 'Anti-rights'    },
+  governance: { he: 'ממשל',           lowHe: 'פיקוח ואיזונים', highHe: 'ריכוז כוח',   lowEn: 'Checks & Balances', highEn: 'Power-central' },
 }
 
 export interface PartyAxisPreset {
