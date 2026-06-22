@@ -5,6 +5,7 @@ import { SurveyPage } from './pages/SurveyPage'
 import { ResultsPage } from './pages/ResultsPage'
 import { ResearchPage } from './pages/ResearchPage'
 import { MKsPage } from './pages/MKsPage'
+import { AnalyticsPage } from './pages/AnalyticsPage'
 import { FeedbackButton } from './components/FeedbackButton'
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/short/*" element={<Navigate to="/" replace />} />
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/mks" element={<MKsPage />} />
+        <Route path="/analytics" element={<AnalyticsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <FeedbackButton />

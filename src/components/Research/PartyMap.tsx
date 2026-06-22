@@ -14,6 +14,7 @@ interface Props {
   lang: 'he' | 'en'
   userAnswers?: Record<string, number | null | undefined>
   friendAnswers?: Record<string, number | null | undefined>
+  averageUserAnswers?: Record<string, number | null | undefined>
 }
 
 const SVG_W = 500
@@ -88,7 +89,7 @@ function layoutMargin(items: DotItem[], side: 'left' | 'right'): PlacedLabel[] {
   }))
 }
 
-export function PartyMap({ allPositions, parties, mode, onModeChange, lang, userAnswers, friendAnswers }: Props) {
+export function PartyMap({ allPositions, parties, mode, onModeChange, lang, userAnswers, friendAnswers, averageUserAnswers }: Props) {
   const [presetIdx, setPresetIdx] = useState(0)
   const preset = PARTY_AXIS_PRESETS[presetIdx]
 
@@ -104,6 +105,10 @@ export function PartyMap({ allPositions, parties, mode, onModeChange, lang, user
   const friendPoint = useMemo(
     () => friendAnswers ? computeUserMapPointByDim(friendAnswers, axisResult) : null,
     [friendAnswers, axisResult]
+  )
+  const avgPoint = useMemo(
+    () => averageUserAnswers ? computeUserMapPointByDim(averageUserAnswers, axisResult) : null,
+    [averageUserAnswers, axisResult]
   )
 
   const xL = PARTY_DIM_LABELS[preset.x]
@@ -244,6 +249,25 @@ export function PartyMap({ allPositions, parties, mode, onModeChange, lang, user
               {lb.name}
             </text>
           ))}
+
+          {/* Average user marker */}
+          {(() => {
+            if (!avgPoint) return null
+            const ax = toSvgX(avgPoint.x), ay = toSvgY(avgPoint.y)
+            const AVG_COLOR = '#94a3b8'
+            return (
+              <g>
+                <circle cx={ax} cy={ay} r={20} fill={AVG_COLOR} opacity={0.18} />
+                <circle cx={ax} cy={ay} r={12} fill={AVG_COLOR} opacity={0.14} />
+                <path d={starPath(ax, ay, 10)} fill={AVG_COLOR} stroke="rgba(255,255,255,0.45)" strokeWidth={1.5} />
+                <text x={ax} y={ay + 20}
+                  textAnchor="middle" fontSize={9} fontWeight={700} fill={AVG_COLOR} fontFamily={FONT}
+                  style={{ userSelect: 'none' }}>
+                  {lang === 'he' ? 'ממוצע' : 'Avg'}
+                </text>
+              </g>
+            )
+          })()}
 
           {/* Friend star */}
           {friendSvgX !== null && friendSvgY !== null && (

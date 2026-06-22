@@ -19,5 +19,7 @@ export default async function handler(_req: any, res: any) {
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     )
   `
-  res.status(200).json({ ok: true, message: 'Table created (or already exists). Delete this file.' })
+  await sql`ALTER TABLE answer_submissions ADD COLUMN IF NOT EXISTS referrer TEXT`
+  await sql`ALTER TABLE answer_submissions ADD COLUMN IF NOT EXISTS survey_mode TEXT`
+  res.status(200).json({ ok: true, message: 'Migration complete. Delete this file.' })
 }

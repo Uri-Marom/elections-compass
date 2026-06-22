@@ -149,7 +149,12 @@ export function ResultsPage() {
     fetch('/api/collect', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-api-secret': import.meta.env.VITE_API_SECRET ?? '' },
-      body: JSON.stringify({ answers, lang }),
+      body: JSON.stringify({
+        answers,
+        lang,
+        referrer: document.referrer || null,
+        survey_mode: surveyMode,
+      }),
     }).catch(() => {})
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
