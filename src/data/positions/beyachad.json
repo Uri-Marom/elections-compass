@@ -130,9 +130,9 @@
     {
       "question_id": "q11",
       "stated_position": {
-        "score": -1,
-        "source": "Both parties oppose yeshiva funding without military/national service",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "bennett2026.org.il/plans/meshartim/ — explicitly cancels all kollel stipends ('קצבאות אברך'), removes yeshiva-student NI status, removes property tax discounts; 'all the funds that encourage draft-dodging will be cancelled immediately'",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
@@ -265,9 +265,9 @@
     {
       "question_id": "q25",
       "stated_position": {
-        "score": 1,
-        "source": "Both parties support equal per-capita municipal funding for Arab sector",
-        "last_updated": "2026-06-22"
+        "score": 0,
+        "source": "bennett2026.org.il/plans/negev/ — 'those who choose to integrate will benefit; those who choose crime and incitement will meet the full force of the State'; support is conditioned on compliance and integration, not equal per-capita",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": 1.0,
@@ -302,9 +302,9 @@
     {
       "question_id": "q28",
       "stated_position": {
-        "score": 1.5,
-        "source": "Yesh Atid: supports term limits (2); Bennett: supports term limits (1)",
-        "last_updated": "2026-06-22"
+        "score": 2,
+        "source": "bennett2026.org.il — 'The New Agreement' explicitly commits to limiting PM tenure to 8 years as a published governance plank; no longer a split pre-merger average",
+        "last_updated": "2026-06-23"
       },
       "divergence_flag": false
     },
@@ -375,8 +375,8 @@
     {
       "question_id": "q35",
       "stated_position": {
-        "score": 1,
-        "source": "bennett2026.org.il platform (June 2026): no climate policy mentioned; Yesh Atid supports climate commitments but the joint merged platform is entirely silent on climate — score reduced from 1.5 to reflect Bennett component contributing 0",
+        "score": 0,
+        "source": "bennett2026.org.il — climate and environment entirely absent from all four published plan pages (meshartim, kiryat-shmona, negev, rehabilitation) and all general platform text; no joint position can be attributed",
         "last_updated": "2026-06-23"
       }
     }
