@@ -63,9 +63,9 @@
     {
       "question_id": "q07",
       "stated_position": {
-        "score": 0,
-        "source": "Ben-Gvir has called for universal service including Haredim — unusual for coalition partner; ambiguous in practice",
-        "last_updated": "2026-06-22"
+        "score": 1,
+        "source": "Ben-Gvir publicly supports Haredi military service as a religious commandment; created 'Haredi Magav' frameworks; Times of Israel: 'the national-religious public represented by Ben-Gvir has been pressing Haredi enlistment stronger than the secular public'; voted -2 reflects coalition discipline, not stated platform",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
@@ -77,9 +77,9 @@
     {
       "question_id": "q08",
       "stated_position": {
-        "score": -1,
-        "source": "Traditional values; religious marriage preferred",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "IDI profile: Otzma platform calls for 'integration of Jewish law into the judicial system'; party ideologically opposes civil marriage as incompatible with Jewish state character; Rabbinate authority over marriage is a core principle",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
@@ -289,9 +289,9 @@
     {
       "question_id": "q31",
       "stated_position": {
-        "score": -1,
-        "source": "Ambivalent — Ben-Gvir may want inquiry that exposes military/Shin Bet; but coalition loyalty prevails",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "Ben-Gvir was a member of the ministerial panel established to block an independent state commission; government rejected AG's call for a state commission; Ben-Gvir called on the panel to investigate the courts instead",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,

@@ -46,16 +46,16 @@
     {
       "question_id": "q04",
       "stated_position": {
-        "score": -1,
-        "source": "Open to shared Jerusalem in peace settlement",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "Ta'al platform explicitly supports East Jerusalem as the capital of a Palestinian state (Wikipedia: Ta'al); Hadash 1990s platform called for division of sovereignty in Jerusalem; both components of Hadash-Ta'al reject exclusive Israeli sovereignty over Jerusalem as a coalition principle",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -1.0,
         "last_updated": "2026-06-22",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q05",

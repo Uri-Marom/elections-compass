@@ -60,9 +60,9 @@
     {
       "question_id": "q05",
       "stated_position": {
-        "score": 0,
-        "source": "Sympathetic but constrained by Israeli public opinion",
-        "last_updated": "2026-06-22"
+        "score": -1,
+        "source": "Democrats platform (April 2026): two-state solution with 'שמירה על רוב יהודי מוצק' (preservation of solid Jewish majority) as explicit goal — logically incompatible with broad right of return; demilitarized Palestinian state with Israeli security presence",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -1.0,
@@ -116,9 +116,9 @@
     {
       "question_id": "q09",
       "stated_position": {
-        "score": 2,
-        "source": "Freedom of commerce on Shabbat",
-        "last_updated": "2026-06-22"
+        "score": 1,
+        "source": "Democrats platform (April 2026): Shabbat commerce decisions delegated to local authorities ('הרשויות המקומיות יוסמכו להחליט על היקף השירות') — cultural/entertainment venues open, public transport in reduced form; partial liberalization, not a blanket national mandate",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": 2.0,

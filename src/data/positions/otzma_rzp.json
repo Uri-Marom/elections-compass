@@ -88,23 +88,23 @@
     {
       "question_id": "q07",
       "stated_position": {
-        "score": -2,
-        "source": "Opposes Haredi conscription (coalition partners)",
-        "last_updated": "2026-06-22"
+        "score": 1,
+        "source": "Both component parties had publicly pro-conscription stated positions: Ben-Gvir supports Haredi service as a religious commandment (Haredi Magav); Smotrich demanded 'real and rapid' Haredi IDF recruitment with specific targets; voted -2 reflects coalition-pressure outcome, not stated platform",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q08",
       "stated_position": {
-        "score": -1,
-        "source": "Supports religious marriage laws",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "Religious Zionism: 'Rabbinate marriage authority is non-negotiable'; Otzma: integrates Jewish law into state institutions — both component parties strongly oppose civil marriage; voted position was also -2",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
@@ -242,9 +242,9 @@
     {
       "question_id": "q22",
       "stated_position": {
-        "score": -1,
-        "source": "Views current judiciary as activist overreach",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "Both Otzma (-2) and Religious Zionism (-2) independently score -2; Smotrich views court as 'unelected obstacle to democratic will'; IDI: Otzma calls for 'selection of Supreme Court justices by politicians'; voted position also -2",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,

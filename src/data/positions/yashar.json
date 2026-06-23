@@ -19,16 +19,16 @@
     {
       "question_id": "q02",
       "stated_position": {
-        "score": 1,
-        "source": "Eisenkot more explicitly pro-two-state than Gantz; sees Palestinian state as long-term security necessity",
-        "last_updated": "2026-06-22"
+        "score": 0,
+        "source": "Yashar! platform does not mention a Palestinian state; emphasizes 'expanded peace circle' while maintaining 'solid Jewish majority for generations' and absorbing 1M immigrants — incompatible with near-term two-state commitment",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -1.0,
         "last_updated": "2026-04-24",
         "source": "Voted as National Unity MKs — voted for anti-Palestinian-state resolution July 2024"
       },
-      "divergence_flag": true
+      "divergence_flag": false
     },
     {
       "question_id": "q03",
@@ -103,9 +103,9 @@
     {
       "question_id": "q08",
       "stated_position": {
-        "score": 2,
-        "source": "Kahana as Minister of Religious Services advanced civil marriage alternatives and spousal registration reform",
-        "last_updated": "2026-06-22"
+        "score": 1,
+        "source": "Yashar! platform references 'inclusive Judaism respecting diverse lifestyles' with community autonomy; no explicit civil marriage commitment. Kahana advanced alternatives as minister but that was a personal initiative, not a current party platform pledge",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": 0.0,

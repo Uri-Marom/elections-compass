@@ -73,16 +73,16 @@
     {
       "question_id": "q07",
       "stated_position": {
-        "score": -2,
-        "source": "Opposes Haredi conscription; closely allied with Haredi parties; Torah study as national service",
-        "last_updated": "2026-06-22"
+        "score": 1,
+        "source": "Smotrich stated 'We will only vote for a law that will lead to real and rapid recruitment of Haredim into the IDF'; demanded 3,000 drafted in year 1 scaling to 50% of a recruitment cycle over 5 years; indicated support for targeted sanctions against draft dodgers; voted -2 reflects eventual capitulation to Haredi coalition pressure, not stated platform",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q08",

@@ -137,9 +137,9 @@
     {
       "question_id": "q16",
       "stated_position": {
-        "score": 0,
-        "source": "Mixed record on privatization",
-        "last_updated": "2026-06-22"
+        "score": -1,
+        "source": "Lapid as Finance Minister (2013-2014) championed NIS 15B ($4B) privatization program covering ports (Ashdod, Haifa), Dead Sea Works, and minority stakes in electricity/utilities; described privatization as 'ending the politicization of companies'; pro-market lean is consistent platform position",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": 2.0,
@@ -225,9 +225,9 @@
     {
       "question_id": "q24",
       "stated_position": {
-        "score": 0,
-        "source": "Ambivalent — concerned about optics",
-        "last_updated": "2026-06-22"
+        "score": 1,
+        "source": "The 2021 Bennett-Lapid government included Ra'am as a coalition partner — the first Arab party to join an Israeli government; Lapid signed the coalition agreement with Ra'am and has publicly defended the arrangement; revealed preference is clearly positive on Arab party coalition participation",
+        "last_updated": "2026-06-23"
       },
       "divergence_flag": false
     },
@@ -248,9 +248,9 @@
     {
       "question_id": "q26",
       "stated_position": {
-        "score": 0,
-        "source": "Did not oppose Nation-State Law strongly",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "All 11 Yesh Atid MKs voted AGAINST the Nation-State Law in July 2018 (62-55 vote); party subsequently proposed amendments to add equality clause and upgrade Arabic language status (MK Gadeer Mreeh, 2020); consistently calls for repeal or reform of the law",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": 2.0,

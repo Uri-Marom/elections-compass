@@ -74,9 +74,9 @@
     {
       "question_id": "q06",
       "stated_position": {
-        "score": 0,
-        "source": "Not a priority issue",
-        "last_updated": "2026-06-22"
+        "score": 1,
+        "source": "Shas shifted by 2010s to opposing settlement freezes and supporting consolidation of West Bank settlement interests, particularly regarding yeshivas and Jewish holy sites; supports 'Greater Jerusalem' plan; has not made formal annexation a standalone platform demand but consistently votes for Israeli settlement retention",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": 2.0,
@@ -237,9 +237,9 @@
     {
       "question_id": "q22",
       "stated_position": {
-        "score": 0,
-        "source": "Supports but wants reform",
-        "last_updated": "2026-06-22"
+        "score": -1,
+        "source": "Shas was a full coalition partner in the 2023 judicial overhaul; supported override clause (+2), political judicial appointments (+2), and abolition of reasonableness standard (-2); rhetorical support for 'independent judiciary' is inconsistent with all legislative behavior",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
@@ -251,16 +251,16 @@
     {
       "question_id": "q23",
       "stated_position": {
-        "score": 0,
-        "source": "Not a priority, neutral",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "Shas ideology advocates increased Halakha influence; voted for Nation-State Law; opposes any Basic Law that would conflict with Jewish character or undermine Haredi institutional privileges (draft exemptions, separate education, rabbinical marriage authority); a universal equality Basic Law would directly threaten the party's entire legislative agenda",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": true
+      "divergence_flag": false
     },
     {
       "question_id": "q24",

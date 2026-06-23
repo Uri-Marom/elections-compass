@@ -18,9 +18,9 @@
     {
       "question_id": "q02",
       "stated_position": {
-        "score": -1,
-        "source": "Netanyahu speeches, opposes Palestinian state",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "July 2024 Knesset resolution rejecting Palestinian statehood (Netanyahu-led coalition); Likud platform: 'between the sea and the Jordan there will only be Israeli sovereignty'; Netanyahu's categorical and repeated rejections of Palestinian state",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
@@ -74,23 +74,23 @@
     {
       "question_id": "q06",
       "stated_position": {
-        "score": 1,
-        "source": "Coalition agreement 2022, annexation elements",
-        "last_updated": "2026-06-22"
+        "score": 0,
+        "source": "September 2025: Netanyahu dropped annexation from government agenda following US and UAE pressure; October 2025: actively opposed annexation bill as 'deliberate political provocation'; annexation was coalition partners' (Religious Zionism) agenda, not Likud's own platform",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q07",
       "stated_position": {
-        "score": -1,
-        "source": "Opposed Haredi conscription to preserve coalition",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "37th government actively legislated Haredi exemptions; repeatedly defied Supreme Court orders to begin drafting Haredi men; ultra-Orthodox parties left coalition July 2025 partly over this — Likud prioritised coalition survival over conscription",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
@@ -242,16 +242,16 @@
     {
       "question_id": "q22",
       "stated_position": {
-        "score": 0,
-        "source": "Supports judiciary but wants reform",
-        "last_updated": "2026-06-22"
+        "score": -2,
+        "source": "2023 judicial reform package systematically aimed to curtail judicial independence: override clause, government control of appointments, abolishing reasonableness standard; Likud rhetoric framed judiciary as illegitimately overreaching elected government",
+        "last_updated": "2026-06-23"
       },
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-06-22",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": true
+      "divergence_flag": false
     },
     {
       "question_id": "q23",
