@@ -72,11 +72,14 @@ function computeUserDimScores(answers: Record<string, number | null>): Record<Di
   return result
 }
 
-function computePartyDimScores(positions: PartyPosition[], mode: 'stated' | 'voted'): Record<DimensionKey, number> {
+// answeredQids filters the party radar to only questions the user answered,
+// keeping it consistent with the gap bars which also use only answered questions.
+function computePartyDimScores(positions: PartyPosition[], mode: 'stated' | 'voted', answeredQids?: Set<string>): Record<DimensionKey, number> {
   const result = {} as Record<DimensionKey, number>
   for (const dim of Object.keys(DIMENSIONS) as DimensionKey[]) {
     const vals: number[] = []
     for (const qid of DIMENSIONS[dim].questions as readonly string[]) {
+      if (answeredQids && !answeredQids.has(qid)) continue
       const pos = positions.find(p => p.question_id === qid)
       if (!pos) continue
       const s = mode === 'stated' ? pos.stated_position?.score : (pos.voted_position?.score ?? pos.stated_position?.score)
@@ -128,9 +131,12 @@ export function ResultsPage() {
   }, [compareParam])
 
   useEffect(() => {
-    if (aParam && answeredCount() === 0) {
+    if (aParam) {
       const decoded = decodeAnswers(aParam)
-      for (const [qid, score] of Object.entries(decoded)) setAnswer(qid, score)
+      if (Object.keys(decoded).length > 0) {
+        reset()
+        for (const [qid, score] of Object.entries(decoded)) setAnswer(qid, score)
+      }
     }
     if (!compareParam) {
       const pending = sessionStorage.getItem('pendingCompare')
@@ -212,14 +218,18 @@ export function ResultsPage() {
     : rankedBase, [rankedBase, mode])
   const rankedMKs = useMemo(() => rankMKs(activeAnswers, mkPositions, weights), [activeAnswers, weights])
   const userDimScores = useMemo(() => computeUserDimScores(activeAnswers), [activeAnswers])
+  const answeredQids = useMemo(() =>
+    new Set(Object.entries(activeAnswers).filter(([, v]) => v !== null && v !== undefined).map(([k]) => k)),
+    [activeAnswers]
+  )
 
   const effectivePartyId = selectedPartyId ?? ranked[0]?.party_id ?? ''
   const selectedParty = parties.find(p => p.id === effectivePartyId)
   const selectedPositions = allPositions[effectivePartyId] ?? []
   const partyName = selectedParty ? (isHe ? selectedParty.name_he : selectedParty.name_en) : effectivePartyId
-  const partyDimScores = useMemo(() => computePartyDimScores(selectedPositions, mode), [effectivePartyId, mode]) // eslint-disable-line react-hooks/exhaustive-deps
+  const partyDimScores = useMemo(() => computePartyDimScores(selectedPositions, mode, answeredQids), [effectivePartyId, mode, answeredQids]) // eslint-disable-line react-hooks/exhaustive-deps
   const topPartyPositions = allPositions[ranked[0]?.party_id ?? ''] ?? []
-  const topPartyDimScores = useMemo(() => computePartyDimScores(topPartyPositions, 'stated'), [ranked[0]?.party_id]) // eslint-disable-line react-hooks/exhaustive-deps
+  const topPartyDimScores = useMemo(() => computePartyDimScores(topPartyPositions, 'stated', answeredQids), [ranked[0]?.party_id, answeredQids]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const friendDimScores = useMemo(() => friendAnswers ? computeUserDimScores(friendAnswers) : null, [friendAnswers])
 
