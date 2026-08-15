@@ -101,8 +101,8 @@
   },
   {
     "id": "miluimnikim",
-    "name_en": "Beit Tzioni–HaMiluimnikim (Hendel–Tropper)",
-    "name_he": "בית ציוני – המילואימניקים",
+    "name_en": "Beit Tzioni",
+    "name_he": "בית ציוני",
     "seats": 0,
     "poll_seats": 2,
     "bloc": "opposition",
@@ -131,8 +131,8 @@
   },
   {
     "id": "achdut",
-    "name_en": "HaAchdut (Erdan–Edelstein)",
-    "name_he": "האחדות (ארדן–אדלשטיין)",
+    "name_en": "HaAchdut",
+    "name_he": "האחדות",
     "seats": 0,
     "poll_seats": 0,
     "bloc": "opposition",
