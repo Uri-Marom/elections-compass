@@ -1,6 +1,6 @@
 {
   "party_id": "yashar",
-  "_voted_data_note": "Voted positions are derived from Eisenkot and Kahana's voting record as National Unity (Machane Mamlachti) MKs in the 25th Knesset. Both voted with National Unity on all recorded votes before resigning in July 2025. Individual divergences from National Unity are noted where known.",
+  "_voted_data_note": "Voted positions are two-tiered: where Gadi Eisenkot or Matan Kahana have a recorded 25th-Knesset vote of their own, that is used; on the remaining questions the aggregated National Unity faction record is shown (both sat with National Unity until resigning in July 2025). Faction aggregates pool the faction's MKs and can include votes from earlier Knessets, so they describe the faction rather than the two leaders personally.",
   "positions": [
     {
       "question_id": "q01",
@@ -10,11 +10,11 @@
         "last_updated": "2026-06-22"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q02",
@@ -24,11 +24,11 @@
         "last_updated": "2026-06-23"
       },
       "voted_position": {
-        "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs — voted for anti-Palestinian-state resolution July 2024"
+        "score": -2.0,
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q03",
@@ -37,12 +37,12 @@
         "source": "Supports military operations with clear achievable objectives; Eisenkot called for defined end goals",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q04",
@@ -51,12 +51,12 @@
         "source": "Jerusalem as Israel's capital — consistent position",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q05",
@@ -65,12 +65,12 @@
         "source": "Opposes right of return",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q06",
@@ -80,11 +80,11 @@
         "last_updated": "2026-06-22"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
-      "divergence_flag": false
+      "divergence_flag": true
     },
     {
       "question_id": "q07",
@@ -95,8 +95,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -108,11 +108,11 @@
         "last_updated": "2026-06-23"
       },
       "voted_position": {
-        "score": 0.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "score": 1.33,
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
-      "divergence_flag": true
+      "divergence_flag": false
     },
     {
       "question_id": "q09",
@@ -121,12 +121,12 @@
         "source": "Secular-leaning on public commerce",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q10",
@@ -135,12 +135,12 @@
         "source": "Kahana negotiated and approved Kotel compromise framework as Minister of Religious Services",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q11",
@@ -150,9 +150,9 @@
         "last_updated": "2026-06-22"
       },
       "voted_position": {
-        "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "score": -2.0,
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -163,12 +163,12 @@
         "source": "Kahana dismantled rabbinate kashrut monopoly; reformed kashrut enforcement system as minister",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q16",
@@ -179,8 +179,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset — voted against port privatization (opposition bill)"
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
       "divergence_flag": true
     },
@@ -193,8 +193,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs — voted against override clause"
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -206,9 +206,9 @@
         "last_updated": "2026-06-22"
       },
       "voted_position": {
-        "score": -1.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "score": -2.0,
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -219,12 +219,12 @@
         "source": "Strongly supports binding AG opinions",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q21",
@@ -233,12 +233,12 @@
         "source": "Strongly defends reasonableness standard",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs — voted against reasonableness standard abolition"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q22",
@@ -249,8 +249,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -262,9 +262,9 @@
         "last_updated": "2026-06-22"
       },
       "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -275,12 +275,12 @@
         "source": "Eisenkot has been more open than Gantz to including Arab parties in governing coalitions",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": 0.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q25",
@@ -290,9 +290,9 @@
         "last_updated": "2026-06-22"
       },
       "voted_position": {
-        "score": 1.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "score": 2.0,
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -305,8 +305,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs — voted against Nation-State Law repeal"
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": true
     },
@@ -319,8 +319,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -332,11 +332,11 @@
         "last_updated": "2026-06-22"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset — voted against term limits (as opposition)"
+        "score": 1.33,
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
-      "divergence_flag": true
+      "divergence_flag": false
     },
     {
       "question_id": "q29",
@@ -345,12 +345,12 @@
         "source": "Neutral",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": 0.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q31",
@@ -361,8 +361,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset (Eisenkot & Kahana) — last updated 2026-04-24"
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -374,9 +374,9 @@
         "last_updated": "2026-06-22"
       },
       "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset (Eisenkot & Kahana) — last updated 2026-04-24"
+        "score": 2.0,
+        "last_updated": "2026-08-15",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
       },
       "divergence_flag": false
     },
@@ -387,12 +387,12 @@
         "source": "Supports media professionalism and accountability for systematic factual distortion",
         "last_updated": "2026-06-22"
       },
+      "divergence_flag": false,
       "voted_position": {
         "score": 1.0,
-        "last_updated": "2026-04-24",
-        "source": "Voted as National Unity MKs in 25th Knesset (Eisenkot & Kahana) — last updated 2026-04-24"
-      },
-      "divergence_flag": false
+        "last_updated": "2026-08-15",
+        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+      }
     },
     {
       "question_id": "q34",

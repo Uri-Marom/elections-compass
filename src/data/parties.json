@@ -4,7 +4,7 @@
     "name_en": "Likud",
     "name_he": "הליכוד",
     "seats": 32,
-    "poll_seats": 23,
+    "poll_seats": 22,
     "bloc": "coalition",
     "color": "#1E3A8A",
     "logo": "/logos/likud.png"
@@ -14,7 +14,7 @@
     "name_en": "Shas",
     "name_he": "ש\"ס",
     "seats": 11,
-    "poll_seats": 9,
+    "poll_seats": 8,
     "bloc": "coalition",
     "color": "#7C2D12",
     "logo": "/logos/shas.png"
@@ -24,7 +24,7 @@
     "name_en": "United Torah Judaism",
     "name_he": "יהדות התורה",
     "seats": 7,
-    "poll_seats": 7,
+    "poll_seats": 8,
     "bloc": "coalition",
     "color": "#1C1917",
     "logo": "/logos/utj.png"
@@ -34,7 +34,7 @@
     "name_en": "Otzma Yehudit",
     "name_he": "עוצמה יהודית",
     "seats": 6,
-    "poll_seats": 9,
+    "poll_seats": 8,
     "bloc": "coalition",
     "color": "#B91C1C",
     "logo": "/logos/otzma.png"
@@ -44,7 +44,7 @@
     "name_en": "Religious Zionism",
     "name_he": "הציונות הדתית",
     "seats": 7,
-    "poll_seats": 4,
+    "poll_seats": 5,
     "bloc": "coalition",
     "color": "#d97706",
     "logo": "/logos/religious_zionism.png"
@@ -54,7 +54,7 @@
     "name_en": "Beyachad",
     "name_he": "ביחד",
     "seats": 24,
-    "poll_seats": 21,
+    "poll_seats": 14,
     "bloc": "opposition",
     "color": "#0369A1",
     "logo": "/logos/beyachad.png"
@@ -74,7 +74,7 @@
     "name_en": "Yashar! (Eisenkot)",
     "name_he": "ישר! (איזנקוט)",
     "seats": 0,
-    "poll_seats": 18,
+    "poll_seats": 23,
     "bloc": "opposition",
     "color": "#7C3AED",
     "logo": "/logos/yashar.png"
@@ -94,17 +94,17 @@
     "name_en": "Yisrael Beiteinu",
     "name_he": "ישראל ביתנו",
     "seats": 6,
-    "poll_seats": 9,
+    "poll_seats": 10,
     "bloc": "opposition",
     "color": "#3B82F6",
     "logo": "/logos/yisrael_beitenu.png"
   },
   {
     "id": "miluimnikim",
-    "name_en": "The Reservists",
-    "name_he": "המילואימניקים",
+    "name_en": "Beit Tzioni–HaMiluimnikim (Hendel–Tropper)",
+    "name_he": "בית ציוני – המילואימניקים",
     "seats": 0,
-    "poll_seats": 0,
+    "poll_seats": 2,
     "bloc": "opposition",
     "color": "#4D7C0F",
     "logo": "/logos/miluimnikim.jpg"
@@ -114,7 +114,7 @@
     "name_en": "Hadash-Ta'al",
     "name_he": "חד\"ש-תע\"ל",
     "seats": 5,
-    "poll_seats": 6,
+    "poll_seats": 5,
     "bloc": "arab",
     "color": "#DC2626",
     "logo": "/logos/hadash_taal.png"
@@ -128,5 +128,25 @@
     "bloc": "arab",
     "color": "#16A34A",
     "logo": "/logos/raam.png"
+  },
+  {
+    "id": "achdut",
+    "name_en": "HaAchdut (Erdan–Edelstein)",
+    "name_he": "האחדות (ארדן–אדלשטיין)",
+    "seats": 0,
+    "poll_seats": 0,
+    "bloc": "opposition",
+    "color": "#334155",
+    "logo": null
+  },
+  {
+    "id": "balad",
+    "name_en": "Balad",
+    "name_he": "בל\"ד",
+    "seats": 0,
+    "poll_seats": 0,
+    "bloc": "arab",
+    "color": "#065F46",
+    "logo": "/logos/balad.png"
   }
 ]

@@ -50,7 +50,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 14.7,
+    "attendance_pct": 14.6,
     "bill_count": 0,
     "activity_score": 31,
     "activity_grade": "F"
@@ -64,7 +64,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 10.5,
+    "attendance_pct": 10.8,
     "bill_count": 10,
     "activity_score": 26,
     "activity_grade": "F"
@@ -78,7 +78,7 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 12.0,
+    "attendance_pct": 11.9,
     "bill_count": 0,
     "activity_score": 19,
     "activity_grade": "F"
@@ -92,9 +92,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 11.5,
+    "attendance_pct": 11.8,
     "bill_count": 0,
-    "activity_score": 16,
+    "activity_score": 17,
     "activity_grade": "F"
   },
   {
@@ -113,9 +113,9 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 25.1,
+    "attendance_pct": 24.9,
     "bill_count": 12,
-    "activity_score": 65,
+    "activity_score": 66,
     "activity_grade": "B"
   },
   {
@@ -127,9 +127,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 25.7,
+    "attendance_pct": 26.1,
     "bill_count": 14,
-    "activity_score": 68,
+    "activity_score": 69,
     "activity_grade": "B"
   },
   {
@@ -141,7 +141,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 15.8,
+    "attendance_pct": 15.9,
     "bill_count": 22,
     "activity_score": 54,
     "activity_grade": "C"
@@ -179,7 +179,7 @@
     "is_current": true,
     "attendance_pct": 18.0,
     "bill_count": 0,
-    "activity_score": 42,
+    "activity_score": 41,
     "activity_grade": "D"
   },
   {
@@ -193,7 +193,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 20.7,
+    "attendance_pct": 20.9,
     "bill_count": 0,
     "activity_score": 47,
     "activity_grade": "D"
@@ -207,9 +207,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.9,
+    "attendance_pct": 13.0,
     "bill_count": 5,
-    "activity_score": 31,
+    "activity_score": 32,
     "activity_grade": "F"
   },
   {
@@ -235,9 +235,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.9,
+    "attendance_pct": 13.2,
     "bill_count": 34,
-    "activity_score": 52,
+    "activity_score": 53,
     "activity_grade": "C"
   },
   {
@@ -258,7 +258,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 34.6,
+    "attendance_pct": 34.5,
     "bill_count": 45,
     "activity_score": 91,
     "activity_grade": "A"
@@ -277,9 +277,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 25.5,
+    "attendance_pct": 25.3,
     "bill_count": 72,
-    "activity_score": 85,
+    "activity_score": 86,
     "activity_grade": "A"
   },
   {
@@ -291,9 +291,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 14.7,
+    "attendance_pct": 14.9,
     "bill_count": 0,
-    "activity_score": 31,
+    "activity_score": 32,
     "activity_grade": "F"
   },
   {
@@ -305,7 +305,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 13.6,
+    "attendance_pct": 13.7,
     "bill_count": 33,
     "activity_score": 54,
     "activity_grade": "C"
@@ -319,7 +319,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 11.5,
+    "attendance_pct": 11.7,
     "bill_count": 43,
     "activity_score": 47,
     "activity_grade": "D"
@@ -333,9 +333,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 18.9,
+    "attendance_pct": 19.1,
     "bill_count": 15,
-    "activity_score": 59,
+    "activity_score": 60,
     "activity_grade": "C"
   },
   {
@@ -349,7 +349,7 @@
     "is_current": true,
     "attendance_pct": 13.3,
     "bill_count": 31,
-    "activity_score": 52,
+    "activity_score": 51,
     "activity_grade": "C"
   },
   {
@@ -366,9 +366,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.7,
+    "attendance_pct": 17.6,
     "bill_count": 0,
-    "activity_score": 40,
+    "activity_score": 39,
     "activity_grade": "D"
   },
   {
@@ -380,7 +380,7 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 10.1,
+    "attendance_pct": 10.0,
     "bill_count": 19,
     "activity_score": 31,
     "activity_grade": "F"
@@ -394,9 +394,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 11.7,
+    "attendance_pct": 11.9,
     "bill_count": 37,
-    "activity_score": 47,
+    "activity_score": 46,
     "activity_grade": "D"
   },
   {
@@ -408,9 +408,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 9.7,
+    "attendance_pct": 9.6,
     "bill_count": 6,
-    "activity_score": 19,
+    "activity_score": 20,
     "activity_grade": "F"
   },
   {
@@ -428,7 +428,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 35.4,
+    "attendance_pct": 35.5,
     "bill_count": 47,
     "activity_score": 92,
     "activity_grade": "A"
@@ -442,7 +442,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 26.4,
+    "attendance_pct": 26.5,
     "bill_count": 13,
     "activity_score": 69,
     "activity_grade": "B"
@@ -456,9 +456,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 15.5,
+    "attendance_pct": 15.7,
     "bill_count": 18,
-    "activity_score": 48,
+    "activity_score": 49,
     "activity_grade": "D"
   },
   {
@@ -470,9 +470,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 10.8,
-    "bill_count": 30,
-    "activity_score": 40,
+    "attendance_pct": 11.0,
+    "bill_count": 31,
+    "activity_score": 42,
     "activity_grade": "D"
   },
   {
@@ -484,10 +484,10 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 14.0,
+    "attendance_pct": 14.3,
     "bill_count": 1,
-    "activity_score": 34,
-    "activity_grade": "F"
+    "activity_score": 35,
+    "activity_grade": "D"
   },
   {
     "id": "000002291",
@@ -503,9 +503,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 13.1,
+    "attendance_pct": 13.0,
     "bill_count": 0,
-    "activity_score": 25,
+    "activity_score": 24,
     "activity_grade": "F"
   },
   {
@@ -517,7 +517,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.3,
+    "attendance_pct": 12.6,
     "bill_count": 26,
     "activity_score": 45,
     "activity_grade": "D"
@@ -536,7 +536,7 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 23.5,
+    "attendance_pct": 23.4,
     "bill_count": 17,
     "activity_score": 66,
     "activity_grade": "B"
@@ -550,9 +550,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 14.6,
+    "attendance_pct": 14.7,
     "bill_count": 3,
-    "activity_score": 37,
+    "activity_score": 38,
     "activity_grade": "D"
   },
   {
@@ -572,7 +572,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 24.6,
+    "attendance_pct": 24.4,
     "bill_count": 0,
     "activity_score": 51,
     "activity_grade": "C"
@@ -591,9 +591,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 20.6,
+    "attendance_pct": 20.4,
     "bill_count": 0,
-    "activity_score": 47,
+    "activity_score": 46,
     "activity_grade": "D"
   },
   {
@@ -607,7 +607,7 @@
     "is_current": false,
     "attendance_pct": 7.8,
     "bill_count": 0,
-    "activity_score": 9,
+    "activity_score": 10,
     "activity_grade": "F"
   },
   {
@@ -627,10 +627,10 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 28.2,
+    "attendance_pct": 28.0,
     "bill_count": 7,
-    "activity_score": 64,
-    "activity_grade": "C"
+    "activity_score": 65,
+    "activity_grade": "B"
   },
   {
     "id": "000001025",
@@ -648,9 +648,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 31.5,
+    "attendance_pct": 31.4,
     "bill_count": 37,
-    "activity_score": 86,
+    "activity_score": 87,
     "activity_grade": "A"
   },
   {
@@ -662,9 +662,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 13.2,
+    "attendance_pct": 13.5,
     "bill_count": 3,
-    "activity_score": 33,
+    "activity_score": 34,
     "activity_grade": "F"
   },
   {
@@ -676,9 +676,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.5,
+    "attendance_pct": 17.8,
     "bill_count": 19,
-    "activity_score": 57,
+    "activity_score": 59,
     "activity_grade": "C"
   },
   {
@@ -690,9 +690,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 11.9,
+    "attendance_pct": 12.3,
     "bill_count": 19,
-    "activity_score": 37,
+    "activity_score": 38,
     "activity_grade": "D"
   },
   {
@@ -709,7 +709,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 21.8,
+    "attendance_pct": 21.6,
     "bill_count": 0,
     "activity_score": 49,
     "activity_grade": "D"
@@ -728,7 +728,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 30.8,
+    "attendance_pct": 30.7,
     "bill_count": 0,
     "activity_score": 58,
     "activity_grade": "C"
@@ -742,7 +742,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.3,
+    "attendance_pct": 12.4,
     "bill_count": 22,
     "activity_score": 42,
     "activity_grade": "D"
@@ -759,7 +759,7 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 10.3,
+    "attendance_pct": 10.2,
     "bill_count": 11,
     "activity_score": 26,
     "activity_grade": "F"
@@ -773,9 +773,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 10.0,
+    "attendance_pct": 10.2,
     "bill_count": 9,
-    "activity_score": 23,
+    "activity_score": 24,
     "activity_grade": "F"
   },
   {
@@ -787,7 +787,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 15.9,
+    "attendance_pct": 16.1,
     "bill_count": 0,
     "activity_score": 33,
     "activity_grade": "F"
@@ -801,9 +801,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.9,
+    "attendance_pct": 18.2,
     "bill_count": 33,
-    "activity_score": 68,
+    "activity_score": 69,
     "activity_grade": "B"
   },
   {
@@ -823,9 +823,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 39.1,
+    "attendance_pct": 39.3,
     "bill_count": 11,
-    "activity_score": 74,
+    "activity_score": 75,
     "activity_grade": "B"
   },
   {
@@ -837,9 +837,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 21.4,
+    "attendance_pct": 21.7,
     "bill_count": 34,
-    "activity_score": 76,
+    "activity_score": 77,
     "activity_grade": "B"
   },
   {
@@ -851,9 +851,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 6.5,
+    "attendance_pct": 6.8,
     "bill_count": 46,
-    "activity_score": 39,
+    "activity_score": 41,
     "activity_grade": "D"
   },
   {
@@ -874,9 +874,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 24.4,
+    "attendance_pct": 24.3,
     "bill_count": 7,
-    "activity_score": 60,
+    "activity_score": 61,
     "activity_grade": "C"
   },
   {
@@ -888,7 +888,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.9,
+    "attendance_pct": 13.1,
     "bill_count": 17,
     "activity_score": 41,
     "activity_grade": "D"
@@ -908,7 +908,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 37.3,
+    "attendance_pct": 37.2,
     "bill_count": 27,
     "activity_score": 85,
     "activity_grade": "A"
@@ -922,7 +922,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 13.7,
+    "attendance_pct": 13.9,
     "bill_count": 44,
     "activity_score": 59,
     "activity_grade": "C"
@@ -936,9 +936,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.2,
+    "attendance_pct": 17.4,
     "bill_count": 8,
-    "activity_score": 47,
+    "activity_score": 48,
     "activity_grade": "D"
   },
   {
@@ -950,7 +950,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 14.0,
+    "attendance_pct": 14.3,
     "bill_count": 28,
     "activity_score": 54,
     "activity_grade": "C"
@@ -984,7 +984,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 9.9,
+    "attendance_pct": 10.0,
     "bill_count": 6,
     "activity_score": 21,
     "activity_grade": "F"
@@ -998,7 +998,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 18.2,
+    "attendance_pct": 18.3,
     "bill_count": 72,
     "activity_score": 76,
     "activity_grade": "B"
@@ -1036,7 +1036,7 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 19.1,
+    "attendance_pct": 19.0,
     "bill_count": 0,
     "activity_score": 44,
     "activity_grade": "D"
@@ -1049,10 +1049,10 @@
     "knessets": [
       25
     ],
-    "is_current": true,
-    "attendance_pct": 19.4,
+    "is_current": false,
+    "attendance_pct": 19.7,
     "bill_count": 19,
-    "activity_score": 63,
+    "activity_score": 64,
     "activity_grade": "C"
   },
   {
@@ -1069,9 +1069,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 22.3,
+    "attendance_pct": 22.1,
     "bill_count": 5,
-    "activity_score": 57,
+    "activity_score": 58,
     "activity_grade": "C"
   },
   {
@@ -1089,9 +1089,9 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 17.6,
+    "attendance_pct": 17.5,
     "bill_count": 9,
-    "activity_score": 51,
+    "activity_score": 50,
     "activity_grade": "C"
   },
   {
@@ -1112,7 +1112,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 41.7,
+    "attendance_pct": 41.4,
     "bill_count": 8,
     "activity_score": 73,
     "activity_grade": "B"
@@ -1133,7 +1133,7 @@
     "is_current": true,
     "attendance_pct": 26.0,
     "bill_count": 0,
-    "activity_score": 55,
+    "activity_score": 54,
     "activity_grade": "C"
   },
   {
@@ -1145,7 +1145,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.7,
+    "attendance_pct": 12.8,
     "bill_count": 0,
     "activity_score": 23,
     "activity_grade": "F"
@@ -1159,9 +1159,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 16.1,
+    "attendance_pct": 16.3,
     "bill_count": 27,
-    "activity_score": 57,
+    "activity_score": 59,
     "activity_grade": "C"
   },
   {
@@ -1175,7 +1175,7 @@
     "is_current": false,
     "attendance_pct": 10.9,
     "bill_count": 0,
-    "activity_score": 16,
+    "activity_score": 15,
     "activity_grade": "F"
   },
   {
@@ -1187,10 +1187,10 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 18.0,
+    "attendance_pct": 18.3,
     "bill_count": 5,
-    "activity_score": 49,
-    "activity_grade": "D"
+    "activity_score": 50,
+    "activity_grade": "C"
   },
   {
     "id": "000030601",
@@ -1201,7 +1201,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 28.4,
+    "attendance_pct": 28.7,
     "bill_count": 71,
     "activity_score": 89,
     "activity_grade": "A"
@@ -1215,9 +1215,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 18.4,
+    "attendance_pct": 18.8,
     "bill_count": 19,
-    "activity_score": 61,
+    "activity_score": 62,
     "activity_grade": "C"
   },
   {
@@ -1229,7 +1229,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 7.5,
+    "attendance_pct": 7.6,
     "bill_count": 21,
     "activity_score": 30,
     "activity_grade": "F"
@@ -1249,7 +1249,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 29.0,
+    "attendance_pct": 28.9,
     "bill_count": 41,
     "activity_score": 86,
     "activity_grade": "A"
@@ -1263,9 +1263,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 13.2,
+    "attendance_pct": 13.3,
     "bill_count": 24,
-    "activity_score": 48,
+    "activity_score": 49,
     "activity_grade": "D"
   },
   {
@@ -1305,7 +1305,7 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 26.0,
+    "attendance_pct": 25.8,
     "bill_count": 0,
     "activity_score": 54,
     "activity_grade": "C"
@@ -1319,7 +1319,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 1.4,
+    "attendance_pct": 1.5,
     "bill_count": 0,
     "activity_score": 5,
     "activity_grade": "F"
@@ -1333,7 +1333,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.3,
+    "attendance_pct": 17.4,
     "bill_count": 23,
     "activity_score": 60,
     "activity_grade": "C"
@@ -1347,9 +1347,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 11.9,
+    "attendance_pct": 12.3,
     "bill_count": 0,
-    "activity_score": 19,
+    "activity_score": 20,
     "activity_grade": "F"
   },
   {
@@ -1361,9 +1361,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 10.4,
+    "attendance_pct": 10.7,
     "bill_count": 1,
-    "activity_score": 18,
+    "activity_score": 19,
     "activity_grade": "F"
   },
   {
@@ -1377,7 +1377,7 @@
     "is_current": true,
     "attendance_pct": 7.9,
     "bill_count": 1,
-    "activity_score": 15,
+    "activity_score": 16,
     "activity_grade": "F"
   },
   {
@@ -1396,7 +1396,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 46.7,
+    "attendance_pct": 46.6,
     "bill_count": 21,
     "activity_score": 86,
     "activity_grade": "A"
@@ -1418,9 +1418,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 33.9,
+    "attendance_pct": 33.7,
     "bill_count": 9,
-    "activity_score": 71,
+    "activity_score": 70,
     "activity_grade": "B"
   },
   {
@@ -1455,9 +1455,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.6,
-    "bill_count": 27,
-    "activity_score": 47,
+    "attendance_pct": 13.0,
+    "bill_count": 28,
+    "activity_score": 48,
     "activity_grade": "D"
   },
   {
@@ -1469,9 +1469,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 16.2,
+    "attendance_pct": 16.4,
     "bill_count": 12,
-    "activity_score": 47,
+    "activity_score": 48,
     "activity_grade": "D"
   },
   {
@@ -1489,7 +1489,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 35.3,
+    "attendance_pct": 35.4,
     "bill_count": 0,
     "activity_score": 60,
     "activity_grade": "C"
@@ -1514,8 +1514,22 @@
     "is_current": true,
     "attendance_pct": 20.5,
     "bill_count": 11,
-    "activity_score": 59,
+    "activity_score": 60,
     "activity_grade": "C"
+  },
+  {
+    "id": "000030917",
+    "name_he": "מוחמד אבו אל היג'א",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      25
+    ],
+    "is_current": true,
+    "attendance_pct": null,
+    "bill_count": 0,
+    "activity_score": 5,
+    "activity_grade": "F"
   },
   {
     "id": "000030851",
@@ -1526,7 +1540,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.4,
+    "attendance_pct": 12.7,
     "bill_count": 39,
     "activity_score": 51,
     "activity_grade": "C"
@@ -1540,7 +1554,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 29.0,
+    "attendance_pct": 29.2,
     "bill_count": 0,
     "activity_score": 56,
     "activity_grade": "C"
@@ -1554,9 +1568,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 16.9,
+    "attendance_pct": 17.1,
     "bill_count": 21,
-    "activity_score": 57,
+    "activity_score": 58,
     "activity_grade": "C"
   },
   {
@@ -1568,10 +1582,24 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.4,
+    "attendance_pct": 17.6,
     "bill_count": 14,
-    "activity_score": 53,
+    "activity_score": 54,
     "activity_grade": "C"
+  },
+  {
+    "id": "000030921",
+    "name_he": "מיכל סלבני כבביה",
+    "name_en": "",
+    "party_id": "yesh_atid",
+    "knessets": [
+      25
+    ],
+    "is_current": true,
+    "attendance_pct": null,
+    "bill_count": 0,
+    "activity_score": 5,
+    "activity_grade": "F"
   },
   {
     "id": "000030705",
@@ -1582,7 +1610,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 18.5,
+    "attendance_pct": 18.8,
     "bill_count": 33,
     "activity_score": 70,
     "activity_grade": "B"
@@ -1602,7 +1630,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 41.8,
+    "attendance_pct": 42.0,
     "bill_count": 0,
     "activity_score": 64,
     "activity_grade": "C"
@@ -1618,9 +1646,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 33.5,
+    "attendance_pct": 33.8,
     "bill_count": 2,
-    "activity_score": 65,
+    "activity_score": 66,
     "activity_grade": "B"
   },
   {
@@ -1632,9 +1660,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 14.4,
+    "attendance_pct": 14.7,
     "bill_count": 18,
-    "activity_score": 46,
+    "activity_score": 48,
     "activity_grade": "D"
   },
   {
@@ -1653,7 +1681,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 23.0,
+    "attendance_pct": 22.9,
     "bill_count": 100,
     "activity_score": 85,
     "activity_grade": "A"
@@ -1672,7 +1700,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 20.8,
+    "attendance_pct": 20.7,
     "bill_count": 3,
     "activity_score": 54,
     "activity_grade": "C"
@@ -1688,7 +1716,7 @@
     "is_current": true,
     "attendance_pct": 16.8,
     "bill_count": 14,
-    "activity_score": 50,
+    "activity_score": 51,
     "activity_grade": "C"
   },
   {
@@ -1705,7 +1733,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 32.3,
+    "attendance_pct": 32.4,
     "bill_count": 44,
     "activity_score": 89,
     "activity_grade": "A"
@@ -1719,9 +1747,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 21.7,
+    "attendance_pct": 22.0,
     "bill_count": 28,
-    "activity_score": 73,
+    "activity_score": 74,
     "activity_grade": "B"
   },
   {
@@ -1733,9 +1761,9 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 16.2,
+    "attendance_pct": 16.1,
     "bill_count": 26,
-    "activity_score": 58,
+    "activity_score": 57,
     "activity_grade": "C"
   },
   {
@@ -1756,7 +1784,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 42.6,
+    "attendance_pct": 42.4,
     "bill_count": 85,
     "activity_score": 98,
     "activity_grade": "A"
@@ -1770,7 +1798,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.0,
+    "attendance_pct": 17.3,
     "bill_count": 20,
     "activity_score": 57,
     "activity_grade": "C"
@@ -1784,8 +1812,8 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.6,
-    "bill_count": 33,
+    "attendance_pct": 12.7,
+    "bill_count": 32,
     "activity_score": 49,
     "activity_grade": "D"
   },
@@ -1798,9 +1826,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.6,
+    "attendance_pct": 12.9,
     "bill_count": 25,
-    "activity_score": 45,
+    "activity_score": 46,
     "activity_grade": "D"
   },
   {
@@ -1812,7 +1840,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 11.7,
+    "attendance_pct": 11.9,
     "bill_count": 36,
     "activity_score": 46,
     "activity_grade": "D"
@@ -1840,7 +1868,7 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 9.7,
+    "attendance_pct": 9.6,
     "bill_count": 0,
     "activity_score": 11,
     "activity_grade": "F"
@@ -1854,9 +1882,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 14.1,
+    "attendance_pct": 14.6,
     "bill_count": 39,
-    "activity_score": 59,
+    "activity_score": 60,
     "activity_grade": "C"
   },
   {
@@ -1868,7 +1896,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 13.7,
+    "attendance_pct": 14.0,
     "bill_count": 0,
     "activity_score": 29,
     "activity_grade": "F"
@@ -1882,7 +1910,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.9,
+    "attendance_pct": 18.0,
     "bill_count": 2,
     "activity_score": 47,
     "activity_grade": "D"
@@ -1896,9 +1924,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 16.5,
+    "attendance_pct": 16.8,
     "bill_count": 0,
-    "activity_score": 35,
+    "activity_score": 36,
     "activity_grade": "D"
   },
   {
@@ -1910,9 +1938,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.4,
+    "attendance_pct": 17.8,
     "bill_count": 0,
-    "activity_score": 38,
+    "activity_score": 40,
     "activity_grade": "D"
   },
   {
@@ -1924,8 +1952,8 @@
       25
     ],
     "is_current": false,
-    "attendance_pct": 9.8,
-    "bill_count": 5,
+    "attendance_pct": 9.7,
+    "bill_count": 4,
     "activity_score": 19,
     "activity_grade": "F"
   },
@@ -1938,9 +1966,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 1.6,
+    "attendance_pct": 1.8,
     "bill_count": 13,
-    "activity_score": 19,
+    "activity_score": 20,
     "activity_grade": "F"
   },
   {
@@ -1957,7 +1985,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 29.4,
+    "attendance_pct": 29.3,
     "bill_count": 98,
     "activity_score": 92,
     "activity_grade": "A"
@@ -1971,9 +1999,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 2.2,
-    "bill_count": 15,
-    "activity_score": 21,
+    "attendance_pct": 2.6,
+    "bill_count": 17,
+    "activity_score": 22,
     "activity_grade": "F"
   },
   {
@@ -1999,9 +2027,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": null,
-    "bill_count": 0,
-    "activity_score": 5,
+    "attendance_pct": 0.2,
+    "bill_count": 1,
+    "activity_score": 10,
     "activity_grade": "F"
   },
   {
@@ -2013,9 +2041,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 16.2,
+    "attendance_pct": 16.3,
     "bill_count": 53,
-    "activity_score": 68,
+    "activity_score": 66,
     "activity_grade": "B"
   },
   {
@@ -2027,9 +2055,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 6.7,
+    "attendance_pct": 6.6,
     "bill_count": 6,
-    "activity_score": 17,
+    "activity_score": 18,
     "activity_grade": "F"
   },
   {
@@ -2041,7 +2069,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 4.9,
+    "attendance_pct": 5.3,
     "bill_count": 0,
     "activity_score": 7,
     "activity_grade": "F"
@@ -2055,9 +2083,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 3.1,
+    "attendance_pct": 3.0,
     "bill_count": 11,
-    "activity_score": 18,
+    "activity_score": 19,
     "activity_grade": "F"
   },
   {
@@ -2069,9 +2097,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 13.5,
+    "attendance_pct": 13.8,
     "bill_count": 0,
-    "activity_score": 27,
+    "activity_score": 28,
     "activity_grade": "F"
   },
   {
@@ -2083,9 +2111,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 5.1,
+    "attendance_pct": 5.3,
     "bill_count": 25,
-    "activity_score": 30,
+    "activity_score": 31,
     "activity_grade": "F"
   },
   {
@@ -2103,7 +2131,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 19.8,
+    "attendance_pct": 20.0,
     "bill_count": 19,
     "activity_score": 64,
     "activity_grade": "C"
@@ -2117,9 +2145,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 10.5,
+    "attendance_pct": 10.8,
     "bill_count": 9,
-    "activity_score": 25,
+    "activity_score": 26,
     "activity_grade": "F"
   },
   {
@@ -2131,9 +2159,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 13.1,
+    "attendance_pct": 13.4,
     "bill_count": 8,
-    "activity_score": 35,
+    "activity_score": 37,
     "activity_grade": "D"
   },
   {
@@ -2145,9 +2173,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 13.4,
+    "attendance_pct": 13.8,
     "bill_count": 20,
-    "activity_score": 47,
+    "activity_score": 48,
     "activity_grade": "D"
   },
   {
@@ -2164,9 +2192,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 25.6,
+    "attendance_pct": 25.7,
     "bill_count": 23,
-    "activity_score": 75,
+    "activity_score": 76,
     "activity_grade": "B"
   },
   {
@@ -2178,7 +2206,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 17.6,
+    "attendance_pct": 17.7,
     "bill_count": 54,
     "activity_score": 72,
     "activity_grade": "B"
@@ -2191,8 +2219,8 @@
     "knessets": [
       25
     ],
-    "is_current": true,
-    "attendance_pct": 16.2,
+    "is_current": false,
+    "attendance_pct": 16.3,
     "bill_count": 42,
     "activity_score": 65,
     "activity_grade": "B"
@@ -2220,9 +2248,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 12.2,
+    "attendance_pct": 12.5,
     "bill_count": 20,
-    "activity_score": 40,
+    "activity_score": 41,
     "activity_grade": "D"
   },
   {
@@ -2234,9 +2262,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 11.7,
+    "attendance_pct": 12.0,
     "bill_count": 36,
-    "activity_score": 46,
+    "activity_score": 47,
     "activity_grade": "D"
   },
   {
@@ -2248,7 +2276,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 19.4,
+    "attendance_pct": 19.5,
     "bill_count": 31,
     "activity_score": 71,
     "activity_grade": "B"
@@ -2262,7 +2290,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 16.2,
+    "attendance_pct": 16.4,
     "bill_count": 48,
     "activity_score": 67,
     "activity_grade": "B"
@@ -2276,7 +2304,7 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 11.5,
+    "attendance_pct": 11.8,
     "bill_count": 80,
     "activity_score": 51,
     "activity_grade": "C"
@@ -2290,9 +2318,9 @@
       25
     ],
     "is_current": true,
-    "attendance_pct": 10.9,
+    "attendance_pct": 11.0,
     "bill_count": 19,
-    "activity_score": 33,
+    "activity_score": 34,
     "activity_grade": "F"
   }
 ]

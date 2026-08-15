@@ -48,14 +48,23 @@ COLUMN_MAP: Dict[str, Optional[str]] = {
     "הציונות הדתית":       "religious_zionism",
     "רע״מ":                "raam",
     'רע"מ':                "raam",
-    "בל״ד":                None,  # Balad — not tracked
-    'בל"ד':                None,
+    "בל״ד":                "balad",
+    'בל"ד':                "balad",
     "עוצמה יהודית":        "otzma",
     "מפלגת בנט":           None,         # no longer a separate party (merged into ביחד)
     "ביחד (בנט ולפיד)":    "beyachad",   # post-merger unified column
     "ביחד":                "beyachad",   # short form the site may also use
     "ישר!":                "yashar",
     "המילואימניקים":       "miluimnikim",
+    # Beit Tzioni (Hendel) merged with HaMiluimnikim (Tropper) on 2026-07-15;
+    # the merged list keeps our existing miluimnikim party_id.
+    "בית ציוני-המילואימניקים": "miluimnikim",
+    "בית ציוני - המילואימניקים": "miluimnikim",
+    "בית ציוני":           "miluimnikim",
+    # Erdan + Edelstein's new right-wing party, launched 2026-08-11
+    "מפלגה בראשות גלעד ארדן ויולי אדלשטיין": "achdut",
+    "האחדות":              "achdut",
+    "מפלגת האחדות":        "achdut",
     "רשימה ערבית מאוחדת":  None,  # combined Arab list — not tracked
     "‏רשימה ערבית מאוחדת": None,  # same with RTL mark the site sometimes emits
     # Source/pollster names that leak into the header row due to HTML structure

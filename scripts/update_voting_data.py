@@ -32,6 +32,40 @@ COMBINED_PARTIES = {
     "otzma_rzp": {"otzma", "religious_zionism"},
 }
 
+# New parties that had no faction of their own in the 25th Knesset, but whose
+# leaders sat in it. Their voted_position is derived from those MKs' own votes.
+# mk_ids are PersonIDs as they appear in mks.json / mk_positions.json.
+# "fallback_party" fills questions the leaders themselves were not recorded on,
+# using the faction they sat with in the 25th Knesset.
+MK_DERIVED_PARTIES = {
+    "achdut": {
+        "mk_ids": ["000000532"],  # Yuli Edelstein (Likud, no. 2 on the list)
+        "source": "Voted as a Likud MK in the 25th Knesset (Yuli Edelstein, no. 2 on the list)",
+        "fallback_party": "likud",
+        "fallback_source": "Likud faction aggregate — the party's leaders sat with Likud until August 2026; this question has no recorded vote of their own, so the faction's aggregated record is shown",
+    },
+    "miluimnikim": {
+        "mk_ids": ["000030683"],  # Chili Tropper (National Unity)
+        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)",
+        "fallback_party": "national_unity",
+        "fallback_source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK",
+    },
+    "beyachad": {
+        # Bennett had no 25th-Knesset faction; Lapid's Yesh Atid is the half of
+        # the joint list with a voting record. Manual encodings take priority.
+        "mk_ids": [],
+        "source": "Yesh Atid voting record in the 25th Knesset",
+        "fallback_party": "yesh_atid",
+        "fallback_source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction",
+    },
+    "yashar": {
+        "mk_ids": ["000030836", "000030662"],  # Gadi Eisenkot, Matan Kahana
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)",
+        "fallback_party": "national_unity",
+        "fallback_source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown",
+    },
+}
+
 SOURCE_MK     = "Knesset vote data aggregated from MK-level votes via oknesset.org"
 SOURCE_MANUAL = "Manual encoding of 25th Knesset voting positions"
 
@@ -74,6 +108,53 @@ def compute_party_scores_from_mks(
     }
 
 
+def apply_mk_derived_parties(
+    mk_scores: dict[str, dict[str, float]],
+    mk_positions: dict[str, dict[str, float]],
+) -> dict[str, set[str]]:
+    """
+    Fills in scores for parties in MK_DERIVED_PARTIES from the individual voting
+    records of their leaders. Mutates mk_scores; returns qid -> {party_id} for
+    the pairs that were derived this way (used to pick the right source string).
+    """
+    derived: dict[str, set[str]] = defaultdict(set)
+
+    for party_id, spec in MK_DERIVED_PARTIES.items():
+        pools: dict[str, list[float]] = defaultdict(list)
+        for mk_id in spec["mk_ids"]:
+            for qid, score in mk_positions.get(mk_id, {}).items():
+                pools[qid].append(score)
+        for qid, vals in pools.items():
+            mk_scores.setdefault(qid, {})[party_id] = round(mean(vals), 2)
+            derived[qid].add(party_id)
+
+    return derived
+
+
+def apply_faction_fallback(
+    voted_positions: dict[str, dict[str, float]],
+) -> dict[str, set[str]]:
+    """
+    For questions where a derived party's own leaders have no recorded vote,
+    fall back to the faction they sat with in the 25th Knesset. Runs after the
+    manual fallback so it can also inherit manually encoded faction positions.
+    Mutates voted_positions; returns qid -> {party_id} for the pairs it filled.
+    """
+    fallback: dict[str, set[str]] = defaultdict(set)
+
+    for party_id, spec in MK_DERIVED_PARTIES.items():
+        source_party = spec.get("fallback_party")
+        if not source_party:
+            continue
+        for qid, scores in voted_positions.items():
+            if party_id in scores or source_party not in scores:
+                continue
+            scores[party_id] = scores[source_party]
+            fallback[qid].add(party_id)
+
+    return fallback
+
+
 def apply_manual_fallback(
     mk_scores: dict[str, dict[str, float]],
     mappings: dict,
@@ -113,6 +194,8 @@ def apply_manual_fallback(
 def update_party_files(
     voted_positions: dict[str, dict[str, float]],
     manual_set: dict[str, set[str]],
+    derived_set: dict[str, set[str]],
+    fallback_set: dict[str, set[str]],
 ) -> None:
     today = datetime.date.today().isoformat()
 
@@ -136,11 +219,18 @@ def update_party_files(
             score = scores.get(party_id)
 
             if score is not None:
-                is_manual = party_id in manual_set.get(qid, set())
+                if party_id in derived_set.get(qid, set()):
+                    source = MK_DERIVED_PARTIES[party_id]["source"]
+                elif party_id in fallback_set.get(qid, set()):
+                    source = MK_DERIVED_PARTIES[party_id]["fallback_source"]
+                elif party_id in manual_set.get(qid, set()):
+                    source = SOURCE_MANUAL
+                else:
+                    source = SOURCE_MK
                 pos["voted_position"] = {
                     "score": score,
                     "last_updated": today,
-                    "source": SOURCE_MANUAL if is_manual else SOURCE_MK,
+                    "source": source,
                 }
                 stated = pos.get("stated_position", {}).get("score", 0)
                 pos["divergence_flag"] = abs(score - stated) > 1
@@ -169,13 +259,25 @@ def main():
     for qid, scores in sorted(mk_scores.items()):
         print(f"  {qid}: {len(scores)} parties — {sorted(scores.keys())}")
 
+    print("\nDeriving voted positions for new parties from their leaders' own records...")
+    derived_set = apply_mk_derived_parties(mk_scores, mk_positions)
+    for party_id in MK_DERIVED_PARTIES:
+        n = sum(1 for parties in derived_set.values() if party_id in parties)
+        print(f"  {party_id}: {n} questions from their own votes")
+
     print("\nApplying manual fallback for unscored parties/questions...")
     voted_positions, manual_set = apply_manual_fallback(mk_scores, mappings)
     total_manual = sum(len(v) for v in manual_set.values())
     print(f"  {total_manual} party-question scores filled from manual_k25")
 
+    print("\nFilling remaining questions for new parties from their 25th-Knesset faction...")
+    fallback_set = apply_faction_fallback(voted_positions)
+    for party_id in MK_DERIVED_PARTIES:
+        f = sum(1 for parties in fallback_set.values() if party_id in parties)
+        print(f"  {party_id}: {f} questions from {MK_DERIVED_PARTIES[party_id].get('fallback_party')}")
+
     print("\nWriting voted_position to party JSON files...")
-    update_party_files(voted_positions, manual_set)
+    update_party_files(voted_positions, manual_set, derived_set, fallback_set)
 
     print("\nDone.")
 

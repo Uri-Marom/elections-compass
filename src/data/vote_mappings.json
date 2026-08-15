@@ -218,6 +218,42 @@
         "knesset": 25,
         "direction": "for_means_agree",
         "note": "K25 Jul 14 2025 — no-confidence on advancing conscription law that undermines equal burden; FOR = supports equal conscription = agrees with q07"
+      },
+      {
+        "vote_id": 46670,
+        "knesset": 25,
+        "direction": "against_means_agree",
+        "note": "K25 Jul 14 2026 — final passage of Security Service Law amendment 28 (temporary provision freezing arrest and enforcement proceedings against yeshiva-student draft evaders); FOR = supports the exemption = disagrees with q07"
+      },
+      {
+        "vote_id": 44569,
+        "knesset": 25,
+        "direction": "for_means_agree",
+        "note": "K25 Oct 22 2025 — bill conditioning national-insurance payments on compliance with the Security Service Law; FOR = sanctions draft evasion = agrees with q07"
+      },
+      {
+        "vote_id": 44570,
+        "knesset": 25,
+        "direction": "for_means_agree",
+        "note": "K25 Oct 22 2025 — bill conditioning housing benefits on compliance with the Security Service Law; FOR = sanctions draft evasion = agrees with q07"
+      },
+      {
+        "vote_id": 44571,
+        "knesset": 25,
+        "direction": "for_means_agree",
+        "note": "K25 Oct 22 2025 — bill conditioning economic support for yeshiva students on compliance with the Security Service Law; FOR = sanctions draft evasion = agrees with q07"
+      },
+      {
+        "vote_id": 44601,
+        "knesset": 25,
+        "direction": "for_means_agree",
+        "note": "K25 Oct 29 2025 — bill denying tax recognition to NGOs that encourage draft evasion; FOR = sanctions draft evasion = agrees with q07"
+      },
+      {
+        "vote_id": 44785,
+        "knesset": 25,
+        "direction": "for_means_agree",
+        "note": "K25 Nov 26 2025 — bill cutting school budgets where graduates do not enlist; FOR = sanctions draft evasion = agrees with q07"
       }
     ],
     "manual_k25": {
@@ -1203,6 +1239,30 @@
         "knesset": 25,
         "direction": "for_means_agree",
         "note": "K25 Nov 12 2025 — parallel state inquiry bill for Oct 7; FOR = supports inquiry = agrees with q31"
+      },
+      {
+        "vote_id": 46366,
+        "knesset": 25,
+        "direction": "for_means_agree",
+        "note": "K25 Jul 1 2026 — bill to establish a state commission of inquiry into 7 October; FOR = supports a state commission = agrees with q31"
+      },
+      {
+        "vote_id": 46367,
+        "knesset": 25,
+        "direction": "for_means_agree",
+        "note": "K25 Jul 1 2026 — bill to establish a state commission of inquiry into 7 October; FOR = supports a state commission = agrees with q31"
+      },
+      {
+        "vote_id": 46368,
+        "knesset": 25,
+        "direction": "for_means_agree",
+        "note": "K25 Jul 1 2026 — bill to establish a state commission of inquiry into 7 October; FOR = supports a state commission = agrees with q31"
+      },
+      {
+        "vote_id": 44669,
+        "knesset": 25,
+        "direction": "for_means_agree",
+        "note": "K25 Nov 12 2025 — bill to establish a state commission of inquiry into 7 October (45–53); FOR = supports a state commission = agrees with q31"
       }
     ],
     "manual_k25": {
