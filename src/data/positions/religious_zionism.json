@@ -10,7 +10,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -24,7 +24,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -35,8 +35,7 @@
         "score": 2,
         "source": "Full military victory; Smotrich threatened to resign over any ceasefire",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q04",
@@ -44,8 +43,7 @@
         "score": 2,
         "source": "Undivided Jerusalem, non-negotiable",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q05",
@@ -53,8 +51,7 @@
         "score": -2,
         "source": "Strongly opposes right of return",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q06",
@@ -65,7 +62,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -78,8 +75,8 @@
         "last_updated": "2026-06-23"
       },
       "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-08-15",
+        "score": -1.93,
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -93,7 +90,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -104,8 +101,7 @@
         "score": -2,
         "source": "Shabbat observance as public norm — religious Zionist value",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q10",
@@ -113,8 +109,7 @@
         "score": -2,
         "source": "Strongly opposes Women of the Wall; Western Wall under Orthodox control",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q11",
@@ -125,7 +120,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -136,8 +131,7 @@
         "score": 2,
         "source": "Kashrut enforcement in state institutions — religious Zionist value",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q16",
@@ -148,7 +142,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -162,7 +156,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -176,7 +170,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -187,8 +181,7 @@
         "score": -2,
         "source": "Rejects binding AG opinions; repeatedly clashed with AG as minister",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q21",
@@ -199,7 +192,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -213,7 +206,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -227,7 +220,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -238,8 +231,7 @@
         "score": -2,
         "source": "Strongly opposes Arab parties in coalition",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q25",
@@ -247,8 +239,7 @@
         "score": -1,
         "source": "Nationalist priorities; Arab municipality funding not a Smotrich priority",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q26",
@@ -259,7 +250,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -273,7 +264,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -287,7 +278,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -298,8 +289,7 @@
         "score": -1,
         "source": "Small-medium party; higher threshold is a risk",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q31",
@@ -310,7 +300,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -324,7 +314,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -338,7 +328,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -359,5 +349,6 @@
         "last_updated": "2026-06-22"
       }
     }
-  ]
+  ],
+  "_list_note": "Religious Zionism (Smotrich) and Moshe Feiglin's Zehut signed a technical-bloc agreement on 2026-09-01 in which each party explicitly keeps its own identity and platform, with Feiglin at number two. Stated positions here continue to reflect the Religious Zionism platform, which leads the list."
 }

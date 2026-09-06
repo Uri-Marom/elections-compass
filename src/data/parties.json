@@ -14,7 +14,7 @@
     "name_en": "Shas",
     "name_he": "ש\"ס",
     "seats": 11,
-    "poll_seats": 8,
+    "poll_seats": 7,
     "bloc": "coalition",
     "color": "#7C2D12",
     "logo": "/logos/shas.png"
@@ -41,8 +41,8 @@
   },
   {
     "id": "religious_zionism",
-    "name_en": "Religious Zionism",
-    "name_he": "הציונות הדתית",
+    "name_en": "Religious Zionism–Zehut",
+    "name_he": "הציונות הדתית–זהות",
     "seats": 7,
     "poll_seats": 5,
     "bloc": "coalition",
@@ -74,7 +74,7 @@
     "name_en": "Yashar! (Eisenkot)",
     "name_he": "ישר! (איזנקוט)",
     "seats": 0,
-    "poll_seats": 23,
+    "poll_seats": 24,
     "bloc": "opposition",
     "color": "#7C3AED",
     "logo": "/logos/yashar.png"
@@ -94,27 +94,27 @@
     "name_en": "Yisrael Beiteinu",
     "name_he": "ישראל ביתנו",
     "seats": 6,
-    "poll_seats": 10,
+    "poll_seats": 9,
     "bloc": "opposition",
     "color": "#3B82F6",
     "logo": "/logos/yisrael_beitenu.png"
   },
   {
     "id": "miluimnikim",
-    "name_en": "HaMiluimnikim",
-    "name_he": "המילואימניקים",
+    "name_en": "Hendel–Zelekha",
+    "name_he": "הנדל–זליכה",
     "seats": 0,
-    "poll_seats": 2,
+    "poll_seats": 0,
     "bloc": "opposition",
     "color": "#4D7C0F",
     "logo": "/logos/miluimnikim.jpg"
   },
   {
     "id": "hadash_taal",
-    "name_en": "Hadash-Ta'al",
-    "name_he": "חד\"ש-תע\"ל",
+    "name_en": "Joint List",
+    "name_he": "הרשימה המשותפת",
     "seats": 5,
-    "poll_seats": 5,
+    "poll_seats": 6,
     "bloc": "arab",
     "color": "#DC2626",
     "logo": "/logos/hadash_taal.png"
@@ -130,23 +130,13 @@
     "logo": "/logos/raam.png"
   },
   {
-    "id": "achdut",
-    "name_en": "HaAchdut",
-    "name_he": "האחדות",
+    "id": "amcha_yisrael",
+    "name_en": "Amcha Yisrael",
+    "name_he": "עמך ישראל",
     "seats": 0,
-    "poll_seats": 0,
+    "poll_seats": 4,
     "bloc": "opposition",
-    "color": "#334155",
+    "color": "#854D0E",
     "logo": null
-  },
-  {
-    "id": "balad",
-    "name_en": "Balad",
-    "name_he": "בל\"ד",
-    "seats": 0,
-    "poll_seats": 0,
-    "bloc": "arab",
-    "color": "#065F46",
-    "logo": "/logos/balad.png"
   }
 ]

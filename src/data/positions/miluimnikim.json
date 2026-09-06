@@ -1,6 +1,6 @@
 {
   "party_id": "miluimnikim",
-  "_voted_data_note": "Beit Tzioni (Yoaz Hendel) and HaMiluimnikim (Chili Tropper) merged into a single list on 2026-07-15. Voted positions are two-tiered: where Tropper has a recorded 25th-Knesset vote of his own it is used; on the remaining questions the aggregated National Unity faction record is shown. Hendel was not a 25th-Knesset MK; his 23rd/24th-Knesset record (Blue and White / Derech Eretz) aligns with the national_unity data in this dataset.",
+  "_voted_data_note": "Chili Tropper left the list on 2026-09-06 (joining Yashar at number six) and Yoaz Hendel immediately joined forces with Prof. Yaron Zelekha's Economic Party. The list therefore has no 25th-Knesset voting data: Hendel was not a 25th-Knesset MK (his 23rd/24th-Knesset record under Blue and White / Derech Eretz aligns with the national_unity data here) and Zelekha has never been an MK.",
   "positions": [
     {
       "question_id": "q01",
@@ -8,13 +8,7 @@
         "score": 1,
         "source": "Joint 'Magen David' platform (launched 2026-08): within 90 days of forming a government, approve a national programme strengthening Kiryat Shmona, the Galilee, the Negev, the Gaza-envelope communities, the Jordan Valley, Judea and Samaria and the eastern border settlements; HaMiluimnikim settlement initiative continues under the merged list",
         "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q02",
@@ -22,13 +16,7 @@
         "score": -1,
         "source": "Hendel characterizes conflict as 'clash of civilizations' where 'peace is unlikely without change that will take generations'; dismissed diplomatic engagement as a mistake that contributed to October 7; shifted rightward post-Oct 7 advocating territorial control in Lebanon and Gaza",
         "last_updated": "2026-06-23"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q03",
@@ -36,13 +24,7 @@
         "score": 2,
         "source": "Party platform: 'Israel should adopt an aggressive security policy that moves the decision to enemy territory — from containment to initiative and offensiveness'; Hendel supports expanded Israeli presence in Gaza post-conflict and controlling northern Gaza",
         "last_updated": "2026-06-23"
-      },
-      "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q04",
@@ -50,13 +32,7 @@
         "score": 1,
         "source": "Hendel stated 'united Jerusalem is our fiction' (ירושלים המאוחדת שלנו היא בדיון); pragmatic-nationalist approach rather than maximalist permanent sovereignty claim",
         "last_updated": "2026-06-23"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q05",
@@ -64,13 +40,7 @@
         "score": -2,
         "source": "Opposes right of return",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q06",
@@ -78,27 +48,15 @@
         "score": 1,
         "source": "Hendel at Herzliya Conference 2013: proposed annexing settlement blocs and the Jordan Valley (granting citizenship to Arab residents); party's settlement initiative actively promotes settlement in Jordan Valley and Gaza Envelope post-war",
         "last_updated": "2026-06-23"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q07",
       "stated_position": {
         "score": 2,
-        "source": "Threshold condition for joining any coalition: passing a conscription law before the government is formed, requiring every citizen to serve in the military, national or civil service; platform proposes unified screening centres for all citizens with service benefits (academic funding, land-purchase assistance, public-sector preference)",
-        "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+        "source": "Hendel's threshold condition for joining any coalition: a conscription law obligating every citizen to serve in the military, national or civil service, passed before the government is formed",
+        "last_updated": "2026-09-06"
+      }
     },
     {
       "question_id": "q08",
@@ -106,13 +64,7 @@
         "score": 1,
         "source": "Hendel is secular; supports civil marriage",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q09",
@@ -120,13 +72,7 @@
         "score": 1,
         "source": "Supports Shabbat commerce freedom",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q10",
@@ -134,55 +80,31 @@
         "score": 1,
         "source": "Supports religious pluralism at Western Wall",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q11",
       "stated_position": {
         "score": -2,
-        "source": "'Magen David' platform: public funding exclusively for institutions that teach the core curriculum; benefits are tied to service, 'no rights without obligations' (Hendel–Tropper launch slogan)",
-        "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+        "source": "Hendel ties benefits to service ('no rights without obligations'); public funding for institutions is conditioned on the core curriculum",
+        "last_updated": "2026-09-06"
+      }
     },
     {
       "question_id": "q12",
       "stated_position": {
         "score": -1,
-        "source": "Opposes state kashrut enforcement",
-        "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": -1.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+        "source": "Zelekha's Economic Party platform calls for opening kashrut certification to competition in order to lower food prices - an anti-monopoly rather than religious-enforcement approach",
+        "last_updated": "2026-09-06"
+      }
     },
     {
       "question_id": "q16",
       "stated_position": {
-        "score": -1,
-        "source": "'Magen David' platform on cost of living: increased competition, dissolution of monopolies, deregulation and import liberalisation — a market-opening rather than public-ownership agenda",
-        "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": true
+        "score": -2,
+        "source": "Zelekha's Economic Party platform: declare exclusive importers monopolies and enforce competition law, abolish import quotas, cut VAT from 18% to 12% and income-tax ceilings to 40%, and move expensive infrastructure projects out of 'cumbersome government companies' into joint management with the private sector",
+        "last_updated": "2026-09-06"
+      }
     },
     {
       "question_id": "q18",
@@ -190,13 +112,7 @@
         "score": -2,
         "source": "Platform commits to 'strengthening the judiciary while preserving the balance between the branches'; Hendel as an MK opposed the override clause and Tropper opposed the 2023 judicial overhaul as a National Unity MK",
         "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q19",
@@ -204,13 +120,7 @@
         "score": -1,
         "source": "Platform frames judicial change as strengthening the courts within a balanced separation of powers, not as political control of appointments",
         "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q20",
@@ -218,13 +128,7 @@
         "score": 1,
         "source": "Supports AG authority as rule-of-law safeguard",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 1.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q21",
@@ -232,13 +136,7 @@
         "score": 1,
         "source": "Supports judicial review including reasonableness standard",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q22",
@@ -246,13 +144,7 @@
         "score": 2,
         "source": "Platform: advance a Zionist constitution and strengthen the judiciary while preserving checks and balances between the branches",
         "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q23",
@@ -260,27 +152,15 @@
         "score": 1,
         "source": "Supports equality for all citizens who fulfil civic obligations (service)",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q24",
       "stated_position": {
         "score": -2,
-        "source": "Both leaders set the formation of a 'Zionist government' as a threshold condition for entering a coalition; platform opposes 'autonomous zones' in Arab-majority and Haredi communities",
-        "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": 0.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": true
+        "source": "Hendel sets the formation of a 'Zionist government' as a threshold condition and opposes 'autonomous zones' in Arab-majority and Haredi communities",
+        "last_updated": "2026-09-06"
+      }
     },
     {
       "question_id": "q25",
@@ -288,13 +168,7 @@
         "score": 1,
         "source": "Platform proposes a dedicated security-agency unit against crime in Arab society and a new public-safety authority, alongside state services in place of 'autonomies' — enforcement and service delivery framing rather than a funding-equality commitment",
         "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q26",
@@ -302,13 +176,7 @@
         "score": 0,
         "source": "Neutral on Nation-State Law; not a party focus",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": true
+      }
     },
     {
       "question_id": "q27",
@@ -316,27 +184,15 @@
         "score": 2,
         "source": "Supports PM accountability; part of pro-rule-of-law bloc",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q28",
       "stated_position": {
         "score": 2,
-        "source": "'Magen David' platform explicitly proposes limiting the tenure of elected officials as part of its governance chapter",
-        "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+        "source": "Hendel's governance platform proposes limiting the tenure of elected officials",
+        "last_updated": "2026-09-06"
+      }
     },
     {
       "question_id": "q29",
@@ -344,41 +200,23 @@
         "score": 1,
         "source": "Mid-sized party; would benefit from higher threshold eliminating smaller fringe parties",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 0.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q31",
       "stated_position": {
         "score": 2,
-        "source": "Party is led by and built around reserve officers; Tropper (National Unity) was a consistent Knesset supporter of a state commission of inquiry into 7 October",
-        "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+        "source": "Hendel built his political comeback around the reserve-officer critique of the 7 October failures and has consistently backed a state commission of inquiry",
+        "last_updated": "2026-09-06"
+      }
     },
     {
       "question_id": "q32",
       "stated_position": {
         "score": 2,
-        "source": "'Magen David' platform: public funding exclusively for institutions teaching the core curriculum (math, English, sciences), plus investment in early childhood education and higher teacher salaries",
-        "last_updated": "2026-08-15"
-      },
-      "voted_position": {
-        "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)"
-      },
-      "divergence_flag": false
+        "source": "Public funding exclusively for institutions teaching the core curriculum (math, English, sciences)",
+        "last_updated": "2026-09-06"
+      }
     },
     {
       "question_id": "q33",
@@ -386,13 +224,7 @@
         "score": 1,
         "source": "Supports professional media standards and preventing systematic disinformation",
         "last_updated": "2026-06-22"
-      },
-      "voted_position": {
-        "score": 1.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q34",
@@ -406,8 +238,8 @@
       "question_id": "q35",
       "stated_position": {
         "score": 0.5,
-        "source": "New party with no detailed climate platform; centrist positioning implies openness to OECD-aligned legislation",
-        "last_updated": "2026-06-22"
+        "source": "Zelekha's platform mentions environmental protection and water management but commits to no binding climate legislation",
+        "last_updated": "2026-09-06"
       }
     }
   ]

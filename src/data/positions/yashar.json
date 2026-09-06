@@ -1,6 +1,6 @@
 {
   "party_id": "yashar",
-  "_voted_data_note": "Voted positions are two-tiered: where Gadi Eisenkot or Matan Kahana have a recorded 25th-Knesset vote of their own, that is used; on the remaining questions the aggregated National Unity faction record is shown (both sat with National Unity until resigning in July 2025). Faction aggregates pool the faction's MKs and can include votes from earlier Knessets, so they describe the faction rather than the two leaders personally.",
+  "_voted_data_note": "Voted positions are two-tiered: where Gadi Eisenkot, Matan Kahana or Chili Tropper (who joined the list at number six on 2026-09-06) have a recorded 25th-Knesset vote of their own, that is used; on the remaining questions the aggregated National Unity faction record is shown — all three sat with National Unity. Faction aggregates pool the faction's MKs and can include votes from earlier Knessets, so they describe the faction rather than the list's leaders personally.",
   "positions": [
     {
       "question_id": "q01",
@@ -11,8 +11,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
       "divergence_flag": true
     },
@@ -25,8 +25,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
       "divergence_flag": true
     },
@@ -40,8 +40,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -54,8 +54,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -68,8 +68,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -81,8 +81,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
       "divergence_flag": true
     },
@@ -95,8 +95,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -108,9 +108,9 @@
         "last_updated": "2026-06-23"
       },
       "voted_position": {
-        "score": 1.33,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "score": 2.0,
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -124,8 +124,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -138,8 +138,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -151,8 +151,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -166,8 +166,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -179,8 +179,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       },
       "divergence_flag": true
     },
@@ -193,8 +193,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -207,8 +207,8 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -222,8 +222,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -236,8 +236,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -249,8 +249,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -263,8 +263,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -278,8 +278,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 0.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -291,8 +291,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -305,8 +305,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": true
     },
@@ -319,8 +319,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -332,9 +332,9 @@
         "last_updated": "2026-06-22"
       },
       "voted_position": {
-        "score": 1.33,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "score": 2.0,
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -348,8 +348,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 0.5,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {
@@ -361,8 +361,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -375,8 +375,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)"
+        "last_updated": "2026-09-06",
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)"
       },
       "divergence_flag": false
     },
@@ -390,8 +390,8 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 1.0,
-        "last_updated": "2026-08-15",
-        "source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown"
+        "last_updated": "2026-09-06",
+        "source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown"
       }
     },
     {

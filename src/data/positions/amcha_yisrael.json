@@ -1,0 +1,246 @@
+{
+  "party_id": "amcha_yisrael",
+  "_voted_data_note": "Amcha Yisrael was founded by Ofer Winter (former IDF brigadier general) on 2026-08-25, with Yoseph Haddad second on the list. No 25th-Knesset voting data exists: neither Winter nor any other member of the list served in the 25th Knesset.",
+  "positions": [
+    {
+      "question_id": "q01",
+      "stated_position": {
+        "score": 2,
+        "source": "Right-wing Zionist list that defines itself as defending Israeli sovereignty; David Ben-Zion, deputy head of the Samaria Regional Council, is on the list",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q02",
+      "stated_position": {
+        "score": -2,
+        "source": "Winter at the launch: 'there will never be a Palestinian state here'",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q03",
+      "stated_position": {
+        "score": 2,
+        "source": "Platform: move 'from containment to initiative and decision', remove threats pre-emptively and 'collect a territorial price' from enemies who attack Israel; Winter: 'the solution in Gaza is one - emigration'",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q04",
+      "stated_position": {
+        "score": 2,
+        "source": "Right-wing Zionist consensus position; the party's platform is built on sovereignty and deterrence",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q05",
+      "stated_position": {
+        "score": -2,
+        "source": "Rejects any Palestinian return; the platform's Gaza plank is emigration of residents rather than return",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q06",
+      "stated_position": {
+        "score": 2,
+        "source": "Platform commits to 'collecting a territorial price' from enemies and to Israeli sovereignty; the list includes settlement leaders",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q07",
+      "stated_position": {
+        "score": 2,
+        "source": "Core plank: 'we will not be in a government that does not pass a conscription law before it is formed' - a service law obligating everyone, coupled with easing the reserve-duty burden. Winter qualifies it: 'we do not conscript Haredim by force'",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q08",
+      "stated_position": {
+        "score": 0,
+        "source": "Secular-majority list that has taken no position on civil marriage; the party's religion-related agenda is confined to conscription and burden-sharing",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q09",
+      "stated_position": {
+        "score": 0,
+        "source": "No stated position on Shabbat commerce",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q10",
+      "stated_position": {
+        "score": 0,
+        "source": "No stated position on Western Wall prayer arrangements",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q11",
+      "stated_position": {
+        "score": -1,
+        "source": "The party's founding demand is Haredi enlistment and burden-sharing, which is incompatible with unconditional yeshiva funding; it has not taken an explicit position on funding parity itself",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q12",
+      "stated_position": {
+        "score": 0,
+        "source": "No stated position on state kashrut enforcement",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q16",
+      "stated_position": {
+        "score": 0,
+        "source": "No developed economic platform beyond fighting organised crime and protection rackets in the Negev and Galilee",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q18",
+      "stated_position": {
+        "score": 0,
+        "source": "Winter calls for 'focused, wise, responsible and determined judicial reform that restores the proper balance between the branches', while stating 'we do not do judicial reform by force' - no support for a simple-majority override",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q19",
+      "stated_position": {
+        "score": 1,
+        "source": "Supports judicial reform that rebalances the branches in favour of the elected level, but by broad agreement rather than unilaterally",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q20",
+      "stated_position": {
+        "score": -1,
+        "source": "Right-wing reform position: the Attorney General should advise rather than bind an elected government",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q21",
+      "stated_position": {
+        "score": -1,
+        "source": "Supports limiting judicial review of government decisions as part of a 'balanced' reform",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q22",
+      "stated_position": {
+        "score": 1,
+        "source": "Frames reform as restoring public trust in the courts, not dismantling them, and explicitly rejects doing it 'by force'",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q23",
+      "stated_position": {
+        "score": 1,
+        "source": "Platform advances 'shared responsibility without distinction between Jews and Arabs, secular, religious and Haredi'; Yoseph Haddad, an Arab-Israeli integration activist, is number two on the list",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q24",
+      "stated_position": {
+        "score": -2,
+        "source": "Winter positions the party inside the right-wing bloc and seeks 'a broad right-wing government with as many Zionist partners as possible'",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q25",
+      "stated_position": {
+        "score": 1,
+        "source": "Platform prioritises state services and enforcement against crime and protection rackets in Arab localities in the Negev and Galilee, and 'connection to Arab citizens who want the good of the state'; no explicit per-capita funding commitment",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q26",
+      "stated_position": {
+        "score": 2,
+        "source": "Right-wing Zionist party; no reservations expressed about the Nation-State Law",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q27",
+      "stated_position": {
+        "score": -1,
+        "source": "The party sits in the right-wing bloc and supports Netanyahu for prime minister despite criticising his responsibility for 7 October; it has not backed a suspension mechanism",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q28",
+      "stated_position": {
+        "score": 0,
+        "source": "No stated position on prime-ministerial term limits",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q29",
+      "stated_position": {
+        "score": -1,
+        "source": "New party polling around the electoral threshold; no platform support for raising it",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q31",
+      "stated_position": {
+        "score": 0,
+        "source": "Party members say Netanyahu bears responsibility for the 7 October failure but decline to support a state commission of inquiry in its current format, promising an alternative; Winter: 'the coalition, the opposition and the judges all have an interest in no commission being formed'",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q32",
+      "stated_position": {
+        "score": 1,
+        "source": "Platform integrates Haredim into the IDF and the economy through professional training and shared responsibility; core-curriculum legislation is not stated explicitly",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q33",
+      "stated_position": {
+        "score": 0,
+        "source": "No stated position on broadcast media regulation",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q34",
+      "stated_position": {
+        "score": 0,
+        "source": "No gender-parity commitment; women hold several senior list slots (Natalee Shem Tov, Lali Darai, Sigal Kraunik)",
+        "last_updated": "2026-09-06"
+      }
+    },
+    {
+      "question_id": "q35",
+      "stated_position": {
+        "score": 0,
+        "source": "No climate or environmental platform published",
+        "last_updated": "2026-09-06"
+      }
+    }
+  ]
+}

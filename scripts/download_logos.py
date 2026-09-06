@@ -19,8 +19,8 @@ LOGOS = {
     "miluimnikim":       "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/%D7%94%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9E%D7%A0%D7%99%D7%A7%D7%99%D7%9D_%D7%9C%D7%95%D7%92%D7%95_%D7%95%D7%95%D7%99%D7%A7%D7%99%D7%A4%D7%93%D7%99%D7%94.jpg/250px-%D7%94%D7%9E%D7%99%D7%9C%D7%95%D7%90%D7%99%D7%9E%D7%A0%D7%99%D7%A7%D7%99%D7%9D_%D7%9C%D7%95%D7%92%D7%95_%D7%95%D7%95%D7%99%D7%A7%D7%99%D7%A4%D7%93%D7%99%D7%94.jpg",
     "hadash_taal":       "https://upload.wikimedia.org/wikipedia/he/thumb/e/eb/%D7%9C%D7%95%D7%92%D7%95_%D7%97%D7%93%22%D7%A9-%D7%AA%D7%A2%22%D7%9C_2022_%28%D7%A2%D7%91%D7%A8%D7%99%D7%AA%29.svg/250px-%D7%9C%D7%95%D7%92%D7%95_%D7%97%D7%93%22%D7%A9-%D7%AA%D7%A2%22%D7%9C_2022_%28%D7%A2%D7%91%D7%A8%D7%99%D7%AA%29.svg.png",
     "raam":              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Raam_logo_2021.svg/250px-Raam_logo_2021.svg.png",
-    "balad":             "https://upload.wikimedia.org/wikipedia/he/thumb/1/19/Balad.svg/250px-Balad.svg.png",
-    # achdut (Erdan–Edelstein, founded Aug 2026): no logo on Wikipedia yet — parties.json carries logo: null
+    # Balad folded into the Joint List and HaAchdut withdrew (Sept 2026);
+    # amcha_yisrael (Winter) has no logo on Wikipedia yet — parties.json carries logo: null
 }
 
 OUT_DIR = os.path.join(os.path.dirname(__file__), '..', 'public', 'logos')

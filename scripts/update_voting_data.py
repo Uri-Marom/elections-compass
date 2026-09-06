@@ -38,18 +38,6 @@ COMBINED_PARTIES = {
 # "fallback_party" fills questions the leaders themselves were not recorded on,
 # using the faction they sat with in the 25th Knesset.
 MK_DERIVED_PARTIES = {
-    "achdut": {
-        "mk_ids": ["000000532"],  # Yuli Edelstein (Likud, no. 2 on the list)
-        "source": "Voted as a Likud MK in the 25th Knesset (Yuli Edelstein, no. 2 on the list)",
-        "fallback_party": "likud",
-        "fallback_source": "Likud faction aggregate — the party's leaders sat with Likud until August 2026; this question has no recorded vote of their own, so the faction's aggregated record is shown",
-    },
-    "miluimnikim": {
-        "mk_ids": ["000030683"],  # Chili Tropper (National Unity)
-        "source": "Voted as a National Unity MK in the 25th Knesset (Chili Tropper)",
-        "fallback_party": "national_unity",
-        "fallback_source": "National Unity faction aggregate — Tropper's faction; no recorded vote of his own on this question and Hendel was not a 25th-Knesset MK",
-    },
     "beyachad": {
         # Bennett had no 25th-Knesset faction; Lapid's Yesh Atid is the half of
         # the joint list with a voting record. Manual encodings take priority.
@@ -59,11 +47,21 @@ MK_DERIVED_PARTIES = {
         "fallback_source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction",
     },
     "yashar": {
-        "mk_ids": ["000030836", "000030662"],  # Gadi Eisenkot, Matan Kahana
-        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana)",
+        # Eisenkot, Kahana, and Chili Tropper, who joined the list at number six
+        # on 2026-09-06 after splitting from Hendel.
+        "mk_ids": ["000030836", "000030662", "000030683"],
+        "source": "Own votes as National Unity MKs in the 25th Knesset (Eisenkot, Kahana, Tropper)",
         "fallback_party": "national_unity",
-        "fallback_source": "National Unity faction aggregate — both leaders sat with National Unity until July 2025; no recorded vote of their own on this question, so the faction's aggregated record is shown",
+        "fallback_source": "National Unity faction aggregate — the list's Knesset members sat with National Unity; no recorded vote of their own on this question, so the faction's aggregated record is shown",
     },
+}
+
+# Parties whose lists contain no 25th-Knesset members at all. Their files must
+# carry no voted_position — listing them here strips any left over from an
+# earlier run (e.g. after a leader leaves and takes their record with them).
+NO_VOTING_DATA = {
+    "miluimnikim",     # Tropper left for Yashar 2026-09-06; Hendel and Zelekha were never K25 MKs
+    "amcha_yisrael",   # Winter's list has no K25 members
 }
 
 SOURCE_MK     = "Knesset vote data aggregated from MK-level votes via oknesset.org"
@@ -203,7 +201,7 @@ def update_party_files(
     for scores in voted_positions.values():
         party_ids.update(scores.keys())
 
-    for party_id in sorted(party_ids):
+    for party_id in sorted(party_ids | NO_VOTING_DATA):
         filepath = POSITIONS_DIR / f"{party_id}.json"
         if not filepath.exists():
             print(f"  WARNING: No file for {party_id}", flush=True)
@@ -216,7 +214,7 @@ def update_party_files(
         for pos in data.get("positions", []):
             qid = pos["question_id"]
             scores = voted_positions.get(qid, {})
-            score = scores.get(party_id)
+            score = None if party_id in NO_VOTING_DATA else scores.get(party_id)
 
             if score is not None:
                 if party_id in derived_set.get(qid, set()):
@@ -235,8 +233,9 @@ def update_party_files(
                 stated = pos.get("stated_position", {}).get("score", 0)
                 pos["divergence_flag"] = abs(score - stated) > 1
                 updated += 1
-            elif "voted_position" in pos:
-                del pos["voted_position"]
+            else:
+                pos.pop("voted_position", None)
+                pos.pop("divergence_flag", None)
 
         with open(filepath, "w") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)

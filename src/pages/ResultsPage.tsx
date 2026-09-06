@@ -32,8 +32,7 @@ import yisraelPos from '../data/positions/yisrael_beitenu.json'
 import miluimnikimPos from '../data/positions/miluimnikim.json'
 import hadashPos from '../data/positions/hadash_taal.json'
 import raamPos from '../data/positions/raam.json'
-import achdutPos from '../data/positions/achdut.json'
-import baladPos from '../data/positions/balad.json'
+import amchaPos from '../data/positions/amcha_yisrael.json'
 
 const parties = partiesData as Party[]
 const questions = questionsData as Question[]
@@ -54,8 +53,7 @@ const allPositions: Record<string, PartyPosition[]> = {
   miluimnikim:      miluimnikimPos.positions as PartyPosition[],
   hadash_taal:      hadashPos.positions as PartyPosition[],
   raam:             raamPos.positions as PartyPosition[],
-  achdut:             achdutPos.positions as PartyPosition[],
-  balad:             baladPos.positions as PartyPosition[],
+  amcha_yisrael:             amchaPos.positions as PartyPosition[],
 }
 
 function toRadarPct(score: number) {

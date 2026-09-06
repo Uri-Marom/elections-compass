@@ -10,7 +10,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -24,7 +24,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -38,7 +38,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -52,7 +52,7 @@
       },
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -66,7 +66,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -80,7 +80,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -94,8 +94,8 @@
       },
       "voted_position": {
         "score": 0.5,
-        "last_updated": "2026-08-15",
-        "source": "Manual encoding of 25th Knesset voting positions"
+        "last_updated": "2026-09-06",
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
     },
@@ -108,7 +108,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -122,7 +122,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -136,7 +136,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -150,7 +150,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -164,7 +164,7 @@
       },
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -186,7 +186,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -200,7 +200,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -214,7 +214,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -228,7 +228,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -242,7 +242,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -256,7 +256,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -264,13 +264,13 @@
     {
       "question_id": "q24",
       "stated_position": {
-        "score": 2,
-        "source": "Arab parties should participate in coalitions",
-        "last_updated": "2026-06-22"
+        "score": 1,
+        "source": "Hadash and Ta'al support Arab parties joining or supporting a governing coalition; Balad, now the third partner in the Joint List, has consistently refused to recommend or support Zionist-led governments, so the list's practical position is outside support rather than participation",
+        "last_updated": "2026-09-06"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -284,7 +284,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -298,7 +298,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -312,7 +312,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -326,7 +326,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -340,7 +340,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -354,7 +354,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -368,7 +368,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -382,7 +382,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -403,5 +403,6 @@
         "last_updated": "2026-06-22"
       }
     }
-  ]
+  ],
+  "_voted_data_note": "Hadash, Ta'al and Balad re-formed the Joint List in August 2026 (Jabareen, Tibi, Abu Shehade at the top; Ra'am runs separately). Voted positions are derived from the Hadash-Ta'al faction's 25th-Knesset record; Balad had no 25th-Knesset MKs."
 }

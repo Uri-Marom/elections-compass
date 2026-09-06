@@ -10,7 +10,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -21,8 +21,7 @@
         "score": 1,
         "source": "Supports two-state solution in principle",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": true
+      }
     },
     {
       "question_id": "q03",
@@ -30,8 +29,7 @@
         "score": 1,
         "source": "Supports operations but questions open-ended timeline",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q04",
@@ -39,8 +37,7 @@
         "score": 1,
         "source": "Unified Jerusalem as capital but open to functional arrangements",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q05",
@@ -48,8 +45,7 @@
         "score": -2,
         "source": "Opposes right of return",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q06",
@@ -60,7 +56,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -74,7 +70,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -88,7 +84,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -99,8 +95,7 @@
         "score": 2,
         "source": "Shabbat commerce freedom is party position",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q10",
@@ -108,8 +103,7 @@
         "score": 2,
         "source": "Supports Kotel reform",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q11",
@@ -120,7 +114,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -131,8 +125,7 @@
         "score": -1,
         "source": "Opposes state kashrut enforcement",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q16",
@@ -143,7 +136,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -157,7 +150,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -171,7 +164,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -182,8 +175,7 @@
         "score": 2,
         "source": "AG opinions must be binding",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q21",
@@ -191,8 +183,7 @@
         "score": 2,
         "source": "Defends reasonableness standard",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q22",
@@ -203,7 +194,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -217,7 +208,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -228,8 +219,7 @@
         "score": 1,
         "source": "The 2021 Bennett-Lapid government included Ra'am as a coalition partner — the first Arab party to join an Israeli government; Lapid signed the coalition agreement with Ra'am and has publicly defended the arrangement; revealed preference is clearly positive on Arab party coalition participation",
         "last_updated": "2026-06-23"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q25",
@@ -240,7 +230,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -254,7 +244,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -268,7 +258,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -282,7 +272,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -293,8 +283,7 @@
         "score": 1,
         "source": "Larger parties benefit from higher threshold",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q31",
@@ -305,7 +294,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -319,7 +308,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -330,8 +319,7 @@
         "score": 1,
         "source": "Supports professional journalistic standards; concerned about Channel 14 disinformation",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q34",

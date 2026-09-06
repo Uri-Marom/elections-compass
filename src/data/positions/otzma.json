@@ -7,8 +7,7 @@
         "score": 2,
         "source": "Settlements and annexation are core Ben-Gvir platform",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q02",
@@ -19,7 +18,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -30,8 +29,7 @@
         "score": 2,
         "source": "Calls for maximally aggressive military campaign, no limitations",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q04",
@@ -39,8 +37,7 @@
         "score": 2,
         "source": "Undivided Jerusalem, non-negotiable",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q05",
@@ -48,8 +45,7 @@
         "score": -2,
         "source": "Strongly opposes right of return",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q06",
@@ -57,8 +53,7 @@
         "score": 2,
         "source": "Full annexation of Area C is party platform",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q07",
@@ -69,7 +64,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -83,7 +78,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -94,8 +89,7 @@
         "score": -1,
         "source": "Traditional values on Shabbat",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q10",
@@ -103,8 +97,7 @@
         "score": -2,
         "source": "Strongly opposes Women of the Wall",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q11",
@@ -115,7 +108,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -126,8 +119,7 @@
         "score": 1,
         "source": "Supports religious food standards in state institutions",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q16",
@@ -135,8 +127,7 @@
         "score": -1,
         "source": "Free market orientation",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": true
+      }
     },
     {
       "question_id": "q18",
@@ -147,7 +138,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -161,7 +152,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -172,8 +163,7 @@
         "score": -2,
         "source": "Explicitly rejects binding AG opinions — conflict with AG over Ben-Gvir's conduct as minister",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q21",
@@ -184,7 +174,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -198,7 +188,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -212,7 +202,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -223,8 +213,7 @@
         "score": -2,
         "source": "Strongly and vocally opposes any coalition relying on Arab parties",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q25",
@@ -232,8 +221,7 @@
         "score": -2,
         "source": "Nationalist priorities; has opposed Arab municipality funding increases",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q26",
@@ -244,7 +232,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -258,7 +246,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -272,7 +260,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -283,8 +271,7 @@
         "score": -1,
         "source": "Small parties hurt by high threshold",
         "last_updated": "2026-06-22"
-      },
-      "divergence_flag": false
+      }
     },
     {
       "question_id": "q31",
@@ -295,7 +282,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -309,7 +296,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -323,7 +310,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-08-15",
+        "last_updated": "2026-09-06",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false

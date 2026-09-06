@@ -41,30 +41,48 @@ COLUMN_MAP: Dict[str, Optional[str]] = {
     'ש"ס':                 "shas",
     "כחול לבן":            "national_unity",
     "יש עתיד":             "beyachad",   # pre-merger column — maps to merged party
+    # Hadash, Ta'al and Balad merged into the Joint List in August 2026; the
+    # pre-merger column and the merged column both map to the same party_id so
+    # the seat series stays continuous across the merger.
     "חדש תע״ל":            "hadash_taal",
     'חדש תע"ל':            "hadash_taal",
+    "הרשימה המשותפת":      "hadash_taal",
+    "הרשימה המשותפת (חדש-תעל-בלד)": "hadash_taal",
     "ישראל ביתנו":         "yisrael_beitenu",
     "הדמוקרטים":           "democrats",
     "הציונות הדתית":       "religious_zionism",
+    # Technical bloc with Feiglin's Zehut, signed 2026-09-01
+    "הציונות הדתית / זהות": "religious_zionism",
+    "הציונות הדתית-זהות":  "religious_zionism",
     "רע״מ":                "raam",
     'רע"מ':                "raam",
-    "בל״ד":                "balad",
-    'בל"ד':                "balad",
+    # Balad folded into the Joint List (Aug 2026) — its legacy column reports 0
+    # in pre-merger polls and must not drag the Joint List's median down.
+    "בל״ד":                None,
+    'בל"ד':                None,
     "עוצמה יהודית":        "otzma",
     "מפלגת בנט":           None,         # no longer a separate party (merged into ביחד)
     "ביחד (בנט ולפיד)":    "beyachad",   # post-merger unified column
     "ביחד":                "beyachad",   # short form the site may also use
     "ישר!":                "yashar",
+    # Ofer Winter's Amcha Yisrael, launched 2026-08-25
+    "עופר וינטר":          "amcha_yisrael",
+    "עמך ישראל":           "amcha_yisrael",
     "המילואימניקים":       "miluimnikim",
-    # Beit Tzioni (Hendel) merged with HaMiluimnikim (Tropper) on 2026-07-15;
-    # the merged list keeps our existing miluimnikim party_id.
+    # Hendel's list keeps the miluimnikim party_id through its mergers:
+    # Beit Tzioni + HaMiluimnikim (Tropper) from 2026-07-15, then Tropper left
+    # for Yashar on 2026-09-06 and Hendel joined Zelekha's Economic Party.
     "בית ציוני-המילואימניקים": "miluimnikim",
     "בית ציוני - המילואימניקים": "miluimnikim",
     "בית ציוני":           "miluimnikim",
-    # Erdan + Edelstein's new right-wing party, launched 2026-08-11
-    "מפלגה בראשות גלעד ארדן ויולי אדלשטיין": "achdut",
-    "האחדות":              "achdut",
-    "מפלגת האחדות":        "achdut",
+    "המפלגה של הנדל וזליכה": "miluimnikim",
+    "הנדל זליכה":          "miluimnikim",
+    "הנדל-זליכה":          "miluimnikim",
+    # Erdan + Edelstein's HaAchdut: launched 2026-08-11, withdrew from the race
+    # on 2026-09-04 without submitting a list — no longer tracked.
+    "מפלגה בראשות גלעד ארדן ויולי אדלשטיין": None,
+    "האחדות":              None,
+    "מפלגת האחדות":        None,
     "רשימה ערבית מאוחדת":  None,  # combined Arab list — not tracked
     "‏רשימה ערבית מאוחדת": None,  # same with RTL mark the site sometimes emits
     # Source/pollster names that leak into the header row due to HTML structure
