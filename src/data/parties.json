@@ -4,7 +4,7 @@
     "name_en": "Likud",
     "name_he": "הליכוד",
     "seats": 32,
-    "poll_seats": 22,
+    "poll_seats": 21,
     "bloc": "coalition",
     "color": "#1E3A8A",
     "logo": "/logos/likud.png"
@@ -101,8 +101,8 @@
   },
   {
     "id": "miluimnikim",
-    "name_en": "Hendel–Zelekha",
-    "name_he": "הנדל–זליכה",
+    "name_en": "HaMiluimnikim–Economic",
+    "name_he": "המילואימניקים",
     "seats": 0,
     "poll_seats": 0,
     "bloc": "opposition",
@@ -114,7 +114,7 @@
     "name_en": "Joint List",
     "name_he": "הרשימה המשותפת",
     "seats": 5,
-    "poll_seats": 6,
+    "poll_seats": 7,
     "bloc": "arab",
     "color": "#DC2626",
     "logo": "/logos/hadash_taal.png"

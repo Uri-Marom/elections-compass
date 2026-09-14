@@ -12,7 +12,7 @@
       "divergence_flag": false,
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
       }
     },
@@ -25,7 +25,7 @@
       },
       "voted_position": {
         "score": -1.5,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": true
@@ -34,12 +34,12 @@
       "question_id": "q03",
       "stated_position": {
         "score": 1,
-        "source": "Both support military operations with clear strategic objectives but oppose open-ended indefinite campaign",
-        "last_updated": "2026-06-22"
+        "source": "be-yahad.org.il campaign platform: 'a proactive security doctrine' with 'zero containment' of threats and drafting the 20,000 additional soldiers the IDF needs, alongside regional alliances rather than endless cycles of conflict — firm on Hamas but against an open-ended war",
+        "last_updated": "2026-09-14"
       },
       "voted_position": {
         "score": 1.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -53,7 +53,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -67,7 +67,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -82,7 +82,7 @@
       "divergence_flag": false,
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
       }
     },
@@ -90,12 +90,12 @@
       "question_id": "q07",
       "stated_position": {
         "score": 2,
-        "source": "Haredi conscription is a signature issue for both Lapid and Bennett",
-        "last_updated": "2026-06-22"
+        "source": "be-yahad.org.il: mandatory military service for all as a cornerstone policy, with benefits conditioned on work or service",
+        "last_updated": "2026-09-14"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -110,7 +110,7 @@
       "divergence_flag": false,
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
       }
     },
@@ -123,7 +123,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -137,7 +137,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -151,7 +151,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -165,7 +165,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -174,13 +174,13 @@
       "question_id": "q16",
       "stated_position": {
         "score": 0,
-        "source": "Both parties have mixed/pragmatic records on privatization",
-        "last_updated": "2026-06-22"
+        "source": "be-yahad.org.il economic plan is competition-led — breaking up the food cartels to cut supermarket prices 30% in three years and regulatory relief for small business — with no position on public ownership of strategic infrastructure",
+        "last_updated": "2026-09-14"
       },
       "divergence_flag": true,
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
       }
     },
@@ -193,7 +193,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -207,7 +207,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -221,7 +221,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -235,7 +235,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -249,7 +249,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -263,7 +263,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -277,7 +277,7 @@
       },
       "voted_position": {
         "score": 0.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -291,7 +291,7 @@
       },
       "voted_position": {
         "score": 1.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -306,7 +306,7 @@
       "divergence_flag": true,
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
       }
     },
@@ -319,7 +319,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -328,13 +328,13 @@
       "question_id": "q28",
       "stated_position": {
         "score": 2,
-        "source": "bennett2026.org.il — 'The New Agreement' explicitly commits to limiting PM tenure to 8 years as a published governance plank; no longer a split pre-merger average",
-        "last_updated": "2026-06-23"
+        "source": "be-yahad.org.il: a constitution based on the Declaration of Independence and prime-ministerial tenure limited to 8 years",
+        "last_updated": "2026-09-14"
       },
       "divergence_flag": false,
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
       }
     },
@@ -347,7 +347,7 @@
       },
       "voted_position": {
         "score": 1.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -356,12 +356,12 @@
       "question_id": "q31",
       "stated_position": {
         "score": 2,
-        "source": "Both parties strongly support state inquiry into Oct 7 failures",
-        "last_updated": "2026-06-22"
+        "source": "be-yahad.org.il: explicit commitment to establish a state commission of inquiry into the events of 7 October",
+        "last_updated": "2026-09-14"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -370,12 +370,12 @@
       "question_id": "q32",
       "stated_position": {
         "score": 2,
-        "source": "Core curriculum is a flagship issue for both Lapid and Bennett",
-        "last_updated": "2026-06-22"
+        "source": "be-yahad.org.il: state funding restricted to education systems teaching 100% of the core curriculum (math, English and Israeli values)",
+        "last_updated": "2026-09-14"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -389,7 +389,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-09-06",
+        "last_updated": "2026-09-14",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false

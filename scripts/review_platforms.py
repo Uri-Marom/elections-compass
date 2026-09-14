@@ -65,16 +65,18 @@ PARTY_PLATFORMS: Dict[str, Optional[List[str]]] = {
         "https://www.yeshatid.org.il/",
     ],
     "beyachad": [
-        "https://bennett2026.org.il/",
-        "https://bennett2026.org.il/en/home-en/",
-        "https://bennett2026.org.il/en/plans/",
+        "https://be-yahad.org.il/",
+        "https://be-yahad.org.il/en/home-en/",
+        "https://be-yahad.org.il/en/plans/",
     ],
     "bennett_2026": [
-        "https://bennett2026.org.il/en/home-en/",
-        "https://bennett2026.org.il/en/plans/",
+        "https://be-yahad.org.il/en/home-en/",
+        "https://be-yahad.org.il/en/plans/",
     ],
+    "amcha_yisrael": None,   # Winter's list has no platform site yet
     "miluimnikim": [
         "https://www.miluimnikim.org.il/",
+        "https://www.hakalkalit.org/מצע-המפלגה-הכלכלית",
     ],
     "likud": [
         "https://www.likud.org.il/",

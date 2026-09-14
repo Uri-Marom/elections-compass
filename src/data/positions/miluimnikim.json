@@ -1,6 +1,6 @@
 {
   "party_id": "miluimnikim",
-  "_voted_data_note": "Chili Tropper left the list on 2026-09-06 (joining Yashar at number six) and Yoaz Hendel immediately joined forces with Prof. Yaron Zelekha's Economic Party. The list therefore has no 25th-Knesset voting data: Hendel was not a 25th-Knesset MK (his 23rd/24th-Knesset record under Blue and White / Derech Eretz aligns with the national_unity data here) and Zelekha has never been an MK.",
+  "_voted_data_note": "Final submitted list (September 2026): 'HaMiluimnikim–HaKalkalit' — Yoaz Hendel (1), Prof. Yaron Zelekha's Economic Party (2), Dr. Einat Wilf's Oz party (3). Chili Tropper left on 2026-09-06 and joined Yashar, taking his voting record with him. The list has no 25th-Knesset voting data: Hendel was not a 25th-Knesset MK (his 23rd/24th-Knesset record under Blue and White / Derech Eretz aligns with the national_unity data here), Zelekha has never been an MK, and Wilf served in the 18th Knesset for Labor/Independence.",
   "positions": [
     {
       "question_id": "q01",
@@ -14,8 +14,8 @@
       "question_id": "q02",
       "stated_position": {
         "score": -1,
-        "source": "Hendel characterizes conflict as 'clash of civilizations' where 'peace is unlikely without change that will take generations'; dismissed diplomatic engagement as a mistake that contributed to October 7; shifted rightward post-Oct 7 advocating territorial control in Lebanon and Gaza",
-        "last_updated": "2026-06-23"
+        "source": "Hendel frames the conflict as one where 'peace is unlikely without change that will take generations'; Einat Wilf (no. 3) is the best-known advocate of the position that no Palestinian state is possible until the Palestinian national movement abandons the right of return",
+        "last_updated": "2026-09-14"
       }
     },
     {
@@ -38,8 +38,8 @@
       "question_id": "q05",
       "stated_position": {
         "score": -2,
-        "source": "Opposes right of return",
-        "last_updated": "2026-06-22"
+        "source": "Rejects the right of return outright — Wilf co-authored the leading critique of UNRWA and the inherited-refugee framework, and made opposition to return the core of her political work",
+        "last_updated": "2026-09-14"
       }
     },
     {
