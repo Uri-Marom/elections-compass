@@ -76,6 +76,8 @@ COLUMN_MAP: Dict[str, Optional[str]] = {
     "בית ציוני - המילואימניקים": "miluimnikim",
     "בית ציוני":           "miluimnikim",
     "המפלגה של הנדל וזליכה": "miluimnikim",
+    "המילואימניקים / זליכה": "miluimnikim",
+    "המילואימניקים-הכלכלית": "miluimnikim",
     "הנדל זליכה":          "miluimnikim",
     "הנדל-זליכה":          "miluimnikim",
     # Erdan + Edelstein's HaAchdut: launched 2026-08-11, withdrew from the race

@@ -85,7 +85,7 @@ PARTY_PLATFORMS: Dict[str, Optional[List[str]]] = {
         "https://www.machne.co.il/",
     ],
     "yisrael_beitenu": [
-        "https://www.yb.org.il/",
+        "https://beytenu.org.il/",
     ],
     "shas": [
         "https://www.shasnet.org.il/",
@@ -96,7 +96,7 @@ PARTY_PLATFORMS: Dict[str, Optional[List[str]]] = {
     "raam": None,     # No accessible platform website found
     "utj": None,      # No accessible platform website found
     "otzma": [
-        "https://www.otzma.org.il/",
+        "https://ozma-yeudit.com/",
     ],
     "religious_zionism": [
         "https://zionutdatit.org.il/en/about/",

@@ -10,7 +10,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -19,12 +19,12 @@
       "question_id": "q02",
       "stated_position": {
         "score": 2,
-        "source": "Supports Palestinian state — two-state solution",
-        "last_updated": "2026-06-22"
+        "source": "Campaign platform: a 'just, comprehensive and stable' Israeli-Palestinian and Israeli-Arab settlement — two states on the 1967 lines",
+        "last_updated": "2026-10-09"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -38,7 +38,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -52,7 +52,7 @@
       },
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -66,7 +66,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -80,7 +80,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -94,7 +94,7 @@
       },
       "voted_position": {
         "score": 0.5,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -108,7 +108,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -122,7 +122,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -136,7 +136,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -150,7 +150,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -164,7 +164,7 @@
       },
       "voted_position": {
         "score": -1.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -186,7 +186,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -200,7 +200,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -214,7 +214,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -228,7 +228,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -242,7 +242,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -251,12 +251,12 @@
       "question_id": "q23",
       "stated_position": {
         "score": 2,
-        "source": "Equality basic law is top priority",
-        "last_updated": "2026-06-22"
+        "source": "The list campaigns on 'Democracy. Peace. Equality' (hadash.org.il), with full equality for the Arab population inside Israel and an end to sectarian discrimination as its central demand",
+        "last_updated": "2026-10-09"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -270,7 +270,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -279,12 +279,12 @@
       "question_id": "q25",
       "stated_position": {
         "score": 2,
-        "source": "Equal municipal funding core demand",
-        "last_updated": "2026-06-22"
+        "source": "Equal allocation of municipal resources to Arab localities is a core campaign plank",
+        "last_updated": "2026-10-09"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -298,7 +298,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -312,7 +312,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -326,7 +326,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -340,7 +340,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -354,7 +354,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -368,7 +368,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -382,7 +382,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -398,9 +398,9 @@
     {
       "question_id": "q35",
       "stated_position": {
-        "score": 2.0,
-        "source": "Hadash strongly supports climate legislation; climate justice framing aligns with its social platform",
-        "last_updated": "2026-06-22"
+        "score": 2,
+        "source": "Campaign platform includes protection of environmental quality alongside its civil-rights agenda",
+        "last_updated": "2026-10-09"
       }
     }
   ],

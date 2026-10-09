@@ -5,12 +5,12 @@
       "question_id": "q01",
       "stated_position": {
         "score": 2,
-        "source": "Party platform & coalition agreement 2022",
-        "last_updated": "2026-06-22"
+        "source": "2026 campaign platform: 'strengthening settlement and sovereignty in all parts of the land' (חיזוק ההתיישבות והריבונות בכל חלקי הארץ), alongside a united Jerusalem as the capital",
+        "last_updated": "2026-10-09"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -19,12 +19,12 @@
       "question_id": "q02",
       "stated_position": {
         "score": -2,
-        "source": "July 2024 Knesset resolution rejecting Palestinian statehood (Netanyahu-led coalition); Likud platform: 'between the sea and the Jordan there will only be Israeli sovereignty'; Netanyahu's categorical and repeated rejections of Palestinian state",
-        "last_updated": "2026-06-23"
+        "source": "2026 campaign slogan frames the election as a binary choice: 'the right or Palestine' (ימין או פלסטין)",
+        "last_updated": "2026-10-09"
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -33,12 +33,12 @@
       "question_id": "q03",
       "stated_position": {
         "score": 2,
-        "source": "Official government policy since Oct 2023",
-        "last_updated": "2026-06-22"
+        "source": "2026 campaign: 'security without compromise' — a strong IDF and 'decision against the enemy' (הכרעה מול האויב)",
+        "last_updated": "2026-10-09"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -47,12 +47,12 @@
       "question_id": "q04",
       "stated_position": {
         "score": 2,
-        "source": "Likud platform: undivided Jerusalem",
-        "last_updated": "2026-06-22"
+        "source": "2026 campaign: a united Jerusalem as Israel's capital",
+        "last_updated": "2026-10-09"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -66,7 +66,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -74,27 +74,27 @@
     {
       "question_id": "q06",
       "stated_position": {
-        "score": 0,
-        "source": "September 2025: Netanyahu dropped annexation from government agenda following US and UAE pressure; October 2025: actively opposed annexation bill as 'deliberate political provocation'; annexation was coalition partners' (Religious Zionism) agenda, not Likud's own platform",
-        "last_updated": "2026-06-23"
+        "score": 1,
+        "source": "2026 campaign explicitly runs on 'sovereignty in all parts of the land', a step up from the 2025 position when Netanyahu shelved West Bank annexation under US and UAE pressure; no concrete annexation timetable has been published",
+        "last_updated": "2026-10-09"
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
-      "divergence_flag": true
+      "divergence_flag": false
     },
     {
       "question_id": "q07",
       "stated_position": {
         "score": -2,
-        "source": "37th government actively legislated Haredi exemptions; repeatedly defied Supreme Court orders to begin drafting Haredi men; ultra-Orthodox parties left coalition July 2025 partly over this — Likud prioritised coalition survival over conscription",
-        "last_updated": "2026-06-23"
+        "source": "The 37th government legislated Haredi exemptions and in July 2026 passed Security Service Law amendment 28, freezing arrest and enforcement proceedings against yeshiva-student draft evaders; the 2026 campaign presents 4,298 Haredi recruits (+53%) as an achievement rather than committing to mandatory service",
+        "last_updated": "2026-10-09"
       },
       "voted_position": {
         "score": -1.95,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -108,7 +108,7 @@
       },
       "voted_position": {
         "score": -1.84,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -122,7 +122,7 @@
       },
       "voted_position": {
         "score": -0.5,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -136,7 +136,7 @@
       },
       "voted_position": {
         "score": -0.5,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -150,7 +150,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -164,7 +164,7 @@
       },
       "voted_position": {
         "score": 1.5,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -178,7 +178,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": true
@@ -192,7 +192,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -206,7 +206,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -220,7 +220,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -234,7 +234,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -248,7 +248,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -262,7 +262,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -276,7 +276,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -290,7 +290,7 @@
       },
       "voted_position": {
         "score": -0.5,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -304,7 +304,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -318,7 +318,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -332,7 +332,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -346,7 +346,7 @@
       },
       "voted_position": {
         "score": 1.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
@@ -360,7 +360,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -374,7 +374,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
       },
       "divergence_flag": false
@@ -388,7 +388,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-09-14",
+        "last_updated": "2026-10-09",
         "source": "Manual encoding of 25th Knesset voting positions"
       },
       "divergence_flag": false
