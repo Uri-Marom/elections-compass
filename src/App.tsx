@@ -6,6 +6,7 @@ import { ResultsPage } from './pages/ResultsPage'
 import { ResearchPage } from './pages/ResearchPage'
 import { MKsPage } from './pages/MKsPage'
 import { AnalyticsPage } from './pages/AnalyticsPage'
+import { MethodologyPage } from './pages/MethodologyPage'
 import { FeedbackButton } from './components/FeedbackButton'
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/mks" element={<MKsPage />} />
         <Route path="/analytics" element={<AnalyticsPage />} />
+        <Route path="/methodology" element={<MethodologyPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <FeedbackButton />

@@ -11,7 +11,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -25,7 +26,8 @@
       "voted_position": {
         "score": 0.0,
         "last_updated": "2026-10-14",
-        "source": "Proxy vote, not the same question: the vote was on recognizing a Palestinian state (the 18 Jul 2024 resolution opposing recognition, 68-9). Parties that support two states in a peace agreement but oppose unilateral recognition voted with the resolution, so this understates their support for q02. — Manual encoding of 25th Knesset voting positions: Knesset vote July 18, 2024 — 68-9 resolution AGAINST recognizing Palestinian state. Voting FOR this resolution = AGAINST q02."
+        "source": "Proxy vote, not the same question: the vote was on recognizing a Palestinian state (the 18 Jul 2024 resolution opposing recognition, 68-9). Parties that support two states in a peace agreement but oppose unilateral recognition voted with the resolution, so this understates their support for q02. — Manual encoding of 25th Knesset voting positions: Knesset vote July 18, 2024 — 68-9 resolution AGAINST recognizing Palestinian state. Voting FOR this resolution = AGAINST q02.",
+        "basis": "manual"
       },
       "divergence_flag": true
     },
@@ -39,7 +41,8 @@
       "voted_position": {
         "score": -0.5,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No clean single vote. Inferred from Knesset coalition/opposition positions on ceasefire proposals. Coalition voted against ceasefire motions; opposition split."
+        "source": "Manual encoding of 25th Knesset voting positions: No clean single vote. Inferred from Knesset coalition/opposition positions on ceasefire proposals. Coalition voted against ceasefire motions; opposition split.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -53,7 +56,8 @@
       "voted_position": {
         "score": 0.5,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No direct vote — consistent cross-party position. All Jewish parties agree, Arab parties oppose. Based on stated positions across votes."
+        "source": "Manual encoding of 25th Knesset voting positions: No direct vote — consistent cross-party position. All Jewish parties agree, Arab parties oppose. Based on stated positions across votes.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -67,7 +71,8 @@
       "voted_position": {
         "score": -1.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No direct vote — consistent cross-party opposition from all Jewish parties. Arab parties support."
+        "source": "Manual encoding of 25th Knesset voting positions: No direct vote — consistent cross-party opposition from all Jewish parties. Arab parties support.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -81,7 +86,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -95,7 +101,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 9 25th-Knesset votes, e.g. Jan 9 2023: no-confidence on dismantling Israel's Jewish democratic character (incl. Haredi exemption); Nov 25 2024: no-confidence on government sabotaging equal conscription; Jul 14 2025: no-confidence on advancing conscription law that undermines equal burden (+6 more)"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 9 25th-Knesset votes, e.g. Jan 9 2023: no-confidence on dismantling Israel's Jewish democratic character (incl. Haredi exemption); Nov 25 2024: no-confidence on government sabotaging equal conscription; Jul 14 2025: no-confidence on advancing conscription law that undermines equal burden (+6 more)",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -109,7 +116,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Dec 24 2025: civil marriage bill"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Dec 24 2025: civil marriage bill",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -123,7 +131,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No-confidence votes against Shas and UTJ over Shabbat commerce. Coalition (Shas/UTJ) voted against; secular parties voted for opening. Inferred from consistent voting pattern."
+        "source": "Manual encoding of 25th Knesset voting positions: No-confidence votes against Shas and UTJ over Shabbat commerce. Coalition (Shas/UTJ) voted against; secular parties voted for opening. Inferred from consistent voting pattern.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -137,7 +146,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No direct Knesset vote. Inferred from coalition agreement that explicitly rejected Kotel pluralism. Coalition parties block, opposition supports."
+        "source": "Manual encoding of 25th Knesset voting positions: No direct Knesset vote. Inferred from coalition agreement that explicitly rejected Kotel pluralism. Coalition parties block, opposition supports.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -151,7 +161,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. May 23 2023: 2023 state budget (final reading)"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. May 23 2023: 2023 state budget (final reading)",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -165,7 +176,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Kashrut Law passed by 25th Knesset coalition, June 2023. Coalition FOR, opposition AGAINST."
+        "source": "Manual encoding of 25th Knesset voting positions: Kashrut Law passed by 25th Knesset coalition, June 2023. Coalition FOR, opposition AGAINST.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -187,7 +199,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Mar 13 2023: judicial review override clause first reading (61-52)"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Mar 13 2023: judicial review override clause first reading (61-52)",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -201,7 +214,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Feb 20 2023: Courts Law (amendment 105): judicial selection committee composition (coalition bill)"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Feb 20 2023: Courts Law (amendment 105): judicial selection committee composition (coalition bill)",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -215,7 +229,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: AG advisory status bill, 2023 reform. Coalition voted for making AG opinions non-binding (= disagreeing with q20). Opposition against."
+        "source": "Manual encoding of 25th Knesset voting positions: AG advisory status bill, 2023 reform. Coalition voted for making AG opinions non-binding (= disagreeing with q20). Opposition against.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -229,7 +244,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Reasonableness Standard Abolition — Basic Law amendment July 24, 2023 — 64-0 (opposition boycotted). Coalition voted FOR abolition = AGAINST q21. Opposition boycott treated as neutral/abstain (0)."
+        "source": "Manual encoding of 25th Knesset voting positions: Reasonableness Standard Abolition — Basic Law amendment July 24, 2023 — 64-0 (opposition boycotted). Coalition voted FOR abolition = AGAINST q21. Opposition boycott treated as neutral/abstain (0).",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -243,7 +259,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Feb 20 2023: Basic Law: Judiciary (amendment 3): government judicial reform bill"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Feb 20 2023: Basic Law: Judiciary (amendment 3): government judicial reform bill",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -257,7 +274,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 3 25th-Knesset votes, e.g. May 31 2023: Basic Law: Human Dignity (amendment - right to equality); May 31 2023: Basic Law: Human Dignity (amendment - equality before the law and prohibition of discrimination); Jul 19 2023: Basic Law: Human Dignity (amendment - right to equality), advanced reading"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 3 25th-Knesset votes, e.g. May 31 2023: Basic Law: Human Dignity (amendment - right to equality); May 31 2023: Basic Law: Human Dignity (amendment - equality before the law and prohibition of discrimination); Jul 19 2023: Basic Law: Human Dignity (amendment - right to equality), advanced reading",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -271,7 +289,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Inferred from coalition formation patterns. Ra'am joined 36th government (Bennett-Lapid). 25th Knesset coalition explicitly excluded Arab parties."
+        "source": "Manual encoding of 25th Knesset voting positions: Inferred from coalition formation patterns. Ra'am joined 36th government (Bennett-Lapid). 25th Knesset coalition explicitly excluded Arab parties.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -285,7 +304,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 3 25th-Knesset votes, e.g. Dec 2 2024: no-confidence (Hadash-Taal & Raam) on Arab sector budget cuts; Mar 17 2025: no-confidence (Raam & Hadash-Taal) on government discriminating against Arab citizens; Jan 12 2026: no-confidence (Raam & Hadash-Taal) on severe cuts to Arab sector budgets"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 3 25th-Knesset votes, e.g. Dec 2 2024: no-confidence (Hadash-Taal & Raam) on Arab sector budget cuts; Mar 17 2025: no-confidence (Raam & Hadash-Taal) on government discriminating against Arab citizens; Jan 12 2026: no-confidence (Raam & Hadash-Taal) on severe cuts to Arab sector budgets",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -299,7 +319,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Dec 18 2024: repeal Nation-State Law bill"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Dec 18 2024: repeal Nation-State Law bill",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -313,7 +334,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Mar 23 2023: PM incapacitation law making it harder to remove PM (61-47)"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Mar 23 2023: PM incapacitation law making it harder to remove PM (61-47)",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -327,7 +349,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Jan 14 2026: PM term limits bill"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Jan 14 2026: PM term limits bill",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -341,7 +364,8 @@
       "voted_position": {
         "score": -1.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No direct 25th Knesset vote. Inferred from party interests — large parties benefit from higher threshold, small parties lose."
+        "source": "Manual encoding of 25th Knesset voting positions: No direct 25th Knesset vote. Inferred from party interests — large parties benefit from higher threshold, small parties lose.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -355,7 +379,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 8 25th-Knesset votes, e.g. Jul 17 2024: bill to establish state inquiry commission into Oct 7 events and Iron Swords war; Jul 17 2024: alternative bill to establish state inquiry commission into Oct 7; Nov 12 2025: bill to establish state inquiry commission into Oct 7 failures (renewed attempt) (+5 more)"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 8 25th-Knesset votes, e.g. Jul 17 2024: bill to establish state inquiry commission into Oct 7 events and Iron Swords war; Jul 17 2024: alternative bill to establish state inquiry commission into Oct 7; Nov 12 2025: bill to establish state inquiry commission into Oct 7 failures (renewed attempt) (+5 more)",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -369,7 +394,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 2 25th-Knesset votes, e.g. May 31 2023: mandatory core curriculum and cancellation of exempt-institution status; Jun 7 2023: State Education Law (amendment - Haredi state education) requiring core subjects"
+        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 2 25th-Knesset votes, e.g. May 31 2023: mandatory core curriculum and cancellation of exempt-institution status; Jun 7 2023: State Education Law (amendment - Haredi state education) requiring core subjects",
+        "basis": "mk"
       },
       "divergence_flag": false
     },
@@ -383,7 +409,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Broadcasting regulations and Second Authority oversight. Coalition (with Channel 14 allies) opposed stronger enforcement; opposition generally supported accountability measures."
+        "source": "Manual encoding of 25th Knesset voting positions: Broadcasting regulations and Second Authority oversight. Coalition (with Channel 14 allies) opposed stronger enforcement; opposition generally supported accountability measures.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },

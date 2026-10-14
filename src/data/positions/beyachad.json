@@ -13,7 +13,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
+        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction",
+        "basis": "faction"
       }
     },
     {
@@ -26,7 +27,8 @@
       "voted_position": {
         "score": -1.5,
         "last_updated": "2026-10-14",
-        "source": "Proxy vote, not the same question: the vote was on recognizing a Palestinian state (the 18 Jul 2024 resolution opposing recognition, 68-9). Parties that support two states in a peace agreement but oppose unilateral recognition voted with the resolution, so this understates their support for q02. — Manual encoding of 25th Knesset voting positions: Knesset vote July 18, 2024 — 68-9 resolution AGAINST recognizing Palestinian state. Voting FOR this resolution = AGAINST q02."
+        "source": "Proxy vote, not the same question: the vote was on recognizing a Palestinian state (the 18 Jul 2024 resolution opposing recognition, 68-9). Parties that support two states in a peace agreement but oppose unilateral recognition voted with the resolution, so this understates their support for q02. — Manual encoding of 25th Knesset voting positions: Knesset vote July 18, 2024 — 68-9 resolution AGAINST recognizing Palestinian state. Voting FOR this resolution = AGAINST q02.",
+        "basis": "manual"
       },
       "divergence_flag": true
     },
@@ -40,7 +42,8 @@
       "voted_position": {
         "score": 1.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No clean single vote. Inferred from Knesset coalition/opposition positions on ceasefire proposals. Coalition voted against ceasefire motions; opposition split."
+        "source": "Manual encoding of 25th Knesset voting positions: No clean single vote. Inferred from Knesset coalition/opposition positions on ceasefire proposals. Coalition voted against ceasefire motions; opposition split.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -54,7 +57,8 @@
       "voted_position": {
         "score": 1.5,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No direct vote — consistent cross-party position. All Jewish parties agree, Arab parties oppose. Based on stated positions across votes."
+        "source": "Manual encoding of 25th Knesset voting positions: No direct vote — consistent cross-party position. All Jewish parties agree, Arab parties oppose. Based on stated positions across votes.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -68,7 +72,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No direct vote — consistent cross-party opposition from all Jewish parties. Arab parties support."
+        "source": "Manual encoding of 25th Knesset voting positions: No direct vote — consistent cross-party opposition from all Jewish parties. Arab parties support.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -83,7 +88,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
+        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction",
+        "basis": "faction"
       }
     },
     {
@@ -96,7 +102,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Knesset vote June 11, 2024 — 63-57 to advance Haredi conscription bill. FOR = agrees with q07. Yesh Atid, National Unity, Yisrael Beitenu voted FOR. Shas, UTJ voted AGAINST. Likud mixed/mostly against. Otzma split. (No clean single vote ID found in shadow CSV for individual MK scoring.)"
+        "source": "Manual encoding of 25th Knesset voting positions: Knesset vote June 11, 2024 — 63-57 to advance Haredi conscription bill. FOR = agrees with q07. Yesh Atid, National Unity, Yisrael Beitenu voted FOR. Shas, UTJ voted AGAINST. Likud mixed/mostly against. Otzma split. (No clean single vote ID found in shadow CSV for individual MK scoring.)",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -111,7 +118,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
+        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction",
+        "basis": "faction"
       }
     },
     {
@@ -124,7 +132,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No-confidence votes against Shas and UTJ over Shabbat commerce. Coalition (Shas/UTJ) voted against; secular parties voted for opening. Inferred from consistent voting pattern."
+        "source": "Manual encoding of 25th Knesset voting positions: No-confidence votes against Shas and UTJ over Shabbat commerce. Coalition (Shas/UTJ) voted against; secular parties voted for opening. Inferred from consistent voting pattern.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -138,7 +147,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No direct Knesset vote. Inferred from coalition agreement that explicitly rejected Kotel pluralism. Coalition parties block, opposition supports."
+        "source": "Manual encoding of 25th Knesset voting positions: No direct Knesset vote. Inferred from coalition agreement that explicitly rejected Kotel pluralism. Coalition parties block, opposition supports.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -152,7 +162,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: 25th Knesset budget 2023: coalition included record yeshiva funding increases. Coalition voted FOR, opposition AGAINST budget containing this provision."
+        "source": "Manual encoding of 25th Knesset voting positions: 25th Knesset budget 2023: coalition included record yeshiva funding increases. Coalition voted FOR, opposition AGAINST budget containing this provision.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -166,7 +177,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Kashrut Law passed by 25th Knesset coalition, June 2023. Coalition FOR, opposition AGAINST."
+        "source": "Manual encoding of 25th Knesset voting positions: Kashrut Law passed by 25th Knesset coalition, June 2023. Coalition FOR, opposition AGAINST.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -181,7 +193,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
+        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction",
+        "basis": "faction"
       }
     },
     {
@@ -194,7 +207,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Judicial reform: Override clause first reading March 13, 2023 — 61-52 FOR. Coalition FOR, opposition AGAINST."
+        "source": "Manual encoding of 25th Knesset voting positions: Judicial reform: Override clause first reading March 13, 2023 — 61-52 FOR. Coalition FOR, opposition AGAINST.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -208,7 +222,8 @@
       "voted_position": {
         "score": -2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Judicial committee composition bill, part of 2023 reform package. Coalition FOR, opposition AGAINST."
+        "source": "Manual encoding of 25th Knesset voting positions: Judicial committee composition bill, part of 2023 reform package. Coalition FOR, opposition AGAINST.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -222,7 +237,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: AG advisory status bill, 2023 reform. Coalition voted for making AG opinions non-binding (= disagreeing with q20). Opposition against."
+        "source": "Manual encoding of 25th Knesset voting positions: AG advisory status bill, 2023 reform. Coalition voted for making AG opinions non-binding (= disagreeing with q20). Opposition against.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -236,7 +252,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Reasonableness Standard Abolition — Basic Law amendment July 24, 2023 — 64-0 (opposition boycotted). Coalition voted FOR abolition = AGAINST q21. Opposition boycott treated as neutral/abstain (0)."
+        "source": "Manual encoding of 25th Knesset voting positions: Reasonableness Standard Abolition — Basic Law amendment July 24, 2023 — 64-0 (opposition boycotted). Coalition voted FOR abolition = AGAINST q21. Opposition boycott treated as neutral/abstain (0).",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -250,7 +267,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Derived from judicial reform votes — supporting reform = disagreeing with judicial independence. Inverse of q18/q21."
+        "source": "Manual encoding of 25th Knesset voting positions: Derived from judicial reform votes — supporting reform = disagreeing with judicial independence. Inverse of q18/q21.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -264,7 +282,8 @@
       "voted_position": {
         "score": 1.5,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Equality Basic Law bills voted down by coalition majority in 25th Knesset. Coalition voted AGAINST, opposition FOR."
+        "source": "Manual encoding of 25th Knesset voting positions: Equality Basic Law bills voted down by coalition majority in 25th Knesset. Coalition voted AGAINST, opposition FOR.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -278,7 +297,8 @@
       "voted_position": {
         "score": 0.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Inferred from coalition formation patterns. Ra'am joined 36th government (Bennett-Lapid). 25th Knesset coalition explicitly excluded Arab parties."
+        "source": "Manual encoding of 25th Knesset voting positions: Inferred from coalition formation patterns. Ra'am joined 36th government (Bennett-Lapid). 25th Knesset coalition explicitly excluded Arab parties.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -292,7 +312,8 @@
       "voted_position": {
         "score": 1.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Arab sector budget bills in 25th Knesset. Coalition underfunded Arab localities. Opposition bills for equality voted down."
+        "source": "Manual encoding of 25th Knesset voting positions: Arab sector budget bills in 25th Knesset. Coalition underfunded Arab localities. Opposition bills for equality voted down.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -307,7 +328,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
+        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction",
+        "basis": "faction"
       }
     },
     {
@@ -320,7 +342,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: PM incapacitation law March 23, 2023 — 61-47 FOR making it harder to remove PM (protecting Netanyahu). Coalition FOR this law = AGAINST q27. Opposition AGAINST this law = FOR q27."
+        "source": "Manual encoding of 25th Knesset voting positions: PM incapacitation law March 23, 2023 — 61-47 FOR making it harder to remove PM (protecting Netanyahu). Coalition FOR this law = AGAINST q27. Opposition AGAINST this law = FOR q27.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -335,7 +358,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction"
+        "source": "Yesh Atid faction aggregate — Yesh Atid is one half of the Beyachad joint list; Bennett's party had no 25th-Knesset faction",
+        "basis": "faction"
       }
     },
     {
@@ -348,7 +372,8 @@
       "voted_position": {
         "score": 1.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No direct 25th Knesset vote. Inferred from party interests — large parties benefit from higher threshold, small parties lose."
+        "source": "Manual encoding of 25th Knesset voting positions: No direct 25th Knesset vote. Inferred from party interests — large parties benefit from higher threshold, small parties lose.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -362,7 +387,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: No formal Knesset vote on state inquiry. Coalition blocked inquiry legislation; opposition pressed for it. Positions inferred from public statements and failed inquiry bills."
+        "source": "Manual encoding of 25th Knesset voting positions: No formal Knesset vote on state inquiry. Coalition blocked inquiry legislation; opposition pressed for it. Positions inferred from public statements and failed inquiry bills.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -376,7 +402,8 @@
       "voted_position": {
         "score": 2.0,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Core curriculum legislation for Haredi schools: bills advanced by National Unity (Kahana) opposed by Shas/UTJ/RZP. No clean single vote; inferred from budget debates and education bills."
+        "source": "Manual encoding of 25th Knesset voting positions: Core curriculum legislation for Haredi schools: bills advanced by National Unity (Kahana) opposed by Shas/UTJ/RZP. No clean single vote; inferred from budget debates and education bills.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },
@@ -390,7 +417,8 @@
       "voted_position": {
         "score": 1.5,
         "last_updated": "2026-10-14",
-        "source": "Manual encoding of 25th Knesset voting positions: Broadcasting regulations and Second Authority oversight. Coalition (with Channel 14 allies) opposed stronger enforcement; opposition generally supported accountability measures."
+        "source": "Manual encoding of 25th Knesset voting positions: Broadcasting regulations and Second Authority oversight. Coalition (with Channel 14 allies) opposed stronger enforcement; opposition generally supported accountability measures.",
+        "basis": "manual"
       },
       "divergence_flag": false
     },

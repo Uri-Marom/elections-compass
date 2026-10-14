@@ -564,6 +564,17 @@ export function ResultsPage() {
           {t('explore_research')}
         </button>
 
+        <button
+          onClick={() => navigate('/methodology')}
+          style={{
+            width: '100%', padding: '10px', background: 'transparent', border: 'none',
+            fontSize: 12, fontWeight: 500, color: B.inkFaint, cursor: 'pointer',
+            textDecoration: 'underline', marginBottom: 8,
+          }}
+        >
+          {t('methodology_link')}
+        </button>
+
         {surveyMode === 'short' && (
           <button
             onClick={() => navigate('/full/survey?continue=true')}

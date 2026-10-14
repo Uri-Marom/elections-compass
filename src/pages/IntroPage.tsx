@@ -236,6 +236,22 @@ export function IntroPage() {
           >
             {t('explore_research')}
           </button>
+          <button
+            onClick={() => navigate('/methodology')}
+            style={{
+              padding: '10px',
+              background: 'transparent',
+              color: B.inkFaint,
+              border: 'none',
+              borderRadius: B.radius,
+              fontSize: 12,
+              fontWeight: 500,
+              textDecoration: 'underline',
+              cursor: 'pointer',
+            }}
+          >
+            {t('methodology_link')}
+          </button>
         </div>
 
         {/* About toggle */}

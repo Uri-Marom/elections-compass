@@ -246,17 +246,22 @@ def update_party_files(
 
             if score is not None:
                 if party_id in derived_set.get(qid, set()):
+                    basis = "leaders"
                     source = MK_DERIVED_PARTIES[party_id]["source"]
                 elif party_id in fallback_set.get(qid, set()):
+                    basis = "faction"
                     source = MK_DERIVED_PARTIES[party_id]["fallback_source"]
                 elif party_id in manual_set.get(qid, set()):
+                    basis = "manual"
                     source = with_proxy(mappings.get(qid, {}), describe_manual(mappings.get(qid, {})))
                 else:
+                    basis = "mk"
                     source = with_proxy(mappings.get(qid, {}), describe_votes(mappings.get(qid, {})))
                 pos["voted_position"] = {
                     "score": score,
                     "last_updated": today,
                     "source": source,
+                    "basis": basis,
                 }
                 stated = pos.get("stated_position", {}).get("score", 0)
                 pos["divergence_flag"] = abs(score - stated) > 1

@@ -37,6 +37,7 @@ export interface StatedPosition {
 export interface VotedPosition {
   score: number
   source?: string
+  basis?: 'mk' | 'leaders' | 'faction' | 'manual'
   vote_ids?: number[]
   vote_count?: number
   for_pct?: number
