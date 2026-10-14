@@ -84,7 +84,7 @@ function computePartyDimScores(positions: PartyPosition[], mode: 'stated' | 'vot
       if (answeredQids && !answeredQids.has(qid)) continue
       const pos = positions.find(p => p.question_id === qid)
       if (!pos) continue
-      const s = mode === 'stated' ? pos.stated_position?.score : (pos.voted_position?.score ?? pos.stated_position?.score)
+      const s = mode === 'stated' ? pos.stated_position?.score : pos.voted_position?.score
       if (s !== null && s !== undefined) {
         const polarity = questions.find(q => q.id === qid)?.polarity ?? 1
         vals.push(s * polarity)

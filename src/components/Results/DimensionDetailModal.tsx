@@ -60,13 +60,14 @@ export function DimensionDetailModal({
     const partyScore = pos
       ? (mode === 'stated'
           ? pos.stated_position?.score
-          : (pos.voted_position?.score ?? pos.stated_position?.score))
+          : pos.voted_position?.score)
       : null
-    const source = (mode === 'voted' && pos?.voted_position?.source)
-      ? pos.voted_position.source
+    const noVoteData = mode === 'voted' && partyScore == null
+    const source = mode === 'voted'
+      ? (pos?.voted_position?.source ?? null)
       : (pos?.stated_position?.source ?? null)
     const sourceUrl = mode === 'voted' ? null : (pos?.stated_position?.source_url ?? null)
-    return { qid, question, userScore, partyScore: partyScore ?? null, source, sourceUrl }
+    return { qid, question, userScore, partyScore: partyScore ?? null, source, sourceUrl, noVoteData }
   }).filter(r => r.question && (r.userScore !== null || r.partyScore !== null))
 
   const answeredRows = rows.filter(r => r.userScore !== null && r.partyScore !== null)
@@ -147,7 +148,7 @@ export function DimensionDetailModal({
 
         {/* Question rows */}
         <div style={{ overflowY: 'auto', flex: 1 }}>
-          {rows.map(({ qid, question, userScore, partyScore, source, sourceUrl }) => {
+          {rows.map(({ qid, question, userScore, partyScore, source, sourceUrl, noVoteData }) => {
             const text = lang === 'he' ? question!.text_he : question!.text_en
             const diffSignificant = userScore !== null && partyScore !== null && Math.abs(userScore - partyScore) >= 1.5
 
@@ -171,7 +172,9 @@ export function DimensionDetailModal({
                   <div style={{ flex: 1 }}>
                     {partyScore !== null
                       ? <span style={scorePillStyle(partyScore)}>{scoreLabel(partyScore, t)}</span>
-                      : <span style={{ fontSize: 11, color: B.inkHint, fontStyle: 'italic' }}>—</span>
+                      : <span style={{ fontSize: 11, color: B.inkHint, fontStyle: 'italic' }}>
+                          {noVoteData ? (lang === 'he' ? 'אין נתוני הצבעה' : 'No vote data') : '—'}
+                        </span>
                     }
                   </div>
                 </div>

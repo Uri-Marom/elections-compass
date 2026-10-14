@@ -65,7 +65,7 @@ NO_VOTING_DATA = {
 }
 
 SOURCE_MK     = "Knesset vote data aggregated from MK-level votes via oknesset.org"
-SOURCE_MANUAL = "Manual encoding of 25th Knesset voting positions"
+SOURCE_MANUAL = "Manual encoding of 25th Knesset voting positions"  # fallback label only
 
 
 def load_mk_data() -> tuple[dict[str, str], dict[str, dict[str, float]]]:
@@ -189,11 +189,39 @@ def apply_manual_fallback(
     return voted, manual_set
 
 
+def with_proxy(mapping: dict, text: str) -> str:
+    """Prefix sources whose votes only approximate the survey question."""
+    proxy = mapping.get("proxy_note")
+    return f"{proxy} \u2014 {text}" if proxy else text
+
+
+def describe_votes(mapping: dict) -> str:
+    """One-line, human-readable basis for a question's MK-aggregated score."""
+    votes = mapping.get("votes") or []
+    k25 = [v for v in votes if v.get("knesset") == 25]
+    if not k25:
+        return SOURCE_MK
+    descs = []
+    for v in k25[:3]:
+        note = v.get("note", "")
+        body = note.split("\u2014", 1)[-1].split(";")[0].strip()
+        when = note.split("\u2014", 1)[0].replace("K25", "").strip()
+        descs.append(f"{when}: {body}" if when else body)
+    more = f" (+{len(k25) - 3} more)" if len(k25) > 3 else ""
+    return f"{SOURCE_MK}. Based on {len(k25)} 25th-Knesset votes, e.g. " + "; ".join(descs) + more
+
+
+def describe_manual(mapping: dict) -> str:
+    note = (mapping.get("manual_k25") or {}).get("note", "").strip()
+    return f"{SOURCE_MANUAL}: {note}" if note else SOURCE_MANUAL
+
+
 def update_party_files(
     voted_positions: dict[str, dict[str, float]],
     manual_set: dict[str, set[str]],
     derived_set: dict[str, set[str]],
     fallback_set: dict[str, set[str]],
+    mappings: dict,
 ) -> None:
     today = datetime.date.today().isoformat()
 
@@ -222,9 +250,9 @@ def update_party_files(
                 elif party_id in fallback_set.get(qid, set()):
                     source = MK_DERIVED_PARTIES[party_id]["fallback_source"]
                 elif party_id in manual_set.get(qid, set()):
-                    source = SOURCE_MANUAL
+                    source = with_proxy(mappings.get(qid, {}), describe_manual(mappings.get(qid, {})))
                 else:
-                    source = SOURCE_MK
+                    source = with_proxy(mappings.get(qid, {}), describe_votes(mappings.get(qid, {})))
                 pos["voted_position"] = {
                     "score": score,
                     "last_updated": today,
@@ -276,7 +304,7 @@ def main():
         print(f"  {party_id}: {f} questions from {MK_DERIVED_PARTIES[party_id].get('fallback_party')}")
 
     print("\nWriting voted_position to party JSON files...")
-    update_party_files(voted_positions, manual_set, derived_set, fallback_set)
+    update_party_files(voted_positions, manual_set, derived_set, fallback_set, mappings)
 
     print("\nDone.")
 

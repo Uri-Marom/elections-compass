@@ -67,7 +67,8 @@
           "voted": "against_resolution"
         }
       }
-    }
+    },
+    "proxy_note": "Proxy vote, not the same question: the vote was on recognizing a Palestinian state (the 18 Jul 2024 resolution opposing recognition, 68-9). Parties that support two states in a peace agreement but oppose unilateral recognition voted with the resolution, so this understates their support for q02."
   },
   "q03": {
     "description": "Continue Gaza operations until Hamas dismantled",

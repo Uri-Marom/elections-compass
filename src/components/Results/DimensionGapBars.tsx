@@ -51,7 +51,7 @@ export function DimensionGapBars({ userAnswers, partyPositions, partyColor, part
             if (!pos) return []
             const partyScore = mode === 'stated'
               ? pos.stated_position?.score
-              : (pos.voted_position?.score ?? pos.stated_position?.score)
+              : pos.voted_position?.score
             if (partyScore === null || partyScore === undefined) return []
             const polarity = questions.find(q => q.id === qid)?.polarity ?? 1
             return [{ user: userScore, party: partyScore, polarity }]
