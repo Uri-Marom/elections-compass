@@ -10,7 +10,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org",
         "basis": "mk"
       },
@@ -57,7 +57,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org",
         "basis": "mk"
       },
@@ -72,8 +72,8 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
-        "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 9 25th-Knesset votes, e.g. Jan 9 2023: no-confidence on dismantling Israel's Jewish democratic character (incl. Haredi exemption); Nov 25 2024: no-confidence on government sabotaging equal conscription; Jul 14 2025: no-confidence on advancing conscription law that undermines equal burden (+6 more)",
+        "last_updated": "2026-10-18",
+        "source": "Partly a proxy: three of the nine mapped votes are opposition no-confidence motions, and the rest are bills sanctioning draft evasion. Opposition parties of every stripe back no-confidence motions to bring the government down, so a 'for' vote there is weak evidence of a party's own view on conscription (the Joint List, for example, states it opposes conscription sanctions). — Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 9 25th-Knesset votes, e.g. Jan 9 2023: no-confidence on dismantling Israel's Jewish democratic character (incl. Haredi exemption); Nov 25 2024: no-confidence on government sabotaging equal conscription; Jul 14 2025: no-confidence on advancing conscription law that undermines equal burden (+6 more)",
         "basis": "mk"
       },
       "divergence_flag": false
@@ -87,7 +87,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Dec 24 2025: civil marriage bill",
         "basis": "mk"
       },
@@ -118,7 +118,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. May 23 2023: 2023 state budget (final reading)",
         "basis": "mk"
       },
@@ -141,7 +141,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org",
         "basis": "mk"
       },
@@ -156,7 +156,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Mar 13 2023: judicial review override clause first reading (61-52)",
         "basis": "mk"
       },
@@ -171,7 +171,7 @@
       },
       "voted_position": {
         "score": -2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Feb 20 2023: Courts Law (amendment 105): judicial selection committee composition (coalition bill)",
         "basis": "mk"
       },
@@ -202,7 +202,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Feb 20 2023: Basic Law: Judiciary (amendment 3): government judicial reform bill",
         "basis": "mk"
       },
@@ -217,7 +217,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 3 25th-Knesset votes, e.g. May 31 2023: Basic Law: Human Dignity (amendment - right to equality); May 31 2023: Basic Law: Human Dignity (amendment - equality before the law and prohibition of discrimination); Jul 19 2023: Basic Law: Human Dignity (amendment - right to equality), advanced reading",
         "basis": "mk"
       },
@@ -240,7 +240,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 3 25th-Knesset votes, e.g. Dec 2 2024: no-confidence (Hadash-Taal & Raam) on Arab sector budget cuts; Mar 17 2025: no-confidence (Raam & Hadash-Taal) on government discriminating against Arab citizens; Jan 12 2026: no-confidence (Raam & Hadash-Taal) on severe cuts to Arab sector budgets",
         "basis": "mk"
       },
@@ -255,7 +255,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Dec 18 2024: repeal Nation-State Law bill",
         "basis": "mk"
       },
@@ -270,7 +270,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Mar 23 2023: PM incapacitation law making it harder to remove PM (61-47)",
         "basis": "mk"
       },
@@ -285,7 +285,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 1 25th-Knesset votes, e.g. Jan 14 2026: PM term limits bill",
         "basis": "mk"
       },
@@ -308,7 +308,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 8 25th-Knesset votes, e.g. Jul 17 2024: bill to establish state inquiry commission into Oct 7 events and Iron Swords war; Jul 17 2024: alternative bill to establish state inquiry commission into Oct 7; Nov 12 2025: bill to establish state inquiry commission into Oct 7 failures (renewed attempt) (+5 more)",
         "basis": "mk"
       },
@@ -323,7 +323,7 @@
       },
       "voted_position": {
         "score": 2.0,
-        "last_updated": "2026-10-14",
+        "last_updated": "2026-10-18",
         "source": "Knesset vote data aggregated from MK-level votes via oknesset.org. Based on 2 25th-Knesset votes, e.g. May 31 2023: mandatory core curriculum and cancellation of exempt-institution status; Jun 7 2023: State Education Law (amendment - Haredi state education) requiring core subjects",
         "basis": "mk"
       },
