@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useSurveyStore } from '../../store/survey'
 import type { MKMatch, KnessetMember, Party } from '../../types'
 import { TOTAL_QUESTIONS } from '../../utils/matching'
+import { FORMER_PARTIES } from '../../utils/formerParties'
 import { B } from '../bureau/BureauComponents'
 
 interface Props {
@@ -49,13 +50,13 @@ export function MKMatchList({ topMKs, mks, parties }: Props) {
             if (!mk) return null
             const party = parties.find(p => p.id === mk.party_id)
             const name = lang === 'he' ? mk.name_he : (mk.name_en || mk.name_he)
-            const isFormerYeshAtid = mk.party_id === 'yesh_atid'
+            const former = FORMER_PARTIES[mk.party_id]
             const partyLabel = party
               ? (lang === 'he' ? party.name_he : party.name_en)
-              : isFormerYeshAtid
-                ? (lang === 'he' ? 'יש עתיד (לשעבר)' : 'Yesh Atid (former)')
+              : former
+                ? (lang === 'he' ? former.he : former.en)
                 : null
-            const partyColor = party?.color ?? (isFormerYeshAtid ? '#f59e0b' : B.inkHint)
+            const partyColor = party?.color ?? former?.color ?? B.inkHint
 
             return (
               <div

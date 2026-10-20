@@ -183,6 +183,8 @@ export function findCrossAisleMKs(
 
     // Resolve the MK's "home" party — use successor if the original isn't in partyVecs
     const homePid = PARTY_SUCCESSOR[mk.party_id] ?? mk.party_id
+    // Their list no longer runs (e.g. Blue and White), so there is no home party to diverge from.
+    if (!(homePid in partyVecs)) continue
 
     let bestPartyId: string | null = null
     let bestSim = -1

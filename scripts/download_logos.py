@@ -12,7 +12,6 @@ LOGOS = {
     "otzma":             "https://upload.wikimedia.org/wikipedia/he/thumb/9/9f/%D7%A2%D7%95%D7%A6%D7%9E%D7%94_%D7%99%D7%94%D7%95%D7%93%D7%99%D7%AA_%D7%9C%D7%95%D7%92%D7%95_2021.svg/250px-%D7%A2%D7%95%D7%A6%D7%9E%D7%94_%D7%99%D7%94%D7%95%D7%93%D7%99%D7%AA_%D7%9C%D7%95%D7%92%D7%95_2021.svg.png",
     "religious_zionism": "https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Religious_Zionist_party_logo_2022.svg/250px-Religious_Zionist_party_logo_2022.svg.png",
     "beyachad":          "https://upload.wikimedia.org/wikipedia/he/thumb/1/12/%D7%99%D7%A9_%D7%A2%D7%AA%D7%99%D7%93_%D7%9C%D7%95%D7%92%D7%95.svg/250px-%D7%99%D7%A9_%D7%A2%D7%AA%D7%99%D7%93_%D7%9C%D7%95%D7%92%D7%95.svg.png",
-    "national_unity":    "https://upload.wikimedia.org/wikipedia/he/thumb/a/a6/%D7%9C%D7%95%D7%92%D7%95_%D7%9B%D7%97%D7%95%D7%9C_%D7%9C%D7%91%D7%9F_2021.svg/250px-%D7%9C%D7%95%D7%92%D7%95_%D7%9B%D7%97%D7%95%D7%9C_%D7%9C%D7%91%D7%9F_2021.svg.png",
     "yashar":            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Yashar_party_logo.png/250px-Yashar_party_logo.png",
     "democrats":         "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/The_Democrats_led_by_Yair_Golan.svg/250px-The_Democrats_led_by_Yair_Golan.svg.png",
     "yisrael_beitenu":   "https://upload.wikimedia.org/wikipedia/he/thumb/a/a4/%D7%9C%D7%95%D7%92%D7%95_%D7%99%D7%A9%D7%A8%D7%90%D7%9C_%D7%91%D7%99%D7%AA%D7%A0%D7%95_2022.svg/250px-%D7%9C%D7%95%D7%92%D7%95_%D7%99%D7%A9%D7%A8%D7%90%D7%9C_%D7%91%D7%99%D7%AA%D7%A0%D7%95_2022.svg.png",

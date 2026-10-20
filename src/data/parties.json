@@ -60,16 +60,6 @@
     "logo": "/logos/beyachad.png"
   },
   {
-    "id": "national_unity",
-    "name_en": "Blue and White",
-    "name_he": "כחול לבן",
-    "seats": 12,
-    "poll_seats": 0,
-    "bloc": "opposition",
-    "color": "#0891B2",
-    "logo": "/logos/national_unity.png"
-  },
-  {
     "id": "yashar",
     "name_en": "Yashar! (Eisenkot)",
     "name_he": "ישר! (איזנקוט)",
@@ -104,7 +94,7 @@
     "name_en": "HaMiluimnikim–Economic",
     "name_he": "המילואימניקים",
     "seats": 0,
-    "poll_seats": 2,
+    "poll_seats": 4,
     "bloc": "opposition",
     "color": "#4D7C0F",
     "logo": "/logos/miluimnikim.jpg"
@@ -114,7 +104,7 @@
     "name_en": "Joint List",
     "name_he": "הרשימה המשותפת",
     "seats": 5,
-    "poll_seats": 7,
+    "poll_seats": 8,
     "bloc": "arab",
     "color": "#DC2626",
     "logo": "/logos/hadash_taal.png"

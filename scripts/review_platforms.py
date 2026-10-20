@@ -81,9 +81,6 @@ PARTY_PLATFORMS: Dict[str, Optional[List[str]]] = {
     "likud": [
         "https://www.likud.org.il/",
     ],
-    "national_unity": [
-        "https://www.machne.co.il/",
-    ],
     "yisrael_beitenu": [
         "https://beytenu.org.il/",
     ],

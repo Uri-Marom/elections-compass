@@ -39,7 +39,8 @@ COLUMN_MAP: Dict[str, Optional[str]] = {
     "יהדות התורה":         "utj",
     "ש״ס":                 "shas",
     'ש"ס':                 "shas",
-    "כחול לבן":            "national_unity",
+    # Gantz announced on 2026-10-20 that Blue and White will not run; the column is ignored.
+    "כחול לבן":            None,
     "יש עתיד":             "beyachad",   # pre-merger column — maps to merged party
     # Hadash, Ta'al and Balad merged into the Joint List in August 2026; the
     # pre-merger column and the merged column both map to the same party_id so

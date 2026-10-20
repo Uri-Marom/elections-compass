@@ -64,6 +64,9 @@ NO_VOTING_DATA = {
     "amcha_yisrael",   # Winter's list has no K25 members
 }
 
+# Lists that no longer run but whose K25 MKs still feed other parties' derived/fallback scores.
+HISTORICAL_PARTIES = {"national_unity", "yesh_atid", "otzma_rzp", "bennett_2026"}
+
 SOURCE_MK     = "Knesset vote data aggregated from MK-level votes via oknesset.org"
 SOURCE_MANUAL = "Manual encoding of 25th Knesset voting positions"  # fallback label only
 
@@ -232,7 +235,8 @@ def update_party_files(
     for party_id in sorted(party_ids | NO_VOTING_DATA):
         filepath = POSITIONS_DIR / f"{party_id}.json"
         if not filepath.exists():
-            print(f"  WARNING: No file for {party_id}", flush=True)
+            if party_id not in HISTORICAL_PARTIES:
+                print(f"  WARNING: No file for {party_id}", flush=True)
             continue
 
         with open(filepath) as f:

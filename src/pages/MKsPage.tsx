@@ -6,6 +6,7 @@ import { useSurveyStore } from '../store/survey'
 import { rankMKs, TOTAL_QUESTIONS } from '../utils/matching'
 import { findCrossAisleMKs } from '../utils/research'
 import type { Party, PartyPosition, KnessetMember } from '../types'
+import { FORMER_PARTIES } from '../utils/formerParties'
 import { B, ACCENT, CompassRose } from '../components/bureau/BureauComponents'
 
 import partiesData from '../data/parties.json'
@@ -17,7 +18,6 @@ import utjPos from '../data/positions/utj.json'
 import otzmaPos from '../data/positions/otzma.json'
 import rzpPos from '../data/positions/religious_zionism.json'
 import beyachadPos from '../data/positions/beyachad.json'
-import nationalUnityPos from '../data/positions/national_unity.json'
 import yasharPos from '../data/positions/yashar.json'
 import democratsPos from '../data/positions/democrats.json'
 import yisraelPos from '../data/positions/yisrael_beitenu.json'
@@ -37,7 +37,6 @@ const allPartyPositions: Record<string, PartyPosition[]> = {
   otzma: otzmaPos.positions as PartyPosition[],
   religious_zionism: rzpPos.positions as PartyPosition[],
   beyachad: beyachadPos.positions as PartyPosition[],
-  national_unity: nationalUnityPos.positions as PartyPosition[],
   yashar: yasharPos.positions as PartyPosition[],
   democrats: democratsPos.positions as PartyPosition[],
   yisrael_beitenu: yisraelPos.positions as PartyPosition[],
@@ -215,13 +214,13 @@ export function MKsPage() {
                     if (!mk) return null
                     const party = parties.find(p => p.id === mk.party_id)
                     const name = lang === 'he' ? mk.name_he : (mk.name_en || mk.name_he)
-                    const isFormerYeshAtid = mk.party_id === 'yesh_atid'
+                    const former = FORMER_PARTIES[mk.party_id]
                     const partyLabel = party
                       ? (lang === 'he' ? party.name_he : party.name_en)
-                      : isFormerYeshAtid
-                        ? (lang === 'he' ? 'יש עתיד (לשעבר)' : 'Yesh Atid (former)')
+                      : former
+                        ? (lang === 'he' ? former.he : former.en)
                         : null
-                    const partyColor = party?.color ?? (isFormerYeshAtid ? '#f59e0b' : B.inkHint)
+                    const partyColor = party?.color ?? former?.color ?? B.inkHint
                     return (
                       <div
                         key={match.mk_id}

@@ -25,7 +25,6 @@ import utjPos from '../data/positions/utj.json'
 import otzmaPos from '../data/positions/otzma.json'
 import rzpPos from '../data/positions/religious_zionism.json'
 import beyachadPos from '../data/positions/beyachad.json'
-import nationalUnityPos from '../data/positions/national_unity.json'
 import yasharPos from '../data/positions/yashar.json'
 import democratsPos from '../data/positions/democrats.json'
 import yisraelPos from '../data/positions/yisrael_beitenu.json'
@@ -46,7 +45,6 @@ const allPositions: Record<string, PartyPosition[]> = {
   otzma:            otzmaPos.positions as PartyPosition[],
   religious_zionism: rzpPos.positions as PartyPosition[],
   beyachad:         beyachadPos.positions as PartyPosition[],
-  national_unity:   nationalUnityPos.positions as PartyPosition[],
   yashar:           yasharPos.positions as PartyPosition[],
   democrats:        democratsPos.positions as PartyPosition[],
   yisrael_beitenu:  yisraelPos.positions as PartyPosition[],

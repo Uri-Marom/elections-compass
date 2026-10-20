@@ -1,12 +1,60 @@
 {
-  "likud":             [{"label": "הליכוד", "url": "https://www.likud.org.il/"}],
-  "shas":              [{"label": "ש\"ס", "url": "https://www.shasnet.org.il/"}],
-  "religious_zionism": [{"label": "הציונות הדתית", "url": "https://zionutdatit.org.il/"}],
-  "beyachad":          [{"label": "ביחד – תוכניות", "url": "https://be-yahad.org.il/en/plans/"}],
-  "national_unity":    [{"label": "כחול לבן", "url": "https://www.machne.co.il/"}],
-  "yashar":            [{"label": "ישר! – אג'נדה", "url": "https://yasharwitheisenkot.com/agenda_point/"}],
-  "democrats":         [{"label": "הדמוקרטים", "url": "https://democrats.org.il/"}],
-  "yisrael_beitenu":   [{"label": "ישראל ביתנו", "url": "https://beytenu.org.il/"}],
-  "miluimnikim":       [{"label": "המילואימניקים", "url": "https://www.miluimnikim.org.il/"}, {"label": "המפלגה הכלכלית – מצע", "url": "https://www.hakalkalit.org/%D7%9E%D7%A6%D7%A2-%D7%94%D7%9E%D7%A4%D7%9C%D7%92%D7%94-%D7%94%D7%9B%D7%9C%D7%9B%D7%9C%D7%99%D7%AA"}],
-  "hadash_taal":       [{"label": "חד\"ש", "url": "https://www.hadash.org.il/"}]
+  "likud": [
+    {
+      "label": "הליכוד",
+      "url": "https://www.likud.org.il/"
+    }
+  ],
+  "shas": [
+    {
+      "label": "ש\"ס",
+      "url": "https://www.shasnet.org.il/"
+    }
+  ],
+  "religious_zionism": [
+    {
+      "label": "הציונות הדתית",
+      "url": "https://zionutdatit.org.il/"
+    }
+  ],
+  "beyachad": [
+    {
+      "label": "ביחד – תוכניות",
+      "url": "https://be-yahad.org.il/en/plans/"
+    }
+  ],
+  "yashar": [
+    {
+      "label": "ישר! – אג'נדה",
+      "url": "https://yasharwitheisenkot.com/agenda_point/"
+    }
+  ],
+  "democrats": [
+    {
+      "label": "הדמוקרטים",
+      "url": "https://democrats.org.il/"
+    }
+  ],
+  "yisrael_beitenu": [
+    {
+      "label": "ישראל ביתנו",
+      "url": "https://beytenu.org.il/"
+    }
+  ],
+  "miluimnikim": [
+    {
+      "label": "המילואימניקים",
+      "url": "https://www.miluimnikim.org.il/"
+    },
+    {
+      "label": "המפלגה הכלכלית – מצע",
+      "url": "https://www.hakalkalit.org/%D7%9E%D7%A6%D7%A2-%D7%94%D7%9E%D7%A4%D7%9C%D7%92%D7%94-%D7%94%D7%9B%D7%9C%D7%9B%D7%9C%D7%99%D7%AA"
+    }
+  ],
+  "hadash_taal": [
+    {
+      "label": "חד\"ש",
+      "url": "https://www.hadash.org.il/"
+    }
+  ]
 }
